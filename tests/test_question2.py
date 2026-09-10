@@ -4,6 +4,9 @@ from datetime import date
 from unittest import TestCase, main
 from unittest.mock import patch
 from types import SimpleNamespace
+from pathlib import Path
+from tempfile import TemporaryDirectory
+import shutil
 
 import numpy as np
 
@@ -13,6 +16,11 @@ from src.question2.scenario_builder import build_rolling_scenarios, validate_sce
 from src.question2.optimizer import solve
 from src.question2.evaluator import evaluate
 from src.question2.validator import validate_plan, validate_evaluation, validate_lp
+from src.question2.emergency import merge_emergency_intervals
+from src.question2.exporter import export_result, read_template_labels
+from src.question2.pipeline import run_annual
+from src.question2.summary import build_summaries
+from openpyxl import load_workbook
 
 
 class Question2Tests(TestCase):
@@ -96,6 +104,139 @@ class Question2Tests(TestCase):
         plan = solve(price, scenarios)
         self.assertAlmostEqual(plan.expected_objective, 14400, places=5)
         self.assertAlmostEqual(plan.expected_emergency_kwh, 0, places=5)
+
+    def test_input_errors(self):
+        import pandas as pd
+        frame = pd.read_excel(cfg.ACTUAL_XLSX, sheet_name="小区负载")
+        for case in ("shape", "date", "nan", "negative"):
+            damaged = frame.copy()
+            if case == "shape":
+                damaged = damaged.iloc[:-1]
+            elif case == "date":
+                damaged.iloc[1, 0] = damaged.iloc[0, 0]
+            elif case == "nan":
+                damaged.iloc[3, 2] = np.nan
+            else:
+                damaged.iloc[3, 2] = -1
+            with self.subTest(case=case), patch("src.question2.data_loader._read", return_value=damaged):
+                with self.assertRaises(ValueError):
+                    load_actual()
+
+    def test_merge_emergency_intervals_and_midnight(self):
+        labels = read_template_labels()
+        for active, expected in (([5], [(5, 6)]), ([5, 6, 7], [(5, 8)]),
+                                  ([0, 2, 3], [(0, 1), (2, 4)]), ([142, 143], [(142, 144)])):
+            amounts = np.zeros(144)
+            amounts[active] = 10
+            events = merge_emergency_intervals(labels, amounts)
+            self.assertEqual([(event.start_slot, event.end_slot) for event in events], expected)
+            self.assertEqual(sum(event.amount_kwh for event in events), 10 * len(active))
+            self.assertEqual(events[-1].label, labels[expected[-1][0]].split("-")[0] + "-" + labels[expected[-1][1] - 1].split("-")[1])
+        self.assertEqual(events[-1].label, "23:50-0:10+1")
+        amounts[:] = 0
+        amounts[-1] = 2
+        self.assertEqual(merge_emergency_intervals(labels, amounts)[0].label, "0:00-0:10+1")
+        self.assertEqual(merge_emergency_intervals(labels, np.full(144, cfg.EMERGENCY_TOL)), [])
+
+    def test_main_stops_before_export_on_daily_failure(self):
+        from src.question2.main import main as run_main
+        with patch("sys.argv", ["run_question2.py", "--no-plots"]), \
+             patch("src.question2.main.run_annual", side_effect=RuntimeError("2025-06-21 solver failed")), \
+             patch("src.question2.main.export_result") as export:
+            self.assertEqual(run_main(), 1)
+            export.assert_not_called()
+
+
+class Question2ExportTests(TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.price = load_price()
+        cls.actual = load_actual(price=cls.price)
+        with patch("src.question2.pipeline.logging.info"):
+            cls.results = run_annual(cls.price, cls.actual)
+        cls.labels = read_template_labels()
+
+    def test_all_334_days_complete(self):
+        self.assertEqual(tuple(item.plan.date for item in self.results), cfg.OUTPUT_DATES)
+        for item in self.results:
+            validate_evaluation(self.price.price, item)
+
+    def test_result2_template_and_exact_totals(self):
+        with TemporaryDirectory() as directory:
+            path = Path(directory) / "result2.xlsx"
+            shutil.copy2(cfg.RESULT_XLSX, path)
+            before = load_workbook(path)
+            headers = list(before["计划购电量"].values)[0]
+            before.close()
+            export_result(self.price.price, self.results, path)
+            workbook = load_workbook(path)
+            self.assertEqual(workbook.sheetnames, ["计划购电量", "充放电量", "紧急购电量"])
+            grid, battery, emergency = (workbook[name] for name in workbook.sheetnames)
+            self.assertEqual((grid.max_row, grid.max_column), (335, 147))
+            self.assertEqual(tuple(cell.value for cell in grid[1]), headers)
+            self.assertEqual(battery.max_row, 334 * 6 + 1)
+            self.assertEqual(battery.max_column, 6)
+            expected_events = []
+            for i, item in enumerate(self.results):
+                self.assertEqual(grid.cell(i + 2, 1).value.date(), item.plan.date)
+                np.testing.assert_allclose([grid.cell(i + 2, t + 2).value for t in range(144)], item.plan.grid_kwh)
+                self.assertAlmostEqual(grid.cell(i + 2, 146).value, item.total_grid_purchase)
+                self.assertAlmostEqual(grid.cell(i + 2, 147).value, item.total_cost)
+                for k in range(6):
+                    row = 2 + i * 6 + k
+                    self.assertAlmostEqual(battery.cell(row, 3).value, item.plan.charge_kwh[k * 24:(k + 1) * 24].sum())
+                    self.assertAlmostEqual(battery.cell(row, 4).value, item.plan.discharge_kwh[k * 24:(k + 1) * 24].sum())
+                    if k == 0:
+                        self.assertEqual(battery.cell(row, 1).value.date(), item.plan.date)
+                    else:
+                        self.assertIsNone(battery.cell(row, 1).value)
+                    self.assertEqual(battery.cell(row, 6).value, 6000 if k < 2 else None)
+                    self.assertEqual(battery.cell(row, 5).value, ("0:00" if k == 0 else "24:00") if k < 2 else None)
+                for j, event in enumerate(merge_emergency_intervals(self.labels, item.emergency_kwh)):
+                    expected_events.append((item.plan.date if j == 0 else None, event.label, event.amount_kwh))
+            rows = list(emergency.values)[1:]
+            self.assertEqual(len(rows), len(expected_events))
+            for actual, expected in zip(rows, expected_events):
+                self.assertEqual(actual[0].date() if actual[0] else None, expected[0])
+                self.assertEqual(actual[1], expected[1])
+                self.assertAlmostEqual(actual[2], expected[2])
+            workbook.close()
+
+    def test_incomplete_and_save_failures_leave_template_unchanged(self):
+        with TemporaryDirectory() as directory:
+            path = Path(directory) / "result2.xlsx"
+            shutil.copy2(cfg.RESULT_XLSX, path)
+            original = path.read_bytes()
+            with self.assertRaisesRegex(ValueError, "334"):
+                export_result(self.price.price, self.results[:-1], path)
+            self.assertEqual(original, path.read_bytes())
+            with patch("src.question2.exporter.os.replace", side_effect=PermissionError("locked")):
+                with self.assertRaisesRegex(RuntimeError, "locked"):
+                    export_result(self.price.price, self.results, path)
+            self.assertEqual(original, path.read_bytes())
+            self.assertEqual(list(Path(directory).glob("*.tmp.xlsx")), [])
+            workbook = load_workbook(path)
+            workbook.active.title = "wrong"
+            workbook.save(path)
+            workbook.close()
+            original = path.read_bytes()
+            with self.assertRaisesRegex(RuntimeError, "sheet names"):
+                export_result(self.price.price, self.results, path)
+            self.assertEqual(original, path.read_bytes())
+
+    def test_annual_and_paper_summary(self):
+        summary = build_summaries(self.results, self.labels)
+        self.assertEqual(set(summary["paper_dates"]), {day.isoformat() for day in cfg.PAPER_DATES})
+        annual = summary["annual"]
+        self.assertAlmostEqual(annual["total_grid_purchase"], annual["planned_grid_total"] + annual["emergency_total"])
+        self.assertAlmostEqual(annual["total_cost"], annual["planned_cost"] + annual["emergency_cost"])
+        for item in self.results:
+            if item.plan.date in cfg.PAPER_DATES:
+                table1 = summary["paper_dates"][str(item.plan.date)]["表1"]
+                for label, values in table1.items():
+                    slot = self.labels.index(label)
+                    self.assertEqual(values["计划购电量"], item.plan.grid_kwh[slot])
+                    self.assertEqual(values["实际紧急购电量"], item.emergency_kwh[slot])
 
 
 if __name__ == "__main__":
