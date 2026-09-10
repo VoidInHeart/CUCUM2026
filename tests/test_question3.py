@@ -1,5 +1,4 @@
 """问题3：预报时序、冻结执行、退款结算与模板输出回归。"""
-from copy import deepcopy
 from dataclasses import replace
 from datetime import date
 from pathlib import Path
@@ -22,6 +21,10 @@ from src.question3.rolling_controller import solve_day, validate_policy
 from src.question3.evaluator import evaluate_actual_day
 from src.question3.validator import validate_schedule, validate_day, validate_revision
 from src.question3.analysis import forecast_accuracy
+from src.question3.exporter import export_result, read_template_labels
+from src.question3.summary import build_summary
+from src.question2.emergency import merge_emergency_intervals
+from openpyxl import load_workbook
 
 
 class Question3Tests(TestCase):
@@ -169,6 +172,104 @@ class Question3Tests(TestCase):
         with patch("src.question3.optimizer.linprog", return_value=SimpleNamespace(success=False, status=2, message="infeasible")):
             with self.assertRaisesRegex(RuntimeError, "2025-06-21 0:00.*status 2.*infeasible"):
                 solve_initial_plan(self.price.price, self.builder.build(self.day, 0))
+
+
+class Question3ExportTests(TestCase):
+    @classmethod
+    def setUpClass(cls):
+        Question3Tests.setUpClass()
+        cls.price = Question3Tests.price.price
+        base = Question3Tests.result
+        cls.results = []
+        # 合成完整日历：复用一个物理可行日，不在导出单测里重复进行全年优化。
+        # 完整真实334日及六策略由运行入口单独执行并校验。
+        for day in cfg.OUTPUT_DATES:
+            initial = replace(base.schedule.initial_plan, date=day)
+            revisions = tuple(replace(r, plan=replace(r.plan, date=day)) for r in base.schedule.revisions)
+            cls.results.append(replace(base, schedule=replace(base.schedule, initial_plan=initial, revisions=revisions)))
+        cls.labels = read_template_labels()
+
+    def test_result3_all_sheets_and_totals(self):
+        with TemporaryDirectory() as directory:
+            path = Path(directory) / "result3.xlsx"
+            shutil.copy2(cfg.RESULT_XLSX, path)
+            before = load_workbook(path)
+            headers = [tuple(cell.value for cell in before[name][1]) for name in before.sheetnames]
+            before.close()
+            export_result(self.price, self.results, path)
+            workbook = load_workbook(path)
+            self.assertEqual(workbook.sheetnames, ["计划购电量", "调整购电量", "充放电量", "紧急购电量"])
+            for i, sheet in enumerate(workbook):
+                self.assertEqual(tuple(cell.value for cell in sheet[1]), headers[i])
+            initial, adjusted, battery, emergency = (workbook[name] for name in workbook.sheetnames)
+            self.assertEqual((initial.max_row, initial.max_column), (335, 147))
+            self.assertEqual((adjusted.max_row, adjusted.max_column), (335, 147))
+            self.assertEqual((battery.max_row, battery.max_column), (2005, 6))
+            expected_events = []
+            for i, result in enumerate(self.results):
+                s = result.schedule
+                for sheet, energy, ep, eq in ((initial, s.initial_plan.grid_kwh, result.initial_plan_kwh, result.plan_cost),
+                                              (adjusted, s.executed_grid, result.actual_grid_energy_kwh, result.total_cost)):
+                    self.assertEqual(sheet.cell(i + 2, 1).value.date(), s.date)
+                    np.testing.assert_allclose([sheet.cell(i + 2, c).value for c in range(2, 146)], energy)
+                    self.assertAlmostEqual(sheet.cell(i + 2, 146).value, ep)
+                    self.assertAlmostEqual(sheet.cell(i + 2, 147).value, eq)
+                for block in range(6):
+                    row = 2 + i * 6 + block
+                    self.assertEqual(battery.cell(row, 1).value.date() if block == 0 else battery.cell(row, 1).value,
+                                     s.date if block == 0 else None)
+                    self.assertAlmostEqual(battery.cell(row, 3).value, s.executed_charge[block * 24:(block + 1) * 24].sum())
+                    self.assertAlmostEqual(battery.cell(row, 4).value, s.executed_discharge[block * 24:(block + 1) * 24].sum())
+                    self.assertEqual(battery.cell(row, 6).value, 6000 if block < 2 else None)
+                for j, event in enumerate(merge_emergency_intervals(self.labels, result.real_emergency)):
+                    expected_events.append((s.date if j == 0 else None, event.label, event.amount_kwh))
+            rows = list(emergency.values)[1:]
+            self.assertEqual(len(rows), len(expected_events))
+            for actual, expected in zip(rows, expected_events):
+                self.assertEqual(actual[0].date() if actual[0] else None, expected[0])
+                self.assertEqual(actual[1], expected[1])
+                self.assertAlmostEqual(actual[2], expected[2])
+            workbook.close()
+
+    def test_export_failure_preserves_official_file(self):
+        with TemporaryDirectory() as directory:
+            path = Path(directory) / "result3.xlsx"
+            shutil.copy2(cfg.RESULT_XLSX, path)
+            original = path.read_bytes()
+            with self.assertRaisesRegex(ValueError, "334"):
+                export_result(self.price, self.results[:-1], path)
+            self.assertEqual(path.read_bytes(), original)
+            with patch("src.question3.exporter.os.replace", side_effect=PermissionError("locked")):
+                with self.assertRaisesRegex(RuntimeError, "locked"):
+                    export_result(self.price, self.results, path)
+            self.assertEqual(path.read_bytes(), original)
+            self.assertEqual(list(Path(directory).glob("*.tmp.xlsx")), [])
+            workbook = load_workbook(path)
+            workbook.active.title = "wrong"
+            workbook.save(path)
+            workbook.close()
+            original = path.read_bytes()
+            with self.assertRaisesRegex(RuntimeError, "four official sheets"):
+                export_result(self.price, self.results, path)
+            self.assertEqual(path.read_bytes(), original)
+
+    def test_paper_summary_uses_executed_schedule(self):
+        summary = build_summary(self.results, self.labels)
+        self.assertEqual(set(summary["paper_dates"]), {str(day) for day in cfg.PAPER_DATES})
+        for day, tables in summary["paper_dates"].items():
+            result = self.results[cfg.OUTPUT_DATES.index(date.fromisoformat(day))]
+            for label, values in tables["表1"].items():
+                slot = self.labels.index(label)
+                self.assertEqual(values["执行合同购电量"], result.schedule.executed_grid[slot])
+            self.assertAlmostEqual(tables["全天指标"]["total_cost"], result.total_cost)
+
+    def test_failed_policy_stops_main_before_export(self):
+        from src.question3.main import main as run_main
+        with patch("sys.argv", ["run_question3.py", "--no-plots"]), \
+             patch("src.question3.main.evaluate_update_policy", side_effect=RuntimeError("2025-03-20 12:00 failed")), \
+             patch("src.question3.main.export_result") as export:
+            self.assertEqual(run_main(), 1)
+            export.assert_not_called()
 
 
 if __name__ == "__main__":
