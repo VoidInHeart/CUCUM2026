@@ -7,6 +7,7 @@ from .rolling_controller import solve_day, validate_policy
 from .evaluator import evaluate_actual_day
 from .validator import validate_complete
 from .forecast_interpolator import interpolate_hourly_pv_forecast
+from ..pricing import price_for_date
 
 
 def policy_name(hours):
@@ -18,14 +19,15 @@ def evaluate_update_policy(update_hours, price, annual, builder):
     results = []
     for i, target in enumerate(cfg.OUTPUT_DATES):
         try:
-            schedule = solve_day(target, price, builder, update_hours)
+            daily_price = price_for_date(price, target)
+            schedule = solve_day(target, daily_price, builder, update_hours)
             actual = annual.net_load_kwh[builder.date_index[target]]
-            result = evaluate_actual_day(price, schedule, actual, update_hours)
+            result = evaluate_actual_day(daily_price, schedule, actual, update_hours)
         except Exception as exc:
             raise RuntimeError(f"{target} policy {policy_name(update_hours)} failed: {exc}") from exc
         results.append(result)
-        logging.info("[%03d/334] policy=%s %s solved %s: emergency=%.3f adjustment_cost=%.3f total_cost=%.3f",
-                     i + 1, policy_name(update_hours), target, update_hours, result.emergency_kwh,
+        logging.info("[%03d/334] policy=%s %s solved %s: price_mean=%.4f emergency=%.3f adjustment_cost=%.3f total_cost=%.3f",
+                     i + 1, policy_name(update_hours), target, update_hours, daily_price.mean(), result.emergency_kwh,
                      result.adjustment_cost, result.total_cost)
     validate_complete(price, results, update_hours)
     return results

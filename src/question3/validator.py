@@ -1,5 +1,6 @@
 """对每个LP、调整流水、冻结区间和实际日结算作独立验证。"""
 import numpy as np
+from ..pricing import price_for_date
 
 from ..question2.validator import array_check, require
 from . import config as cfg
@@ -132,4 +133,4 @@ def validate_day(price: np.ndarray, result: DailyResult, update_hours: tuple[int
 def validate_complete(price, results, update_hours=cfg.ISSUE_HOURS):
     require(tuple(item.schedule.date for item in results) == cfg.OUTPUT_DATES, "export", "expected all 334 output dates")
     for item in results:
-        validate_day(price, item, update_hours)
+        validate_day(price_for_date(price, item.schedule.date), item, update_hours)

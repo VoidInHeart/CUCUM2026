@@ -4,6 +4,7 @@ import numpy as np
 from . import config as cfg
 from .scenario_builder import validate_scenarios
 from .types import DailyEvaluation, DailyPlan, ScenarioSet
+from ..pricing import PriceInput, price_for_date
 
 
 def require(ok, context: str, reason: str) -> None:
@@ -84,8 +85,8 @@ def validate_evaluation(price: np.ndarray, evaluation: DailyEvaluation) -> None:
         require(np.isfinite(value) and abs(value - expected) <= cfg.RESIDUAL_TOL, context, f"{name}: total mismatch")
 
 
-def validate_complete(price: np.ndarray, evaluations: list[DailyEvaluation]) -> None:
+def validate_complete(price: PriceInput, evaluations: list[DailyEvaluation]) -> None:
     require(tuple(item.plan.date for item in evaluations) == cfg.OUTPUT_DATES, "export",
             "expected all 334 dates in chronological order")
     for item in evaluations:
-        validate_evaluation(price, item)
+        validate_evaluation(price_for_date(price, item.plan.date), item)
