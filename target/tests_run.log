@@ -1,0 +1,34 @@
+test_battery_slot_limit (test_question1.Question1Tests.test_battery_slot_limit) ... ok
+test_export_failures_preserve_file (test_question1.Question1Tests.test_export_failures_preserve_file) ... ok
+test_input_shape_and_order (test_question1.Question1Tests.test_input_shape_and_order) ... ok
+test_invalid_input (test_question1.Question1Tests.test_invalid_input) ... ok
+test_output_template (test_question1.Question1Tests.test_output_template) ... ok
+test_power_to_energy_conversion (test_question1.Question1Tests.test_power_to_energy_conversion) ... ok
+test_reference_objective (test_question1.Question1Tests.test_reference_objective) ... ok
+test_solution_feasible (test_question1.Question1Tests.test_solution_feasible) ... ok
+test_solver_failure (test_question1.Question1Tests.test_solver_failure) ... ok
+test_summary_uses_template_labels (test_question1.Question1Tests.test_summary_uses_template_labels) ... ok
+test_surplus_pv_and_zero_prices (test_question1.Question1Tests.test_surplus_pv_and_zero_prices) ... ok
+test_terminal_soc (test_question1.Question1Tests.test_terminal_soc) ... ok
+test_validator_rejects_corruption (test_question1.Question1Tests.test_validator_rejects_corruption) ... ok
+test_all_334_days_complete (test_question2.Question2ExportTests.test_all_334_days_complete) ... ok
+test_annual_and_paper_summary (test_question2.Question2ExportTests.test_annual_and_paper_summary) ... ok
+test_incomplete_and_save_failures_leave_template_unchanged (test_question2.Question2ExportTests.test_incomplete_and_save_failures_leave_template_unchanged) ... ok
+test_result2_template_and_exact_totals (test_question2.Question2ExportTests.test_result2_template_and_exact_totals) ... ok
+test_attachment2_shape_and_net_load_conversion (test_question2.Question2Tests.test_attachment2_shape_and_net_load_conversion) ... ok
+test_constant_scenario_known_cost (test_question2.Question2Tests.test_constant_scenario_known_cost) ... ok
+test_emergency_multiplier_and_actual_balance (test_question2.Question2Tests.test_emergency_multiplier_and_actual_balance) ... ok
+test_future_actuals_do_not_change_plan (test_question2.Question2Tests.test_future_actuals_do_not_change_plan) ... ok
+test_input_errors (test_question2.Question2Tests.test_input_errors) ... ok
+test_lookahead_and_nonuniform_weights_rejected (test_question2.Question2Tests.test_lookahead_and_nonuniform_weights_rejected) ... ok
+test_lp_feasible_and_terminal_soc (test_question2.Question2Tests.test_lp_feasible_and_terminal_soc) ... ok
+test_main_stops_before_export_on_daily_failure (test_question2.Question2Tests.test_main_stops_before_export_on_daily_failure) ... ERROR:root:Question2 failed: 2025-06-21 solver failed
+ok
+test_merge_emergency_intervals_and_midnight (test_question2.Question2Tests.test_merge_emergency_intervals_and_midnight) ... ok
+test_scenario_dates_and_probabilities (test_question2.Question2Tests.test_scenario_dates_and_probabilities) ... ok
+test_solver_failure_has_date_status_message (test_question2.Question2Tests.test_solver_failure_has_date_status_message) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 28.123s
+
+OK

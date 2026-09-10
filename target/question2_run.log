@@ -1,0 +1,926 @@
+INFO loading price and annual actual data
+INFO [001/334] 2025-02-01 solved: plan_kWh=96653.216 emergency_kWh=0.000 total_cost=61767.895
+INFO [002/334] 2025-02-02 solved: plan_kWh=96156.971 emergency_kWh=13.377 total_cost=61505.666
+INFO [003/334] 2025-02-03 solved: plan_kWh=95684.233 emergency_kWh=15.483 total_cost=61099.001
+INFO [004/334] 2025-02-04 solved: plan_kWh=95690.689 emergency_kWh=70.908 total_cost=61299.813
+INFO [005/334] 2025-02-05 solved: plan_kWh=95703.181 emergency_kWh=10.173 total_cost=61123.094
+INFO [006/334] 2025-02-06 solved: plan_kWh=95327.042 emergency_kWh=7.921 total_cost=60840.029
+INFO [007/334] 2025-02-07 solved: plan_kWh=95017.546 emergency_kWh=0.000 total_cost=60552.295
+INFO [008/334] 2025-02-08 solved: plan_kWh=94522.577 emergency_kWh=0.000 total_cost=60175.935
+INFO [009/334] 2025-02-09 solved: plan_kWh=94087.786 emergency_kWh=79.364 total_cost=60056.411
+INFO [010/334] 2025-02-10 solved: plan_kWh=93626.702 emergency_kWh=22.992 total_cost=59660.779
+INFO [011/334] 2025-02-11 solved: plan_kWh=93642.421 emergency_kWh=3.118 total_cost=59569.228
+INFO [012/334] 2025-02-12 solved: plan_kWh=93638.311 emergency_kWh=20.746 total_cost=59669.489
+INFO [013/334] 2025-02-13 solved: plan_kWh=93029.891 emergency_kWh=31.322 total_cost=59222.844
+INFO [014/334] 2025-02-14 solved: plan_kWh=92706.254 emergency_kWh=0.000 total_cost=58839.463
+INFO [015/334] 2025-02-15 solved: plan_kWh=92074.821 emergency_kWh=0.000 total_cost=58359.109
+INFO [016/334] 2025-02-16 solved: plan_kWh=91402.783 emergency_kWh=69.754 total_cost=58198.909
+INFO [017/334] 2025-02-17 solved: plan_kWh=90473.851 emergency_kWh=96.111 total_cost=57627.986
+INFO [018/334] 2025-02-18 solved: plan_kWh=90513.331 emergency_kWh=21.162 total_cost=57294.701
+INFO [019/334] 2025-02-19 solved: plan_kWh=90518.671 emergency_kWh=176.936 total_cost=57871.462
+INFO [020/334] 2025-02-20 solved: plan_kWh=89829.589 emergency_kWh=124.626 total_cost=57259.106
+INFO [021/334] 2025-02-21 solved: plan_kWh=88935.924 emergency_kWh=0.000 total_cost=55992.136
+INFO [022/334] 2025-02-22 solved: plan_kWh=88494.813 emergency_kWh=0.000 total_cost=55663.608
+INFO [023/334] 2025-02-23 solved: plan_kWh=87452.555 emergency_kWh=119.953 total_cost=55271.706
+INFO [024/334] 2025-02-24 solved: plan_kWh=86608.608 emergency_kWh=165.086 total_cost=55119.879
+INFO [025/334] 2025-02-25 solved: plan_kWh=86645.184 emergency_kWh=138.874 total_cost=54847.860
+INFO [026/334] 2025-02-26 solved: plan_kWh=86667.061 emergency_kWh=77.040 total_cost=54594.444
+INFO [027/334] 2025-02-27 solved: plan_kWh=85880.660 emergency_kWh=79.355 total_cost=54196.767
+INFO [028/334] 2025-02-28 solved: plan_kWh=85236.065 emergency_kWh=0.000 total_cost=53302.876
+INFO [029/334] 2025-03-01 solved: plan_kWh=84118.428 emergency_kWh=0.000 total_cost=52514.553
+INFO [030/334] 2025-03-02 solved: plan_kWh=83323.022 emergency_kWh=1655.431 total_cost=58532.362
+INFO [031/334] 2025-03-03 solved: plan_kWh=82631.049 emergency_kWh=502.127 total_cost=53701.138
+INFO [032/334] 2025-03-04 solved: plan_kWh=82790.653 emergency_kWh=183.486 total_cost=52207.402
+INFO [033/334] 2025-03-05 solved: plan_kWh=82840.949 emergency_kWh=112.368 total_cost=52215.207
+INFO [034/334] 2025-03-06 solved: plan_kWh=82228.740 emergency_kWh=189.107 total_cost=51964.608
+INFO [035/334] 2025-03-07 solved: plan_kWh=81422.118 emergency_kWh=0.000 total_cost=50638.055
+INFO [036/334] 2025-03-08 solved: plan_kWh=80513.914 emergency_kWh=0.000 total_cost=49980.186
+INFO [037/334] 2025-03-09 solved: plan_kWh=79813.499 emergency_kWh=135.749 total_cost=50203.528
+INFO [038/334] 2025-03-10 solved: plan_kWh=78998.326 emergency_kWh=1029.325 total_cost=51639.934
+INFO [039/334] 2025-03-11 solved: plan_kWh=79223.719 emergency_kWh=142.565 total_cost=49488.226
+INFO [040/334] 2025-03-12 solved: plan_kWh=79253.660 emergency_kWh=226.024 total_cost=49791.367
+INFO [041/334] 2025-03-13 solved: plan_kWh=78456.494 emergency_kWh=1381.977 total_cost=53337.070
+INFO [042/334] 2025-03-14 solved: plan_kWh=78183.017 emergency_kWh=0.000 total_cost=48175.270
+INFO [043/334] 2025-03-15 solved: plan_kWh=77517.066 emergency_kWh=9.053 total_cost=47716.972
+INFO [044/334] 2025-03-16 solved: plan_kWh=76964.135 emergency_kWh=139.875 total_cost=47826.572
+INFO [045/334] 2025-03-17 solved: plan_kWh=76574.194 emergency_kWh=172.064 total_cost=47831.960
+INFO [046/334] 2025-03-18 solved: plan_kWh=76606.504 emergency_kWh=98.580 total_cost=47278.922
+INFO [047/334] 2025-03-19 solved: plan_kWh=76627.248 emergency_kWh=63.914 total_cost=47189.498
+INFO [048/334] 2025-03-20 solved: plan_kWh=76168.549 emergency_kWh=207.401 total_cost=47705.231
+INFO [049/334] 2025-03-21 solved: plan_kWh=75815.070 emergency_kWh=0.000 total_cost=46441.604
+INFO [050/334] 2025-03-22 solved: plan_kWh=75099.759 emergency_kWh=9.078 total_cost=45979.600
+INFO [051/334] 2025-03-23 solved: plan_kWh=74302.084 emergency_kWh=218.156 total_cost=46320.842
+INFO [052/334] 2025-03-24 solved: plan_kWh=73582.447 emergency_kWh=187.957 total_cost=45367.458
+INFO [053/334] 2025-03-25 solved: plan_kWh=73615.168 emergency_kWh=445.183 total_cost=46664.039
+INFO [054/334] 2025-03-26 solved: plan_kWh=73856.085 emergency_kWh=154.801 total_cost=45542.133
+INFO [055/334] 2025-03-27 solved: plan_kWh=73039.614 emergency_kWh=279.629 total_cost=45408.818
+INFO [056/334] 2025-03-28 solved: plan_kWh=72674.994 emergency_kWh=0.000 total_cost=44297.860
+INFO [057/334] 2025-03-29 solved: plan_kWh=72188.713 emergency_kWh=0.000 total_cost=43939.066
+INFO [058/334] 2025-03-30 solved: plan_kWh=71628.966 emergency_kWh=312.275 total_cost=44454.554
+INFO [059/334] 2025-03-31 solved: plan_kWh=71166.629 emergency_kWh=131.974 total_cost=43556.638
+INFO [060/334] 2025-04-01 solved: plan_kWh=71215.372 emergency_kWh=912.584 total_cost=45681.809
+INFO [061/334] 2025-04-02 solved: plan_kWh=71487.368 emergency_kWh=665.673 total_cost=46156.442
+INFO [062/334] 2025-04-03 solved: plan_kWh=70798.737 emergency_kWh=327.310 total_cost=43939.165
+INFO [063/334] 2025-04-04 solved: plan_kWh=70171.231 emergency_kWh=0.000 total_cost=42437.126
+INFO [064/334] 2025-04-05 solved: plan_kWh=69415.698 emergency_kWh=0.000 total_cost=41913.546
+INFO [065/334] 2025-04-06 solved: plan_kWh=68911.827 emergency_kWh=231.650 total_cost=42471.037
+INFO [066/334] 2025-04-07 solved: plan_kWh=68371.180 emergency_kWh=194.951 total_cost=41737.435
+INFO [067/334] 2025-04-08 solved: plan_kWh=68426.619 emergency_kWh=203.251 total_cost=41929.379
+INFO [068/334] 2025-04-09 solved: plan_kWh=68472.397 emergency_kWh=427.964 total_cost=42506.956
+INFO [069/334] 2025-04-10 solved: plan_kWh=68104.991 emergency_kWh=348.656 total_cost=42371.649
+INFO [070/334] 2025-04-11 solved: plan_kWh=67664.917 emergency_kWh=0.000 total_cost=40678.125
+INFO [071/334] 2025-04-12 solved: plan_kWh=67098.573 emergency_kWh=0.000 total_cost=40312.060
+INFO [072/334] 2025-04-13 solved: plan_kWh=66781.855 emergency_kWh=209.189 total_cost=40872.900
+INFO [073/334] 2025-04-14 solved: plan_kWh=66157.804 emergency_kWh=361.034 total_cost=40925.460
+INFO [074/334] 2025-04-15 solved: plan_kWh=66222.971 emergency_kWh=194.660 total_cost=40621.091
+INFO [075/334] 2025-04-16 solved: plan_kWh=66287.144 emergency_kWh=511.463 total_cost=41293.866
+INFO [076/334] 2025-04-17 solved: plan_kWh=65753.032 emergency_kWh=120.865 total_cost=39762.525
+INFO [077/334] 2025-04-18 solved: plan_kWh=65555.951 emergency_kWh=0.000 total_cost=39158.514
+INFO [078/334] 2025-04-19 solved: plan_kWh=65174.553 emergency_kWh=0.000 total_cost=38888.475
+INFO [079/334] 2025-04-20 solved: plan_kWh=64813.779 emergency_kWh=125.582 total_cost=38943.992
+INFO [080/334] 2025-04-21 solved: plan_kWh=64115.252 emergency_kWh=342.218 total_cost=39148.459
+INFO [081/334] 2025-04-22 solved: plan_kWh=64153.195 emergency_kWh=328.249 total_cost=39255.737
+INFO [082/334] 2025-04-23 solved: plan_kWh=64277.271 emergency_kWh=496.606 total_cost=39760.360
+INFO [083/334] 2025-04-24 solved: plan_kWh=64010.680 emergency_kWh=185.169 total_cost=38832.170
+INFO [084/334] 2025-04-25 solved: plan_kWh=63678.571 emergency_kWh=0.000 total_cost=37821.660
+INFO [085/334] 2025-04-26 solved: plan_kWh=63146.118 emergency_kWh=0.000 total_cost=37482.128
+INFO [086/334] 2025-04-27 solved: plan_kWh=62889.358 emergency_kWh=232.962 total_cost=37823.055
+INFO [087/334] 2025-04-28 solved: plan_kWh=62400.963 emergency_kWh=2478.130 total_cost=44722.513
+INFO [088/334] 2025-04-29 solved: plan_kWh=62800.114 emergency_kWh=148.397 total_cost=37803.616
+INFO [089/334] 2025-04-30 solved: plan_kWh=62839.535 emergency_kWh=456.992 total_cost=38626.606
+INFO [090/334] 2025-05-01 solved: plan_kWh=62780.384 emergency_kWh=2240.691 total_cost=47476.341
+INFO [091/334] 2025-05-02 solved: plan_kWh=62596.189 emergency_kWh=0.000 total_cost=37038.415
+INFO [092/334] 2025-05-03 solved: plan_kWh=61972.627 emergency_kWh=18.392 total_cost=36703.472
+INFO [093/334] 2025-05-04 solved: plan_kWh=61312.461 emergency_kWh=2635.897 total_cost=47305.714
+INFO [094/334] 2025-05-05 solved: plan_kWh=61128.140 emergency_kWh=2479.345 total_cost=47043.966
+INFO [095/334] 2025-05-06 solved: plan_kWh=61553.256 emergency_kWh=2156.112 total_cost=45740.651
+INFO [096/334] 2025-05-07 solved: plan_kWh=61750.530 emergency_kWh=2051.333 total_cost=46022.995
+INFO [097/334] 2025-05-08 solved: plan_kWh=61734.538 emergency_kWh=2576.108 total_cost=47333.214
+INFO [098/334] 2025-05-09 solved: plan_kWh=61981.516 emergency_kWh=0.000 total_cost=36930.970
+INFO [099/334] 2025-05-10 solved: plan_kWh=61711.366 emergency_kWh=0.000 total_cost=36762.942
+INFO [100/334] 2025-05-11 solved: plan_kWh=60927.169 emergency_kWh=2190.549 total_cost=45703.112
+INFO [101/334] 2025-05-12 solved: plan_kWh=61084.889 emergency_kWh=2062.304 total_cost=43413.567
+INFO [102/334] 2025-05-13 solved: plan_kWh=61547.220 emergency_kWh=787.494 total_cost=39997.592
+INFO [103/334] 2025-05-14 solved: plan_kWh=61691.643 emergency_kWh=943.457 total_cost=40295.946
+INFO [104/334] 2025-05-15 solved: plan_kWh=61730.257 emergency_kWh=834.512 total_cost=40158.196
+INFO [105/334] 2025-05-16 solved: plan_kWh=61800.130 emergency_kWh=0.000 total_cost=37097.696
+INFO [106/334] 2025-05-17 solved: plan_kWh=61645.915 emergency_kWh=3.562 total_cost=37013.238
+INFO [107/334] 2025-05-18 solved: plan_kWh=61196.679 emergency_kWh=1671.872 total_cost=41184.450
+INFO [108/334] 2025-05-19 solved: plan_kWh=61069.002 emergency_kWh=406.601 total_cost=38722.024
+INFO [109/334] 2025-05-20 solved: plan_kWh=61127.867 emergency_kWh=1959.508 total_cost=44367.982
+INFO [110/334] 2025-05-21 solved: plan_kWh=61431.211 emergency_kWh=1202.218 total_cost=41488.466
+INFO [111/334] 2025-05-22 solved: plan_kWh=61420.892 emergency_kWh=192.923 total_cost=37769.308
+INFO [112/334] 2025-05-23 solved: plan_kWh=61389.003 emergency_kWh=0.000 total_cost=36898.872
+INFO [113/334] 2025-05-24 solved: plan_kWh=61156.503 emergency_kWh=0.000 total_cost=36777.255
+INFO [114/334] 2025-05-25 solved: plan_kWh=60969.452 emergency_kWh=337.788 total_cost=38186.142
+INFO [115/334] 2025-05-26 solved: plan_kWh=60965.427 emergency_kWh=1884.545 total_cost=43045.777
+INFO [116/334] 2025-05-27 solved: plan_kWh=61303.981 emergency_kWh=469.641 total_cost=38573.073
+INFO [117/334] 2025-05-28 solved: plan_kWh=61403.225 emergency_kWh=1340.183 total_cost=41156.585
+INFO [118/334] 2025-05-29 solved: plan_kWh=61675.584 emergency_kWh=968.732 total_cost=40792.156
+INFO [119/334] 2025-05-30 solved: plan_kWh=61375.579 emergency_kWh=0.000 total_cost=36960.347
+INFO [120/334] 2025-05-31 solved: plan_kWh=61270.788 emergency_kWh=92.187 total_cost=37083.024
+INFO [121/334] 2025-06-01 solved: plan_kWh=61187.897 emergency_kWh=14534.891 total_cost=93087.590
+INFO [122/334] 2025-06-02 solved: plan_kWh=61774.773 emergency_kWh=11757.376 total_cost=85509.638
+INFO [123/334] 2025-06-03 solved: plan_kWh=62804.593 emergency_kWh=9522.825 total_cost=77469.809
+INFO [124/334] 2025-06-04 solved: plan_kWh=64201.822 emergency_kWh=9615.160 total_cost=74135.084
+INFO [125/334] 2025-06-05 solved: plan_kWh=65351.864 emergency_kWh=9952.173 total_cost=77995.582
+INFO [126/334] 2025-06-06 solved: plan_kWh=66816.024 emergency_kWh=0.000 total_cost=40286.254
+INFO [127/334] 2025-06-07 solved: plan_kWh=66516.436 emergency_kWh=76.188 total_cost=40273.298
+INFO [128/334] 2025-06-08 solved: plan_kWh=66212.808 emergency_kWh=6246.980 total_cost=63796.459
+INFO [129/334] 2025-06-09 solved: plan_kWh=67415.553 emergency_kWh=8263.342 total_cost=73790.183
+INFO [130/334] 2025-06-10 solved: plan_kWh=69645.328 emergency_kWh=6879.305 total_cost=68234.773
+INFO [131/334] 2025-06-11 solved: plan_kWh=71045.439 emergency_kWh=9576.756 total_cost=82994.529
+INFO [132/334] 2025-06-12 solved: plan_kWh=72521.091 emergency_kWh=5436.664 total_cost=65588.486
+INFO [133/334] 2025-06-13 solved: plan_kWh=73682.980 emergency_kWh=0.000 total_cost=45116.757
+INFO [134/334] 2025-06-14 solved: plan_kWh=73679.059 emergency_kWh=0.000 total_cost=45114.834
+INFO [135/334] 2025-06-15 solved: plan_kWh=73652.317 emergency_kWh=3216.505 total_cost=57716.312
+INFO [136/334] 2025-06-16 solved: plan_kWh=74464.673 emergency_kWh=3962.564 total_cost=61191.285
+INFO [137/334] 2025-06-17 solved: plan_kWh=75503.014 emergency_kWh=5065.099 total_cost=66237.049
+INFO [138/334] 2025-06-18 solved: plan_kWh=76371.733 emergency_kWh=1938.346 total_cost=53722.650
+INFO [139/334] 2025-06-19 solved: plan_kWh=76748.218 emergency_kWh=1136.287 total_cost=52357.016
+INFO [140/334] 2025-06-20 solved: plan_kWh=77037.933 emergency_kWh=0.000 total_cost=47515.402
+INFO [141/334] 2025-06-21 solved: plan_kWh=77037.543 emergency_kWh=0.000 total_cost=47515.180
+INFO [142/334] 2025-06-22 solved: plan_kWh=77035.381 emergency_kWh=1201.350 total_cost=52118.388
+INFO [143/334] 2025-06-23 solved: plan_kWh=77354.741 emergency_kWh=688.044 total_cost=50843.075
+INFO [144/334] 2025-06-24 solved: plan_kWh=77571.337 emergency_kWh=5000.287 total_cost=68006.485
+INFO [145/334] 2025-06-25 solved: plan_kWh=78325.568 emergency_kWh=1689.710 total_cost=54582.431
+INFO [146/334] 2025-06-26 solved: plan_kWh=78607.708 emergency_kWh=694.405 total_cost=51867.764
+INFO [147/334] 2025-06-27 solved: plan_kWh=78835.537 emergency_kWh=0.000 total_cost=48866.465
+INFO [148/334] 2025-06-28 solved: plan_kWh=78829.039 emergency_kWh=0.000 total_cost=48863.622
+INFO [149/334] 2025-06-29 solved: plan_kWh=78825.089 emergency_kWh=1028.762 total_cost=52054.271
+INFO [150/334] 2025-06-30 solved: plan_kWh=79003.016 emergency_kWh=1058.160 total_cost=52908.404
+INFO [151/334] 2025-07-01 solved: plan_kWh=79214.848 emergency_kWh=7020.868 total_cost=73731.454
+INFO [152/334] 2025-07-02 solved: plan_kWh=79687.971 emergency_kWh=6209.504 total_cost=70825.451
+INFO [153/334] 2025-07-03 solved: plan_kWh=79811.935 emergency_kWh=7171.182 total_cost=75894.663
+INFO [154/334] 2025-07-04 solved: plan_kWh=80010.102 emergency_kWh=0.000 total_cost=49652.594
+INFO [155/334] 2025-07-05 solved: plan_kWh=79867.800 emergency_kWh=71.998 total_cost=49688.041
+INFO [156/334] 2025-07-06 solved: plan_kWh=79660.399 emergency_kWh=7652.095 total_cost=78277.877
+INFO [157/334] 2025-07-07 solved: plan_kWh=80076.655 emergency_kWh=5794.306 total_cost=69300.536
+INFO [158/334] 2025-07-08 solved: plan_kWh=80638.377 emergency_kWh=6264.158 total_cost=73379.067
+INFO [159/334] 2025-07-09 solved: plan_kWh=81626.840 emergency_kWh=4318.080 total_cost=66616.856
+INFO [160/334] 2025-07-10 solved: plan_kWh=83301.094 emergency_kWh=2821.131 total_cost=62288.644
+INFO [161/334] 2025-07-11 solved: plan_kWh=83963.770 emergency_kWh=0.000 total_cost=52539.410
+INFO [162/334] 2025-07-12 solved: plan_kWh=83774.359 emergency_kWh=0.000 total_cost=52402.523
+INFO [163/334] 2025-07-13 solved: plan_kWh=83286.082 emergency_kWh=1805.865 total_cost=59082.980
+INFO [164/334] 2025-07-14 solved: plan_kWh=83551.115 emergency_kWh=1583.577 total_cost=58610.850
+INFO [165/334] 2025-07-15 solved: plan_kWh=83942.918 emergency_kWh=1544.299 total_cost=58179.671
+INFO [166/334] 2025-07-16 solved: plan_kWh=84336.717 emergency_kWh=1469.122 total_cost=58163.276
+INFO [167/334] 2025-07-17 solved: plan_kWh=84298.189 emergency_kWh=1306.582 total_cost=57758.860
+INFO [168/334] 2025-07-18 solved: plan_kWh=84122.659 emergency_kWh=0.000 total_cost=52599.748
+INFO [169/334] 2025-07-19 solved: plan_kWh=83668.479 emergency_kWh=31.365 total_cost=52370.248
+INFO [170/334] 2025-07-20 solved: plan_kWh=83365.618 emergency_kWh=552.873 total_cost=54220.028
+INFO [171/334] 2025-07-21 solved: plan_kWh=83376.674 emergency_kWh=1079.509 total_cost=56419.945
+INFO [172/334] 2025-07-22 solved: plan_kWh=83606.662 emergency_kWh=1050.072 total_cost=56289.999
+INFO [173/334] 2025-07-23 solved: plan_kWh=83886.833 emergency_kWh=983.392 total_cost=56346.240
+INFO [174/334] 2025-07-24 solved: plan_kWh=83689.703 emergency_kWh=1249.265 total_cost=57522.375
+INFO [175/334] 2025-07-25 solved: plan_kWh=83869.166 emergency_kWh=0.000 total_cost=52547.005
+INFO [176/334] 2025-07-26 solved: plan_kWh=83272.075 emergency_kWh=0.000 total_cost=52150.958
+INFO [177/334] 2025-07-27 solved: plan_kWh=82728.685 emergency_kWh=843.981 total_cost=55080.665
+INFO [178/334] 2025-07-28 solved: plan_kWh=82616.441 emergency_kWh=2429.680 total_cost=60680.427
+INFO [179/334] 2025-07-29 solved: plan_kWh=83129.581 emergency_kWh=1759.188 total_cost=58287.180
+INFO [180/334] 2025-07-30 solved: plan_kWh=83413.718 emergency_kWh=800.433 total_cost=55481.873
+INFO [181/334] 2025-07-31 solved: plan_kWh=83359.546 emergency_kWh=700.905 total_cost=55317.633
+INFO [182/334] 2025-08-01 solved: plan_kWh=83235.063 emergency_kWh=0.000 total_cost=52172.397
+INFO [183/334] 2025-08-02 solved: plan_kWh=82717.686 emergency_kWh=32.528 total_cost=51914.309
+INFO [184/334] 2025-08-03 solved: plan_kWh=82612.465 emergency_kWh=358.234 total_cost=53354.608
+INFO [185/334] 2025-08-04 solved: plan_kWh=82036.826 emergency_kWh=187.427 total_cost=52075.158
+INFO [186/334] 2025-08-05 solved: plan_kWh=82095.792 emergency_kWh=134.395 total_cost=51874.881
+INFO [187/334] 2025-08-06 solved: plan_kWh=82119.070 emergency_kWh=643.601 total_cost=53988.407
+INFO [188/334] 2025-08-07 solved: plan_kWh=81661.522 emergency_kWh=324.134 total_cost=52179.727
+INFO [189/334] 2025-08-08 solved: plan_kWh=81571.839 emergency_kWh=0.000 total_cost=51135.939
+INFO [190/334] 2025-08-09 solved: plan_kWh=81116.005 emergency_kWh=0.000 total_cost=50834.171
+INFO [191/334] 2025-08-10 solved: plan_kWh=80697.854 emergency_kWh=135.757 total_cost=50925.039
+INFO [192/334] 2025-08-11 solved: plan_kWh=80381.609 emergency_kWh=297.511 total_cost=51419.146
+INFO [193/334] 2025-08-12 solved: plan_kWh=80467.930 emergency_kWh=342.944 total_cost=51707.700
+INFO [194/334] 2025-08-13 solved: plan_kWh=80564.486 emergency_kWh=424.339 total_cost=52211.399
+INFO [195/334] 2025-08-14 solved: plan_kWh=80471.944 emergency_kWh=546.565 total_cost=52888.873
+INFO [196/334] 2025-08-15 solved: plan_kWh=80448.207 emergency_kWh=0.000 total_cost=50390.179
+INFO [197/334] 2025-08-16 solved: plan_kWh=80021.850 emergency_kWh=0.000 total_cost=50149.716
+INFO [198/334] 2025-08-17 solved: plan_kWh=79744.297 emergency_kWh=450.322 total_cost=52195.898
+INFO [199/334] 2025-08-18 solved: plan_kWh=79531.070 emergency_kWh=486.830 total_cost=51974.031
+INFO [200/334] 2025-08-19 solved: plan_kWh=79594.347 emergency_kWh=412.481 total_cost=51944.975
+INFO [201/334] 2025-08-20 solved: plan_kWh=79668.043 emergency_kWh=1374.393 total_cost=55563.663
+INFO [202/334] 2025-08-21 solved: plan_kWh=79759.244 emergency_kWh=317.263 total_cost=51470.911
+INFO [203/334] 2025-08-22 solved: plan_kWh=79312.967 emergency_kWh=0.000 total_cost=49739.820
+INFO [204/334] 2025-08-23 solved: plan_kWh=78748.870 emergency_kWh=0.000 total_cost=49400.991
+INFO [205/334] 2025-08-24 solved: plan_kWh=77999.095 emergency_kWh=605.306 total_cost=51743.212
+INFO [206/334] 2025-08-25 solved: plan_kWh=77583.650 emergency_kWh=2170.361 total_cost=56650.329
+INFO [207/334] 2025-08-26 solved: plan_kWh=78060.243 emergency_kWh=446.833 total_cost=50938.445
+INFO [208/334] 2025-08-27 solved: plan_kWh=78178.039 emergency_kWh=811.912 total_cost=52611.415
+INFO [209/334] 2025-08-28 solved: plan_kWh=77945.600 emergency_kWh=2215.087 total_cost=57431.454
+INFO [210/334] 2025-08-29 solved: plan_kWh=77604.834 emergency_kWh=0.000 total_cost=48722.542
+INFO [211/334] 2025-08-30 solved: plan_kWh=76616.672 emergency_kWh=0.000 total_cost=48189.433
+INFO [212/334] 2025-08-31 solved: plan_kWh=75559.247 emergency_kWh=1246.222 total_cost=52636.301
+INFO [213/334] 2025-09-01 solved: plan_kWh=75032.436 emergency_kWh=244.233 total_cost=48003.117
+INFO [214/334] 2025-09-02 solved: plan_kWh=75078.515 emergency_kWh=66.033 total_cost=47561.449
+INFO [215/334] 2025-09-03 solved: plan_kWh=75114.265 emergency_kWh=89.055 total_cost=47640.819
+INFO [216/334] 2025-09-04 solved: plan_kWh=74961.974 emergency_kWh=110.060 total_cost=47696.134
+INFO [217/334] 2025-09-05 solved: plan_kWh=74835.165 emergency_kWh=0.000 total_cost=47133.106
+INFO [218/334] 2025-09-06 solved: plan_kWh=74495.006 emergency_kWh=0.000 total_cost=46949.545
+INFO [219/334] 2025-09-07 solved: plan_kWh=74139.614 emergency_kWh=167.036 total_cost=47408.196
+INFO [220/334] 2025-09-08 solved: plan_kWh=74009.430 emergency_kWh=709.363 total_cost=49674.068
+INFO [221/334] 2025-09-09 solved: plan_kWh=74194.374 emergency_kWh=62.314 total_cost=46998.482
+INFO [222/334] 2025-09-10 solved: plan_kWh=74217.289 emergency_kWh=1681.111 total_cost=54042.991
+INFO [223/334] 2025-09-11 solved: plan_kWh=74279.774 emergency_kWh=132.203 total_cost=47433.959
+INFO [224/334] 2025-09-12 solved: plan_kWh=74130.994 emergency_kWh=0.000 total_cost=46678.312
+INFO [225/334] 2025-09-13 solved: plan_kWh=73740.054 emergency_kWh=0.000 total_cost=46421.744
+INFO [226/334] 2025-09-14 solved: plan_kWh=73444.424 emergency_kWh=799.434 total_cost=49213.233
+INFO [227/334] 2025-09-15 solved: plan_kWh=73257.145 emergency_kWh=861.950 total_cost=49568.411
+INFO [228/334] 2025-09-16 solved: plan_kWh=73370.146 emergency_kWh=685.475 total_cost=48263.362
+INFO [229/334] 2025-09-17 solved: plan_kWh=73614.522 emergency_kWh=1012.383 total_cost=50782.602
+INFO [230/334] 2025-09-18 solved: plan_kWh=73589.946 emergency_kWh=416.930 total_cost=48057.949
+INFO [231/334] 2025-09-19 solved: plan_kWh=73299.587 emergency_kWh=0.000 total_cost=45993.545
+INFO [232/334] 2025-09-20 solved: plan_kWh=72650.079 emergency_kWh=0.000 total_cost=45554.964
+INFO [233/334] 2025-09-21 solved: plan_kWh=71283.286 emergency_kWh=901.039 total_cost=47764.111
+INFO [234/334] 2025-09-22 solved: plan_kWh=68613.622 emergency_kWh=1073.554 total_cost=46806.292
+INFO [235/334] 2025-09-23 solved: plan_kWh=68894.119 emergency_kWh=1806.665 total_cost=50328.559
+INFO [236/334] 2025-09-24 solved: plan_kWh=69336.144 emergency_kWh=1565.785 total_cost=49199.249
+INFO [237/334] 2025-09-25 solved: plan_kWh=68959.784 emergency_kWh=1115.016 total_cost=47336.204
+INFO [238/334] 2025-09-26 solved: plan_kWh=68398.429 emergency_kWh=0.000 total_cost=42407.159
+INFO [239/334] 2025-09-27 solved: plan_kWh=67803.604 emergency_kWh=0.000 total_cost=41992.611
+INFO [240/334] 2025-09-28 solved: plan_kWh=67189.928 emergency_kWh=2608.015 total_cost=52682.239
+INFO [241/334] 2025-09-29 solved: plan_kWh=67106.006 emergency_kWh=2019.235 total_cost=49933.448
+INFO [242/334] 2025-09-30 solved: plan_kWh=67665.930 emergency_kWh=3940.073 total_cost=59056.494
+INFO [243/334] 2025-10-01 solved: plan_kWh=68273.987 emergency_kWh=75.727 total_cost=42565.253
+INFO [244/334] 2025-10-02 solved: plan_kWh=67960.515 emergency_kWh=263.225 total_cost=42952.032
+INFO [245/334] 2025-10-03 solved: plan_kWh=67927.142 emergency_kWh=0.000 total_cost=42043.966
+INFO [246/334] 2025-10-04 solved: plan_kWh=67844.964 emergency_kWh=0.000 total_cost=41976.385
+INFO [247/334] 2025-10-05 solved: plan_kWh=67687.938 emergency_kWh=304.663 total_cost=42899.365
+INFO [248/334] 2025-10-06 solved: plan_kWh=67665.252 emergency_kWh=467.927 total_cost=43605.702
+INFO [249/334] 2025-10-07 solved: plan_kWh=67753.246 emergency_kWh=553.914 total_cost=44277.881
+INFO [250/334] 2025-10-08 solved: plan_kWh=67879.300 emergency_kWh=899.613 total_cost=45298.932
+INFO [251/334] 2025-10-09 solved: plan_kWh=67945.293 emergency_kWh=680.661 total_cost=44796.741
+INFO [252/334] 2025-10-10 solved: plan_kWh=67782.693 emergency_kWh=0.000 total_cost=41952.256
+INFO [253/334] 2025-10-11 solved: plan_kWh=67633.317 emergency_kWh=0.000 total_cost=41835.497
+INFO [254/334] 2025-10-12 solved: plan_kWh=67225.518 emergency_kWh=863.898 total_cost=44893.333
+INFO [255/334] 2025-10-13 solved: plan_kWh=67310.297 emergency_kWh=510.918 total_cost=43674.626
+INFO [256/334] 2025-10-14 solved: plan_kWh=67407.115 emergency_kWh=1830.510 total_cost=49625.297
+INFO [257/334] 2025-10-15 solved: plan_kWh=67693.483 emergency_kWh=1939.475 total_cost=49673.335
+INFO [258/334] 2025-10-16 solved: plan_kWh=67864.912 emergency_kWh=3256.566 total_cost=55862.722
+INFO [259/334] 2025-10-17 solved: plan_kWh=68105.070 emergency_kWh=0.000 total_cost=42125.551
+INFO [260/334] 2025-10-18 solved: plan_kWh=67771.587 emergency_kWh=0.000 total_cost=41902.013
+INFO [261/334] 2025-10-19 solved: plan_kWh=67442.606 emergency_kWh=3457.567 total_cost=56083.927
+INFO [262/334] 2025-10-20 solved: plan_kWh=67607.409 emergency_kWh=3413.012 total_cost=56625.752
+INFO [263/334] 2025-10-21 solved: plan_kWh=68263.226 emergency_kWh=4619.623 total_cost=59884.014
+INFO [264/334] 2025-10-22 solved: plan_kWh=69030.655 emergency_kWh=3696.083 total_cost=58121.845
+INFO [265/334] 2025-10-23 solved: plan_kWh=69155.837 emergency_kWh=1922.321 total_cost=50546.475
+INFO [266/334] 2025-10-24 solved: plan_kWh=69247.741 emergency_kWh=0.000 total_cost=42649.120
+INFO [267/334] 2025-10-25 solved: plan_kWh=68827.093 emergency_kWh=0.000 total_cost=42203.319
+INFO [268/334] 2025-10-26 solved: plan_kWh=68599.580 emergency_kWh=1764.833 total_cost=48745.667
+INFO [269/334] 2025-10-27 solved: plan_kWh=68761.330 emergency_kWh=2433.952 total_cost=52137.368
+INFO [270/334] 2025-10-28 solved: plan_kWh=69189.060 emergency_kWh=2789.204 total_cost=53799.372
+INFO [271/334] 2025-10-29 solved: plan_kWh=69617.754 emergency_kWh=5082.092 total_cost=62552.502
+INFO [272/334] 2025-10-30 solved: plan_kWh=69963.283 emergency_kWh=1859.444 total_cost=50477.149
+INFO [273/334] 2025-10-31 solved: plan_kWh=70124.199 emergency_kWh=0.000 total_cost=43078.268
+INFO [274/334] 2025-11-01 solved: plan_kWh=69888.233 emergency_kWh=0.000 total_cost=42921.399
+INFO [275/334] 2025-11-02 solved: plan_kWh=69858.829 emergency_kWh=3943.904 total_cost=58852.220
+INFO [276/334] 2025-11-03 solved: plan_kWh=70599.779 emergency_kWh=4288.700 total_cost=57961.484
+INFO [277/334] 2025-11-04 solved: plan_kWh=71486.867 emergency_kWh=2138.380 total_cost=52184.094
+INFO [278/334] 2025-11-05 solved: plan_kWh=72003.778 emergency_kWh=3354.323 total_cost=56817.492
+INFO [279/334] 2025-11-06 solved: plan_kWh=72590.084 emergency_kWh=4605.612 total_cost=62877.848
+INFO [280/334] 2025-11-07 solved: plan_kWh=73143.712 emergency_kWh=0.000 total_cost=45114.267
+INFO [281/334] 2025-11-08 solved: plan_kWh=73111.450 emergency_kWh=0.000 total_cost=45098.796
+INFO [282/334] 2025-11-09 solved: plan_kWh=73078.707 emergency_kWh=3766.881 total_cost=59480.332
+INFO [283/334] 2025-11-10 solved: plan_kWh=73686.534 emergency_kWh=5520.650 total_cost=66501.523
+INFO [284/334] 2025-11-11 solved: plan_kWh=74368.418 emergency_kWh=2705.370 total_cost=57109.230
+INFO [285/334] 2025-11-12 solved: plan_kWh=75033.627 emergency_kWh=2053.578 total_cost=55965.466
+INFO [286/334] 2025-11-13 solved: plan_kWh=75372.192 emergency_kWh=3124.855 total_cost=58163.280
+INFO [287/334] 2025-11-14 solved: plan_kWh=75908.496 emergency_kWh=0.000 total_cost=47025.016
+INFO [288/334] 2025-11-15 solved: plan_kWh=75864.962 emergency_kWh=0.000 total_cost=46994.824
+INFO [289/334] 2025-11-16 solved: plan_kWh=75837.323 emergency_kWh=4146.393 total_cost=63776.983
+INFO [290/334] 2025-11-17 solved: plan_kWh=76313.170 emergency_kWh=2546.119 total_cost=57799.203
+INFO [291/334] 2025-11-18 solved: plan_kWh=76841.679 emergency_kWh=3941.037 total_cost=61989.744
+INFO [292/334] 2025-11-19 solved: plan_kWh=77360.686 emergency_kWh=3323.667 total_cost=61724.145
+INFO [293/334] 2025-11-20 solved: plan_kWh=77838.153 emergency_kWh=2898.349 total_cost=59546.918
+INFO [294/334] 2025-11-21 solved: plan_kWh=78262.228 emergency_kWh=0.000 total_cost=48770.140
+INFO [295/334] 2025-11-22 solved: plan_kWh=78217.155 emergency_kWh=0.000 total_cost=48743.994
+INFO [296/334] 2025-11-23 solved: plan_kWh=78142.959 emergency_kWh=3308.693 total_cost=62373.714
+INFO [297/334] 2025-11-24 solved: plan_kWh=78535.035 emergency_kWh=1834.935 total_cost=56176.535
+INFO [298/334] 2025-11-25 solved: plan_kWh=78947.996 emergency_kWh=2916.721 total_cost=60404.283
+INFO [299/334] 2025-11-26 solved: plan_kWh=79472.265 emergency_kWh=3312.557 total_cost=62239.032
+INFO [300/334] 2025-11-27 solved: plan_kWh=79955.380 emergency_kWh=2205.290 total_cost=58698.978
+INFO [301/334] 2025-11-28 solved: plan_kWh=80298.615 emergency_kWh=0.000 total_cost=50301.370
+INFO [302/334] 2025-11-29 solved: plan_kWh=80260.282 emergency_kWh=0.000 total_cost=50278.910
+INFO [303/334] 2025-11-30 solved: plan_kWh=80206.534 emergency_kWh=5490.720 total_cost=70893.477
+INFO [304/334] 2025-12-01 solved: plan_kWh=80830.211 emergency_kWh=10332.796 total_cost=89980.152
+INFO [305/334] 2025-12-02 solved: plan_kWh=81606.908 emergency_kWh=11841.792 total_cost=96336.738
+INFO [306/334] 2025-12-03 solved: plan_kWh=82419.543 emergency_kWh=9836.121 total_cost=87513.635
+INFO [307/334] 2025-12-04 solved: plan_kWh=83173.146 emergency_kWh=8806.125 total_cost=85793.379
+INFO [308/334] 2025-12-05 solved: plan_kWh=84213.917 emergency_kWh=0.000 total_cost=53020.224
+INFO [309/334] 2025-12-06 solved: plan_kWh=84142.302 emergency_kWh=0.000 total_cost=52969.076
+INFO [310/334] 2025-12-07 solved: plan_kWh=84088.067 emergency_kWh=8540.539 total_cost=84631.076
+INFO [311/334] 2025-12-08 solved: plan_kWh=85417.023 emergency_kWh=7771.583 total_cost=81801.814
+INFO [312/334] 2025-12-09 solved: plan_kWh=87138.857 emergency_kWh=5458.348 total_cost=76428.680
+INFO [313/334] 2025-12-10 solved: plan_kWh=89073.833 emergency_kWh=4944.975 total_cost=73911.781
+INFO [314/334] 2025-12-11 solved: plan_kWh=90175.322 emergency_kWh=2182.150 total_cost=64711.872
+INFO [315/334] 2025-12-12 solved: plan_kWh=90770.714 emergency_kWh=0.000 total_cost=57706.244
+INFO [316/334] 2025-12-13 solved: plan_kWh=90730.244 emergency_kWh=2.835 total_cost=57678.227
+INFO [317/334] 2025-12-14 solved: plan_kWh=90721.785 emergency_kWh=3573.789 total_cost=70837.660
+INFO [318/334] 2025-12-15 solved: plan_kWh=91395.982 emergency_kWh=3724.664 total_cost=71078.029
+INFO [319/334] 2025-12-16 solved: plan_kWh=92066.780 emergency_kWh=3161.457 total_cost=69916.643
+INFO [320/334] 2025-12-17 solved: plan_kWh=92763.280 emergency_kWh=1582.404 total_cost=64249.329
+INFO [321/334] 2025-12-18 solved: plan_kWh=93131.076 emergency_kWh=1511.227 total_cost=65150.716
+INFO [322/334] 2025-12-19 solved: plan_kWh=93416.182 emergency_kWh=0.000 total_cost=59557.339
+INFO [323/334] 2025-12-20 solved: plan_kWh=93406.072 emergency_kWh=0.000 total_cost=59551.091
+INFO [324/334] 2025-12-21 solved: plan_kWh=93392.744 emergency_kWh=2023.089 total_cost=66393.836
+INFO [325/334] 2025-12-22 solved: plan_kWh=93710.513 emergency_kWh=1395.567 total_cost=64895.201
+INFO [326/334] 2025-12-23 solved: plan_kWh=94040.188 emergency_kWh=556.342 total_cost=62088.612
+INFO [327/334] 2025-12-24 solved: plan_kWh=94203.545 emergency_kWh=984.006 total_cost=64043.852
+INFO [328/334] 2025-12-25 solved: plan_kWh=94392.951 emergency_kWh=981.242 total_cost=63322.626
+INFO [329/334] 2025-12-26 solved: plan_kWh=94518.356 emergency_kWh=0.000 total_cost=60301.328
+INFO [330/334] 2025-12-27 solved: plan_kWh=94509.541 emergency_kWh=0.000 total_cost=60292.185
+INFO [331/334] 2025-12-28 solved: plan_kWh=94502.029 emergency_kWh=547.310 total_cost=62331.521
+INFO [332/334] 2025-12-29 solved: plan_kWh=94570.644 emergency_kWh=756.132 total_cost=62882.148
+INFO [333/334] 2025-12-30 solved: plan_kWh=94716.392 emergency_kWh=300.118 total_cost=61778.107
+INFO [334/334] 2025-12-31 solved: plan_kWh=94776.121 emergency_kWh=1091.556 total_cost=64690.128
+INFO rendering Chinese visualizations
+INFO exporting all 334 days to C:\Users\RoyCai\Desktop\2026秋季\数模国赛2026\我的作答_C\CUCUM2026_code\target\附件5\result2.xlsx
+Question 2 solved successfully: 334 days, HiGHS optimal, validation passed.
+{
+  "units": {
+    "energy": "kWh",
+    "cost": "yuan",
+    "ratios": "0..1"
+  },
+  "annual": {
+    "planned_grid_total": 25433452.303556427,
+    "emergency_total": 477446.05741713784,
+    "total_grid_purchase": 25910898.360973563,
+    "planned_cost": 15771812.68749251,
+    "emergency_cost": 1837978.999053627,
+    "total_cost": 17609791.686546136,
+    "period": "2025-02-01 ~ 2025-12-31",
+    "emergency_days": 249,
+    "emergency_intervals": 2725,
+    "emergency_energy_ratio": 0.018426457113361102,
+    "emergency_cost_ratio": 0.10437255770934765,
+    "daily_mean_emergency_kwh": 1429.479213823766,
+    "max_daily_emergency_kwh": 14534.890716666665,
+    "max_daily_total_cost": 96336.73786237057
+  },
+  "paper_dates": {
+    "2025-03-20": {
+      "表1": {
+        "10:00-10:10": {
+          "计划购电量": 0.0,
+          "实际紧急购电量": 0.0,
+          "合计": 0.0
+        },
+        "12:00-12:10": {
+          "计划购电量": 671.0825,
+          "实际紧急购电量": 0.0,
+          "合计": 671.0825
+        },
+        "14:00-14:10": {
+          "计划购电量": 0.0,
+          "实际紧急购电量": 0.0,
+          "合计": 0.0
+        },
+        "16:00-16:10": {
+          "计划购电量": 545.0920833333332,
+          "实际紧急购电量": 0.0,
+          "合计": 545.0920833333332
+        },
+        "18:00-18:10": {
+          "计划购电量": 715.8516666666666,
+          "实际紧急购电量": 0.0,
+          "合计": 715.8516666666666
+        },
+        "20:00-20:10": {
+          "计划购电量": 0.0,
+          "实际紧急购电量": 0.0,
+          "合计": 0.0
+        }
+      },
+      "全天指标": {
+        "date": "2025-03-20",
+        "planned_grid_total": 76168.54896666665,
+        "emergency_total": 207.40089999999987,
+        "total_grid_purchase": 76375.94986666665,
+        "planned_cost": 46674.54489863833,
+        "emergency_cost": 1030.6857076166661,
+        "total_cost": 47705.23060625499
+      },
+      "表2": {
+        "0:00-4:00": {
+          "累计充电量": 4499.999999999999,
+          "累计放电量": 0.0
+        },
+        "4:00-8:00": {
+          "累计充电量": 1666.6666666666665,
+          "累计放电量": 4769.482816666668
+        },
+        "8:00-12:00": {
+          "累计充电量": 5850.762833333332,
+          "累计放电量": 4545.517183333333
+        },
+        "12:00-16:00": {
+          "累计充电量": 5942.7899,
+          "累计放电量": 912.7777140000018
+        },
+        "16:00-20:00": {
+          "累计充电量": 0.0,
+          "累计放电量": 5711.4658
+        },
+        "20:00-24:00": {
+          "累计充电量": 5333.333333333332,
+          "累计放电量": 2928.5342
+        },
+        "0:00 储电量": 6000.0,
+        "24:00 储电量": 6000.0
+      },
+      "表3": [
+        {
+          "start_slot": 2,
+          "end_slot": 4,
+          "label": "0:30-0:50",
+          "amount_kwh": 37.456333333333305
+        },
+        {
+          "start_slot": 7,
+          "end_slot": 8,
+          "label": "1:20-1:30",
+          "amount_kwh": 11.512916666666683
+        },
+        {
+          "start_slot": 108,
+          "end_slot": 110,
+          "label": "18:10-18:30",
+          "amount_kwh": 8.806816666666464
+        },
+        {
+          "start_slot": 112,
+          "end_slot": 115,
+          "label": "18:50-19:20",
+          "amount_kwh": 65.22843333333333
+        },
+        {
+          "start_slot": 120,
+          "end_slot": 122,
+          "label": "20:10-20:30",
+          "amount_kwh": 50.976716666666675
+        },
+        {
+          "start_slot": 128,
+          "end_slot": 129,
+          "label": "21:30-21:40",
+          "amount_kwh": 8.811666666666838
+        },
+        {
+          "start_slot": 141,
+          "end_slot": 142,
+          "label": "23:40-23:50",
+          "amount_kwh": 24.608016666666572
+        }
+      ]
+    },
+    "2025-06-21": {
+      "表1": {
+        "10:00-10:10": {
+          "计划购电量": 0.0,
+          "实际紧急购电量": 0.0,
+          "合计": 0.0
+        },
+        "12:00-12:10": {
+          "计划购电量": 735.1762500000001,
+          "实际紧急购电量": 0.0,
+          "合计": 735.1762500000001
+        },
+        "14:00-14:10": {
+          "计划购电量": 0.0,
+          "实际紧急购电量": 0.0,
+          "合计": 0.0
+        },
+        "16:00-16:10": {
+          "计划购电量": 524.8433333333332,
+          "实际紧急购电量": 0.0,
+          "合计": 524.8433333333332
+        },
+        "18:00-18:10": {
+          "计划购电量": 701.5524999999999,
+          "实际紧急购电量": 0.0,
+          "合计": 701.5524999999999
+        },
+        "20:00-20:10": {
+          "计划购电量": 54.86833333333334,
+          "实际紧急购电量": 0.0,
+          "合计": 54.86833333333334
+        }
+      },
+      "全天指标": {
+        "date": "2025-06-21",
+        "planned_grid_total": 77037.54260583333,
+        "emergency_total": 0.0,
+        "total_grid_purchase": 77037.54260583333,
+        "planned_cost": 47515.179737435334,
+        "emergency_cost": 0.0,
+        "total_cost": 47515.179737435334
+      },
+      "表2": {
+        "0:00-4:00": {
+          "累计充电量": 4499.999999999999,
+          "累计放电量": 0.0
+        },
+        "4:00-8:00": {
+          "累计充电量": 833.3333333333333,
+          "累计放电量": 5013.658244166668
+        },
+        "8:00-12:00": {
+          "累计充电量": 5866.599416666666,
+          "累计放电量": 3113.287283333333
+        },
+        "12:00-16:00": {
+          "累计充电量": 5833.333333333333,
+          "累计放电量": 1349.999999999999
+        },
+        "16:00-20:00": {
+          "累计充电量": 0.0,
+          "累计放电量": 5833.333333333333
+        },
+        "20:00-24:00": {
+          "累计充电量": 5333.333333333332,
+          "累计放电量": 2806.6666666666665
+        },
+        "0:00 储电量": 6000.0,
+        "24:00 储电量": 6000.0
+      },
+      "表3": []
+    },
+    "2025-09-23": {
+      "表1": {
+        "10:00-10:10": {
+          "计划购电量": 0.0,
+          "实际紧急购电量": 4.405833333333399,
+          "合计": 4.405833333333399
+        },
+        "12:00-12:10": {
+          "计划购电量": 494.2704166666667,
+          "实际紧急购电量": 0.0,
+          "合计": 494.2704166666667
+        },
+        "14:00-14:10": {
+          "计划购电量": 0.0,
+          "实际紧急购电量": 0.0,
+          "合计": 0.0
+        },
+        "16:00-16:10": {
+          "计划购电量": 457.1233333333333,
+          "实际紧急购电量": 36.459166666666704,
+          "合计": 493.5825
+        },
+        "18:00-18:10": {
+          "计划购电量": 802.0687499999999,
+          "实际紧急购电量": 0.0,
+          "合计": 802.0687499999999
+        },
+        "20:00-20:10": {
+          "计划购电量": 15.410000000000082,
+          "实际紧急购电量": 0.0,
+          "合计": 15.410000000000082
+        }
+      },
+      "全天指标": {
+        "date": "2025-09-23",
+        "planned_grid_total": 68894.11945308642,
+        "emergency_total": 1806.6645000000005,
+        "total_grid_purchase": 70700.78395308641,
+        "planned_cost": 42711.4055656937,
+        "emergency_cost": 7617.1530368500025,
+        "total_cost": 50328.5586025437
+      },
+      "表2": {
+        "0:00-4:00": {
+          "累计充电量": 4499.999999999999,
+          "累计放电量": 0.0
+        },
+        "4:00-8:00": {
+          "累计充电量": 833.3333333333333,
+          "累计放电量": 6618.105866666668
+        },
+        "8:00-12:00": {
+          "累计充电量": 5947.7824666666675,
+          "累计放电量": 2021.8941333333332
+        },
+        "12:00-16:00": {
+          "累计充电量": 5015.770619753086,
+          "累计放电量": 240.4779999999999
+        },
+        "16:00-20:00": {
+          "累计充电量": 0.0,
+          "累计放电量": 5817.031666666666
+        },
+        "20:00-24:00": {
+          "累计充电量": 5333.333333333332,
+          "累计放电量": 2822.9683333333332
+        },
+        "0:00 储电量": 6000.0,
+        "24:00 储电量": 6000.0
+      },
+      "表3": [
+        {
+          "start_slot": 12,
+          "end_slot": 13,
+          "label": "2:10-2:20",
+          "amount_kwh": 0.842583333333323
+        },
+        {
+          "start_slot": 36,
+          "end_slot": 48,
+          "label": "6:10-8:10",
+          "amount_kwh": 495.2568333333335
+        },
+        {
+          "start_slot": 50,
+          "end_slot": 52,
+          "label": "8:30-8:50",
+          "amount_kwh": 24.668700000000342
+        },
+        {
+          "start_slot": 56,
+          "end_slot": 67,
+          "label": "9:30-11:20",
+          "amount_kwh": 524.1126666666662
+        },
+        {
+          "start_slot": 86,
+          "end_slot": 93,
+          "label": "14:30-15:40",
+          "amount_kwh": 352.7183500000002
+        },
+        {
+          "start_slot": 95,
+          "end_slot": 107,
+          "label": "16:00-18:00",
+          "amount_kwh": 370.6422833333334
+        },
+        {
+          "start_slot": 116,
+          "end_slot": 117,
+          "label": "19:30-19:40",
+          "amount_kwh": 0.7850000000000819
+        },
+        {
+          "start_slot": 121,
+          "end_slot": 123,
+          "label": "20:20-20:40",
+          "amount_kwh": 12.061416666666787
+        },
+        {
+          "start_slot": 125,
+          "end_slot": 126,
+          "label": "21:00-21:10",
+          "amount_kwh": 9.3900000000001
+        },
+        {
+          "start_slot": 134,
+          "end_slot": 135,
+          "label": "22:30-22:40",
+          "amount_kwh": 16.18666666666661
+        }
+      ]
+    },
+    "2025-12-21": {
+      "表1": {
+        "10:00-10:10": {
+          "计划购电量": 0.0,
+          "实际紧急购电量": 0.0,
+          "合计": 0.0
+        },
+        "12:00-12:10": {
+          "计划购电量": 910.9645833333333,
+          "实际紧急购电量": 0.0,
+          "合计": 910.9645833333333
+        },
+        "14:00-14:10": {
+          "计划购电量": 0.0,
+          "实际紧急购电量": 0.0,
+          "合计": 0.0
+        },
+        "16:00-16:10": {
+          "计划购电量": 778.8024999999999,
+          "实际紧急购电量": 17.127916666666806,
+          "合计": 795.9304166666667
+        },
+        "18:00-18:10": {
+          "计划购电量": 727.5966666666666,
+          "实际紧急购电量": 0.0,
+          "合计": 727.5966666666666
+        },
+        "20:00-20:10": {
+          "计划购电量": 0.0,
+          "实际紧急购电量": 50.82999999999993,
+          "合计": 50.82999999999993
+        }
+      },
+      "全天指标": {
+        "date": "2025-12-21",
+        "planned_grid_total": 93392.74389876542,
+        "emergency_total": 2023.0887833333336,
+        "total_grid_purchase": 95415.83268209876,
+        "planned_cost": 59540.337376221534,
+        "emergency_cost": 6853.498810016667,
+        "total_cost": 66393.8361862382
+      },
+      "表2": {
+        "0:00-4:00": {
+          "累计充电量": 4499.999999999999,
+          "累计放电量": 0.0
+        },
+        "4:00-8:00": {
+          "累计充电量": 1666.6666666666665,
+          "累计放电量": 1508.3333333333333
+        },
+        "8:00-12:00": {
+          "累计充电量": 5833.333333333333,
+          "累计放电量": 7806.666666666668
+        },
+        "12:00-16:00": {
+          "累计充电量": 7691.415432098769,
+          "累计放电量": 2315.0464999999995
+        },
+        "16:00-20:00": {
+          "累计充电量": 0.0,
+          "累计放电量": 5674.897
+        },
+        "20:00-24:00": {
+          "累计充电量": 5333.333333333332,
+          "累计放电量": 2965.103
+        },
+        "0:00 储电量": 6000.0,
+        "24:00 储电量": 6000.0
+      },
+      "表3": [
+        {
+          "start_slot": 0,
+          "end_slot": 1,
+          "label": "0:10-0:20",
+          "amount_kwh": 3.3264833333333854
+        },
+        {
+          "start_slot": 6,
+          "end_slot": 8,
+          "label": "1:10-1:30",
+          "amount_kwh": 22.46631666666667
+        },
+        {
+          "start_slot": 9,
+          "end_slot": 10,
+          "label": "1:40-1:50",
+          "amount_kwh": 1.5754166666666833
+        },
+        {
+          "start_slot": 13,
+          "end_slot": 14,
+          "label": "2:20-2:30",
+          "amount_kwh": 6.500416666666638
+        },
+        {
+          "start_slot": 18,
+          "end_slot": 20,
+          "label": "3:10-3:30",
+          "amount_kwh": 59.60433333333333
+        },
+        {
+          "start_slot": 21,
+          "end_slot": 23,
+          "label": "3:40-4:00",
+          "amount_kwh": 98.19481666666672
+        },
+        {
+          "start_slot": 25,
+          "end_slot": 26,
+          "label": "4:20-4:30",
+          "amount_kwh": 0.1397666666666737
+        },
+        {
+          "start_slot": 30,
+          "end_slot": 32,
+          "label": "5:10-5:30",
+          "amount_kwh": 9.62560000000019
+        },
+        {
+          "start_slot": 33,
+          "end_slot": 36,
+          "label": "5:40-6:10",
+          "amount_kwh": 47.772849999999835
+        },
+        {
+          "start_slot": 37,
+          "end_slot": 39,
+          "label": "6:20-6:40",
+          "amount_kwh": 25.171500000000037
+        },
+        {
+          "start_slot": 41,
+          "end_slot": 43,
+          "label": "7:0-7:20",
+          "amount_kwh": 10.086733333333427
+        },
+        {
+          "start_slot": 46,
+          "end_slot": 48,
+          "label": "7:50-8:10",
+          "amount_kwh": 24.57754999999986
+        },
+        {
+          "start_slot": 50,
+          "end_slot": 52,
+          "label": "8:30-8:50",
+          "amount_kwh": 39.69596666666689
+        },
+        {
+          "start_slot": 53,
+          "end_slot": 55,
+          "label": "9:00-9:20",
+          "amount_kwh": 26.680666666666752
+        },
+        {
+          "start_slot": 57,
+          "end_slot": 59,
+          "label": "9:40-10:00",
+          "amount_kwh": 42.53706666666665
+        },
+        {
+          "start_slot": 61,
+          "end_slot": 71,
+          "label": "10:20-12:00",
+          "amount_kwh": 1061.3882833333337
+        },
+        {
+          "start_slot": 72,
+          "end_slot": 74,
+          "label": "12:10-12:30",
+          "amount_kwh": 25.44310000000003
+        },
+        {
+          "start_slot": 75,
+          "end_slot": 80,
+          "label": "12:40-13:30",
+          "amount_kwh": 166.5758166666667
+        },
+        {
+          "start_slot": 88,
+          "end_slot": 96,
+          "label": "14:50-16:10",
+          "amount_kwh": 180.27141666666625
+        },
+        {
+          "start_slot": 98,
+          "end_slot": 99,
+          "label": "16:30-16:40",
+          "amount_kwh": 9.427083333333371
+        },
+        {
+          "start_slot": 104,
+          "end_slot": 105,
+          "label": "17:30-17:40",
+          "amount_kwh": 17.944999999999936
+        },
+        {
+          "start_slot": 109,
+          "end_slot": 110,
+          "label": "18:20-18:30",
+          "amount_kwh": 6.919149999999945
+        },
+        {
+          "start_slot": 111,
+          "end_slot": 114,
+          "label": "18:40-19:10",
+          "amount_kwh": 29.180033333333427
+        },
+        {
+          "start_slot": 116,
+          "end_slot": 117,
+          "label": "19:30-19:40",
+          "amount_kwh": 1.0733333333333803
+        },
+        {
+          "start_slot": 118,
+          "end_slot": 121,
+          "label": "19:50-20:20",
+          "amount_kwh": 69.48539999999991
+        },
+        {
+          "start_slot": 131,
+          "end_slot": 132,
+          "label": "22:00-22:10",
+          "amount_kwh": 15.014999999999986
+        },
+        {
+          "start_slot": 137,
+          "end_slot": 139,
+          "label": "23:00-23:20",
+          "amount_kwh": 15.74993333333316
+        },
+        {
+          "start_slot": 142,
+          "end_slot": 143,
+          "label": "23:50-0:00+1",
+          "amount_kwh": 6.659750000000031
+        }
+      ]
+    }
+  }
+}
+Official result: C:\Users\RoyCai\Desktop\2026秋季\数模国赛2026\我的作答_C\CUCUM2026_code\target\附件5\result2.xlsx
+Summaries and figures: C:\Users\RoyCai\Desktop\2026秋季\数模国赛2026\我的作答_C\CUCUM2026_code\target\question2

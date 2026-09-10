@@ -1,0 +1,1369 @@
+INFO Question 4-2: dynamic price, update hours=(0,)
+INFO [001/334] 2025-02-01 solved: price_mean=0.6515 plan_kWh=96282.962 emergency_kWh=0.000 total_cost=51713.575
+INFO [002/334] 2025-02-02 solved: price_mean=0.8364 plan_kWh=95876.483 emergency_kWh=13.377 total_cost=67910.661
+INFO [003/334] 2025-02-03 solved: price_mean=0.8448 plan_kWh=95426.419 emergency_kWh=15.483 total_cost=68532.793
+INFO [004/334] 2025-02-04 solved: price_mean=0.8492 plan_kWh=95667.449 emergency_kWh=70.908 total_cost=68878.273
+INFO [005/334] 2025-02-05 solved: price_mean=0.8483 plan_kWh=95755.098 emergency_kWh=10.173 total_cost=68611.748
+INFO [006/334] 2025-02-06 solved: price_mean=0.8440 plan_kWh=95183.656 emergency_kWh=8.427 total_cost=67968.301
+INFO [007/334] 2025-02-07 solved: price_mean=0.6440 plan_kWh=95422.708 emergency_kWh=0.000 total_cost=49760.457
+INFO [008/334] 2025-02-08 solved: price_mean=0.6424 plan_kWh=94403.382 emergency_kWh=0.000 total_cost=49603.031
+INFO [009/334] 2025-02-09 solved: price_mean=0.8414 plan_kWh=93795.485 emergency_kWh=79.364 total_cost=66765.945
+INFO [010/334] 2025-02-10 solved: price_mean=0.8181 plan_kWh=93500.113 emergency_kWh=21.257 total_cost=64527.497
+INFO [011/334] 2025-02-11 solved: price_mean=0.8285 plan_kWh=93643.150 emergency_kWh=3.118 total_cost=65065.975
+INFO [012/334] 2025-02-12 solved: price_mean=0.8264 plan_kWh=93586.305 emergency_kWh=21.073 total_cost=64902.220
+INFO [013/334] 2025-02-13 solved: price_mean=0.8148 plan_kWh=92861.534 emergency_kWh=33.332 total_cost=63493.929
+INFO [014/334] 2025-02-14 solved: price_mean=0.6311 plan_kWh=92473.383 emergency_kWh=0.000 total_cost=47888.624
+INFO [015/334] 2025-02-15 solved: price_mean=0.6378 plan_kWh=92190.810 emergency_kWh=0.000 total_cost=48291.477
+INFO [016/334] 2025-02-16 solved: price_mean=0.8303 plan_kWh=91290.784 emergency_kWh=69.754 total_cost=63519.527
+INFO [017/334] 2025-02-17 solved: price_mean=0.8174 plan_kWh=90338.220 emergency_kWh=102.662 total_cost=62463.413
+INFO [018/334] 2025-02-18 solved: price_mean=0.8145 plan_kWh=90297.265 emergency_kWh=24.922 total_cost=61391.783
+INFO [019/334] 2025-02-19 solved: price_mean=0.8164 plan_kWh=90798.863 emergency_kWh=185.456 total_cost=61929.618
+INFO [020/334] 2025-02-20 solved: price_mean=0.8168 plan_kWh=89562.538 emergency_kWh=122.342 total_cost=61764.675
+INFO [021/334] 2025-02-21 solved: price_mean=0.6209 plan_kWh=88866.064 emergency_kWh=0.000 total_cost=44815.516
+INFO [022/334] 2025-02-22 solved: price_mean=0.6353 plan_kWh=88781.588 emergency_kWh=0.000 total_cost=45412.944
+INFO [023/334] 2025-02-23 solved: price_mean=0.8154 plan_kWh=87314.264 emergency_kWh=126.969 total_cost=59314.472
+INFO [024/334] 2025-02-24 solved: price_mean=0.8082 plan_kWh=86350.993 emergency_kWh=169.165 total_cost=58727.665
+INFO [025/334] 2025-02-25 solved: price_mean=0.7941 plan_kWh=86251.427 emergency_kWh=154.826 total_cost=57579.373
+INFO [026/334] 2025-02-26 solved: price_mean=0.8055 plan_kWh=86323.980 emergency_kWh=88.159 total_cost=58199.284
+INFO [027/334] 2025-02-27 solved: price_mean=0.7979 plan_kWh=85524.684 emergency_kWh=78.374 total_cost=56247.582
+INFO [028/334] 2025-02-28 solved: price_mean=0.6167 plan_kWh=85050.592 emergency_kWh=0.000 total_cost=42168.300
+INFO [029/334] 2025-03-01 solved: price_mean=0.6142 plan_kWh=84323.089 emergency_kWh=0.000 total_cost=41488.411
+INFO [030/334] 2025-03-02 solved: price_mean=0.8123 plan_kWh=83786.465 emergency_kWh=1616.660 total_cost=62673.609
+INFO [031/334] 2025-03-03 solved: price_mean=0.8118 plan_kWh=82623.082 emergency_kWh=524.489 total_cost=56924.443
+INFO [032/334] 2025-03-04 solved: price_mean=0.8006 plan_kWh=82825.239 emergency_kWh=199.289 total_cost=55188.049
+INFO [033/334] 2025-03-05 solved: price_mean=0.7945 plan_kWh=82876.574 emergency_kWh=139.348 total_cost=54257.862
+INFO [034/334] 2025-03-06 solved: price_mean=0.7919 plan_kWh=82135.219 emergency_kWh=191.166 total_cost=53864.520
+INFO [035/334] 2025-03-07 solved: price_mean=0.6085 plan_kWh=81563.283 emergency_kWh=0.000 total_cost=38960.030
+INFO [036/334] 2025-03-08 solved: price_mean=0.5973 plan_kWh=80949.740 emergency_kWh=0.000 total_cost=38306.984
+INFO [037/334] 2025-03-09 solved: price_mean=0.7838 plan_kWh=79878.892 emergency_kWh=134.044 total_cost=51252.139
+INFO [038/334] 2025-03-10 solved: price_mean=0.8025 plan_kWh=78889.618 emergency_kWh=1031.982 total_cost=55084.632
+INFO [039/334] 2025-03-11 solved: price_mean=0.7894 plan_kWh=79148.314 emergency_kWh=147.137 total_cost=51242.327
+INFO [040/334] 2025-03-12 solved: price_mean=0.7802 plan_kWh=79195.365 emergency_kWh=236.307 total_cost=50824.478
+INFO [041/334] 2025-03-13 solved: price_mean=0.7996 plan_kWh=78419.422 emergency_kWh=1367.644 total_cost=56014.802
+INFO [042/334] 2025-03-14 solved: price_mean=0.5914 plan_kWh=78916.402 emergency_kWh=0.000 total_cost=36131.256
+INFO [043/334] 2025-03-15 solved: price_mean=0.6048 plan_kWh=77816.674 emergency_kWh=6.603 total_cost=37159.831
+INFO [044/334] 2025-03-16 solved: price_mean=0.7849 plan_kWh=76826.314 emergency_kWh=119.934 total_cost=49164.211
+INFO [045/334] 2025-03-17 solved: price_mean=0.7602 plan_kWh=76410.144 emergency_kWh=184.282 total_cost=47936.916
+INFO [046/334] 2025-03-18 solved: price_mean=0.7760 plan_kWh=76496.865 emergency_kWh=104.609 total_cost=48104.330
+INFO [047/334] 2025-03-19 solved: price_mean=0.7718 plan_kWh=76848.046 emergency_kWh=63.914 total_cost=47514.914
+INFO [048/334] 2025-03-20 solved: price_mean=0.7786 plan_kWh=76140.732 emergency_kWh=213.745 total_cost=48543.054
+INFO [049/334] 2025-03-21 solved: price_mean=0.5703 plan_kWh=75959.626 emergency_kWh=0.000 total_cost=33798.497
+INFO [050/334] 2025-03-22 solved: price_mean=0.5874 plan_kWh=75416.255 emergency_kWh=9.078 total_cost=34368.430
+INFO [051/334] 2025-03-23 solved: price_mean=0.7672 plan_kWh=74303.471 emergency_kWh=209.297 total_cost=46489.529
+INFO [052/334] 2025-03-24 solved: price_mean=0.7675 plan_kWh=73594.577 emergency_kWh=186.519 total_cost=45603.258
+INFO [053/334] 2025-03-25 solved: price_mean=0.7713 plan_kWh=73673.472 emergency_kWh=453.835 total_cost=47213.935
+INFO [054/334] 2025-03-26 solved: price_mean=0.7566 plan_kWh=73615.378 emergency_kWh=161.242 total_cost=45171.959
+INFO [055/334] 2025-03-27 solved: price_mean=0.7664 plan_kWh=73214.577 emergency_kWh=296.151 total_cost=45396.707
+INFO [056/334] 2025-03-28 solved: price_mean=0.5748 plan_kWh=72943.823 emergency_kWh=0.000 total_cost=32396.892
+INFO [057/334] 2025-03-29 solved: price_mean=0.5631 plan_kWh=72708.090 emergency_kWh=0.000 total_cost=32045.315
+INFO [058/334] 2025-03-30 solved: price_mean=0.7520 plan_kWh=71664.057 emergency_kWh=316.302 total_cost=43589.167
+INFO [059/334] 2025-03-31 solved: price_mean=0.7607 plan_kWh=71321.049 emergency_kWh=138.186 total_cost=43517.134
+INFO [060/334] 2025-04-01 solved: price_mean=0.7731 plan_kWh=71216.104 emergency_kWh=924.848 total_cost=46999.634
+INFO [061/334] 2025-04-02 solved: price_mean=0.7723 plan_kWh=71759.863 emergency_kWh=547.998 total_cost=46052.937
+INFO [062/334] 2025-04-03 solved: price_mean=0.7645 plan_kWh=71008.174 emergency_kWh=328.259 total_cost=44019.188
+INFO [063/334] 2025-04-04 solved: price_mean=0.5595 plan_kWh=70289.311 emergency_kWh=0.000 total_cost=31011.898
+INFO [064/334] 2025-04-05 solved: price_mean=0.5755 plan_kWh=69830.096 emergency_kWh=0.000 total_cost=31255.125
+INFO [065/334] 2025-04-06 solved: price_mean=0.7557 plan_kWh=68863.444 emergency_kWh=239.504 total_cost=42510.054
+INFO [066/334] 2025-04-07 solved: price_mean=0.7517 plan_kWh=68438.995 emergency_kWh=198.042 total_cost=41481.840
+INFO [067/334] 2025-04-08 solved: price_mean=0.7519 plan_kWh=68497.496 emergency_kWh=211.914 total_cost=41378.432
+INFO [068/334] 2025-04-09 solved: price_mean=0.7663 plan_kWh=68644.362 emergency_kWh=429.525 total_cost=42643.634
+INFO [069/334] 2025-04-10 solved: price_mean=0.7580 plan_kWh=68490.333 emergency_kWh=295.230 total_cost=41687.846
+INFO [070/334] 2025-04-11 solved: price_mean=0.5515 plan_kWh=68098.628 emergency_kWh=0.000 total_cost=29567.435
+INFO [071/334] 2025-04-12 solved: price_mean=0.5639 plan_kWh=67476.903 emergency_kWh=0.000 total_cost=29620.223
+INFO [072/334] 2025-04-13 solved: price_mean=0.7563 plan_kWh=67191.152 emergency_kWh=209.548 total_cost=40864.194
+INFO [073/334] 2025-04-14 solved: price_mean=0.7466 plan_kWh=66317.787 emergency_kWh=360.984 total_cost=40320.500
+INFO [074/334] 2025-04-15 solved: price_mean=0.7385 plan_kWh=66363.122 emergency_kWh=204.851 total_cost=39525.604
+INFO [075/334] 2025-04-16 solved: price_mean=0.7624 plan_kWh=66380.528 emergency_kWh=505.920 total_cost=41385.811
+INFO [076/334] 2025-04-17 solved: price_mean=0.7478 plan_kWh=65654.056 emergency_kWh=129.016 total_cost=38916.721
+INFO [077/334] 2025-04-18 solved: price_mean=0.5594 plan_kWh=65863.512 emergency_kWh=0.000 total_cost=28959.242
+INFO [078/334] 2025-04-19 solved: price_mean=0.5580 plan_kWh=65396.374 emergency_kWh=0.000 total_cost=28400.303
+INFO [079/334] 2025-04-20 solved: price_mean=0.7454 plan_kWh=64758.000 emergency_kWh=125.582 total_cost=38460.473
+INFO [080/334] 2025-04-21 solved: price_mean=0.7340 plan_kWh=64189.083 emergency_kWh=349.211 total_cost=38247.672
+INFO [081/334] 2025-04-22 solved: price_mean=0.7510 plan_kWh=64201.049 emergency_kWh=326.268 total_cost=38974.065
+INFO [082/334] 2025-04-23 solved: price_mean=0.7479 plan_kWh=64281.913 emergency_kWh=493.082 total_cost=39573.430
+INFO [083/334] 2025-04-24 solved: price_mean=0.7362 plan_kWh=64050.442 emergency_kWh=188.186 total_cost=38167.492
+INFO [084/334] 2025-04-25 solved: price_mean=0.5407 plan_kWh=64486.317 emergency_kWh=0.000 total_cost=27012.041
+INFO [085/334] 2025-04-26 solved: price_mean=0.5378 plan_kWh=63832.088 emergency_kWh=0.000 total_cost=26938.650
+INFO [086/334] 2025-04-27 solved: price_mean=0.7338 plan_kWh=63010.605 emergency_kWh=233.836 total_cost=36648.792
+INFO [087/334] 2025-04-28 solved: price_mean=0.7661 plan_kWh=62052.207 emergency_kWh=2511.194 total_cost=45864.816
+INFO [088/334] 2025-04-29 solved: price_mean=0.7304 plan_kWh=63058.495 emergency_kWh=152.048 total_cost=36577.892
+INFO [089/334] 2025-04-30 solved: price_mean=0.7294 plan_kWh=62667.387 emergency_kWh=432.001 total_cost=37641.594
+INFO [090/334] 2025-05-01 solved: price_mean=0.7473 plan_kWh=63107.276 emergency_kWh=2262.162 total_cost=47605.701
+INFO [091/334] 2025-05-02 solved: price_mean=0.5870 plan_kWh=62816.740 emergency_kWh=0.000 total_cost=28942.823
+INFO [092/334] 2025-05-03 solved: price_mean=0.5698 plan_kWh=62329.829 emergency_kWh=18.392 total_cost=27984.979
+INFO [093/334] 2025-05-04 solved: price_mean=0.7461 plan_kWh=61154.394 emergency_kWh=2568.323 total_cost=47963.469
+INFO [094/334] 2025-05-05 solved: price_mean=0.7605 plan_kWh=61308.716 emergency_kWh=2455.502 total_cost=47274.230
+INFO [095/334] 2025-05-06 solved: price_mean=0.7532 plan_kWh=61762.590 emergency_kWh=2175.005 total_cost=46475.254
+INFO [096/334] 2025-05-07 solved: price_mean=0.7587 plan_kWh=61712.612 emergency_kWh=2080.672 total_cost=46748.987
+INFO [097/334] 2025-05-08 solved: price_mean=0.7617 plan_kWh=61425.541 emergency_kWh=2675.069 total_cost=48215.617
+INFO [098/334] 2025-05-09 solved: price_mean=0.5667 plan_kWh=62298.058 emergency_kWh=0.000 total_cost=28009.064
+INFO [099/334] 2025-05-10 solved: price_mean=0.5753 plan_kWh=62183.749 emergency_kWh=0.000 total_cost=28028.412
+INFO [100/334] 2025-05-11 solved: price_mean=0.7608 plan_kWh=60696.220 emergency_kWh=2310.009 total_cost=46686.412
+INFO [101/334] 2025-05-12 solved: price_mean=0.7518 plan_kWh=60810.100 emergency_kWh=2034.170 total_cost=44263.053
+INFO [102/334] 2025-05-13 solved: price_mean=0.7564 plan_kWh=61726.081 emergency_kWh=847.307 total_cost=40359.023
+INFO [103/334] 2025-05-14 solved: price_mean=0.7476 plan_kWh=61596.014 emergency_kWh=949.648 total_cost=40060.211
+INFO [104/334] 2025-05-15 solved: price_mean=0.7528 plan_kWh=61846.410 emergency_kWh=816.217 total_cost=40273.549
+INFO [105/334] 2025-05-16 solved: price_mean=0.5454 plan_kWh=62285.238 emergency_kWh=0.000 total_cost=27685.113
+INFO [106/334] 2025-05-17 solved: price_mean=0.5734 plan_kWh=62232.530 emergency_kWh=3.562 total_cost=28798.588
+INFO [107/334] 2025-05-18 solved: price_mean=0.7507 plan_kWh=60758.134 emergency_kWh=1732.648 total_cost=41797.948
+INFO [108/334] 2025-05-19 solved: price_mean=0.7318 plan_kWh=61184.150 emergency_kWh=406.158 total_cost=38297.160
+INFO [109/334] 2025-05-20 solved: price_mean=0.7566 plan_kWh=60982.932 emergency_kWh=1986.972 total_cost=44494.528
+INFO [110/334] 2025-05-21 solved: price_mean=0.7458 plan_kWh=61441.870 emergency_kWh=1146.606 total_cost=41333.935
+INFO [111/334] 2025-05-22 solved: price_mean=0.7462 plan_kWh=61187.350 emergency_kWh=209.619 total_cost=37542.020
+INFO [112/334] 2025-05-23 solved: price_mean=0.5570 plan_kWh=62064.150 emergency_kWh=0.000 total_cost=27769.726
+INFO [113/334] 2025-05-24 solved: price_mean=0.5532 plan_kWh=61688.444 emergency_kWh=0.000 total_cost=27828.463
+INFO [114/334] 2025-05-25 solved: price_mean=0.7380 plan_kWh=61164.246 emergency_kWh=337.788 total_cost=38018.416
+INFO [115/334] 2025-05-26 solved: price_mean=0.7525 plan_kWh=60866.488 emergency_kWh=1897.304 total_cost=43184.827
+INFO [116/334] 2025-05-27 solved: price_mean=0.7429 plan_kWh=61797.052 emergency_kWh=459.175 total_cost=38140.278
+INFO [117/334] 2025-05-28 solved: price_mean=0.7513 plan_kWh=61435.278 emergency_kWh=1299.282 total_cost=41312.527
+INFO [118/334] 2025-05-29 solved: price_mean=0.7595 plan_kWh=61383.232 emergency_kWh=994.696 total_cost=40833.878
+INFO [119/334] 2025-05-30 solved: price_mean=0.5610 plan_kWh=62029.606 emergency_kWh=0.000 total_cost=28139.830
+INFO [120/334] 2025-05-31 solved: price_mean=0.5664 plan_kWh=62563.819 emergency_kWh=90.662 total_cost=27551.031
+INFO [121/334] 2025-06-01 solved: price_mean=0.8192 plan_kWh=60670.148 emergency_kWh=14599.559 total_cost=103307.541
+INFO [122/334] 2025-06-02 solved: price_mean=0.8099 plan_kWh=61873.487 emergency_kWh=11565.536 total_cost=92649.431
+INFO [123/334] 2025-06-03 solved: price_mean=0.8063 plan_kWh=62545.220 emergency_kWh=9752.135 total_cost=83867.606
+INFO [124/334] 2025-06-04 solved: price_mean=0.8137 plan_kWh=64052.041 emergency_kWh=9806.183 total_cost=82010.276
+INFO [125/334] 2025-06-05 solved: price_mean=0.8221 plan_kWh=65153.072 emergency_kWh=10161.058 total_cost=86402.306
+INFO [126/334] 2025-06-06 solved: price_mean=0.6493 plan_kWh=67336.331 emergency_kWh=0.000 total_cost=34869.142
+INFO [127/334] 2025-06-07 solved: price_mean=0.6503 plan_kWh=66601.998 emergency_kWh=76.188 total_cost=34731.544
+INFO [128/334] 2025-06-08 solved: price_mean=0.7971 plan_kWh=65907.955 emergency_kWh=6274.040 total_cost=68728.942
+INFO [129/334] 2025-06-09 solved: price_mean=0.8193 plan_kWh=66830.869 emergency_kWh=8514.457 total_cost=81895.238
+INFO [130/334] 2025-06-10 solved: price_mean=0.8168 plan_kWh=69326.908 emergency_kWh=7061.401 total_cost=75676.530
+INFO [131/334] 2025-06-11 solved: price_mean=0.8317 plan_kWh=71298.910 emergency_kWh=9537.965 total_cost=91587.433
+INFO [132/334] 2025-06-12 solved: price_mean=0.8220 plan_kWh=72102.959 emergency_kWh=5422.612 total_cost=72241.567
+INFO [133/334] 2025-06-13 solved: price_mean=0.6400 plan_kWh=73936.313 emergency_kWh=0.000 total_cost=38322.281
+INFO [134/334] 2025-06-14 solved: price_mean=0.6369 plan_kWh=74238.445 emergency_kWh=0.000 total_cost=38914.298
+INFO [135/334] 2025-06-15 solved: price_mean=0.8178 plan_kWh=73256.303 emergency_kWh=3244.129 total_cost=63405.022
+INFO [136/334] 2025-06-16 solved: price_mean=0.8232 plan_kWh=73980.998 emergency_kWh=4131.032 total_cost=67890.823
+INFO [137/334] 2025-06-17 solved: price_mean=0.8286 plan_kWh=75337.070 emergency_kWh=4897.816 total_cost=73769.735
+INFO [138/334] 2025-06-18 solved: price_mean=0.8200 plan_kWh=76218.940 emergency_kWh=1918.914 total_cost=59248.292
+INFO [139/334] 2025-06-19 solved: price_mean=0.8079 plan_kWh=76628.391 emergency_kWh=1120.927 total_cost=56596.605
+INFO [140/334] 2025-06-20 solved: price_mean=0.6213 plan_kWh=78075.622 emergency_kWh=0.000 total_cost=39904.817
+INFO [141/334] 2025-06-21 solved: price_mean=0.6095 plan_kWh=77616.459 emergency_kWh=0.000 total_cost=38449.110
+INFO [142/334] 2025-06-22 solved: price_mean=0.8075 plan_kWh=77737.313 emergency_kWh=1114.635 total_cost=56396.578
+INFO [143/334] 2025-06-23 solved: price_mean=0.8049 plan_kWh=77438.455 emergency_kWh=670.584 total_cost=54838.915
+INFO [144/334] 2025-06-24 solved: price_mean=0.8405 plan_kWh=77902.628 emergency_kWh=4771.217 total_cost=75639.687
+INFO [145/334] 2025-06-25 solved: price_mean=0.8163 plan_kWh=77997.851 emergency_kWh=1618.685 total_cost=59201.090
+INFO [146/334] 2025-06-26 solved: price_mean=0.8060 plan_kWh=78812.387 emergency_kWh=529.372 total_cost=54525.685
+INFO [147/334] 2025-06-27 solved: price_mean=0.6051 plan_kWh=79169.982 emergency_kWh=0.000 total_cost=39140.940
+INFO [148/334] 2025-06-28 solved: price_mean=0.6230 plan_kWh=79492.799 emergency_kWh=0.000 total_cost=40007.831
+INFO [149/334] 2025-06-29 solved: price_mean=0.8118 plan_kWh=78500.563 emergency_kWh=1006.366 total_cost=56829.168
+INFO [150/334] 2025-06-30 solved: price_mean=0.8102 plan_kWh=78767.120 emergency_kWh=1068.171 total_cost=56776.183
+INFO [151/334] 2025-07-01 solved: price_mean=0.8908 plan_kWh=79466.633 emergency_kWh=7000.389 total_cost=86899.028
+INFO [152/334] 2025-07-02 solved: price_mean=0.8753 plan_kWh=79850.916 emergency_kWh=6209.504 total_cost=83691.850
+INFO [153/334] 2025-07-03 solved: price_mean=0.9014 plan_kWh=79552.564 emergency_kWh=7144.685 total_cost=90493.573
+INFO [154/334] 2025-07-04 solved: price_mean=0.6903 plan_kWh=80673.482 emergency_kWh=0.000 total_cost=44541.735
+INFO [155/334] 2025-07-05 solved: price_mean=0.6843 plan_kWh=80679.446 emergency_kWh=71.998 total_cost=44851.195
+INFO [156/334] 2025-07-06 solved: price_mean=0.8987 plan_kWh=79766.584 emergency_kWh=7598.773 total_cost=93088.026
+INFO [157/334] 2025-07-07 solved: price_mean=0.8774 plan_kWh=80287.779 emergency_kWh=5794.306 total_cost=81772.757
+INFO [158/334] 2025-07-08 solved: price_mean=0.8836 plan_kWh=80780.969 emergency_kWh=6242.804 total_cost=86310.590
+INFO [159/334] 2025-07-09 solved: price_mean=0.8792 plan_kWh=82015.253 emergency_kWh=4318.212 total_cost=78191.351
+INFO [160/334] 2025-07-10 solved: price_mean=0.8775 plan_kWh=83461.463 emergency_kWh=2808.663 total_cost=72961.313
+INFO [161/334] 2025-07-11 solved: price_mean=0.7069 plan_kWh=84506.318 emergency_kWh=0.000 total_cost=49142.702
+INFO [162/334] 2025-07-12 solved: price_mean=0.6943 plan_kWh=84978.137 emergency_kWh=0.000 total_cost=48164.940
+INFO [163/334] 2025-07-13 solved: price_mean=0.8543 plan_kWh=83379.747 emergency_kWh=1815.503 total_cost=67326.028
+INFO [164/334] 2025-07-14 solved: price_mean=0.8722 plan_kWh=84297.372 emergency_kWh=1583.479 total_cost=67788.978
+INFO [165/334] 2025-07-15 solved: price_mean=0.8721 plan_kWh=84281.004 emergency_kWh=1544.299 total_cost=67608.434
+INFO [166/334] 2025-07-16 solved: price_mean=0.8758 plan_kWh=84290.828 emergency_kWh=1469.122 total_cost=68426.118
+INFO [167/334] 2025-07-17 solved: price_mean=0.8748 plan_kWh=84657.678 emergency_kWh=1302.124 total_cost=67040.700
+INFO [168/334] 2025-07-18 solved: price_mean=0.6942 plan_kWh=84840.710 emergency_kWh=0.000 total_cost=48437.685
+INFO [169/334] 2025-07-19 solved: price_mean=0.6803 plan_kWh=84676.268 emergency_kWh=30.382 total_cost=47564.101
+INFO [170/334] 2025-07-20 solved: price_mean=0.8676 plan_kWh=83611.695 emergency_kWh=552.873 total_cost=62553.541
+INFO [171/334] 2025-07-21 solved: price_mean=0.8792 plan_kWh=83410.857 emergency_kWh=1066.801 total_cost=66246.594
+INFO [172/334] 2025-07-22 solved: price_mean=0.8751 plan_kWh=84019.612 emergency_kWh=1049.892 total_cost=65476.579
+INFO [173/334] 2025-07-23 solved: price_mean=0.8756 plan_kWh=84062.713 emergency_kWh=978.471 total_cost=65160.982
+INFO [174/334] 2025-07-24 solved: price_mean=0.8774 plan_kWh=83778.359 emergency_kWh=1262.801 total_cost=66865.843
+INFO [175/334] 2025-07-25 solved: price_mean=0.6770 plan_kWh=84441.560 emergency_kWh=0.000 total_cost=47444.152
+INFO [176/334] 2025-07-26 solved: price_mean=0.6880 plan_kWh=84495.678 emergency_kWh=0.000 total_cost=48027.637
+INFO [177/334] 2025-07-27 solved: price_mean=0.8771 plan_kWh=82922.936 emergency_kWh=824.736 total_cost=63658.969
+INFO [178/334] 2025-07-28 solved: price_mean=0.8862 plan_kWh=82832.363 emergency_kWh=2331.834 total_cost=70660.702
+INFO [179/334] 2025-07-29 solved: price_mean=0.8846 plan_kWh=83677.929 emergency_kWh=1623.916 total_cost=67716.568
+INFO [180/334] 2025-07-30 solved: price_mean=0.8797 plan_kWh=83442.094 emergency_kWh=799.515 total_cost=65194.151
+INFO [181/334] 2025-07-31 solved: price_mean=0.8814 plan_kWh=83907.523 emergency_kWh=593.170 total_cost=63609.291
+INFO [182/334] 2025-08-01 solved: price_mean=0.6664 plan_kWh=83714.229 emergency_kWh=0.000 total_cost=46998.356
+INFO [183/334] 2025-08-02 solved: price_mean=0.6622 plan_kWh=83527.494 emergency_kWh=31.343 total_cost=45998.350
+INFO [184/334] 2025-08-03 solved: price_mean=0.8334 plan_kWh=82750.344 emergency_kWh=354.507 total_cost=59970.493
+INFO [185/334] 2025-08-04 solved: price_mean=0.8448 plan_kWh=82354.393 emergency_kWh=177.833 total_cost=59167.840
+INFO [186/334] 2025-08-05 solved: price_mean=0.8446 plan_kWh=82228.204 emergency_kWh=134.395 total_cost=58870.504
+INFO [187/334] 2025-08-06 solved: price_mean=0.8577 plan_kWh=82070.045 emergency_kWh=643.601 total_cost=62316.590
+INFO [188/334] 2025-08-07 solved: price_mean=0.8411 plan_kWh=82089.264 emergency_kWh=324.134 total_cost=59029.955
+INFO [189/334] 2025-08-08 solved: price_mean=0.6380 plan_kWh=82472.554 emergency_kWh=0.000 total_cost=44399.676
+INFO [190/334] 2025-08-09 solved: price_mean=0.6530 plan_kWh=81991.988 emergency_kWh=0.000 total_cost=45217.497
+INFO [191/334] 2025-08-10 solved: price_mean=0.8487 plan_kWh=80735.524 emergency_kWh=135.757 total_cost=58533.454
+INFO [192/334] 2025-08-11 solved: price_mean=0.8396 plan_kWh=81032.310 emergency_kWh=280.429 total_cost=57671.620
+INFO [193/334] 2025-08-12 solved: price_mean=0.8574 plan_kWh=80419.193 emergency_kWh=342.944 total_cost=59401.361
+INFO [194/334] 2025-08-13 solved: price_mean=0.8532 plan_kWh=80502.057 emergency_kWh=419.149 total_cost=59459.355
+INFO [195/334] 2025-08-14 solved: price_mean=0.8501 plan_kWh=80667.695 emergency_kWh=506.797 total_cost=59852.931
+INFO [196/334] 2025-08-15 solved: price_mean=0.6512 plan_kWh=80657.187 emergency_kWh=0.000 total_cost=44881.484
+INFO [197/334] 2025-08-16 solved: price_mean=0.6473 plan_kWh=80538.193 emergency_kWh=0.000 total_cost=44685.307
+INFO [198/334] 2025-08-17 solved: price_mean=0.8399 plan_kWh=79728.517 emergency_kWh=448.237 total_cost=58807.298
+INFO [199/334] 2025-08-18 solved: price_mean=0.8476 plan_kWh=79736.910 emergency_kWh=479.213 total_cost=59048.830
+INFO [200/334] 2025-08-19 solved: price_mean=0.8429 plan_kWh=79571.987 emergency_kWh=412.481 total_cost=59253.586
+INFO [201/334] 2025-08-20 solved: price_mean=0.8663 plan_kWh=79799.104 emergency_kWh=1386.519 total_cost=63647.337
+INFO [202/334] 2025-08-21 solved: price_mean=0.8472 plan_kWh=79684.723 emergency_kWh=333.896 total_cost=58443.396
+INFO [203/334] 2025-08-22 solved: price_mean=0.6605 plan_kWh=79799.806 emergency_kWh=0.000 total_cost=44883.924
+INFO [204/334] 2025-08-23 solved: price_mean=0.6592 plan_kWh=79900.898 emergency_kWh=0.000 total_cost=43846.674
+INFO [205/334] 2025-08-24 solved: price_mean=0.8410 plan_kWh=78241.577 emergency_kWh=597.563 total_cost=58808.974
+INFO [206/334] 2025-08-25 solved: price_mean=0.8602 plan_kWh=77835.309 emergency_kWh=2026.211 total_cost=63982.386
+INFO [207/334] 2025-08-26 solved: price_mean=0.8444 plan_kWh=78505.364 emergency_kWh=446.833 total_cost=57471.691
+INFO [208/334] 2025-08-27 solved: price_mean=0.8534 plan_kWh=78844.045 emergency_kWh=715.763 total_cost=59091.056
+INFO [209/334] 2025-08-28 solved: price_mean=0.8635 plan_kWh=77822.080 emergency_kWh=2150.576 total_cost=65546.037
+INFO [210/334] 2025-08-29 solved: price_mean=0.6645 plan_kWh=77811.445 emergency_kWh=0.000 total_cost=43870.376
+INFO [211/334] 2025-08-30 solved: price_mean=0.6547 plan_kWh=77009.585 emergency_kWh=0.000 total_cost=43593.602
+INFO [212/334] 2025-08-31 solved: price_mean=0.8465 plan_kWh=75874.777 emergency_kWh=1274.798 total_cost=58981.473
+INFO [213/334] 2025-09-01 solved: price_mean=0.7517 plan_kWh=74807.303 emergency_kWh=244.233 total_cost=48342.362
+INFO [214/334] 2025-09-02 solved: price_mean=0.7540 plan_kWh=75143.444 emergency_kWh=61.751 total_cost=47789.481
+INFO [215/334] 2025-09-03 solved: price_mean=0.7610 plan_kWh=75259.727 emergency_kWh=90.605 total_cost=49091.491
+INFO [216/334] 2025-09-04 solved: price_mean=0.7570 plan_kWh=75224.321 emergency_kWh=106.141 total_cost=48297.532
+INFO [217/334] 2025-09-05 solved: price_mean=0.5586 plan_kWh=75107.151 emergency_kWh=0.000 total_cost=36816.608
+INFO [218/334] 2025-09-06 solved: price_mean=0.5657 plan_kWh=75440.521 emergency_kWh=0.000 total_cost=36724.173
+INFO [219/334] 2025-09-07 solved: price_mean=0.7593 plan_kWh=74259.394 emergency_kWh=116.565 total_cost=47556.344
+INFO [220/334] 2025-09-08 solved: price_mean=0.7735 plan_kWh=74207.535 emergency_kWh=761.115 total_cost=51149.359
+INFO [221/334] 2025-09-09 solved: price_mean=0.7519 plan_kWh=74286.550 emergency_kWh=62.314 total_cost=47674.498
+INFO [222/334] 2025-09-10 solved: price_mean=0.7818 plan_kWh=74458.477 emergency_kWh=1717.586 total_cost=55944.548
+INFO [223/334] 2025-09-11 solved: price_mean=0.7531 plan_kWh=74261.514 emergency_kWh=132.203 total_cost=47902.732
+INFO [224/334] 2025-09-12 solved: price_mean=0.5751 plan_kWh=74633.345 emergency_kWh=0.000 total_cost=36638.311
+INFO [225/334] 2025-09-13 solved: price_mean=0.5665 plan_kWh=74230.105 emergency_kWh=0.000 total_cost=36284.114
+INFO [226/334] 2025-09-14 solved: price_mean=0.7759 plan_kWh=73463.257 emergency_kWh=795.109 total_cost=50537.426
+INFO [227/334] 2025-09-15 solved: price_mean=0.7617 plan_kWh=73480.984 emergency_kWh=847.507 total_cost=50693.463
+INFO [228/334] 2025-09-16 solved: price_mean=0.7779 plan_kWh=73928.058 emergency_kWh=671.879 total_cost=50081.887
+INFO [229/334] 2025-09-17 solved: price_mean=0.7781 plan_kWh=73725.558 emergency_kWh=1031.497 total_cost=52421.286
+INFO [230/334] 2025-09-18 solved: price_mean=0.7698 plan_kWh=73783.717 emergency_kWh=380.621 total_cost=48565.565
+INFO [231/334] 2025-09-19 solved: price_mean=0.5933 plan_kWh=73501.446 emergency_kWh=0.000 total_cost=36833.395
+INFO [232/334] 2025-09-20 solved: price_mean=0.5875 plan_kWh=73456.801 emergency_kWh=0.000 total_cost=35812.863
+INFO [233/334] 2025-09-21 solved: price_mean=0.7738 plan_kWh=71253.805 emergency_kWh=897.375 total_cost=49540.805
+INFO [234/334] 2025-09-22 solved: price_mean=0.7822 plan_kWh=68674.372 emergency_kWh=1037.100 total_cost=48891.649
+INFO [235/334] 2025-09-23 solved: price_mean=0.7818 plan_kWh=68909.863 emergency_kWh=1805.394 total_cost=52010.628
+INFO [236/334] 2025-09-24 solved: price_mean=0.7761 plan_kWh=69327.611 emergency_kWh=1540.715 total_cost=50759.189
+INFO [237/334] 2025-09-25 solved: price_mean=0.7776 plan_kWh=68905.529 emergency_kWh=1077.119 total_cost=48566.972
+INFO [238/334] 2025-09-26 solved: price_mean=0.5928 plan_kWh=68977.769 emergency_kWh=0.000 total_cost=33262.631
+INFO [239/334] 2025-09-27 solved: price_mean=0.5997 plan_kWh=68241.449 emergency_kWh=0.000 total_cost=34041.924
+INFO [240/334] 2025-09-28 solved: price_mean=0.7894 plan_kWh=67182.672 emergency_kWh=2628.370 total_cost=55165.024
+INFO [241/334] 2025-09-29 solved: price_mean=0.7878 plan_kWh=67093.845 emergency_kWh=1992.232 total_cost=51854.332
+INFO [242/334] 2025-09-30 solved: price_mean=0.7938 plan_kWh=67935.111 emergency_kWh=3954.837 total_cost=61564.298
+INFO [243/334] 2025-10-01 solved: price_mean=0.7382 plan_kWh=68308.519 emergency_kWh=72.486 total_cost=41954.327
+INFO [244/334] 2025-10-02 solved: price_mean=0.7420 plan_kWh=67893.770 emergency_kWh=258.133 total_cost=42460.604
+INFO [245/334] 2025-10-03 solved: price_mean=0.5580 plan_kWh=68862.712 emergency_kWh=0.000 total_cost=31127.248
+INFO [246/334] 2025-10-04 solved: price_mean=0.5858 plan_kWh=68304.737 emergency_kWh=0.000 total_cost=32393.294
+INFO [247/334] 2025-10-05 solved: price_mean=0.7526 plan_kWh=67587.181 emergency_kWh=304.954 total_cost=42882.398
+INFO [248/334] 2025-10-06 solved: price_mean=0.7685 plan_kWh=67544.920 emergency_kWh=467.319 total_cost=44312.541
+INFO [249/334] 2025-10-07 solved: price_mean=0.7658 plan_kWh=67832.358 emergency_kWh=548.963 total_cost=44526.070
+INFO [250/334] 2025-10-08 solved: price_mean=0.7607 plan_kWh=67774.233 emergency_kWh=897.975 total_cost=45837.752
+INFO [251/334] 2025-10-09 solved: price_mean=0.7578 plan_kWh=67799.447 emergency_kWh=665.102 total_cost=44942.277
+INFO [252/334] 2025-10-10 solved: price_mean=0.5595 plan_kWh=68542.655 emergency_kWh=0.000 total_cost=31693.823
+INFO [253/334] 2025-10-11 solved: price_mean=0.5846 plan_kWh=68103.353 emergency_kWh=0.000 total_cost=32321.940
+INFO [254/334] 2025-10-12 solved: price_mean=0.7663 plan_kWh=67123.667 emergency_kWh=842.882 total_cost=44969.436
+INFO [255/334] 2025-10-13 solved: price_mean=0.7647 plan_kWh=67324.653 emergency_kWh=522.430 total_cost=44109.770
+INFO [256/334] 2025-10-14 solved: price_mean=0.7731 plan_kWh=67448.625 emergency_kWh=1862.540 total_cost=50549.833
+INFO [257/334] 2025-10-15 solved: price_mean=0.7761 plan_kWh=68045.339 emergency_kWh=1971.689 total_cost=50588.004
+INFO [258/334] 2025-10-16 solved: price_mean=0.7822 plan_kWh=67780.019 emergency_kWh=3304.424 total_cost=57980.669
+INFO [259/334] 2025-10-17 solved: price_mean=0.5888 plan_kWh=68738.943 emergency_kWh=0.000 total_cost=32816.578
+INFO [260/334] 2025-10-18 solved: price_mean=0.5831 plan_kWh=68472.582 emergency_kWh=0.000 total_cost=32227.625
+INFO [261/334] 2025-10-19 solved: price_mean=0.7894 plan_kWh=67458.887 emergency_kWh=3437.729 total_cost=58481.781
+INFO [262/334] 2025-10-20 solved: price_mean=0.7871 plan_kWh=67493.442 emergency_kWh=3463.494 total_cost=58878.230
+INFO [263/334] 2025-10-21 solved: price_mean=0.7953 plan_kWh=68180.227 emergency_kWh=4653.799 total_cost=62726.427
+INFO [264/334] 2025-10-22 solved: price_mean=0.7930 plan_kWh=68886.565 emergency_kWh=3692.522 total_cost=60897.083
+INFO [265/334] 2025-10-23 solved: price_mean=0.7813 plan_kWh=69148.532 emergency_kWh=1928.642 total_cost=51832.915
+INFO [266/334] 2025-10-24 solved: price_mean=0.5964 plan_kWh=69193.256 emergency_kWh=0.000 total_cost=33186.095
+INFO [267/334] 2025-10-25 solved: price_mean=0.5985 plan_kWh=68904.056 emergency_kWh=0.000 total_cost=32759.351
+INFO [268/334] 2025-10-26 solved: price_mean=0.7873 plan_kWh=68565.353 emergency_kWh=1834.149 total_cost=50786.602
+INFO [269/334] 2025-10-27 solved: price_mean=0.7829 plan_kWh=69094.808 emergency_kWh=2476.310 total_cost=54258.807
+INFO [270/334] 2025-10-28 solved: price_mean=0.7931 plan_kWh=69320.166 emergency_kWh=2781.308 total_cost=56485.461
+INFO [271/334] 2025-10-29 solved: price_mean=0.8070 plan_kWh=69584.877 emergency_kWh=5081.340 total_cost=66498.055
+INFO [272/334] 2025-10-30 solved: price_mean=0.7920 plan_kWh=70145.914 emergency_kWh=1839.117 total_cost=53073.381
+INFO [273/334] 2025-10-31 solved: price_mean=0.6177 plan_kWh=70409.977 emergency_kWh=0.000 total_cost=34195.252
+INFO [274/334] 2025-11-01 solved: price_mean=0.6046 plan_kWh=70149.198 emergency_kWh=0.000 total_cost=33471.994
+INFO [275/334] 2025-11-02 solved: price_mean=0.8022 plan_kWh=69845.851 emergency_kWh=3932.282 total_cost=62317.783
+INFO [276/334] 2025-11-03 solved: price_mean=0.8055 plan_kWh=70696.790 emergency_kWh=4287.346 total_cost=61863.727
+INFO [277/334] 2025-11-04 solved: price_mean=0.7976 plan_kWh=71554.030 emergency_kWh=2140.382 total_cost=55008.066
+INFO [278/334] 2025-11-05 solved: price_mean=0.8090 plan_kWh=71864.339 emergency_kWh=3374.567 total_cost=61034.345
+INFO [279/334] 2025-11-06 solved: price_mean=0.8151 plan_kWh=72713.649 emergency_kWh=4617.477 total_cost=68263.999
+INFO [280/334] 2025-11-07 solved: price_mean=0.6155 plan_kWh=73010.835 emergency_kWh=0.000 total_cost=35469.925
+INFO [281/334] 2025-11-08 solved: price_mean=0.6173 plan_kWh=73194.046 emergency_kWh=0.000 total_cost=35756.704
+INFO [282/334] 2025-11-09 solved: price_mean=0.8103 plan_kWh=73230.520 emergency_kWh=3829.032 total_cost=63967.430
+INFO [283/334] 2025-11-10 solved: price_mean=0.8190 plan_kWh=73836.975 emergency_kWh=5602.419 total_cost=73028.716
+INFO [284/334] 2025-11-11 solved: price_mean=0.8139 plan_kWh=74294.836 emergency_kWh=2730.888 total_cost=61233.470
+INFO [285/334] 2025-11-12 solved: price_mean=0.8124 plan_kWh=74945.903 emergency_kWh=2097.499 total_cost=60049.334
+INFO [286/334] 2025-11-13 solved: price_mean=0.8185 plan_kWh=75091.336 emergency_kWh=3172.148 total_cost=63512.682
+INFO [287/334] 2025-11-14 solved: price_mean=0.6291 plan_kWh=75561.273 emergency_kWh=0.000 total_cost=37797.294
+INFO [288/334] 2025-11-15 solved: price_mean=0.6288 plan_kWh=75808.946 emergency_kWh=0.000 total_cost=37937.095
+INFO [289/334] 2025-11-16 solved: price_mean=0.8206 plan_kWh=75641.412 emergency_kWh=4160.543 total_cost=69465.658
+INFO [290/334] 2025-11-17 solved: price_mean=0.8159 plan_kWh=76299.586 emergency_kWh=2560.446 total_cost=62483.209
+INFO [291/334] 2025-11-18 solved: price_mean=0.8219 plan_kWh=76483.163 emergency_kWh=3987.874 total_cost=68268.491
+INFO [292/334] 2025-11-19 solved: price_mean=0.8290 plan_kWh=76984.326 emergency_kWh=3373.865 total_cost=68151.033
+INFO [293/334] 2025-11-20 solved: price_mean=0.8212 plan_kWh=77856.404 emergency_kWh=2904.275 total_cost=64710.746
+INFO [294/334] 2025-11-21 solved: price_mean=0.6326 plan_kWh=78174.055 emergency_kWh=0.000 total_cost=39577.700
+INFO [295/334] 2025-11-22 solved: price_mean=0.6367 plan_kWh=78276.369 emergency_kWh=0.000 total_cost=39862.087
+INFO [296/334] 2025-11-23 solved: price_mean=0.8265 plan_kWh=77835.647 emergency_kWh=3290.551 total_cost=68312.090
+INFO [297/334] 2025-11-24 solved: price_mean=0.8211 plan_kWh=78512.169 emergency_kWh=1859.774 total_cost=60848.567
+INFO [298/334] 2025-11-25 solved: price_mean=0.8241 plan_kWh=78824.184 emergency_kWh=2892.014 total_cost=65705.113
+INFO [299/334] 2025-11-26 solved: price_mean=0.8299 plan_kWh=79361.358 emergency_kWh=3320.046 total_cost=68842.719
+INFO [300/334] 2025-11-27 solved: price_mean=0.8286 plan_kWh=79592.820 emergency_kWh=2251.187 total_cost=64773.833
+INFO [301/334] 2025-11-28 solved: price_mean=0.6340 plan_kWh=80120.281 emergency_kWh=0.000 total_cost=40524.628
+INFO [302/334] 2025-11-29 solved: price_mean=0.6504 plan_kWh=80810.217 emergency_kWh=0.000 total_cost=41580.052
+INFO [303/334] 2025-11-30 solved: price_mean=0.8396 plan_kWh=80232.410 emergency_kWh=5507.887 total_cost=79959.032
+INFO [304/334] 2025-12-01 solved: price_mean=0.9076 plan_kWh=80745.570 emergency_kWh=10265.044 total_cost=107527.695
+INFO [305/334] 2025-12-02 solved: price_mean=0.9153 plan_kWh=81577.166 emergency_kWh=11789.406 total_cost=117496.119
+INFO [306/334] 2025-12-03 solved: price_mean=0.9120 plan_kWh=82448.818 emergency_kWh=9794.499 total_cost=105783.836
+INFO [307/334] 2025-12-04 solved: price_mean=0.9051 plan_kWh=83283.528 emergency_kWh=8646.899 total_cost=101327.022
+INFO [308/334] 2025-12-05 solved: price_mean=0.7172 plan_kWh=84392.134 emergency_kWh=0.000 total_cost=46368.256
+INFO [309/334] 2025-12-06 solved: price_mean=0.7272 plan_kWh=84688.901 emergency_kWh=0.000 total_cost=47406.703
+INFO [310/334] 2025-12-07 solved: price_mean=0.9101 plan_kWh=84195.983 emergency_kWh=8417.702 total_cost=100866.450
+INFO [311/334] 2025-12-08 solved: price_mean=0.9085 plan_kWh=85234.441 emergency_kWh=7665.808 total_cost=97780.941
+INFO [312/334] 2025-12-09 solved: price_mean=0.9058 plan_kWh=87068.958 emergency_kWh=5396.886 total_cost=89395.988
+INFO [313/334] 2025-12-10 solved: price_mean=0.9162 plan_kWh=88791.111 emergency_kWh=4911.031 total_cost=88607.894
+INFO [314/334] 2025-12-11 solved: price_mean=0.8976 plan_kWh=90071.105 emergency_kWh=2137.402 total_cost=74387.195
+INFO [315/334] 2025-12-12 solved: price_mean=0.7238 plan_kWh=91119.045 emergency_kWh=0.000 total_cost=51598.545
+INFO [316/334] 2025-12-13 solved: price_mean=0.7297 plan_kWh=90973.661 emergency_kWh=2.835 total_cost=51894.775
+INFO [317/334] 2025-12-14 solved: price_mean=0.9207 plan_kWh=90889.914 emergency_kWh=3570.677 total_cost=85249.446
+INFO [318/334] 2025-12-15 solved: price_mean=0.9144 plan_kWh=91270.970 emergency_kWh=3686.992 total_cost=85444.446
+INFO [319/334] 2025-12-16 solved: price_mean=0.9109 plan_kWh=92200.954 emergency_kWh=3110.519 total_cost=83066.550
+INFO [320/334] 2025-12-17 solved: price_mean=0.9088 plan_kWh=92602.326 emergency_kWh=1587.989 total_cost=75469.063
+INFO [321/334] 2025-12-18 solved: price_mean=0.9095 plan_kWh=93019.204 emergency_kWh=1460.942 total_cost=75837.847
+INFO [322/334] 2025-12-19 solved: price_mean=0.7251 plan_kWh=93758.839 emergency_kWh=0.000 total_cost=53433.479
+INFO [323/334] 2025-12-20 solved: price_mean=0.7190 plan_kWh=93722.169 emergency_kWh=0.000 total_cost=52631.445
+INFO [324/334] 2025-12-21 solved: price_mean=0.9101 plan_kWh=93437.825 emergency_kWh=1990.489 total_cost=78423.127
+INFO [325/334] 2025-12-22 solved: price_mean=0.9193 plan_kWh=93571.371 emergency_kWh=1375.848 total_cost=76740.311
+INFO [326/334] 2025-12-23 solved: price_mean=0.9127 plan_kWh=94413.279 emergency_kWh=536.164 total_cost=72436.700
+INFO [327/334] 2025-12-24 solved: price_mean=0.9083 plan_kWh=94060.089 emergency_kWh=986.861 total_cost=74706.062
+INFO [328/334] 2025-12-25 solved: price_mean=0.9103 plan_kWh=94717.262 emergency_kWh=981.242 total_cost=74154.869
+INFO [329/334] 2025-12-26 solved: price_mean=0.7238 plan_kWh=94716.516 emergency_kWh=0.000 total_cost=53663.916
+INFO [330/334] 2025-12-27 solved: price_mean=0.7212 plan_kWh=95352.087 emergency_kWh=0.000 total_cost=53229.085
+INFO [331/334] 2025-12-28 solved: price_mean=0.9059 plan_kWh=94315.201 emergency_kWh=547.310 total_cost=72134.885
+INFO [332/334] 2025-12-29 solved: price_mean=0.9065 plan_kWh=94510.908 emergency_kWh=737.212 total_cost=73071.878
+INFO [333/334] 2025-12-30 solved: price_mean=0.9005 plan_kWh=94754.353 emergency_kWh=298.118 total_cost=71006.852
+INFO [334/334] 2025-12-31 solved: price_mean=0.9102 plan_kWh=94637.606 emergency_kWh=1056.270 total_cost=75575.664
+INFO Question 4-2: recomputing fixed-price baseline with the identical policy
+INFO [001/334] 2025-02-01 solved: price_mean=0.7662 plan_kWh=96653.216 emergency_kWh=0.000 total_cost=61767.895
+INFO [002/334] 2025-02-02 solved: price_mean=0.7662 plan_kWh=96156.971 emergency_kWh=13.377 total_cost=61505.666
+INFO [003/334] 2025-02-03 solved: price_mean=0.7662 plan_kWh=95684.233 emergency_kWh=15.483 total_cost=61099.001
+INFO [004/334] 2025-02-04 solved: price_mean=0.7662 plan_kWh=95690.689 emergency_kWh=70.908 total_cost=61299.813
+INFO [005/334] 2025-02-05 solved: price_mean=0.7662 plan_kWh=95703.181 emergency_kWh=10.173 total_cost=61123.094
+INFO [006/334] 2025-02-06 solved: price_mean=0.7662 plan_kWh=95327.042 emergency_kWh=7.921 total_cost=60840.029
+INFO [007/334] 2025-02-07 solved: price_mean=0.7662 plan_kWh=95017.546 emergency_kWh=0.000 total_cost=60552.295
+INFO [008/334] 2025-02-08 solved: price_mean=0.7662 plan_kWh=94522.577 emergency_kWh=0.000 total_cost=60175.935
+INFO [009/334] 2025-02-09 solved: price_mean=0.7662 plan_kWh=94087.786 emergency_kWh=79.364 total_cost=60056.411
+INFO [010/334] 2025-02-10 solved: price_mean=0.7662 plan_kWh=93626.702 emergency_kWh=22.992 total_cost=59660.779
+INFO [011/334] 2025-02-11 solved: price_mean=0.7662 plan_kWh=93642.421 emergency_kWh=3.118 total_cost=59569.228
+INFO [012/334] 2025-02-12 solved: price_mean=0.7662 plan_kWh=93638.311 emergency_kWh=20.746 total_cost=59669.489
+INFO [013/334] 2025-02-13 solved: price_mean=0.7662 plan_kWh=93029.891 emergency_kWh=31.322 total_cost=59222.844
+INFO [014/334] 2025-02-14 solved: price_mean=0.7662 plan_kWh=92706.254 emergency_kWh=0.000 total_cost=58839.463
+INFO [015/334] 2025-02-15 solved: price_mean=0.7662 plan_kWh=92074.821 emergency_kWh=0.000 total_cost=58359.109
+INFO [016/334] 2025-02-16 solved: price_mean=0.7662 plan_kWh=91402.783 emergency_kWh=69.754 total_cost=58198.909
+INFO [017/334] 2025-02-17 solved: price_mean=0.7662 plan_kWh=90473.851 emergency_kWh=96.111 total_cost=57627.986
+INFO [018/334] 2025-02-18 solved: price_mean=0.7662 plan_kWh=90513.331 emergency_kWh=21.162 total_cost=57294.701
+INFO [019/334] 2025-02-19 solved: price_mean=0.7662 plan_kWh=90518.671 emergency_kWh=176.936 total_cost=57871.462
+INFO [020/334] 2025-02-20 solved: price_mean=0.7662 plan_kWh=89829.589 emergency_kWh=124.626 total_cost=57259.106
+INFO [021/334] 2025-02-21 solved: price_mean=0.7662 plan_kWh=88935.924 emergency_kWh=0.000 total_cost=55992.136
+INFO [022/334] 2025-02-22 solved: price_mean=0.7662 plan_kWh=88494.813 emergency_kWh=0.000 total_cost=55663.608
+INFO [023/334] 2025-02-23 solved: price_mean=0.7662 plan_kWh=87452.555 emergency_kWh=119.953 total_cost=55271.706
+INFO [024/334] 2025-02-24 solved: price_mean=0.7662 plan_kWh=86608.608 emergency_kWh=165.086 total_cost=55119.879
+INFO [025/334] 2025-02-25 solved: price_mean=0.7662 plan_kWh=86645.184 emergency_kWh=138.874 total_cost=54847.860
+INFO [026/334] 2025-02-26 solved: price_mean=0.7662 plan_kWh=86667.061 emergency_kWh=77.040 total_cost=54594.444
+INFO [027/334] 2025-02-27 solved: price_mean=0.7662 plan_kWh=85880.660 emergency_kWh=79.355 total_cost=54196.767
+INFO [028/334] 2025-02-28 solved: price_mean=0.7662 plan_kWh=85236.065 emergency_kWh=0.000 total_cost=53302.876
+INFO [029/334] 2025-03-01 solved: price_mean=0.7662 plan_kWh=84118.428 emergency_kWh=0.000 total_cost=52514.553
+INFO [030/334] 2025-03-02 solved: price_mean=0.7662 plan_kWh=83323.022 emergency_kWh=1655.431 total_cost=58532.362
+INFO [031/334] 2025-03-03 solved: price_mean=0.7662 plan_kWh=82631.049 emergency_kWh=502.127 total_cost=53701.138
+INFO [032/334] 2025-03-04 solved: price_mean=0.7662 plan_kWh=82790.653 emergency_kWh=183.486 total_cost=52207.402
+INFO [033/334] 2025-03-05 solved: price_mean=0.7662 plan_kWh=82840.949 emergency_kWh=112.368 total_cost=52215.207
+INFO [034/334] 2025-03-06 solved: price_mean=0.7662 plan_kWh=82228.740 emergency_kWh=189.107 total_cost=51964.608
+INFO [035/334] 2025-03-07 solved: price_mean=0.7662 plan_kWh=81422.118 emergency_kWh=0.000 total_cost=50638.055
+INFO [036/334] 2025-03-08 solved: price_mean=0.7662 plan_kWh=80513.914 emergency_kWh=0.000 total_cost=49980.186
+INFO [037/334] 2025-03-09 solved: price_mean=0.7662 plan_kWh=79813.499 emergency_kWh=135.749 total_cost=50203.528
+INFO [038/334] 2025-03-10 solved: price_mean=0.7662 plan_kWh=78998.326 emergency_kWh=1029.325 total_cost=51639.934
+INFO [039/334] 2025-03-11 solved: price_mean=0.7662 plan_kWh=79223.719 emergency_kWh=142.565 total_cost=49488.226
+INFO [040/334] 2025-03-12 solved: price_mean=0.7662 plan_kWh=79253.660 emergency_kWh=226.024 total_cost=49791.367
+INFO [041/334] 2025-03-13 solved: price_mean=0.7662 plan_kWh=78456.494 emergency_kWh=1381.977 total_cost=53337.070
+INFO [042/334] 2025-03-14 solved: price_mean=0.7662 plan_kWh=78183.017 emergency_kWh=0.000 total_cost=48175.270
+INFO [043/334] 2025-03-15 solved: price_mean=0.7662 plan_kWh=77517.066 emergency_kWh=9.053 total_cost=47716.972
+INFO [044/334] 2025-03-16 solved: price_mean=0.7662 plan_kWh=76964.135 emergency_kWh=139.875 total_cost=47826.572
+INFO [045/334] 2025-03-17 solved: price_mean=0.7662 plan_kWh=76574.194 emergency_kWh=172.064 total_cost=47831.960
+INFO [046/334] 2025-03-18 solved: price_mean=0.7662 plan_kWh=76606.504 emergency_kWh=98.580 total_cost=47278.922
+INFO [047/334] 2025-03-19 solved: price_mean=0.7662 plan_kWh=76627.248 emergency_kWh=63.914 total_cost=47189.498
+INFO [048/334] 2025-03-20 solved: price_mean=0.7662 plan_kWh=76168.549 emergency_kWh=207.401 total_cost=47705.231
+INFO [049/334] 2025-03-21 solved: price_mean=0.7662 plan_kWh=75815.070 emergency_kWh=0.000 total_cost=46441.604
+INFO [050/334] 2025-03-22 solved: price_mean=0.7662 plan_kWh=75099.759 emergency_kWh=9.078 total_cost=45979.600
+INFO [051/334] 2025-03-23 solved: price_mean=0.7662 plan_kWh=74302.084 emergency_kWh=218.156 total_cost=46320.842
+INFO [052/334] 2025-03-24 solved: price_mean=0.7662 plan_kWh=73582.447 emergency_kWh=187.957 total_cost=45367.458
+INFO [053/334] 2025-03-25 solved: price_mean=0.7662 plan_kWh=73615.168 emergency_kWh=445.183 total_cost=46664.039
+INFO [054/334] 2025-03-26 solved: price_mean=0.7662 plan_kWh=73856.085 emergency_kWh=154.801 total_cost=45542.133
+INFO [055/334] 2025-03-27 solved: price_mean=0.7662 plan_kWh=73039.614 emergency_kWh=279.629 total_cost=45408.818
+INFO [056/334] 2025-03-28 solved: price_mean=0.7662 plan_kWh=72674.994 emergency_kWh=0.000 total_cost=44297.860
+INFO [057/334] 2025-03-29 solved: price_mean=0.7662 plan_kWh=72188.713 emergency_kWh=0.000 total_cost=43939.066
+INFO [058/334] 2025-03-30 solved: price_mean=0.7662 plan_kWh=71628.966 emergency_kWh=312.275 total_cost=44454.554
+INFO [059/334] 2025-03-31 solved: price_mean=0.7662 plan_kWh=71166.629 emergency_kWh=131.974 total_cost=43556.638
+INFO [060/334] 2025-04-01 solved: price_mean=0.7662 plan_kWh=71215.372 emergency_kWh=912.584 total_cost=45681.809
+INFO [061/334] 2025-04-02 solved: price_mean=0.7662 plan_kWh=71487.368 emergency_kWh=665.673 total_cost=46156.442
+INFO [062/334] 2025-04-03 solved: price_mean=0.7662 plan_kWh=70798.737 emergency_kWh=327.310 total_cost=43939.165
+INFO [063/334] 2025-04-04 solved: price_mean=0.7662 plan_kWh=70171.231 emergency_kWh=0.000 total_cost=42437.126
+INFO [064/334] 2025-04-05 solved: price_mean=0.7662 plan_kWh=69415.698 emergency_kWh=0.000 total_cost=41913.546
+INFO [065/334] 2025-04-06 solved: price_mean=0.7662 plan_kWh=68911.827 emergency_kWh=231.650 total_cost=42471.037
+INFO [066/334] 2025-04-07 solved: price_mean=0.7662 plan_kWh=68371.180 emergency_kWh=194.951 total_cost=41737.435
+INFO [067/334] 2025-04-08 solved: price_mean=0.7662 plan_kWh=68426.619 emergency_kWh=203.251 total_cost=41929.379
+INFO [068/334] 2025-04-09 solved: price_mean=0.7662 plan_kWh=68472.397 emergency_kWh=427.964 total_cost=42506.956
+INFO [069/334] 2025-04-10 solved: price_mean=0.7662 plan_kWh=68104.991 emergency_kWh=348.656 total_cost=42371.649
+INFO [070/334] 2025-04-11 solved: price_mean=0.7662 plan_kWh=67664.917 emergency_kWh=0.000 total_cost=40678.125
+INFO [071/334] 2025-04-12 solved: price_mean=0.7662 plan_kWh=67098.573 emergency_kWh=0.000 total_cost=40312.060
+INFO [072/334] 2025-04-13 solved: price_mean=0.7662 plan_kWh=66781.855 emergency_kWh=209.189 total_cost=40872.900
+INFO [073/334] 2025-04-14 solved: price_mean=0.7662 plan_kWh=66157.804 emergency_kWh=361.034 total_cost=40925.460
+INFO [074/334] 2025-04-15 solved: price_mean=0.7662 plan_kWh=66222.971 emergency_kWh=194.660 total_cost=40621.091
+INFO [075/334] 2025-04-16 solved: price_mean=0.7662 plan_kWh=66287.144 emergency_kWh=511.463 total_cost=41293.866
+INFO [076/334] 2025-04-17 solved: price_mean=0.7662 plan_kWh=65753.032 emergency_kWh=120.865 total_cost=39762.525
+INFO [077/334] 2025-04-18 solved: price_mean=0.7662 plan_kWh=65555.951 emergency_kWh=0.000 total_cost=39158.514
+INFO [078/334] 2025-04-19 solved: price_mean=0.7662 plan_kWh=65174.553 emergency_kWh=0.000 total_cost=38888.475
+INFO [079/334] 2025-04-20 solved: price_mean=0.7662 plan_kWh=64813.779 emergency_kWh=125.582 total_cost=38943.992
+INFO [080/334] 2025-04-21 solved: price_mean=0.7662 plan_kWh=64115.252 emergency_kWh=342.218 total_cost=39148.459
+INFO [081/334] 2025-04-22 solved: price_mean=0.7662 plan_kWh=64153.195 emergency_kWh=328.249 total_cost=39255.737
+INFO [082/334] 2025-04-23 solved: price_mean=0.7662 plan_kWh=64277.271 emergency_kWh=496.606 total_cost=39760.360
+INFO [083/334] 2025-04-24 solved: price_mean=0.7662 plan_kWh=64010.680 emergency_kWh=185.169 total_cost=38832.170
+INFO [084/334] 2025-04-25 solved: price_mean=0.7662 plan_kWh=63678.571 emergency_kWh=0.000 total_cost=37821.660
+INFO [085/334] 2025-04-26 solved: price_mean=0.7662 plan_kWh=63146.118 emergency_kWh=0.000 total_cost=37482.128
+INFO [086/334] 2025-04-27 solved: price_mean=0.7662 plan_kWh=62889.358 emergency_kWh=232.962 total_cost=37823.055
+INFO [087/334] 2025-04-28 solved: price_mean=0.7662 plan_kWh=62400.963 emergency_kWh=2478.130 total_cost=44722.513
+INFO [088/334] 2025-04-29 solved: price_mean=0.7662 plan_kWh=62800.114 emergency_kWh=148.397 total_cost=37803.616
+INFO [089/334] 2025-04-30 solved: price_mean=0.7662 plan_kWh=62839.535 emergency_kWh=456.992 total_cost=38626.606
+INFO [090/334] 2025-05-01 solved: price_mean=0.7662 plan_kWh=62780.384 emergency_kWh=2240.691 total_cost=47476.341
+INFO [091/334] 2025-05-02 solved: price_mean=0.7662 plan_kWh=62596.189 emergency_kWh=0.000 total_cost=37038.415
+INFO [092/334] 2025-05-03 solved: price_mean=0.7662 plan_kWh=61972.627 emergency_kWh=18.392 total_cost=36703.472
+INFO [093/334] 2025-05-04 solved: price_mean=0.7662 plan_kWh=61312.461 emergency_kWh=2635.897 total_cost=47305.714
+INFO [094/334] 2025-05-05 solved: price_mean=0.7662 plan_kWh=61128.140 emergency_kWh=2479.345 total_cost=47043.966
+INFO [095/334] 2025-05-06 solved: price_mean=0.7662 plan_kWh=61553.256 emergency_kWh=2156.112 total_cost=45740.651
+INFO [096/334] 2025-05-07 solved: price_mean=0.7662 plan_kWh=61750.530 emergency_kWh=2051.333 total_cost=46022.995
+INFO [097/334] 2025-05-08 solved: price_mean=0.7662 plan_kWh=61734.538 emergency_kWh=2576.108 total_cost=47333.214
+INFO [098/334] 2025-05-09 solved: price_mean=0.7662 plan_kWh=61981.516 emergency_kWh=0.000 total_cost=36930.970
+INFO [099/334] 2025-05-10 solved: price_mean=0.7662 plan_kWh=61711.366 emergency_kWh=0.000 total_cost=36762.942
+INFO [100/334] 2025-05-11 solved: price_mean=0.7662 plan_kWh=60927.169 emergency_kWh=2190.549 total_cost=45703.112
+INFO [101/334] 2025-05-12 solved: price_mean=0.7662 plan_kWh=61084.889 emergency_kWh=2062.304 total_cost=43413.567
+INFO [102/334] 2025-05-13 solved: price_mean=0.7662 plan_kWh=61547.220 emergency_kWh=787.494 total_cost=39997.592
+INFO [103/334] 2025-05-14 solved: price_mean=0.7662 plan_kWh=61691.643 emergency_kWh=943.457 total_cost=40295.946
+INFO [104/334] 2025-05-15 solved: price_mean=0.7662 plan_kWh=61730.257 emergency_kWh=834.512 total_cost=40158.196
+INFO [105/334] 2025-05-16 solved: price_mean=0.7662 plan_kWh=61800.130 emergency_kWh=0.000 total_cost=37097.696
+INFO [106/334] 2025-05-17 solved: price_mean=0.7662 plan_kWh=61645.915 emergency_kWh=3.562 total_cost=37013.238
+INFO [107/334] 2025-05-18 solved: price_mean=0.7662 plan_kWh=61196.679 emergency_kWh=1671.872 total_cost=41184.450
+INFO [108/334] 2025-05-19 solved: price_mean=0.7662 plan_kWh=61069.002 emergency_kWh=406.601 total_cost=38722.024
+INFO [109/334] 2025-05-20 solved: price_mean=0.7662 plan_kWh=61127.867 emergency_kWh=1959.508 total_cost=44367.982
+INFO [110/334] 2025-05-21 solved: price_mean=0.7662 plan_kWh=61431.211 emergency_kWh=1202.218 total_cost=41488.466
+INFO [111/334] 2025-05-22 solved: price_mean=0.7662 plan_kWh=61420.892 emergency_kWh=192.923 total_cost=37769.308
+INFO [112/334] 2025-05-23 solved: price_mean=0.7662 plan_kWh=61389.003 emergency_kWh=0.000 total_cost=36898.872
+INFO [113/334] 2025-05-24 solved: price_mean=0.7662 plan_kWh=61156.503 emergency_kWh=0.000 total_cost=36777.255
+INFO [114/334] 2025-05-25 solved: price_mean=0.7662 plan_kWh=60969.452 emergency_kWh=337.788 total_cost=38186.142
+INFO [115/334] 2025-05-26 solved: price_mean=0.7662 plan_kWh=60965.427 emergency_kWh=1884.545 total_cost=43045.777
+INFO [116/334] 2025-05-27 solved: price_mean=0.7662 plan_kWh=61303.981 emergency_kWh=469.641 total_cost=38573.073
+INFO [117/334] 2025-05-28 solved: price_mean=0.7662 plan_kWh=61403.225 emergency_kWh=1340.183 total_cost=41156.585
+INFO [118/334] 2025-05-29 solved: price_mean=0.7662 plan_kWh=61675.584 emergency_kWh=968.732 total_cost=40792.156
+INFO [119/334] 2025-05-30 solved: price_mean=0.7662 plan_kWh=61375.579 emergency_kWh=0.000 total_cost=36960.347
+INFO [120/334] 2025-05-31 solved: price_mean=0.7662 plan_kWh=61270.788 emergency_kWh=92.187 total_cost=37083.024
+INFO [121/334] 2025-06-01 solved: price_mean=0.7662 plan_kWh=61187.897 emergency_kWh=14534.891 total_cost=93087.590
+INFO [122/334] 2025-06-02 solved: price_mean=0.7662 plan_kWh=61774.773 emergency_kWh=11757.376 total_cost=85509.638
+INFO [123/334] 2025-06-03 solved: price_mean=0.7662 plan_kWh=62804.593 emergency_kWh=9522.825 total_cost=77469.809
+INFO [124/334] 2025-06-04 solved: price_mean=0.7662 plan_kWh=64201.822 emergency_kWh=9615.160 total_cost=74135.084
+INFO [125/334] 2025-06-05 solved: price_mean=0.7662 plan_kWh=65351.864 emergency_kWh=9952.173 total_cost=77995.582
+INFO [126/334] 2025-06-06 solved: price_mean=0.7662 plan_kWh=66816.024 emergency_kWh=0.000 total_cost=40286.254
+INFO [127/334] 2025-06-07 solved: price_mean=0.7662 plan_kWh=66516.436 emergency_kWh=76.188 total_cost=40273.298
+INFO [128/334] 2025-06-08 solved: price_mean=0.7662 plan_kWh=66212.808 emergency_kWh=6246.980 total_cost=63796.459
+INFO [129/334] 2025-06-09 solved: price_mean=0.7662 plan_kWh=67415.553 emergency_kWh=8263.342 total_cost=73790.183
+INFO [130/334] 2025-06-10 solved: price_mean=0.7662 plan_kWh=69645.328 emergency_kWh=6879.305 total_cost=68234.773
+INFO [131/334] 2025-06-11 solved: price_mean=0.7662 plan_kWh=71045.439 emergency_kWh=9576.756 total_cost=82994.529
+INFO [132/334] 2025-06-12 solved: price_mean=0.7662 plan_kWh=72521.091 emergency_kWh=5436.664 total_cost=65588.486
+INFO [133/334] 2025-06-13 solved: price_mean=0.7662 plan_kWh=73682.980 emergency_kWh=0.000 total_cost=45116.757
+INFO [134/334] 2025-06-14 solved: price_mean=0.7662 plan_kWh=73679.059 emergency_kWh=0.000 total_cost=45114.834
+INFO [135/334] 2025-06-15 solved: price_mean=0.7662 plan_kWh=73652.317 emergency_kWh=3216.505 total_cost=57716.312
+INFO [136/334] 2025-06-16 solved: price_mean=0.7662 plan_kWh=74464.673 emergency_kWh=3962.564 total_cost=61191.285
+INFO [137/334] 2025-06-17 solved: price_mean=0.7662 plan_kWh=75503.014 emergency_kWh=5065.099 total_cost=66237.049
+INFO [138/334] 2025-06-18 solved: price_mean=0.7662 plan_kWh=76371.733 emergency_kWh=1938.346 total_cost=53722.650
+INFO [139/334] 2025-06-19 solved: price_mean=0.7662 plan_kWh=76748.218 emergency_kWh=1136.287 total_cost=52357.016
+INFO [140/334] 2025-06-20 solved: price_mean=0.7662 plan_kWh=77037.933 emergency_kWh=0.000 total_cost=47515.402
+INFO [141/334] 2025-06-21 solved: price_mean=0.7662 plan_kWh=77037.543 emergency_kWh=0.000 total_cost=47515.180
+INFO [142/334] 2025-06-22 solved: price_mean=0.7662 plan_kWh=77035.381 emergency_kWh=1201.350 total_cost=52118.388
+INFO [143/334] 2025-06-23 solved: price_mean=0.7662 plan_kWh=77354.741 emergency_kWh=688.044 total_cost=50843.075
+INFO [144/334] 2025-06-24 solved: price_mean=0.7662 plan_kWh=77571.337 emergency_kWh=5000.287 total_cost=68006.485
+INFO [145/334] 2025-06-25 solved: price_mean=0.7662 plan_kWh=78325.568 emergency_kWh=1689.710 total_cost=54582.431
+INFO [146/334] 2025-06-26 solved: price_mean=0.7662 plan_kWh=78607.708 emergency_kWh=694.405 total_cost=51867.764
+INFO [147/334] 2025-06-27 solved: price_mean=0.7662 plan_kWh=78835.537 emergency_kWh=0.000 total_cost=48866.465
+INFO [148/334] 2025-06-28 solved: price_mean=0.7662 plan_kWh=78829.039 emergency_kWh=0.000 total_cost=48863.622
+INFO [149/334] 2025-06-29 solved: price_mean=0.7662 plan_kWh=78825.089 emergency_kWh=1028.762 total_cost=52054.271
+INFO [150/334] 2025-06-30 solved: price_mean=0.7662 plan_kWh=79003.016 emergency_kWh=1058.160 total_cost=52908.404
+INFO [151/334] 2025-07-01 solved: price_mean=0.7662 plan_kWh=79214.848 emergency_kWh=7020.868 total_cost=73731.454
+INFO [152/334] 2025-07-02 solved: price_mean=0.7662 plan_kWh=79687.971 emergency_kWh=6209.504 total_cost=70825.451
+INFO [153/334] 2025-07-03 solved: price_mean=0.7662 plan_kWh=79811.935 emergency_kWh=7171.182 total_cost=75894.663
+INFO [154/334] 2025-07-04 solved: price_mean=0.7662 plan_kWh=80010.102 emergency_kWh=0.000 total_cost=49652.594
+INFO [155/334] 2025-07-05 solved: price_mean=0.7662 plan_kWh=79867.800 emergency_kWh=71.998 total_cost=49688.041
+INFO [156/334] 2025-07-06 solved: price_mean=0.7662 plan_kWh=79660.399 emergency_kWh=7652.095 total_cost=78277.877
+INFO [157/334] 2025-07-07 solved: price_mean=0.7662 plan_kWh=80076.655 emergency_kWh=5794.306 total_cost=69300.536
+INFO [158/334] 2025-07-08 solved: price_mean=0.7662 plan_kWh=80638.377 emergency_kWh=6264.158 total_cost=73379.067
+INFO [159/334] 2025-07-09 solved: price_mean=0.7662 plan_kWh=81626.840 emergency_kWh=4318.080 total_cost=66616.856
+INFO [160/334] 2025-07-10 solved: price_mean=0.7662 plan_kWh=83301.094 emergency_kWh=2821.131 total_cost=62288.644
+INFO [161/334] 2025-07-11 solved: price_mean=0.7662 plan_kWh=83963.770 emergency_kWh=0.000 total_cost=52539.410
+INFO [162/334] 2025-07-12 solved: price_mean=0.7662 plan_kWh=83774.359 emergency_kWh=0.000 total_cost=52402.523
+INFO [163/334] 2025-07-13 solved: price_mean=0.7662 plan_kWh=83286.082 emergency_kWh=1805.865 total_cost=59082.980
+INFO [164/334] 2025-07-14 solved: price_mean=0.7662 plan_kWh=83551.115 emergency_kWh=1583.577 total_cost=58610.850
+INFO [165/334] 2025-07-15 solved: price_mean=0.7662 plan_kWh=83942.918 emergency_kWh=1544.299 total_cost=58179.671
+INFO [166/334] 2025-07-16 solved: price_mean=0.7662 plan_kWh=84336.717 emergency_kWh=1469.122 total_cost=58163.276
+INFO [167/334] 2025-07-17 solved: price_mean=0.7662 plan_kWh=84298.189 emergency_kWh=1306.582 total_cost=57758.860
+INFO [168/334] 2025-07-18 solved: price_mean=0.7662 plan_kWh=84122.659 emergency_kWh=0.000 total_cost=52599.748
+INFO [169/334] 2025-07-19 solved: price_mean=0.7662 plan_kWh=83668.479 emergency_kWh=31.365 total_cost=52370.248
+INFO [170/334] 2025-07-20 solved: price_mean=0.7662 plan_kWh=83365.618 emergency_kWh=552.873 total_cost=54220.028
+INFO [171/334] 2025-07-21 solved: price_mean=0.7662 plan_kWh=83376.674 emergency_kWh=1079.509 total_cost=56419.945
+INFO [172/334] 2025-07-22 solved: price_mean=0.7662 plan_kWh=83606.662 emergency_kWh=1050.072 total_cost=56289.999
+INFO [173/334] 2025-07-23 solved: price_mean=0.7662 plan_kWh=83886.833 emergency_kWh=983.392 total_cost=56346.240
+INFO [174/334] 2025-07-24 solved: price_mean=0.7662 plan_kWh=83689.703 emergency_kWh=1249.265 total_cost=57522.375
+INFO [175/334] 2025-07-25 solved: price_mean=0.7662 plan_kWh=83869.166 emergency_kWh=0.000 total_cost=52547.005
+INFO [176/334] 2025-07-26 solved: price_mean=0.7662 plan_kWh=83272.075 emergency_kWh=0.000 total_cost=52150.958
+INFO [177/334] 2025-07-27 solved: price_mean=0.7662 plan_kWh=82728.685 emergency_kWh=843.981 total_cost=55080.665
+INFO [178/334] 2025-07-28 solved: price_mean=0.7662 plan_kWh=82616.441 emergency_kWh=2429.680 total_cost=60680.427
+INFO [179/334] 2025-07-29 solved: price_mean=0.7662 plan_kWh=83129.581 emergency_kWh=1759.188 total_cost=58287.180
+INFO [180/334] 2025-07-30 solved: price_mean=0.7662 plan_kWh=83413.718 emergency_kWh=800.433 total_cost=55481.873
+INFO [181/334] 2025-07-31 solved: price_mean=0.7662 plan_kWh=83359.546 emergency_kWh=700.905 total_cost=55317.633
+INFO [182/334] 2025-08-01 solved: price_mean=0.7662 plan_kWh=83235.063 emergency_kWh=0.000 total_cost=52172.397
+INFO [183/334] 2025-08-02 solved: price_mean=0.7662 plan_kWh=82717.686 emergency_kWh=32.528 total_cost=51914.309
+INFO [184/334] 2025-08-03 solved: price_mean=0.7662 plan_kWh=82612.465 emergency_kWh=358.234 total_cost=53354.608
+INFO [185/334] 2025-08-04 solved: price_mean=0.7662 plan_kWh=82036.826 emergency_kWh=187.427 total_cost=52075.158
+INFO [186/334] 2025-08-05 solved: price_mean=0.7662 plan_kWh=82095.792 emergency_kWh=134.395 total_cost=51874.881
+INFO [187/334] 2025-08-06 solved: price_mean=0.7662 plan_kWh=82119.070 emergency_kWh=643.601 total_cost=53988.407
+INFO [188/334] 2025-08-07 solved: price_mean=0.7662 plan_kWh=81661.522 emergency_kWh=324.134 total_cost=52179.727
+INFO [189/334] 2025-08-08 solved: price_mean=0.7662 plan_kWh=81571.839 emergency_kWh=0.000 total_cost=51135.939
+INFO [190/334] 2025-08-09 solved: price_mean=0.7662 plan_kWh=81116.005 emergency_kWh=0.000 total_cost=50834.171
+INFO [191/334] 2025-08-10 solved: price_mean=0.7662 plan_kWh=80697.854 emergency_kWh=135.757 total_cost=50925.039
+INFO [192/334] 2025-08-11 solved: price_mean=0.7662 plan_kWh=80381.609 emergency_kWh=297.511 total_cost=51419.146
+INFO [193/334] 2025-08-12 solved: price_mean=0.7662 plan_kWh=80467.930 emergency_kWh=342.944 total_cost=51707.700
+INFO [194/334] 2025-08-13 solved: price_mean=0.7662 plan_kWh=80564.486 emergency_kWh=424.339 total_cost=52211.399
+INFO [195/334] 2025-08-14 solved: price_mean=0.7662 plan_kWh=80471.944 emergency_kWh=546.565 total_cost=52888.873
+INFO [196/334] 2025-08-15 solved: price_mean=0.7662 plan_kWh=80448.207 emergency_kWh=0.000 total_cost=50390.179
+INFO [197/334] 2025-08-16 solved: price_mean=0.7662 plan_kWh=80021.850 emergency_kWh=0.000 total_cost=50149.716
+INFO [198/334] 2025-08-17 solved: price_mean=0.7662 plan_kWh=79744.297 emergency_kWh=450.322 total_cost=52195.898
+INFO [199/334] 2025-08-18 solved: price_mean=0.7662 plan_kWh=79531.070 emergency_kWh=486.830 total_cost=51974.031
+INFO [200/334] 2025-08-19 solved: price_mean=0.7662 plan_kWh=79594.347 emergency_kWh=412.481 total_cost=51944.975
+INFO [201/334] 2025-08-20 solved: price_mean=0.7662 plan_kWh=79668.043 emergency_kWh=1374.393 total_cost=55563.663
+INFO [202/334] 2025-08-21 solved: price_mean=0.7662 plan_kWh=79759.244 emergency_kWh=317.263 total_cost=51470.911
+INFO [203/334] 2025-08-22 solved: price_mean=0.7662 plan_kWh=79312.967 emergency_kWh=0.000 total_cost=49739.820
+INFO [204/334] 2025-08-23 solved: price_mean=0.7662 plan_kWh=78748.870 emergency_kWh=0.000 total_cost=49400.991
+INFO [205/334] 2025-08-24 solved: price_mean=0.7662 plan_kWh=77999.095 emergency_kWh=605.306 total_cost=51743.212
+INFO [206/334] 2025-08-25 solved: price_mean=0.7662 plan_kWh=77583.650 emergency_kWh=2170.361 total_cost=56650.329
+INFO [207/334] 2025-08-26 solved: price_mean=0.7662 plan_kWh=78060.243 emergency_kWh=446.833 total_cost=50938.445
+INFO [208/334] 2025-08-27 solved: price_mean=0.7662 plan_kWh=78178.039 emergency_kWh=811.912 total_cost=52611.415
+INFO [209/334] 2025-08-28 solved: price_mean=0.7662 plan_kWh=77945.600 emergency_kWh=2215.087 total_cost=57431.454
+INFO [210/334] 2025-08-29 solved: price_mean=0.7662 plan_kWh=77604.834 emergency_kWh=0.000 total_cost=48722.542
+INFO [211/334] 2025-08-30 solved: price_mean=0.7662 plan_kWh=76616.672 emergency_kWh=0.000 total_cost=48189.433
+INFO [212/334] 2025-08-31 solved: price_mean=0.7662 plan_kWh=75559.247 emergency_kWh=1246.222 total_cost=52636.301
+INFO [213/334] 2025-09-01 solved: price_mean=0.7662 plan_kWh=75032.436 emergency_kWh=244.233 total_cost=48003.117
+INFO [214/334] 2025-09-02 solved: price_mean=0.7662 plan_kWh=75078.515 emergency_kWh=66.033 total_cost=47561.449
+INFO [215/334] 2025-09-03 solved: price_mean=0.7662 plan_kWh=75114.265 emergency_kWh=89.055 total_cost=47640.819
+INFO [216/334] 2025-09-04 solved: price_mean=0.7662 plan_kWh=74961.974 emergency_kWh=110.060 total_cost=47696.134
+INFO [217/334] 2025-09-05 solved: price_mean=0.7662 plan_kWh=74835.165 emergency_kWh=0.000 total_cost=47133.106
+INFO [218/334] 2025-09-06 solved: price_mean=0.7662 plan_kWh=74495.006 emergency_kWh=0.000 total_cost=46949.545
+INFO [219/334] 2025-09-07 solved: price_mean=0.7662 plan_kWh=74139.614 emergency_kWh=167.036 total_cost=47408.196
+INFO [220/334] 2025-09-08 solved: price_mean=0.7662 plan_kWh=74009.430 emergency_kWh=709.363 total_cost=49674.068
+INFO [221/334] 2025-09-09 solved: price_mean=0.7662 plan_kWh=74194.374 emergency_kWh=62.314 total_cost=46998.482
+INFO [222/334] 2025-09-10 solved: price_mean=0.7662 plan_kWh=74217.289 emergency_kWh=1681.111 total_cost=54042.991
+INFO [223/334] 2025-09-11 solved: price_mean=0.7662 plan_kWh=74279.774 emergency_kWh=132.203 total_cost=47433.959
+INFO [224/334] 2025-09-12 solved: price_mean=0.7662 plan_kWh=74130.994 emergency_kWh=0.000 total_cost=46678.312
+INFO [225/334] 2025-09-13 solved: price_mean=0.7662 plan_kWh=73740.054 emergency_kWh=0.000 total_cost=46421.744
+INFO [226/334] 2025-09-14 solved: price_mean=0.7662 plan_kWh=73444.424 emergency_kWh=799.434 total_cost=49213.233
+INFO [227/334] 2025-09-15 solved: price_mean=0.7662 plan_kWh=73257.145 emergency_kWh=861.950 total_cost=49568.411
+INFO [228/334] 2025-09-16 solved: price_mean=0.7662 plan_kWh=73370.146 emergency_kWh=685.475 total_cost=48263.362
+INFO [229/334] 2025-09-17 solved: price_mean=0.7662 plan_kWh=73614.522 emergency_kWh=1012.383 total_cost=50782.602
+INFO [230/334] 2025-09-18 solved: price_mean=0.7662 plan_kWh=73589.946 emergency_kWh=416.930 total_cost=48057.949
+INFO [231/334] 2025-09-19 solved: price_mean=0.7662 plan_kWh=73299.587 emergency_kWh=0.000 total_cost=45993.545
+INFO [232/334] 2025-09-20 solved: price_mean=0.7662 plan_kWh=72650.079 emergency_kWh=0.000 total_cost=45554.964
+INFO [233/334] 2025-09-21 solved: price_mean=0.7662 plan_kWh=71283.286 emergency_kWh=901.039 total_cost=47764.111
+INFO [234/334] 2025-09-22 solved: price_mean=0.7662 plan_kWh=68613.622 emergency_kWh=1073.554 total_cost=46806.292
+INFO [235/334] 2025-09-23 solved: price_mean=0.7662 plan_kWh=68894.119 emergency_kWh=1806.665 total_cost=50328.559
+INFO [236/334] 2025-09-24 solved: price_mean=0.7662 plan_kWh=69336.144 emergency_kWh=1565.785 total_cost=49199.249
+INFO [237/334] 2025-09-25 solved: price_mean=0.7662 plan_kWh=68959.784 emergency_kWh=1115.016 total_cost=47336.204
+INFO [238/334] 2025-09-26 solved: price_mean=0.7662 plan_kWh=68398.429 emergency_kWh=0.000 total_cost=42407.159
+INFO [239/334] 2025-09-27 solved: price_mean=0.7662 plan_kWh=67803.604 emergency_kWh=0.000 total_cost=41992.611
+INFO [240/334] 2025-09-28 solved: price_mean=0.7662 plan_kWh=67189.928 emergency_kWh=2608.015 total_cost=52682.239
+INFO [241/334] 2025-09-29 solved: price_mean=0.7662 plan_kWh=67106.006 emergency_kWh=2019.235 total_cost=49933.448
+INFO [242/334] 2025-09-30 solved: price_mean=0.7662 plan_kWh=67665.930 emergency_kWh=3940.073 total_cost=59056.494
+INFO [243/334] 2025-10-01 solved: price_mean=0.7662 plan_kWh=68273.987 emergency_kWh=75.727 total_cost=42565.253
+INFO [244/334] 2025-10-02 solved: price_mean=0.7662 plan_kWh=67960.515 emergency_kWh=263.225 total_cost=42952.032
+INFO [245/334] 2025-10-03 solved: price_mean=0.7662 plan_kWh=67927.142 emergency_kWh=0.000 total_cost=42043.966
+INFO [246/334] 2025-10-04 solved: price_mean=0.7662 plan_kWh=67844.964 emergency_kWh=0.000 total_cost=41976.385
+INFO [247/334] 2025-10-05 solved: price_mean=0.7662 plan_kWh=67687.938 emergency_kWh=304.663 total_cost=42899.365
+INFO [248/334] 2025-10-06 solved: price_mean=0.7662 plan_kWh=67665.252 emergency_kWh=467.927 total_cost=43605.702
+INFO [249/334] 2025-10-07 solved: price_mean=0.7662 plan_kWh=67753.246 emergency_kWh=553.914 total_cost=44277.881
+INFO [250/334] 2025-10-08 solved: price_mean=0.7662 plan_kWh=67879.300 emergency_kWh=899.613 total_cost=45298.932
+INFO [251/334] 2025-10-09 solved: price_mean=0.7662 plan_kWh=67945.293 emergency_kWh=680.661 total_cost=44796.741
+INFO [252/334] 2025-10-10 solved: price_mean=0.7662 plan_kWh=67782.693 emergency_kWh=0.000 total_cost=41952.256
+INFO [253/334] 2025-10-11 solved: price_mean=0.7662 plan_kWh=67633.317 emergency_kWh=0.000 total_cost=41835.497
+INFO [254/334] 2025-10-12 solved: price_mean=0.7662 plan_kWh=67225.518 emergency_kWh=863.898 total_cost=44893.333
+INFO [255/334] 2025-10-13 solved: price_mean=0.7662 plan_kWh=67310.297 emergency_kWh=510.918 total_cost=43674.626
+INFO [256/334] 2025-10-14 solved: price_mean=0.7662 plan_kWh=67407.115 emergency_kWh=1830.510 total_cost=49625.297
+INFO [257/334] 2025-10-15 solved: price_mean=0.7662 plan_kWh=67693.483 emergency_kWh=1939.475 total_cost=49673.335
+INFO [258/334] 2025-10-16 solved: price_mean=0.7662 plan_kWh=67864.912 emergency_kWh=3256.566 total_cost=55862.722
+INFO [259/334] 2025-10-17 solved: price_mean=0.7662 plan_kWh=68105.070 emergency_kWh=0.000 total_cost=42125.551
+INFO [260/334] 2025-10-18 solved: price_mean=0.7662 plan_kWh=67771.587 emergency_kWh=0.000 total_cost=41902.013
+INFO [261/334] 2025-10-19 solved: price_mean=0.7662 plan_kWh=67442.606 emergency_kWh=3457.567 total_cost=56083.927
+INFO [262/334] 2025-10-20 solved: price_mean=0.7662 plan_kWh=67607.409 emergency_kWh=3413.012 total_cost=56625.752
+INFO [263/334] 2025-10-21 solved: price_mean=0.7662 plan_kWh=68263.226 emergency_kWh=4619.623 total_cost=59884.014
+INFO [264/334] 2025-10-22 solved: price_mean=0.7662 plan_kWh=69030.655 emergency_kWh=3696.083 total_cost=58121.845
+INFO [265/334] 2025-10-23 solved: price_mean=0.7662 plan_kWh=69155.837 emergency_kWh=1922.321 total_cost=50546.475
+INFO [266/334] 2025-10-24 solved: price_mean=0.7662 plan_kWh=69247.741 emergency_kWh=0.000 total_cost=42649.120
+INFO [267/334] 2025-10-25 solved: price_mean=0.7662 plan_kWh=68827.093 emergency_kWh=0.000 total_cost=42203.319
+INFO [268/334] 2025-10-26 solved: price_mean=0.7662 plan_kWh=68599.580 emergency_kWh=1764.833 total_cost=48745.667
+INFO [269/334] 2025-10-27 solved: price_mean=0.7662 plan_kWh=68761.330 emergency_kWh=2433.952 total_cost=52137.368
+INFO [270/334] 2025-10-28 solved: price_mean=0.7662 plan_kWh=69189.060 emergency_kWh=2789.204 total_cost=53799.372
+INFO [271/334] 2025-10-29 solved: price_mean=0.7662 plan_kWh=69617.754 emergency_kWh=5082.092 total_cost=62552.502
+INFO [272/334] 2025-10-30 solved: price_mean=0.7662 plan_kWh=69963.283 emergency_kWh=1859.444 total_cost=50477.149
+INFO [273/334] 2025-10-31 solved: price_mean=0.7662 plan_kWh=70124.199 emergency_kWh=0.000 total_cost=43078.268
+INFO [274/334] 2025-11-01 solved: price_mean=0.7662 plan_kWh=69888.233 emergency_kWh=0.000 total_cost=42921.399
+INFO [275/334] 2025-11-02 solved: price_mean=0.7662 plan_kWh=69858.829 emergency_kWh=3943.904 total_cost=58852.220
+INFO [276/334] 2025-11-03 solved: price_mean=0.7662 plan_kWh=70599.779 emergency_kWh=4288.700 total_cost=57961.484
+INFO [277/334] 2025-11-04 solved: price_mean=0.7662 plan_kWh=71486.867 emergency_kWh=2138.380 total_cost=52184.094
+INFO [278/334] 2025-11-05 solved: price_mean=0.7662 plan_kWh=72003.778 emergency_kWh=3354.323 total_cost=56817.492
+INFO [279/334] 2025-11-06 solved: price_mean=0.7662 plan_kWh=72590.084 emergency_kWh=4605.612 total_cost=62877.848
+INFO [280/334] 2025-11-07 solved: price_mean=0.7662 plan_kWh=73143.712 emergency_kWh=0.000 total_cost=45114.267
+INFO [281/334] 2025-11-08 solved: price_mean=0.7662 plan_kWh=73111.450 emergency_kWh=0.000 total_cost=45098.796
+INFO [282/334] 2025-11-09 solved: price_mean=0.7662 plan_kWh=73078.707 emergency_kWh=3766.881 total_cost=59480.332
+INFO [283/334] 2025-11-10 solved: price_mean=0.7662 plan_kWh=73686.534 emergency_kWh=5520.650 total_cost=66501.523
+INFO [284/334] 2025-11-11 solved: price_mean=0.7662 plan_kWh=74368.418 emergency_kWh=2705.370 total_cost=57109.230
+INFO [285/334] 2025-11-12 solved: price_mean=0.7662 plan_kWh=75033.627 emergency_kWh=2053.578 total_cost=55965.466
+INFO [286/334] 2025-11-13 solved: price_mean=0.7662 plan_kWh=75372.192 emergency_kWh=3124.855 total_cost=58163.280
+INFO [287/334] 2025-11-14 solved: price_mean=0.7662 plan_kWh=75908.496 emergency_kWh=0.000 total_cost=47025.016
+INFO [288/334] 2025-11-15 solved: price_mean=0.7662 plan_kWh=75864.962 emergency_kWh=0.000 total_cost=46994.824
+INFO [289/334] 2025-11-16 solved: price_mean=0.7662 plan_kWh=75837.323 emergency_kWh=4146.393 total_cost=63776.983
+INFO [290/334] 2025-11-17 solved: price_mean=0.7662 plan_kWh=76313.170 emergency_kWh=2546.119 total_cost=57799.203
+INFO [291/334] 2025-11-18 solved: price_mean=0.7662 plan_kWh=76841.679 emergency_kWh=3941.037 total_cost=61989.744
+INFO [292/334] 2025-11-19 solved: price_mean=0.7662 plan_kWh=77360.686 emergency_kWh=3323.667 total_cost=61724.145
+INFO [293/334] 2025-11-20 solved: price_mean=0.7662 plan_kWh=77838.153 emergency_kWh=2898.349 total_cost=59546.918
+INFO [294/334] 2025-11-21 solved: price_mean=0.7662 plan_kWh=78262.228 emergency_kWh=0.000 total_cost=48770.140
+INFO [295/334] 2025-11-22 solved: price_mean=0.7662 plan_kWh=78217.155 emergency_kWh=0.000 total_cost=48743.994
+INFO [296/334] 2025-11-23 solved: price_mean=0.7662 plan_kWh=78142.959 emergency_kWh=3308.693 total_cost=62373.714
+INFO [297/334] 2025-11-24 solved: price_mean=0.7662 plan_kWh=78535.035 emergency_kWh=1834.935 total_cost=56176.535
+INFO [298/334] 2025-11-25 solved: price_mean=0.7662 plan_kWh=78947.996 emergency_kWh=2916.721 total_cost=60404.283
+INFO [299/334] 2025-11-26 solved: price_mean=0.7662 plan_kWh=79472.265 emergency_kWh=3312.557 total_cost=62239.032
+INFO [300/334] 2025-11-27 solved: price_mean=0.7662 plan_kWh=79955.380 emergency_kWh=2205.290 total_cost=58698.978
+INFO [301/334] 2025-11-28 solved: price_mean=0.7662 plan_kWh=80298.615 emergency_kWh=0.000 total_cost=50301.370
+INFO [302/334] 2025-11-29 solved: price_mean=0.7662 plan_kWh=80260.282 emergency_kWh=0.000 total_cost=50278.910
+INFO [303/334] 2025-11-30 solved: price_mean=0.7662 plan_kWh=80206.534 emergency_kWh=5490.720 total_cost=70893.477
+INFO [304/334] 2025-12-01 solved: price_mean=0.7662 plan_kWh=80830.211 emergency_kWh=10332.796 total_cost=89980.152
+INFO [305/334] 2025-12-02 solved: price_mean=0.7662 plan_kWh=81606.908 emergency_kWh=11841.792 total_cost=96336.738
+INFO [306/334] 2025-12-03 solved: price_mean=0.7662 plan_kWh=82419.543 emergency_kWh=9836.121 total_cost=87513.635
+INFO [307/334] 2025-12-04 solved: price_mean=0.7662 plan_kWh=83173.146 emergency_kWh=8806.125 total_cost=85793.379
+INFO [308/334] 2025-12-05 solved: price_mean=0.7662 plan_kWh=84213.917 emergency_kWh=0.000 total_cost=53020.224
+INFO [309/334] 2025-12-06 solved: price_mean=0.7662 plan_kWh=84142.302 emergency_kWh=0.000 total_cost=52969.076
+INFO [310/334] 2025-12-07 solved: price_mean=0.7662 plan_kWh=84088.067 emergency_kWh=8540.539 total_cost=84631.076
+INFO [311/334] 2025-12-08 solved: price_mean=0.7662 plan_kWh=85417.023 emergency_kWh=7771.583 total_cost=81801.814
+INFO [312/334] 2025-12-09 solved: price_mean=0.7662 plan_kWh=87138.857 emergency_kWh=5458.348 total_cost=76428.680
+INFO [313/334] 2025-12-10 solved: price_mean=0.7662 plan_kWh=89073.833 emergency_kWh=4944.975 total_cost=73911.781
+INFO [314/334] 2025-12-11 solved: price_mean=0.7662 plan_kWh=90175.322 emergency_kWh=2182.150 total_cost=64711.872
+INFO [315/334] 2025-12-12 solved: price_mean=0.7662 plan_kWh=90770.714 emergency_kWh=0.000 total_cost=57706.244
+INFO [316/334] 2025-12-13 solved: price_mean=0.7662 plan_kWh=90730.244 emergency_kWh=2.835 total_cost=57678.227
+INFO [317/334] 2025-12-14 solved: price_mean=0.7662 plan_kWh=90721.785 emergency_kWh=3573.789 total_cost=70837.660
+INFO [318/334] 2025-12-15 solved: price_mean=0.7662 plan_kWh=91395.982 emergency_kWh=3724.664 total_cost=71078.029
+INFO [319/334] 2025-12-16 solved: price_mean=0.7662 plan_kWh=92066.780 emergency_kWh=3161.457 total_cost=69916.643
+INFO [320/334] 2025-12-17 solved: price_mean=0.7662 plan_kWh=92763.280 emergency_kWh=1582.404 total_cost=64249.329
+INFO [321/334] 2025-12-18 solved: price_mean=0.7662 plan_kWh=93131.076 emergency_kWh=1511.227 total_cost=65150.716
+INFO [322/334] 2025-12-19 solved: price_mean=0.7662 plan_kWh=93416.182 emergency_kWh=0.000 total_cost=59557.339
+INFO [323/334] 2025-12-20 solved: price_mean=0.7662 plan_kWh=93406.072 emergency_kWh=0.000 total_cost=59551.091
+INFO [324/334] 2025-12-21 solved: price_mean=0.7662 plan_kWh=93392.744 emergency_kWh=2023.089 total_cost=66393.836
+INFO [325/334] 2025-12-22 solved: price_mean=0.7662 plan_kWh=93710.513 emergency_kWh=1395.567 total_cost=64895.201
+INFO [326/334] 2025-12-23 solved: price_mean=0.7662 plan_kWh=94040.188 emergency_kWh=556.342 total_cost=62088.612
+INFO [327/334] 2025-12-24 solved: price_mean=0.7662 plan_kWh=94203.545 emergency_kWh=984.006 total_cost=64043.852
+INFO [328/334] 2025-12-25 solved: price_mean=0.7662 plan_kWh=94392.951 emergency_kWh=981.242 total_cost=63322.626
+INFO [329/334] 2025-12-26 solved: price_mean=0.7662 plan_kWh=94518.356 emergency_kWh=0.000 total_cost=60301.328
+INFO [330/334] 2025-12-27 solved: price_mean=0.7662 plan_kWh=94509.541 emergency_kWh=0.000 total_cost=60292.185
+INFO [331/334] 2025-12-28 solved: price_mean=0.7662 plan_kWh=94502.029 emergency_kWh=547.310 total_cost=62331.521
+INFO [332/334] 2025-12-29 solved: price_mean=0.7662 plan_kWh=94570.644 emergency_kWh=756.132 total_cost=62882.148
+INFO [333/334] 2025-12-30 solved: price_mean=0.7662 plan_kWh=94716.392 emergency_kWh=300.118 total_cost=61778.107
+INFO [334/334] 2025-12-31 solved: price_mean=0.7662 plan_kWh=94776.121 emergency_kWh=1091.556 total_cost=64690.128
+INFO Question 4-3: dynamic price, update hours=(0, 6, 12)
+INFO [001/334] policy=0+6+12 2025-02-01 solved (0, 6, 12): price_mean=0.6515 emergency=0.000 adjustment_cost=-831.685 total_cost=48788.648
+INFO [002/334] policy=0+6+12 2025-02-02 solved (0, 6, 12): price_mean=0.8364 emergency=20.227 adjustment_cost=-998.718 total_cost=63816.155
+INFO [003/334] policy=0+6+12 2025-02-03 solved (0, 6, 12): price_mean=0.8448 emergency=147.560 adjustment_cost=-2040.920 total_cost=66580.761
+INFO [004/334] policy=0+6+12 2025-02-04 solved (0, 6, 12): price_mean=0.8492 emergency=74.058 adjustment_cost=-1817.284 total_cost=68604.752
+INFO [005/334] policy=0+6+12 2025-02-05 solved (0, 6, 12): price_mean=0.8483 emergency=23.665 adjustment_cost=-228.857 total_cost=65650.356
+INFO [006/334] policy=0+6+12 2025-02-06 solved (0, 6, 12): price_mean=0.8440 emergency=20.315 adjustment_cost=-2928.513 total_cost=67330.707
+INFO [007/334] policy=0+6+12 2025-02-07 solved (0, 6, 12): price_mean=0.6440 emergency=0.000 adjustment_cost=-1222.913 total_cost=48012.643
+INFO [008/334] policy=0+6+12 2025-02-08 solved (0, 6, 12): price_mean=0.6424 emergency=0.000 adjustment_cost=1104.748 total_cost=45154.159
+INFO [009/334] policy=0+6+12 2025-02-09 solved (0, 6, 12): price_mean=0.8414 emergency=11.187 adjustment_cost=-426.655 total_cost=65214.500
+INFO [010/334] policy=0+6+12 2025-02-10 solved (0, 6, 12): price_mean=0.8181 emergency=155.494 adjustment_cost=-166.955 total_cost=60382.896
+INFO [011/334] policy=0+6+12 2025-02-11 solved (0, 6, 12): price_mean=0.8285 emergency=20.193 adjustment_cost=-1971.655 total_cost=59717.309
+INFO [012/334] policy=0+6+12 2025-02-12 solved (0, 6, 12): price_mean=0.8264 emergency=29.694 adjustment_cost=-1781.429 total_cost=59552.209
+INFO [013/334] policy=0+6+12 2025-02-13 solved (0, 6, 12): price_mean=0.8148 emergency=62.374 adjustment_cost=-772.732 total_cost=55418.232
+INFO [014/334] policy=0+6+12 2025-02-14 solved (0, 6, 12): price_mean=0.6311 emergency=0.000 adjustment_cost=58.383 total_cost=44260.175
+INFO [015/334] policy=0+6+12 2025-02-15 solved (0, 6, 12): price_mean=0.6378 emergency=0.000 adjustment_cost=-1364.096 total_cost=43842.860
+INFO [016/334] policy=0+6+12 2025-02-16 solved (0, 6, 12): price_mean=0.8303 emergency=276.473 adjustment_cost=-2445.978 total_cost=60193.113
+INFO [017/334] policy=0+6+12 2025-02-17 solved (0, 6, 12): price_mean=0.8174 emergency=152.175 adjustment_cost=-2883.048 total_cost=57697.530
+INFO [018/334] policy=0+6+12 2025-02-18 solved (0, 6, 12): price_mean=0.8145 emergency=339.858 adjustment_cost=1370.787 total_cost=55606.155
+INFO [019/334] policy=0+6+12 2025-02-19 solved (0, 6, 12): price_mean=0.8164 emergency=360.385 adjustment_cost=280.392 total_cost=54984.782
+INFO [020/334] policy=0+6+12 2025-02-20 solved (0, 6, 12): price_mean=0.8168 emergency=270.191 adjustment_cost=12.652 total_cost=56611.707
+INFO [021/334] policy=0+6+12 2025-02-21 solved (0, 6, 12): price_mean=0.6209 emergency=0.000 adjustment_cost=798.444 total_cost=41262.391
+INFO [022/334] policy=0+6+12 2025-02-22 solved (0, 6, 12): price_mean=0.6353 emergency=0.000 adjustment_cost=37.769 total_cost=41699.695
+INFO [023/334] policy=0+6+12 2025-02-23 solved (0, 6, 12): price_mean=0.8154 emergency=502.366 adjustment_cost=-515.448 total_cost=55095.470
+INFO [024/334] policy=0+6+12 2025-02-24 solved (0, 6, 12): price_mean=0.8082 emergency=236.264 adjustment_cost=1067.938 total_cost=53506.808
+INFO [025/334] policy=0+6+12 2025-02-25 solved (0, 6, 12): price_mean=0.7941 emergency=229.974 adjustment_cost=-1577.338 total_cost=51297.816
+INFO [026/334] policy=0+6+12 2025-02-26 solved (0, 6, 12): price_mean=0.8055 emergency=456.998 adjustment_cost=2486.160 total_cost=52090.136
+INFO [027/334] policy=0+6+12 2025-02-27 solved (0, 6, 12): price_mean=0.7979 emergency=340.886 adjustment_cost=518.414 total_cost=49780.310
+INFO [028/334] policy=0+6+12 2025-02-28 solved (0, 6, 12): price_mean=0.6167 emergency=0.000 adjustment_cost=1028.353 total_cost=37418.761
+INFO [029/334] policy=0+6+12 2025-03-01 solved (0, 6, 12): price_mean=0.6142 emergency=0.000 adjustment_cost=-1396.412 total_cost=40697.135
+INFO [030/334] policy=0+6+12 2025-03-02 solved (0, 6, 12): price_mean=0.8123 emergency=264.139 adjustment_cost=1301.550 total_cost=57327.897
+INFO [031/334] policy=0+6+12 2025-03-03 solved (0, 6, 12): price_mean=0.8118 emergency=438.539 adjustment_cost=-232.694 total_cost=57539.957
+INFO [032/334] policy=0+6+12 2025-03-04 solved (0, 6, 12): price_mean=0.8006 emergency=732.774 adjustment_cost=2143.275 total_cost=53958.922
+INFO [033/334] policy=0+6+12 2025-03-05 solved (0, 6, 12): price_mean=0.7945 emergency=271.044 adjustment_cost=-1128.196 total_cost=50839.716
+INFO [034/334] policy=0+6+12 2025-03-06 solved (0, 6, 12): price_mean=0.7919 emergency=262.526 adjustment_cost=515.574 total_cost=49163.010
+INFO [035/334] policy=0+6+12 2025-03-07 solved (0, 6, 12): price_mean=0.6085 emergency=0.000 adjustment_cost=-792.041 total_cost=37563.523
+INFO [036/334] policy=0+6+12 2025-03-08 solved (0, 6, 12): price_mean=0.5973 emergency=0.000 adjustment_cost=962.876 total_cost=35607.988
+INFO [037/334] policy=0+6+12 2025-03-09 solved (0, 6, 12): price_mean=0.7838 emergency=343.650 adjustment_cost=-872.735 total_cost=49787.064
+INFO [038/334] policy=0+6+12 2025-03-10 solved (0, 6, 12): price_mean=0.8025 emergency=455.137 adjustment_cost=1300.628 total_cost=51534.844
+INFO [039/334] policy=0+6+12 2025-03-11 solved (0, 6, 12): price_mean=0.7894 emergency=333.456 adjustment_cost=7122.781 total_cost=50618.928
+INFO [040/334] policy=0+6+12 2025-03-12 solved (0, 6, 12): price_mean=0.7802 emergency=278.045 adjustment_cost=-995.744 total_cost=48172.555
+INFO [041/334] policy=0+6+12 2025-03-13 solved (0, 6, 12): price_mean=0.7996 emergency=365.352 adjustment_cost=354.605 total_cost=51131.398
+INFO [042/334] policy=0+6+12 2025-03-14 solved (0, 6, 12): price_mean=0.5914 emergency=0.000 adjustment_cost=782.909 total_cost=33063.787
+INFO [043/334] policy=0+6+12 2025-03-15 solved (0, 6, 12): price_mean=0.6048 emergency=6.603 adjustment_cost=1966.586 total_cost=38065.662
+INFO [044/334] policy=0+6+12 2025-03-16 solved (0, 6, 12): price_mean=0.7849 emergency=217.805 adjustment_cost=446.722 total_cost=47687.303
+INFO [045/334] policy=0+6+12 2025-03-17 solved (0, 6, 12): price_mean=0.7602 emergency=453.918 adjustment_cost=-165.462 total_cost=43207.909
+INFO [046/334] policy=0+6+12 2025-03-18 solved (0, 6, 12): price_mean=0.7760 emergency=134.001 adjustment_cost=-1766.519 total_cost=47298.061
+INFO [047/334] policy=0+6+12 2025-03-19 solved (0, 6, 12): price_mean=0.7718 emergency=591.746 adjustment_cost=3811.617 total_cost=45212.138
+INFO [048/334] policy=0+6+12 2025-03-20 solved (0, 6, 12): price_mean=0.7786 emergency=1224.039 adjustment_cost=-1278.412 total_cost=49156.077
+INFO [049/334] policy=0+6+12 2025-03-21 solved (0, 6, 12): price_mean=0.5703 emergency=0.000 adjustment_cost=-747.682 total_cost=30389.881
+INFO [050/334] policy=0+6+12 2025-03-22 solved (0, 6, 12): price_mean=0.5874 emergency=9.078 adjustment_cost=-622.858 total_cost=33033.133
+INFO [051/334] policy=0+6+12 2025-03-23 solved (0, 6, 12): price_mean=0.7672 emergency=263.554 adjustment_cost=-1485.784 total_cost=45011.774
+INFO [052/334] policy=0+6+12 2025-03-24 solved (0, 6, 12): price_mean=0.7675 emergency=293.723 adjustment_cost=24.955 total_cost=42954.713
+INFO [053/334] policy=0+6+12 2025-03-25 solved (0, 6, 12): price_mean=0.7713 emergency=572.576 adjustment_cost=-2763.147 total_cost=46925.556
+INFO [054/334] policy=0+6+12 2025-03-26 solved (0, 6, 12): price_mean=0.7566 emergency=292.616 adjustment_cost=-583.527 total_cost=40955.009
+INFO [055/334] policy=0+6+12 2025-03-27 solved (0, 6, 12): price_mean=0.7664 emergency=640.127 adjustment_cost=-849.473 total_cost=44165.373
+INFO [056/334] policy=0+6+12 2025-03-28 solved (0, 6, 12): price_mean=0.5748 emergency=0.000 adjustment_cost=-529.624 total_cost=30521.463
+INFO [057/334] policy=0+6+12 2025-03-29 solved (0, 6, 12): price_mean=0.5631 emergency=0.000 adjustment_cost=200.937 total_cost=28795.522
+INFO [058/334] policy=0+6+12 2025-03-30 solved (0, 6, 12): price_mean=0.7520 emergency=900.867 adjustment_cost=-1929.329 total_cost=41921.031
+INFO [059/334] policy=0+6+12 2025-03-31 solved (0, 6, 12): price_mean=0.7607 emergency=525.977 adjustment_cost=5164.189 total_cost=43193.365
+INFO [060/334] policy=0+6+12 2025-04-01 solved (0, 6, 12): price_mean=0.7731 emergency=524.525 adjustment_cost=-602.110 total_cost=45810.885
+INFO [061/334] policy=0+6+12 2025-04-02 solved (0, 6, 12): price_mean=0.7723 emergency=580.564 adjustment_cost=432.379 total_cost=44755.482
+INFO [062/334] policy=0+6+12 2025-04-03 solved (0, 6, 12): price_mean=0.7645 emergency=400.460 adjustment_cost=-1739.737 total_cost=42639.550
+INFO [063/334] policy=0+6+12 2025-04-04 solved (0, 6, 12): price_mean=0.5595 emergency=0.000 adjustment_cost=-420.248 total_cost=27432.108
+INFO [064/334] policy=0+6+12 2025-04-05 solved (0, 6, 12): price_mean=0.5755 emergency=0.000 adjustment_cost=551.474 total_cost=28439.413
+INFO [065/334] policy=0+6+12 2025-04-06 solved (0, 6, 12): price_mean=0.7557 emergency=348.137 adjustment_cost=-69.916 total_cost=40297.694
+INFO [066/334] policy=0+6+12 2025-04-07 solved (0, 6, 12): price_mean=0.7517 emergency=517.903 adjustment_cost=2177.409 total_cost=38667.766
+INFO [067/334] policy=0+6+12 2025-04-08 solved (0, 6, 12): price_mean=0.7519 emergency=483.237 adjustment_cost=-1188.737 total_cost=40823.939
+INFO [068/334] policy=0+6+12 2025-04-09 solved (0, 6, 12): price_mean=0.7663 emergency=495.105 adjustment_cost=327.909 total_cost=41763.735
+INFO [069/334] policy=0+6+12 2025-04-10 solved (0, 6, 12): price_mean=0.7580 emergency=792.507 adjustment_cost=-715.597 total_cost=41720.353
+INFO [070/334] policy=0+6+12 2025-04-11 solved (0, 6, 12): price_mean=0.5515 emergency=0.000 adjustment_cost=1420.690 total_cost=26061.583
+INFO [071/334] policy=0+6+12 2025-04-12 solved (0, 6, 12): price_mean=0.5639 emergency=0.000 adjustment_cost=-1050.850 total_cost=28491.153
+INFO [072/334] policy=0+6+12 2025-04-13 solved (0, 6, 12): price_mean=0.7563 emergency=618.801 adjustment_cost=182.801 total_cost=39086.938
+INFO [073/334] policy=0+6+12 2025-04-14 solved (0, 6, 12): price_mean=0.7466 emergency=1042.542 adjustment_cost=-2112.503 total_cost=39894.763
+INFO [074/334] policy=0+6+12 2025-04-15 solved (0, 6, 12): price_mean=0.7385 emergency=513.938 adjustment_cost=1856.405 total_cost=37092.565
+INFO [075/334] policy=0+6+12 2025-04-16 solved (0, 6, 12): price_mean=0.7624 emergency=434.488 adjustment_cost=1413.949 total_cost=40099.203
+INFO [076/334] policy=0+6+12 2025-04-17 solved (0, 6, 12): price_mean=0.7478 emergency=368.209 adjustment_cost=1935.548 total_cost=37551.493
+INFO [077/334] policy=0+6+12 2025-04-18 solved (0, 6, 12): price_mean=0.5594 emergency=0.000 adjustment_cost=258.181 total_cost=26328.243
+INFO [078/334] policy=0+6+12 2025-04-19 solved (0, 6, 12): price_mean=0.5580 emergency=0.000 adjustment_cost=874.411 total_cost=27652.330
+INFO [079/334] policy=0+6+12 2025-04-20 solved (0, 6, 12): price_mean=0.7454 emergency=685.753 adjustment_cost=751.129 total_cost=37439.911
+INFO [080/334] policy=0+6+12 2025-04-21 solved (0, 6, 12): price_mean=0.7340 emergency=1053.521 adjustment_cost=-1568.849 total_cost=37425.175
+INFO [081/334] policy=0+6+12 2025-04-22 solved (0, 6, 12): price_mean=0.7510 emergency=686.170 adjustment_cost=3115.211 total_cost=38175.024
+INFO [082/334] policy=0+6+12 2025-04-23 solved (0, 6, 12): price_mean=0.7479 emergency=831.287 adjustment_cost=3071.989 total_cost=37664.923
+INFO [083/334] policy=0+6+12 2025-04-24 solved (0, 6, 12): price_mean=0.7362 emergency=669.118 adjustment_cost=780.636 total_cost=35805.639
+INFO [084/334] policy=0+6+12 2025-04-25 solved (0, 6, 12): price_mean=0.5407 emergency=0.000 adjustment_cost=132.270 total_cost=24457.576
+INFO [085/334] policy=0+6+12 2025-04-26 solved (0, 6, 12): price_mean=0.5378 emergency=0.000 adjustment_cost=464.924 total_cost=24854.985
+INFO [086/334] policy=0+6+12 2025-04-27 solved (0, 6, 12): price_mean=0.7338 emergency=824.463 adjustment_cost=1668.963 total_cost=36822.416
+INFO [087/334] policy=0+6+12 2025-04-28 solved (0, 6, 12): price_mean=0.7661 emergency=488.357 adjustment_cost=-341.649 total_cost=40348.977
+INFO [088/334] policy=0+6+12 2025-04-29 solved (0, 6, 12): price_mean=0.7304 emergency=277.202 adjustment_cost=485.458 total_cost=34503.978
+INFO [089/334] policy=0+6+12 2025-04-30 solved (0, 6, 12): price_mean=0.7294 emergency=1510.668 adjustment_cost=-374.640 total_cost=36643.526
+INFO [090/334] policy=0+6+12 2025-05-01 solved (0, 6, 12): price_mean=0.7473 emergency=2931.179 adjustment_cost=-140.886 total_cost=47632.152
+INFO [091/334] policy=0+6+12 2025-05-02 solved (0, 6, 12): price_mean=0.5870 emergency=0.000 adjustment_cost=-257.239 total_cost=30610.519
+INFO [092/334] policy=0+6+12 2025-05-03 solved (0, 6, 12): price_mean=0.5698 emergency=18.392 adjustment_cost=-495.512 total_cost=27979.674
+INFO [093/334] policy=0+6+12 2025-05-04 solved (0, 6, 12): price_mean=0.7461 emergency=3606.414 adjustment_cost=-1766.354 total_cost=49929.442
+INFO [094/334] policy=0+6+12 2025-05-05 solved (0, 6, 12): price_mean=0.7605 emergency=2784.051 adjustment_cost=-1127.622 total_cost=49255.013
+INFO [095/334] policy=0+6+12 2025-05-06 solved (0, 6, 12): price_mean=0.7532 emergency=3201.723 adjustment_cost=1555.958 total_cost=49062.466
+INFO [096/334] policy=0+6+12 2025-05-07 solved (0, 6, 12): price_mean=0.7587 emergency=2320.017 adjustment_cost=849.845 total_cost=47215.314
+INFO [097/334] policy=0+6+12 2025-05-08 solved (0, 6, 12): price_mean=0.7617 emergency=2445.665 adjustment_cost=-651.992 total_cost=49378.237
+INFO [098/334] policy=0+6+12 2025-05-09 solved (0, 6, 12): price_mean=0.5667 emergency=0.000 adjustment_cost=-948.368 total_cost=28279.726
+INFO [099/334] policy=0+6+12 2025-05-10 solved (0, 6, 12): price_mean=0.5753 emergency=0.000 adjustment_cost=639.622 total_cost=29402.314
+INFO [100/334] policy=0+6+12 2025-05-11 solved (0, 6, 12): price_mean=0.7608 emergency=2069.846 adjustment_cost=1.227 total_cost=47002.653
+INFO [101/334] policy=0+6+12 2025-05-12 solved (0, 6, 12): price_mean=0.7518 emergency=1442.184 adjustment_cost=2840.441 total_cost=42924.257
+INFO [102/334] policy=0+6+12 2025-05-13 solved (0, 6, 12): price_mean=0.7564 emergency=1168.560 adjustment_cost=-1029.640 total_cost=42783.512
+INFO [103/334] policy=0+6+12 2025-05-14 solved (0, 6, 12): price_mean=0.7476 emergency=967.437 adjustment_cost=-986.639 total_cost=40536.706
+INFO [104/334] policy=0+6+12 2025-05-15 solved (0, 6, 12): price_mean=0.7528 emergency=698.517 adjustment_cost=-173.243 total_cost=40596.974
+INFO [105/334] policy=0+6+12 2025-05-16 solved (0, 6, 12): price_mean=0.5454 emergency=0.000 adjustment_cost=-497.780 total_cost=26452.438
+INFO [106/334] policy=0+6+12 2025-05-17 solved (0, 6, 12): price_mean=0.5734 emergency=3.562 adjustment_cost=-578.638 total_cost=29936.348
+INFO [107/334] policy=0+6+12 2025-05-18 solved (0, 6, 12): price_mean=0.7507 emergency=710.060 adjustment_cost=-1135.026 total_cost=40648.883
+INFO [108/334] policy=0+6+12 2025-05-19 solved (0, 6, 12): price_mean=0.7318 emergency=498.570 adjustment_cost=-345.448 total_cost=37552.726
+INFO [109/334] policy=0+6+12 2025-05-20 solved (0, 6, 12): price_mean=0.7566 emergency=707.939 adjustment_cost=1311.357 total_cost=39975.247
+INFO [110/334] policy=0+6+12 2025-05-21 solved (0, 6, 12): price_mean=0.7458 emergency=751.667 adjustment_cost=2324.576 total_cost=39866.470
+INFO [111/334] policy=0+6+12 2025-05-22 solved (0, 6, 12): price_mean=0.7462 emergency=462.139 adjustment_cost=-121.218 total_cost=37663.744
+INFO [112/334] policy=0+6+12 2025-05-23 solved (0, 6, 12): price_mean=0.5570 emergency=0.000 adjustment_cost=916.079 total_cost=28910.950
+INFO [113/334] policy=0+6+12 2025-05-24 solved (0, 6, 12): price_mean=0.5532 emergency=0.000 adjustment_cost=-11.942 total_cost=26922.561
+INFO [114/334] policy=0+6+12 2025-05-25 solved (0, 6, 12): price_mean=0.7380 emergency=725.054 adjustment_cost=-339.313 total_cost=38408.948
+INFO [115/334] policy=0+6+12 2025-05-26 solved (0, 6, 12): price_mean=0.7525 emergency=580.937 adjustment_cost=2786.997 total_cost=39912.341
+INFO [116/334] policy=0+6+12 2025-05-27 solved (0, 6, 12): price_mean=0.7429 emergency=878.988 adjustment_cost=1758.861 total_cost=39132.895
+INFO [117/334] policy=0+6+12 2025-05-28 solved (0, 6, 12): price_mean=0.7513 emergency=388.563 adjustment_cost=-206.979 total_cost=39333.927
+INFO [118/334] policy=0+6+12 2025-05-29 solved (0, 6, 12): price_mean=0.7595 emergency=595.359 adjustment_cost=438.600 total_cost=40483.135
+INFO [119/334] policy=0+6+12 2025-05-30 solved (0, 6, 12): price_mean=0.5610 emergency=0.000 adjustment_cost=-596.526 total_cost=29173.730
+INFO [120/334] policy=0+6+12 2025-05-31 solved (0, 6, 12): price_mean=0.5664 emergency=90.662 adjustment_cost=-1330.418 total_cost=29651.791
+INFO [121/334] policy=0+6+12 2025-06-01 solved (0, 6, 12): price_mean=0.8192 emergency=6344.166 adjustment_cost=-2189.823 total_cost=77146.986
+INFO [122/334] policy=0+6+12 2025-06-02 solved (0, 6, 12): price_mean=0.8099 emergency=6449.624 adjustment_cost=-3837.844 total_cost=75386.535
+INFO [123/334] policy=0+6+12 2025-06-03 solved (0, 6, 12): price_mean=0.8063 emergency=4970.904 adjustment_cost=683.064 total_cost=69532.522
+INFO [124/334] policy=0+6+12 2025-06-04 solved (0, 6, 12): price_mean=0.8137 emergency=5282.809 adjustment_cost=-2397.736 total_cost=74932.534
+INFO [125/334] policy=0+6+12 2025-06-05 solved (0, 6, 12): price_mean=0.8221 emergency=5595.365 adjustment_cost=426.931 total_cost=72705.318
+INFO [126/334] policy=0+6+12 2025-06-06 solved (0, 6, 12): price_mean=0.6493 emergency=0.000 adjustment_cost=-925.908 total_cost=41552.478
+INFO [127/334] policy=0+6+12 2025-06-07 solved (0, 6, 12): price_mean=0.6503 emergency=76.188 adjustment_cost=-1970.337 total_cost=42860.725
+INFO [128/334] policy=0+6+12 2025-06-08 solved (0, 6, 12): price_mean=0.7971 emergency=4679.940 adjustment_cost=-76.203 total_cost=64821.537
+INFO [129/334] policy=0+6+12 2025-06-09 solved (0, 6, 12): price_mean=0.8193 emergency=3657.811 adjustment_cost=-2052.129 total_cost=66845.342
+INFO [130/334] policy=0+6+12 2025-06-10 solved (0, 6, 12): price_mean=0.8168 emergency=3405.430 adjustment_cost=566.319 total_cost=63710.641
+INFO [131/334] policy=0+6+12 2025-06-11 solved (0, 6, 12): price_mean=0.8317 emergency=2484.227 adjustment_cost=-136.837 total_cost=65688.109
+INFO [132/334] policy=0+6+12 2025-06-12 solved (0, 6, 12): price_mean=0.8220 emergency=1441.494 adjustment_cost=-408.417 total_cost=59547.392
+INFO [133/334] policy=0+6+12 2025-06-13 solved (0, 6, 12): price_mean=0.6400 emergency=0.000 adjustment_cost=-164.151 total_cost=41915.788
+INFO [134/334] policy=0+6+12 2025-06-14 solved (0, 6, 12): price_mean=0.6369 emergency=0.000 adjustment_cost=-1237.508 total_cost=41517.268
+INFO [135/334] policy=0+6+12 2025-06-15 solved (0, 6, 12): price_mean=0.8178 emergency=1899.728 adjustment_cost=1243.819 total_cost=59332.954
+INFO [136/334] policy=0+6+12 2025-06-16 solved (0, 6, 12): price_mean=0.8232 emergency=1694.581 adjustment_cost=129.069 total_cost=60291.804
+INFO [137/334] policy=0+6+12 2025-06-17 solved (0, 6, 12): price_mean=0.8286 emergency=1607.403 adjustment_cost=1253.384 total_cost=62883.924
+INFO [138/334] policy=0+6+12 2025-06-18 solved (0, 6, 12): price_mean=0.8200 emergency=764.092 adjustment_cost=-177.519 total_cost=58067.738
+INFO [139/334] policy=0+6+12 2025-06-19 solved (0, 6, 12): price_mean=0.8079 emergency=1633.878 adjustment_cost=1294.622 total_cost=59343.264
+INFO [140/334] policy=0+6+12 2025-06-20 solved (0, 6, 12): price_mean=0.6213 emergency=0.000 adjustment_cost=-706.591 total_cost=40258.923
+INFO [141/334] policy=0+6+12 2025-06-21 solved (0, 6, 12): price_mean=0.6095 emergency=0.000 adjustment_cost=32.061 total_cost=37518.179
+INFO [142/334] policy=0+6+12 2025-06-22 solved (0, 6, 12): price_mean=0.8075 emergency=1036.271 adjustment_cost=2291.318 total_cost=55685.361
+INFO [143/334] policy=0+6+12 2025-06-23 solved (0, 6, 12): price_mean=0.8049 emergency=624.137 adjustment_cost=-92.651 total_cost=53281.420
+INFO [144/334] policy=0+6+12 2025-06-24 solved (0, 6, 12): price_mean=0.8405 emergency=782.148 adjustment_cost=-1215.565 total_cost=63406.373
+INFO [145/334] policy=0+6+12 2025-06-25 solved (0, 6, 12): price_mean=0.8163 emergency=714.876 adjustment_cost=1524.359 total_cost=57110.690
+INFO [146/334] policy=0+6+12 2025-06-26 solved (0, 6, 12): price_mean=0.8060 emergency=842.658 adjustment_cost=330.065 total_cost=53933.753
+INFO [147/334] policy=0+6+12 2025-06-27 solved (0, 6, 12): price_mean=0.6051 emergency=0.000 adjustment_cost=-1437.279 total_cost=38220.336
+INFO [148/334] policy=0+6+12 2025-06-28 solved (0, 6, 12): price_mean=0.6230 emergency=0.000 adjustment_cost=128.147 total_cost=39866.877
+INFO [149/334] policy=0+6+12 2025-06-29 solved (0, 6, 12): price_mean=0.8118 emergency=1294.354 adjustment_cost=3778.940 total_cost=57493.621
+INFO [150/334] policy=0+6+12 2025-06-30 solved (0, 6, 12): price_mean=0.8102 emergency=698.799 adjustment_cost=-139.879 total_cost=56029.762
+INFO [151/334] policy=0+6+12 2025-07-01 solved (0, 6, 12): price_mean=0.8908 emergency=11584.429 adjustment_cost=758.076 total_cost=102197.854
+INFO [152/334] policy=0+6+12 2025-07-02 solved (0, 6, 12): price_mean=0.8753 emergency=9514.970 adjustment_cost=-564.960 total_cost=92050.382
+INFO [153/334] policy=0+6+12 2025-07-03 solved (0, 6, 12): price_mean=0.9014 emergency=8665.991 adjustment_cost=-462.375 total_cost=95717.301
+INFO [154/334] policy=0+6+12 2025-07-04 solved (0, 6, 12): price_mean=0.6903 emergency=0.000 adjustment_cost=1930.820 total_cost=42053.287
+INFO [155/334] policy=0+6+12 2025-07-05 solved (0, 6, 12): price_mean=0.6843 emergency=71.998 adjustment_cost=219.137 total_cost=40066.307
+INFO [156/334] policy=0+6+12 2025-07-06 solved (0, 6, 12): price_mean=0.8987 emergency=8936.867 adjustment_cost=3723.518 total_cost=97740.685
+INFO [157/334] policy=0+6+12 2025-07-07 solved (0, 6, 12): price_mean=0.8774 emergency=7951.592 adjustment_cost=-1112.312 total_cost=86130.290
+INFO [158/334] policy=0+6+12 2025-07-08 solved (0, 6, 12): price_mean=0.8836 emergency=7472.145 adjustment_cost=-1322.300 total_cost=89381.805
+INFO [159/334] policy=0+6+12 2025-07-09 solved (0, 6, 12): price_mean=0.8792 emergency=5290.948 adjustment_cost=-1267.881 total_cost=79893.147
+INFO [160/334] policy=0+6+12 2025-07-10 solved (0, 6, 12): price_mean=0.8775 emergency=4477.919 adjustment_cost=185.157 total_cost=73294.066
+INFO [161/334] policy=0+6+12 2025-07-11 solved (0, 6, 12): price_mean=0.7069 emergency=0.000 adjustment_cost=-602.360 total_cost=48517.549
+INFO [162/334] policy=0+6+12 2025-07-12 solved (0, 6, 12): price_mean=0.6943 emergency=0.000 adjustment_cost=2741.633 total_cost=46454.842
+INFO [163/334] policy=0+6+12 2025-07-13 solved (0, 6, 12): price_mean=0.8543 emergency=2165.783 adjustment_cost=-2635.011 total_cost=65843.096
+INFO [164/334] policy=0+6+12 2025-07-14 solved (0, 6, 12): price_mean=0.8722 emergency=2981.247 adjustment_cost=-445.534 total_cost=69204.267
+INFO [165/334] policy=0+6+12 2025-07-15 solved (0, 6, 12): price_mean=0.8721 emergency=2510.197 adjustment_cost=-1569.756 total_cost=67833.050
+INFO [166/334] policy=0+6+12 2025-07-16 solved (0, 6, 12): price_mean=0.8758 emergency=2533.659 adjustment_cost=-631.081 total_cost=68242.890
+INFO [167/334] policy=0+6+12 2025-07-17 solved (0, 6, 12): price_mean=0.8748 emergency=1647.152 adjustment_cost=2134.623 total_cost=65916.208
+INFO [168/334] policy=0+6+12 2025-07-18 solved (0, 6, 12): price_mean=0.6942 emergency=0.000 adjustment_cost=-1373.259 total_cost=49318.299
+INFO [169/334] policy=0+6+12 2025-07-19 solved (0, 6, 12): price_mean=0.6803 emergency=30.382 adjustment_cost=-1453.475 total_cost=47999.677
+INFO [170/334] policy=0+6+12 2025-07-20 solved (0, 6, 12): price_mean=0.8676 emergency=769.354 adjustment_cost=-588.524 total_cost=62116.559
+INFO [171/334] policy=0+6+12 2025-07-21 solved (0, 6, 12): price_mean=0.8792 emergency=835.152 adjustment_cost=76.829 total_cost=65223.167
+INFO [172/334] policy=0+6+12 2025-07-22 solved (0, 6, 12): price_mean=0.8751 emergency=1010.459 adjustment_cost=6180.496 total_cost=68984.853
+INFO [173/334] policy=0+6+12 2025-07-23 solved (0, 6, 12): price_mean=0.8756 emergency=1005.514 adjustment_cost=-3227.811 total_cost=67075.795
+INFO [174/334] policy=0+6+12 2025-07-24 solved (0, 6, 12): price_mean=0.8774 emergency=396.620 adjustment_cost=-2369.058 total_cost=65388.164
+INFO [175/334] policy=0+6+12 2025-07-25 solved (0, 6, 12): price_mean=0.6770 emergency=0.000 adjustment_cost=1398.306 total_cost=47293.009
+INFO [176/334] policy=0+6+12 2025-07-26 solved (0, 6, 12): price_mean=0.6880 emergency=0.000 adjustment_cost=-395.150 total_cost=48715.437
+INFO [177/334] policy=0+6+12 2025-07-27 solved (0, 6, 12): price_mean=0.8771 emergency=657.297 adjustment_cost=1583.055 total_cost=64027.080
+INFO [178/334] policy=0+6+12 2025-07-28 solved (0, 6, 12): price_mean=0.8862 emergency=1025.394 adjustment_cost=1484.150 total_cost=68799.155
+INFO [179/334] policy=0+6+12 2025-07-29 solved (0, 6, 12): price_mean=0.8846 emergency=282.132 adjustment_cost=3845.153 total_cost=65860.185
+INFO [180/334] policy=0+6+12 2025-07-30 solved (0, 6, 12): price_mean=0.8797 emergency=513.333 adjustment_cost=7438.553 total_cost=66472.942
+INFO [181/334] policy=0+6+12 2025-07-31 solved (0, 6, 12): price_mean=0.8814 emergency=527.866 adjustment_cost=1882.335 total_cost=63426.179
+INFO [182/334] policy=0+6+12 2025-08-01 solved (0, 6, 12): price_mean=0.6664 emergency=0.000 adjustment_cost=-1272.866 total_cost=45514.492
+INFO [183/334] policy=0+6+12 2025-08-02 solved (0, 6, 12): price_mean=0.6622 emergency=31.343 adjustment_cost=-2409.813 total_cost=46780.510
+INFO [184/334] policy=0+6+12 2025-08-03 solved (0, 6, 12): price_mean=0.8334 emergency=446.608 adjustment_cost=613.503 total_cost=54785.257
+INFO [185/334] policy=0+6+12 2025-08-04 solved (0, 6, 12): price_mean=0.8448 emergency=652.073 adjustment_cost=-634.864 total_cost=58541.771
+INFO [186/334] policy=0+6+12 2025-08-05 solved (0, 6, 12): price_mean=0.8446 emergency=205.507 adjustment_cost=810.505 total_cost=56469.919
+INFO [187/334] policy=0+6+12 2025-08-06 solved (0, 6, 12): price_mean=0.8577 emergency=238.584 adjustment_cost=-1682.235 total_cost=61425.385
+INFO [188/334] policy=0+6+12 2025-08-07 solved (0, 6, 12): price_mean=0.8411 emergency=314.094 adjustment_cost=-1424.238 total_cost=58521.768
+INFO [189/334] policy=0+6+12 2025-08-08 solved (0, 6, 12): price_mean=0.6380 emergency=0.000 adjustment_cost=-57.516 total_cost=42222.362
+INFO [190/334] policy=0+6+12 2025-08-09 solved (0, 6, 12): price_mean=0.6530 emergency=0.000 adjustment_cost=-413.267 total_cost=43675.758
+INFO [191/334] policy=0+6+12 2025-08-10 solved (0, 6, 12): price_mean=0.8487 emergency=284.670 adjustment_cost=-1087.206 total_cost=57110.909
+INFO [192/334] policy=0+6+12 2025-08-11 solved (0, 6, 12): price_mean=0.8396 emergency=327.430 adjustment_cost=1089.252 total_cost=55809.648
+INFO [193/334] policy=0+6+12 2025-08-12 solved (0, 6, 12): price_mean=0.8574 emergency=244.724 adjustment_cost=108.200 total_cost=60068.327
+INFO [194/334] policy=0+6+12 2025-08-13 solved (0, 6, 12): price_mean=0.8532 emergency=566.256 adjustment_cost=326.190 total_cost=56896.493
+INFO [195/334] policy=0+6+12 2025-08-14 solved (0, 6, 12): price_mean=0.8501 emergency=143.126 adjustment_cost=1115.823 total_cost=57771.687
+INFO [196/334] policy=0+6+12 2025-08-15 solved (0, 6, 12): price_mean=0.6512 emergency=0.000 adjustment_cost=-2239.065 total_cost=45720.283
+INFO [197/334] policy=0+6+12 2025-08-16 solved (0, 6, 12): price_mean=0.6473 emergency=0.000 adjustment_cost=-2325.911 total_cost=44948.079
+INFO [198/334] policy=0+6+12 2025-08-17 solved (0, 6, 12): price_mean=0.8399 emergency=322.192 adjustment_cost=-965.482 total_cost=57088.035
+INFO [199/334] policy=0+6+12 2025-08-18 solved (0, 6, 12): price_mean=0.8476 emergency=327.859 adjustment_cost=-736.571 total_cost=56989.982
+INFO [200/334] policy=0+6+12 2025-08-19 solved (0, 6, 12): price_mean=0.8429 emergency=438.952 adjustment_cost=-29.502 total_cost=57768.469
+INFO [201/334] policy=0+6+12 2025-08-20 solved (0, 6, 12): price_mean=0.8663 emergency=382.589 adjustment_cost=-1084.624 total_cost=61377.578
+INFO [202/334] policy=0+6+12 2025-08-21 solved (0, 6, 12): price_mean=0.8472 emergency=318.919 adjustment_cost=-1013.186 total_cost=57598.201
+INFO [203/334] policy=0+6+12 2025-08-22 solved (0, 6, 12): price_mean=0.6605 emergency=0.000 adjustment_cost=-1110.310 total_cost=44548.309
+INFO [204/334] policy=0+6+12 2025-08-23 solved (0, 6, 12): price_mean=0.6592 emergency=0.000 adjustment_cost=470.903 total_cost=43981.159
+INFO [205/334] policy=0+6+12 2025-08-24 solved (0, 6, 12): price_mean=0.8410 emergency=339.431 adjustment_cost=966.180 total_cost=58015.614
+INFO [206/334] policy=0+6+12 2025-08-25 solved (0, 6, 12): price_mean=0.8602 emergency=272.630 adjustment_cost=-5703.618 total_cost=65136.415
+INFO [207/334] policy=0+6+12 2025-08-26 solved (0, 6, 12): price_mean=0.8444 emergency=165.951 adjustment_cost=-529.694 total_cost=55937.257
+INFO [208/334] policy=0+6+12 2025-08-27 solved (0, 6, 12): price_mean=0.8534 emergency=113.574 adjustment_cost=3322.006 total_cost=60047.251
+INFO [209/334] policy=0+6+12 2025-08-28 solved (0, 6, 12): price_mean=0.8635 emergency=647.595 adjustment_cost=3871.344 total_cost=61962.476
+INFO [210/334] policy=0+6+12 2025-08-29 solved (0, 6, 12): price_mean=0.6645 emergency=0.000 adjustment_cost=-1738.112 total_cost=47025.334
+INFO [211/334] policy=0+6+12 2025-08-30 solved (0, 6, 12): price_mean=0.6547 emergency=0.000 adjustment_cost=-1634.919 total_cost=45621.526
+INFO [212/334] policy=0+6+12 2025-08-31 solved (0, 6, 12): price_mean=0.8465 emergency=581.947 adjustment_cost=135.511 total_cost=57117.180
+INFO [213/334] policy=0+6+12 2025-09-01 solved (0, 6, 12): price_mean=0.7517 emergency=0.000 adjustment_cost=-1541.187 total_cost=51629.145
+INFO [214/334] policy=0+6+12 2025-09-02 solved (0, 6, 12): price_mean=0.7540 emergency=0.000 adjustment_cost=1759.810 total_cost=49553.944
+INFO [215/334] policy=0+6+12 2025-09-03 solved (0, 6, 12): price_mean=0.7610 emergency=0.000 adjustment_cost=-434.611 total_cost=51732.901
+INFO [216/334] policy=0+6+12 2025-09-04 solved (0, 6, 12): price_mean=0.7570 emergency=73.843 adjustment_cost=-775.563 total_cost=50075.769
+INFO [217/334] policy=0+6+12 2025-09-05 solved (0, 6, 12): price_mean=0.5586 emergency=0.000 adjustment_cost=-193.833 total_cost=37035.211
+INFO [218/334] policy=0+6+12 2025-09-06 solved (0, 6, 12): price_mean=0.5657 emergency=0.000 adjustment_cost=379.852 total_cost=37819.566
+INFO [219/334] policy=0+6+12 2025-09-07 solved (0, 6, 12): price_mean=0.7593 emergency=45.062 adjustment_cost=2428.975 total_cost=50153.223
+INFO [220/334] policy=0+6+12 2025-09-08 solved (0, 6, 12): price_mean=0.7735 emergency=0.000 adjustment_cost=1084.336 total_cost=53585.185
+INFO [221/334] policy=0+6+12 2025-09-09 solved (0, 6, 12): price_mean=0.7519 emergency=0.000 adjustment_cost=3183.796 total_cost=49789.597
+INFO [222/334] policy=0+6+12 2025-09-10 solved (0, 6, 12): price_mean=0.7818 emergency=28.048 adjustment_cost=406.262 total_cost=54484.434
+INFO [223/334] policy=0+6+12 2025-09-11 solved (0, 6, 12): price_mean=0.7531 emergency=190.772 adjustment_cost=-2210.921 total_cost=51404.727
+INFO [224/334] policy=0+6+12 2025-09-12 solved (0, 6, 12): price_mean=0.5751 emergency=0.000 adjustment_cost=680.484 total_cost=38204.600
+INFO [225/334] policy=0+6+12 2025-09-13 solved (0, 6, 12): price_mean=0.5665 emergency=0.000 adjustment_cost=406.887 total_cost=37671.309
+INFO [226/334] policy=0+6+12 2025-09-14 solved (0, 6, 12): price_mean=0.7759 emergency=0.000 adjustment_cost=-1630.745 total_cost=53969.781
+INFO [227/334] policy=0+6+12 2025-09-15 solved (0, 6, 12): price_mean=0.7617 emergency=519.978 adjustment_cost=158.738 total_cost=48986.175
+INFO [228/334] policy=0+6+12 2025-09-16 solved (0, 6, 12): price_mean=0.7779 emergency=0.000 adjustment_cost=-1655.217 total_cost=53399.205
+INFO [229/334] policy=0+6+12 2025-09-17 solved (0, 6, 12): price_mean=0.7781 emergency=116.864 adjustment_cost=-833.908 total_cost=52555.170
+INFO [230/334] policy=0+6+12 2025-09-18 solved (0, 6, 12): price_mean=0.7698 emergency=10.966 adjustment_cost=4663.688 total_cost=51889.819
+INFO [231/334] policy=0+6+12 2025-09-19 solved (0, 6, 12): price_mean=0.5933 emergency=0.000 adjustment_cost=96.465 total_cost=39589.084
+INFO [232/334] policy=0+6+12 2025-09-20 solved (0, 6, 12): price_mean=0.5875 emergency=0.000 adjustment_cost=979.409 total_cost=39077.073
+INFO [233/334] policy=0+6+12 2025-09-21 solved (0, 6, 12): price_mean=0.7738 emergency=11.050 adjustment_cost=-536.594 total_cost=49716.731
+INFO [234/334] policy=0+6+12 2025-09-22 solved (0, 6, 12): price_mean=0.7822 emergency=338.740 adjustment_cost=-1983.391 total_cost=50337.170
+INFO [235/334] policy=0+6+12 2025-09-23 solved (0, 6, 12): price_mean=0.7818 emergency=33.929 adjustment_cost=-479.224 total_cost=49217.708
+INFO [236/334] policy=0+6+12 2025-09-24 solved (0, 6, 12): price_mean=0.7761 emergency=631.504 adjustment_cost=2197.600 total_cost=47783.055
+INFO [237/334] policy=0+6+12 2025-09-25 solved (0, 6, 12): price_mean=0.7776 emergency=204.192 adjustment_cost=498.895 total_cost=48055.401
+INFO [238/334] policy=0+6+12 2025-09-26 solved (0, 6, 12): price_mean=0.5928 emergency=0.000 adjustment_cost=-1214.540 total_cost=37503.104
+INFO [239/334] policy=0+6+12 2025-09-27 solved (0, 6, 12): price_mean=0.5997 emergency=0.000 adjustment_cost=2507.158 total_cost=37034.670
+INFO [240/334] policy=0+6+12 2025-09-28 solved (0, 6, 12): price_mean=0.7894 emergency=278.607 adjustment_cost=3455.258 total_cost=50891.729
+INFO [241/334] policy=0+6+12 2025-09-29 solved (0, 6, 12): price_mean=0.7878 emergency=1262.237 adjustment_cost=-1768.056 total_cost=51319.369
+INFO [242/334] policy=0+6+12 2025-09-30 solved (0, 6, 12): price_mean=0.7938 emergency=812.916 adjustment_cost=675.606 total_cost=51992.079
+INFO [243/334] policy=0+6+12 2025-10-01 solved (0, 6, 12): price_mean=0.7382 emergency=34.827 adjustment_cost=-871.839 total_cost=42036.274
+INFO [244/334] policy=0+6+12 2025-10-02 solved (0, 6, 12): price_mean=0.7420 emergency=120.114 adjustment_cost=-2827.972 total_cost=43951.072
+INFO [245/334] policy=0+6+12 2025-10-03 solved (0, 6, 12): price_mean=0.5580 emergency=0.000 adjustment_cost=-202.783 total_cost=30767.818
+INFO [246/334] policy=0+6+12 2025-10-04 solved (0, 6, 12): price_mean=0.5858 emergency=0.000 adjustment_cost=-2153.568 total_cost=35136.305
+INFO [247/334] policy=0+6+12 2025-10-05 solved (0, 6, 12): price_mean=0.7526 emergency=230.043 adjustment_cost=-2161.138 total_cost=44237.363
+INFO [248/334] policy=0+6+12 2025-10-06 solved (0, 6, 12): price_mean=0.7685 emergency=860.745 adjustment_cost=1468.668 total_cost=44957.344
+INFO [249/334] policy=0+6+12 2025-10-07 solved (0, 6, 12): price_mean=0.7658 emergency=127.333 adjustment_cost=1034.306 total_cost=43914.947
+INFO [250/334] policy=0+6+12 2025-10-08 solved (0, 6, 12): price_mean=0.7607 emergency=349.635 adjustment_cost=-186.199 total_cost=43145.981
+INFO [251/334] policy=0+6+12 2025-10-09 solved (0, 6, 12): price_mean=0.7578 emergency=224.506 adjustment_cost=-3183.487 total_cost=45323.231
+INFO [252/334] policy=0+6+12 2025-10-10 solved (0, 6, 12): price_mean=0.5595 emergency=0.000 adjustment_cost=-1174.200 total_cost=33187.514
+INFO [253/334] policy=0+6+12 2025-10-11 solved (0, 6, 12): price_mean=0.5846 emergency=0.000 adjustment_cost=-455.773 total_cost=35064.372
+INFO [254/334] policy=0+6+12 2025-10-12 solved (0, 6, 12): price_mean=0.7663 emergency=562.043 adjustment_cost=11.181 total_cost=44954.959
+INFO [255/334] policy=0+6+12 2025-10-13 solved (0, 6, 12): price_mean=0.7647 emergency=885.575 adjustment_cost=-1258.086 total_cost=46045.352
+INFO [256/334] policy=0+6+12 2025-10-14 solved (0, 6, 12): price_mean=0.7731 emergency=1206.800 adjustment_cost=-622.449 total_cost=50137.016
+INFO [257/334] policy=0+6+12 2025-10-15 solved (0, 6, 12): price_mean=0.7761 emergency=470.010 adjustment_cost=-1882.818 total_cost=48045.724
+INFO [258/334] policy=0+6+12 2025-10-16 solved (0, 6, 12): price_mean=0.7822 emergency=308.103 adjustment_cost=1.153 total_cost=48076.352
+INFO [259/334] policy=0+6+12 2025-10-17 solved (0, 6, 12): price_mean=0.5888 emergency=0.000 adjustment_cost=3616.412 total_cost=34829.213
+INFO [260/334] policy=0+6+12 2025-10-18 solved (0, 6, 12): price_mean=0.5831 emergency=0.000 adjustment_cost=-838.694 total_cost=34778.965
+INFO [261/334] policy=0+6+12 2025-10-19 solved (0, 6, 12): price_mean=0.7894 emergency=625.053 adjustment_cost=-716.511 total_cost=49579.573
+INFO [262/334] policy=0+6+12 2025-10-20 solved (0, 6, 12): price_mean=0.7871 emergency=282.239 adjustment_cost=-909.738 total_cost=49657.683
+INFO [263/334] policy=0+6+12 2025-10-21 solved (0, 6, 12): price_mean=0.7953 emergency=501.384 adjustment_cost=-67.270 total_cost=50554.087
+INFO [264/334] policy=0+6+12 2025-10-22 solved (0, 6, 12): price_mean=0.7930 emergency=332.935 adjustment_cost=837.945 total_cost=49362.238
+INFO [265/334] policy=0+6+12 2025-10-23 solved (0, 6, 12): price_mean=0.7813 emergency=492.605 adjustment_cost=-3779.888 total_cost=50749.431
+INFO [266/334] policy=0+6+12 2025-10-24 solved (0, 6, 12): price_mean=0.5964 emergency=0.000 adjustment_cost=846.528 total_cost=35784.592
+INFO [267/334] policy=0+6+12 2025-10-25 solved (0, 6, 12): price_mean=0.5985 emergency=0.000 adjustment_cost=-737.550 total_cost=36056.142
+INFO [268/334] policy=0+6+12 2025-10-26 solved (0, 6, 12): price_mean=0.7873 emergency=724.448 adjustment_cost=-1309.911 total_cost=49659.416
+INFO [269/334] policy=0+6+12 2025-10-27 solved (0, 6, 12): price_mean=0.7829 emergency=290.120 adjustment_cost=4517.038 total_cost=49596.749
+INFO [270/334] policy=0+6+12 2025-10-28 solved (0, 6, 12): price_mean=0.7931 emergency=303.278 adjustment_cost=3880.688 total_cost=49664.774
+INFO [271/334] policy=0+6+12 2025-10-29 solved (0, 6, 12): price_mean=0.8070 emergency=262.261 adjustment_cost=-98.597 total_cost=51709.090
+INFO [272/334] policy=0+6+12 2025-10-30 solved (0, 6, 12): price_mean=0.7920 emergency=711.553 adjustment_cost=2670.689 total_cost=50168.437
+INFO [273/334] policy=0+6+12 2025-10-31 solved (0, 6, 12): price_mean=0.6177 emergency=0.000 adjustment_cost=-647.905 total_cost=38097.108
+INFO [274/334] policy=0+6+12 2025-11-01 solved (0, 6, 12): price_mean=0.6046 emergency=0.000 adjustment_cost=326.135 total_cost=35981.665
+INFO [275/334] policy=0+6+12 2025-11-02 solved (0, 6, 12): price_mean=0.8022 emergency=559.213 adjustment_cost=2824.515 total_cost=53870.644
+INFO [276/334] policy=0+6+12 2025-11-03 solved (0, 6, 12): price_mean=0.8055 emergency=395.205 adjustment_cost=-1011.988 total_cost=52462.821
+INFO [277/334] policy=0+6+12 2025-11-04 solved (0, 6, 12): price_mean=0.7976 emergency=528.990 adjustment_cost=1480.740 total_cost=51914.891
+INFO [278/334] policy=0+6+12 2025-11-05 solved (0, 6, 12): price_mean=0.8090 emergency=529.909 adjustment_cost=-2287.088 total_cost=55082.589
+INFO [279/334] policy=0+6+12 2025-11-06 solved (0, 6, 12): price_mean=0.8151 emergency=656.470 adjustment_cost=1138.492 total_cost=55619.909
+INFO [280/334] policy=0+6+12 2025-11-07 solved (0, 6, 12): price_mean=0.6155 emergency=0.000 adjustment_cost=1570.316 total_cost=39186.292
+INFO [281/334] policy=0+6+12 2025-11-08 solved (0, 6, 12): price_mean=0.6173 emergency=0.000 adjustment_cost=-787.535 total_cost=38635.308
+INFO [282/334] policy=0+6+12 2025-11-09 solved (0, 6, 12): price_mean=0.8103 emergency=503.712 adjustment_cost=104.060 total_cost=54323.022
+INFO [283/334] policy=0+6+12 2025-11-10 solved (0, 6, 12): price_mean=0.8190 emergency=638.310 adjustment_cost=2215.967 total_cost=58457.930
+INFO [284/334] policy=0+6+12 2025-11-11 solved (0, 6, 12): price_mean=0.8139 emergency=323.908 adjustment_cost=-1253.515 total_cost=55062.172
+INFO [285/334] policy=0+6+12 2025-11-12 solved (0, 6, 12): price_mean=0.8124 emergency=324.045 adjustment_cost=2319.665 total_cost=56199.766
+INFO [286/334] policy=0+6+12 2025-11-13 solved (0, 6, 12): price_mean=0.8185 emergency=1028.855 adjustment_cost=2300.211 total_cost=58339.493
+INFO [287/334] policy=0+6+12 2025-11-14 solved (0, 6, 12): price_mean=0.6291 emergency=0.000 adjustment_cost=529.180 total_cost=40122.082
+INFO [288/334] policy=0+6+12 2025-11-15 solved (0, 6, 12): price_mean=0.6288 emergency=0.000 adjustment_cost=-1337.851 total_cost=41995.244
+INFO [289/334] policy=0+6+12 2025-11-16 solved (0, 6, 12): price_mean=0.8206 emergency=599.283 adjustment_cost=2224.082 total_cost=58099.610
+INFO [290/334] policy=0+6+12 2025-11-17 solved (0, 6, 12): price_mean=0.8159 emergency=414.734 adjustment_cost=5540.810 total_cost=57764.644
+INFO [291/334] policy=0+6+12 2025-11-18 solved (0, 6, 12): price_mean=0.8219 emergency=1142.293 adjustment_cost=302.529 total_cost=59671.369
+INFO [292/334] policy=0+6+12 2025-11-19 solved (0, 6, 12): price_mean=0.8290 emergency=485.122 adjustment_cost=4292.127 total_cost=60957.276
+INFO [293/334] policy=0+6+12 2025-11-20 solved (0, 6, 12): price_mean=0.8212 emergency=640.670 adjustment_cost=1087.461 total_cost=57922.632
+INFO [294/334] policy=0+6+12 2025-11-21 solved (0, 6, 12): price_mean=0.6326 emergency=0.000 adjustment_cost=1387.117 total_cost=42529.851
+INFO [295/334] policy=0+6+12 2025-11-22 solved (0, 6, 12): price_mean=0.6367 emergency=0.000 adjustment_cost=-1304.961 total_cost=44170.363
+INFO [296/334] policy=0+6+12 2025-11-23 solved (0, 6, 12): price_mean=0.8265 emergency=620.753 adjustment_cost=1730.957 total_cost=58833.252
+INFO [297/334] policy=0+6+12 2025-11-24 solved (0, 6, 12): price_mean=0.8211 emergency=1004.742 adjustment_cost=26.215 total_cost=57994.118
+INFO [298/334] policy=0+6+12 2025-11-25 solved (0, 6, 12): price_mean=0.8241 emergency=386.966 adjustment_cost=-3078.950 total_cost=61670.717
+INFO [299/334] policy=0+6+12 2025-11-26 solved (0, 6, 12): price_mean=0.8299 emergency=401.315 adjustment_cost=-499.959 total_cost=61096.105
+INFO [300/334] policy=0+6+12 2025-11-27 solved (0, 6, 12): price_mean=0.8286 emergency=394.646 adjustment_cost=-92.758 total_cost=59558.175
+INFO [301/334] policy=0+6+12 2025-11-28 solved (0, 6, 12): price_mean=0.6340 emergency=0.000 adjustment_cost=-78.541 total_cost=43083.225
+INFO [302/334] policy=0+6+12 2025-11-29 solved (0, 6, 12): price_mean=0.6504 emergency=0.000 adjustment_cost=-1882.949 total_cost=48577.476
+INFO [303/334] policy=0+6+12 2025-11-30 solved (0, 6, 12): price_mean=0.8396 emergency=544.458 adjustment_cost=1502.652 total_cost=64048.718
+INFO [304/334] policy=0+6+12 2025-12-01 solved (0, 6, 12): price_mean=0.9076 emergency=6307.189 adjustment_cost=-2152.414 total_cost=93124.717
+INFO [305/334] policy=0+6+12 2025-12-02 solved (0, 6, 12): price_mean=0.9153 emergency=4815.005 adjustment_cost=-1799.971 total_cost=89824.943
+INFO [306/334] policy=0+6+12 2025-12-03 solved (0, 6, 12): price_mean=0.9120 emergency=5046.896 adjustment_cost=5173.759 total_cost=88431.125
+INFO [307/334] policy=0+6+12 2025-12-04 solved (0, 6, 12): price_mean=0.9051 emergency=4718.331 adjustment_cost=-1933.006 total_cost=86767.496
+INFO [308/334] policy=0+6+12 2025-12-05 solved (0, 6, 12): price_mean=0.7172 emergency=0.000 adjustment_cost=-219.257 total_cost=50659.115
+INFO [309/334] policy=0+6+12 2025-12-06 solved (0, 6, 12): price_mean=0.7272 emergency=0.000 adjustment_cost=-509.454 total_cost=53185.938
+INFO [310/334] policy=0+6+12 2025-12-07 solved (0, 6, 12): price_mean=0.9101 emergency=4168.725 adjustment_cost=-2321.475 total_cost=84829.890
+INFO [311/334] policy=0+6+12 2025-12-08 solved (0, 6, 12): price_mean=0.9085 emergency=2613.968 adjustment_cost=-752.012 total_cost=79893.231
+INFO [312/334] policy=0+6+12 2025-12-09 solved (0, 6, 12): price_mean=0.9058 emergency=2357.752 adjustment_cost=-911.912 total_cost=78007.134
+INFO [313/334] policy=0+6+12 2025-12-10 solved (0, 6, 12): price_mean=0.9162 emergency=3035.262 adjustment_cost=907.975 total_cost=82972.567
+INFO [314/334] policy=0+6+12 2025-12-11 solved (0, 6, 12): price_mean=0.8976 emergency=1115.062 adjustment_cost=-1412.442 total_cost=72657.454
+INFO [315/334] policy=0+6+12 2025-12-12 solved (0, 6, 12): price_mean=0.7238 emergency=0.000 adjustment_cost=712.055 total_cost=54617.310
+INFO [316/334] policy=0+6+12 2025-12-13 solved (0, 6, 12): price_mean=0.7297 emergency=2.835 adjustment_cost=752.807 total_cost=56051.216
+INFO [317/334] policy=0+6+12 2025-12-14 solved (0, 6, 12): price_mean=0.9207 emergency=2489.286 adjustment_cost=2210.109 total_cost=82960.186
+INFO [318/334] policy=0+6+12 2025-12-15 solved (0, 6, 12): price_mean=0.9144 emergency=1901.268 adjustment_cost=3642.403 total_cost=80475.178
+INFO [319/334] policy=0+6+12 2025-12-16 solved (0, 6, 12): price_mean=0.9109 emergency=920.698 adjustment_cost=-745.070 total_cost=75619.736
+INFO [320/334] policy=0+6+12 2025-12-17 solved (0, 6, 12): price_mean=0.9088 emergency=984.417 adjustment_cost=-1637.878 total_cost=75827.906
+INFO [321/334] policy=0+6+12 2025-12-18 solved (0, 6, 12): price_mean=0.9095 emergency=970.826 adjustment_cost=591.175 total_cost=73221.380
+INFO [322/334] policy=0+6+12 2025-12-19 solved (0, 6, 12): price_mean=0.7251 emergency=0.000 adjustment_cost=1267.702 total_cost=54853.212
+INFO [323/334] policy=0+6+12 2025-12-20 solved (0, 6, 12): price_mean=0.7190 emergency=0.000 adjustment_cost=-414.463 total_cost=54348.601
+INFO [324/334] policy=0+6+12 2025-12-21 solved (0, 6, 12): price_mean=0.9101 emergency=1287.445 adjustment_cost=-117.434 total_cost=76828.843
+INFO [325/334] policy=0+6+12 2025-12-22 solved (0, 6, 12): price_mean=0.9193 emergency=1188.326 adjustment_cost=692.450 total_cost=76356.954
+INFO [326/334] policy=0+6+12 2025-12-23 solved (0, 6, 12): price_mean=0.9127 emergency=681.801 adjustment_cost=-1023.352 total_cost=74293.036
+INFO [327/334] policy=0+6+12 2025-12-24 solved (0, 6, 12): price_mean=0.9083 emergency=505.842 adjustment_cost=-221.079 total_cost=73085.093
+INFO [328/334] policy=0+6+12 2025-12-25 solved (0, 6, 12): price_mean=0.9103 emergency=1215.264 adjustment_cost=1979.272 total_cost=75785.272
+INFO [329/334] policy=0+6+12 2025-12-26 solved (0, 6, 12): price_mean=0.7238 emergency=0.000 adjustment_cost=582.718 total_cost=54623.248
+INFO [330/334] policy=0+6+12 2025-12-27 solved (0, 6, 12): price_mean=0.7212 emergency=0.000 adjustment_cost=226.172 total_cost=54987.115
+INFO [331/334] policy=0+6+12 2025-12-28 solved (0, 6, 12): price_mean=0.9059 emergency=440.692 adjustment_cost=-562.102 total_cost=71955.050
+INFO [332/334] policy=0+6+12 2025-12-29 solved (0, 6, 12): price_mean=0.9065 emergency=462.032 adjustment_cost=1372.104 total_cost=72981.842
+INFO [333/334] policy=0+6+12 2025-12-30 solved (0, 6, 12): price_mean=0.9005 emergency=669.932 adjustment_cost=-897.256 total_cost=72785.598
+INFO [334/334] policy=0+6+12 2025-12-31 solved (0, 6, 12): price_mean=0.9102 emergency=516.109 adjustment_cost=-376.125 total_cost=74585.361
+INFO Question 4-3: recomputing fixed-price baseline with the identical policy
+INFO [001/334] policy=0+6+12 2025-02-01 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-976.370 total_cost=58418.648
+INFO [002/334] policy=0+6+12 2025-02-02 solved (0, 6, 12): price_mean=0.7662 emergency=13.790 adjustment_cost=-797.814 total_cost=58038.458
+INFO [003/334] policy=0+6+12 2025-02-03 solved (0, 6, 12): price_mean=0.7662 emergency=145.058 adjustment_cost=-1700.816 total_cost=59432.092
+INFO [004/334] policy=0+6+12 2025-02-04 solved (0, 6, 12): price_mean=0.7662 emergency=74.058 adjustment_cost=-1652.865 total_cost=60987.743
+INFO [005/334] policy=0+6+12 2025-02-05 solved (0, 6, 12): price_mean=0.7662 emergency=24.201 adjustment_cost=-229.931 total_cost=58643.932
+INFO [006/334] policy=0+6+12 2025-02-06 solved (0, 6, 12): price_mean=0.7662 emergency=19.809 adjustment_cost=-2471.354 total_cost=60268.123
+INFO [007/334] policy=0+6+12 2025-02-07 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1575.945 total_cost=58396.748
+INFO [008/334] policy=0+6+12 2025-02-08 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=1186.704 total_cost=54859.580
+INFO [009/334] policy=0+6+12 2025-02-09 solved (0, 6, 12): price_mean=0.7662 emergency=11.187 adjustment_cost=-382.816 total_cost=58708.386
+INFO [010/334] policy=0+6+12 2025-02-10 solved (0, 6, 12): price_mean=0.7662 emergency=155.920 adjustment_cost=-151.550 total_cost=56053.429
+INFO [011/334] policy=0+6+12 2025-02-11 solved (0, 6, 12): price_mean=0.7662 emergency=24.528 adjustment_cost=-1629.195 total_cost=55141.021
+INFO [012/334] policy=0+6+12 2025-02-12 solved (0, 6, 12): price_mean=0.7662 emergency=28.202 adjustment_cost=-1577.727 total_cost=55081.341
+INFO [013/334] policy=0+6+12 2025-02-13 solved (0, 6, 12): price_mean=0.7662 emergency=58.115 adjustment_cost=-695.205 total_cost=51948.029
+INFO [014/334] policy=0+6+12 2025-02-14 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=86.186 total_cost=54194.412
+INFO [015/334] policy=0+6+12 2025-02-15 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1481.738 total_cost=53484.659
+INFO [016/334] policy=0+6+12 2025-02-16 solved (0, 6, 12): price_mean=0.7662 emergency=268.185 adjustment_cost=-2153.648 total_cost=55209.227
+INFO [017/334] policy=0+6+12 2025-02-17 solved (0, 6, 12): price_mean=0.7662 emergency=139.806 adjustment_cost=-2485.867 total_cost=53400.627
+INFO [018/334] policy=0+6+12 2025-02-18 solved (0, 6, 12): price_mean=0.7662 emergency=294.553 adjustment_cost=990.608 total_cost=52043.780
+INFO [019/334] policy=0+6+12 2025-02-19 solved (0, 6, 12): price_mean=0.7662 emergency=326.183 adjustment_cost=412.730 total_cost=51844.747
+INFO [020/334] policy=0+6+12 2025-02-20 solved (0, 6, 12): price_mean=0.7662 emergency=240.787 adjustment_cost=59.877 total_cost=52578.683
+INFO [021/334] policy=0+6+12 2025-02-21 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=900.516 total_cost=51213.909
+INFO [022/334] policy=0+6+12 2025-02-22 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=13.034 total_cost=51250.167
+INFO [023/334] policy=0+6+12 2025-02-23 solved (0, 6, 12): price_mean=0.7662 emergency=492.128 adjustment_cost=-638.504 total_cost=51262.004
+INFO [024/334] policy=0+6+12 2025-02-24 solved (0, 6, 12): price_mean=0.7662 emergency=230.234 adjustment_cost=880.288 total_cost=50367.074
+INFO [025/334] policy=0+6+12 2025-02-25 solved (0, 6, 12): price_mean=0.7662 emergency=213.738 adjustment_cost=-1512.349 total_cost=48896.122
+INFO [026/334] policy=0+6+12 2025-02-26 solved (0, 6, 12): price_mean=0.7662 emergency=442.379 adjustment_cost=2116.853 total_cost=48983.661
+INFO [027/334] policy=0+6+12 2025-02-27 solved (0, 6, 12): price_mean=0.7662 emergency=338.892 adjustment_cost=411.045 total_cost=48182.828
+INFO [028/334] policy=0+6+12 2025-02-28 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=1305.123 total_cost=47362.481
+INFO [029/334] policy=0+6+12 2025-03-01 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1913.220 total_cost=51625.734
+INFO [030/334] policy=0+6+12 2025-03-02 solved (0, 6, 12): price_mean=0.7662 emergency=265.424 adjustment_cost=1168.464 total_cost=53858.944
+INFO [031/334] policy=0+6+12 2025-03-03 solved (0, 6, 12): price_mean=0.7662 emergency=409.811 adjustment_cost=-146.665 total_cost=54151.024
+INFO [032/334] policy=0+6+12 2025-03-04 solved (0, 6, 12): price_mean=0.7662 emergency=705.434 adjustment_cost=1808.291 total_cost=50942.538
+INFO [033/334] policy=0+6+12 2025-03-05 solved (0, 6, 12): price_mean=0.7662 emergency=251.203 adjustment_cost=-1027.080 total_cost=49093.056
+INFO [034/334] policy=0+6+12 2025-03-06 solved (0, 6, 12): price_mean=0.7662 emergency=251.516 adjustment_cost=596.123 total_cost=47470.009
+INFO [035/334] policy=0+6+12 2025-03-07 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1392.729 total_cost=48532.606
+INFO [036/334] policy=0+6+12 2025-03-08 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=801.091 total_cost=46078.900
+INFO [037/334] policy=0+6+12 2025-03-09 solved (0, 6, 12): price_mean=0.7662 emergency=328.601 adjustment_cost=-779.398 total_cost=48662.074
+INFO [038/334] policy=0+6+12 2025-03-10 solved (0, 6, 12): price_mean=0.7662 emergency=450.753 adjustment_cost=1231.266 total_cost=48590.459
+INFO [039/334] policy=0+6+12 2025-03-11 solved (0, 6, 12): price_mean=0.7662 emergency=312.443 adjustment_cost=6228.404 total_cost=48677.561
+INFO [040/334] policy=0+6+12 2025-03-12 solved (0, 6, 12): price_mean=0.7662 emergency=271.504 adjustment_cost=-883.445 total_cost=47189.321
+INFO [041/334] policy=0+6+12 2025-03-13 solved (0, 6, 12): price_mean=0.7662 emergency=352.017 adjustment_cost=904.382 total_cost=49367.552
+INFO [042/334] policy=0+6+12 2025-03-14 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=974.865 total_cost=43556.939
+INFO [043/334] policy=0+6+12 2025-03-15 solved (0, 6, 12): price_mean=0.7662 emergency=9.053 adjustment_cost=2787.335 total_cost=49030.662
+INFO [044/334] policy=0+6+12 2025-03-16 solved (0, 6, 12): price_mean=0.7662 emergency=207.971 adjustment_cost=369.364 total_cost=46362.386
+INFO [045/334] policy=0+6+12 2025-03-17 solved (0, 6, 12): price_mean=0.7662 emergency=469.842 adjustment_cost=-136.770 total_cost=43331.816
+INFO [046/334] policy=0+6+12 2025-03-18 solved (0, 6, 12): price_mean=0.7662 emergency=127.972 adjustment_cost=-1688.769 total_cost=46526.913
+INFO [047/334] policy=0+6+12 2025-03-19 solved (0, 6, 12): price_mean=0.7662 emergency=571.622 adjustment_cost=3770.280 total_cost=44854.689
+INFO [048/334] policy=0+6+12 2025-03-20 solved (0, 6, 12): price_mean=0.7662 emergency=1217.372 adjustment_cost=-1279.947 total_cost=48043.113
+INFO [049/334] policy=0+6+12 2025-03-21 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1482.366 total_cost=41331.130
+INFO [050/334] policy=0+6+12 2025-03-22 solved (0, 6, 12): price_mean=0.7662 emergency=9.078 adjustment_cost=-794.168 total_cost=44242.371
+INFO [051/334] policy=0+6+12 2025-03-23 solved (0, 6, 12): price_mean=0.7662 emergency=265.803 adjustment_cost=-1512.242 total_cost=44803.092
+INFO [052/334] policy=0+6+12 2025-03-24 solved (0, 6, 12): price_mean=0.7662 emergency=289.353 adjustment_cost=-95.425 total_cost=42733.700
+INFO [053/334] policy=0+6+12 2025-03-25 solved (0, 6, 12): price_mean=0.7662 emergency=544.368 adjustment_cost=-2692.217 total_cost=46412.898
+INFO [054/334] policy=0+6+12 2025-03-26 solved (0, 6, 12): price_mean=0.7662 emergency=282.478 adjustment_cost=-564.771 total_cost=41038.860
+INFO [055/334] policy=0+6+12 2025-03-27 solved (0, 6, 12): price_mean=0.7662 emergency=616.813 adjustment_cost=-854.158 total_cost=44109.982
+INFO [056/334] policy=0+6+12 2025-03-28 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-739.901 total_cost=40828.666
+INFO [057/334] policy=0+6+12 2025-03-29 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=305.466 total_cost=38189.624
+INFO [058/334] policy=0+6+12 2025-03-30 solved (0, 6, 12): price_mean=0.7662 emergency=897.630 adjustment_cost=-1994.293 total_cost=42751.656
+INFO [059/334] policy=0+6+12 2025-03-31 solved (0, 6, 12): price_mean=0.7662 emergency=488.633 adjustment_cost=5018.035 total_cost=43036.764
+INFO [060/334] policy=0+6+12 2025-04-01 solved (0, 6, 12): price_mean=0.7662 emergency=498.952 adjustment_cost=-858.099 total_cost=44056.368
+INFO [061/334] policy=0+6+12 2025-04-02 solved (0, 6, 12): price_mean=0.7662 emergency=575.048 adjustment_cost=832.140 total_cost=44796.330
+INFO [062/334] policy=0+6+12 2025-04-03 solved (0, 6, 12): price_mean=0.7662 emergency=397.448 adjustment_cost=-1772.521 total_cost=42442.166
+INFO [063/334] policy=0+6+12 2025-04-04 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-667.968 total_cost=36471.342
+INFO [064/334] policy=0+6+12 2025-04-05 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=687.872 total_cost=37485.545
+INFO [065/334] policy=0+6+12 2025-04-06 solved (0, 6, 12): price_mean=0.7662 emergency=348.544 adjustment_cost=-57.327 total_cost=40286.547
+INFO [066/334] policy=0+6+12 2025-04-07 solved (0, 6, 12): price_mean=0.7662 emergency=514.861 adjustment_cost=2179.221 total_cost=38918.355
+INFO [067/334] policy=0+6+12 2025-04-08 solved (0, 6, 12): price_mean=0.7662 emergency=466.685 adjustment_cost=-1294.460 total_cost=41262.931
+INFO [068/334] policy=0+6+12 2025-04-09 solved (0, 6, 12): price_mean=0.7662 emergency=483.825 adjustment_cost=505.935 total_cost=41845.819
+INFO [069/334] policy=0+6+12 2025-04-10 solved (0, 6, 12): price_mean=0.7662 emergency=824.527 adjustment_cost=-835.623 total_cost=42007.986
+INFO [070/334] policy=0+6+12 2025-04-11 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=1866.617 total_cost=34111.034
+INFO [071/334] policy=0+6+12 2025-04-12 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1804.083 total_cost=38984.157
+INFO [072/334] policy=0+6+12 2025-04-13 solved (0, 6, 12): price_mean=0.7662 emergency=593.009 adjustment_cost=228.303 total_cost=38916.209
+INFO [073/334] policy=0+6+12 2025-04-14 solved (0, 6, 12): price_mean=0.7662 emergency=1030.295 adjustment_cost=-2220.071 total_cost=40415.790
+INFO [074/334] policy=0+6+12 2025-04-15 solved (0, 6, 12): price_mean=0.7662 emergency=510.142 adjustment_cost=1924.679 total_cost=37835.618
+INFO [075/334] policy=0+6+12 2025-04-16 solved (0, 6, 12): price_mean=0.7662 emergency=452.644 adjustment_cost=1509.463 total_cost=40025.432
+INFO [076/334] policy=0+6+12 2025-04-17 solved (0, 6, 12): price_mean=0.7662 emergency=365.981 adjustment_cost=2215.237 total_cost=38411.221
+INFO [077/334] policy=0+6+12 2025-04-18 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=396.653 total_cost=34955.277
+INFO [078/334] policy=0+6+12 2025-04-19 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=1328.673 total_cost=37822.588
+INFO [079/334] policy=0+6+12 2025-04-20 solved (0, 6, 12): price_mean=0.7662 emergency=565.001 adjustment_cost=813.617 total_cost=37389.743
+INFO [080/334] policy=0+6+12 2025-04-21 solved (0, 6, 12): price_mean=0.7662 emergency=984.943 adjustment_cost=-1646.271 total_cost=38123.336
+INFO [081/334] policy=0+6+12 2025-04-22 solved (0, 6, 12): price_mean=0.7662 emergency=681.970 adjustment_cost=3158.913 total_cost=38307.558
+INFO [082/334] policy=0+6+12 2025-04-23 solved (0, 6, 12): price_mean=0.7662 emergency=821.520 adjustment_cost=3092.759 total_cost=37726.666
+INFO [083/334] policy=0+6+12 2025-04-24 solved (0, 6, 12): price_mean=0.7662 emergency=654.532 adjustment_cost=764.078 total_cost=36290.269
+INFO [084/334] policy=0+6+12 2025-04-25 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-188.937 total_cost=32806.211
+INFO [085/334] policy=0+6+12 2025-04-26 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=632.548 total_cost=33388.085
+INFO [086/334] policy=0+6+12 2025-04-27 solved (0, 6, 12): price_mean=0.7662 emergency=792.217 adjustment_cost=1335.856 total_cost=37185.488
+INFO [087/334] policy=0+6+12 2025-04-28 solved (0, 6, 12): price_mean=0.7662 emergency=444.983 adjustment_cost=-398.428 total_cost=39899.136
+INFO [088/334] policy=0+6+12 2025-04-29 solved (0, 6, 12): price_mean=0.7662 emergency=264.193 adjustment_cost=440.330 total_cost=35443.953
+INFO [089/334] policy=0+6+12 2025-04-30 solved (0, 6, 12): price_mean=0.7662 emergency=1603.021 adjustment_cost=-451.496 total_cost=37840.720
+INFO [090/334] policy=0+6+12 2025-05-01 solved (0, 6, 12): price_mean=0.7662 emergency=2907.308 adjustment_cost=-93.433 total_cost=47354.294
+INFO [091/334] policy=0+6+12 2025-05-02 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-383.457 total_cost=39628.458
+INFO [092/334] policy=0+6+12 2025-05-03 solved (0, 6, 12): price_mean=0.7662 emergency=18.392 adjustment_cost=-810.219 total_cost=36932.304
+INFO [093/334] policy=0+6+12 2025-05-04 solved (0, 6, 12): price_mean=0.7662 emergency=3605.160 adjustment_cost=-1761.971 total_cost=49232.102
+INFO [094/334] policy=0+6+12 2025-05-05 solved (0, 6, 12): price_mean=0.7662 emergency=2759.748 adjustment_cost=-1051.382 total_cost=48717.355
+INFO [095/334] policy=0+6+12 2025-05-06 solved (0, 6, 12): price_mean=0.7662 emergency=3117.121 adjustment_cost=1555.294 total_cost=47635.099
+INFO [096/334] policy=0+6+12 2025-05-07 solved (0, 6, 12): price_mean=0.7662 emergency=2292.776 adjustment_cost=969.783 total_cost=46472.479
+INFO [097/334] policy=0+6+12 2025-05-08 solved (0, 6, 12): price_mean=0.7662 emergency=2396.030 adjustment_cost=-561.998 total_cost=48541.206
+INFO [098/334] policy=0+6+12 2025-05-09 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1839.518 total_cost=37720.828
+INFO [099/334] policy=0+6+12 2025-05-10 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=795.234 total_cost=39289.091
+INFO [100/334] policy=0+6+12 2025-05-11 solved (0, 6, 12): price_mean=0.7662 emergency=2052.329 adjustment_cost=-10.356 total_cost=46397.363
+INFO [101/334] policy=0+6+12 2025-05-12 solved (0, 6, 12): price_mean=0.7662 emergency=1503.296 adjustment_cost=2485.542 total_cost=42272.520
+INFO [102/334] policy=0+6+12 2025-05-13 solved (0, 6, 12): price_mean=0.7662 emergency=1206.518 adjustment_cost=-977.750 total_cost=42711.152
+INFO [103/334] policy=0+6+12 2025-05-14 solved (0, 6, 12): price_mean=0.7662 emergency=963.128 adjustment_cost=-958.186 total_cost=41009.733
+INFO [104/334] policy=0+6+12 2025-05-15 solved (0, 6, 12): price_mean=0.7662 emergency=711.963 adjustment_cost=-130.467 total_cost=40476.608
+INFO [105/334] policy=0+6+12 2025-05-16 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-939.837 total_cost=34911.263
+INFO [106/334] policy=0+6+12 2025-05-17 solved (0, 6, 12): price_mean=0.7662 emergency=3.562 adjustment_cost=-857.624 total_cost=39008.481
+INFO [107/334] policy=0+6+12 2025-05-18 solved (0, 6, 12): price_mean=0.7662 emergency=696.225 adjustment_cost=-1054.531 total_cost=40343.417
+INFO [108/334] policy=0+6+12 2025-05-19 solved (0, 6, 12): price_mean=0.7662 emergency=499.892 adjustment_cost=-548.763 total_cost=37855.557
+INFO [109/334] policy=0+6+12 2025-05-20 solved (0, 6, 12): price_mean=0.7662 emergency=715.655 adjustment_cost=1326.454 total_cost=40372.853
+INFO [110/334] policy=0+6+12 2025-05-21 solved (0, 6, 12): price_mean=0.7662 emergency=717.794 adjustment_cost=2474.279 total_cost=39500.056
+INFO [111/334] policy=0+6+12 2025-05-22 solved (0, 6, 12): price_mean=0.7662 emergency=450.379 adjustment_cost=-139.880 total_cost=37826.822
+INFO [112/334] policy=0+6+12 2025-05-23 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=1269.558 total_cost=38937.352
+INFO [113/334] policy=0+6+12 2025-05-24 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=25.499 total_cost=35157.853
+INFO [114/334] policy=0+6+12 2025-05-25 solved (0, 6, 12): price_mean=0.7662 emergency=804.242 adjustment_cost=-649.699 total_cost=38429.380
+INFO [115/334] policy=0+6+12 2025-05-26 solved (0, 6, 12): price_mean=0.7662 emergency=599.381 adjustment_cost=2700.132 total_cost=40156.813
+INFO [116/334] policy=0+6+12 2025-05-27 solved (0, 6, 12): price_mean=0.7662 emergency=889.779 adjustment_cost=1950.667 total_cost=39566.740
+INFO [117/334] policy=0+6+12 2025-05-28 solved (0, 6, 12): price_mean=0.7662 emergency=385.388 adjustment_cost=-64.931 total_cost=39133.071
+INFO [118/334] policy=0+6+12 2025-05-29 solved (0, 6, 12): price_mean=0.7662 emergency=558.408 adjustment_cost=468.549 total_cost=40345.328
+INFO [119/334] policy=0+6+12 2025-05-30 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1352.754 total_cost=38707.615
+INFO [120/334] policy=0+6+12 2025-05-31 solved (0, 6, 12): price_mean=0.7662 emergency=92.187 adjustment_cost=-2083.523 total_cost=40532.243
+INFO [121/334] policy=0+6+12 2025-06-01 solved (0, 6, 12): price_mean=0.7662 emergency=6403.154 adjustment_cost=-2150.820 total_cost=70508.674
+INFO [122/334] policy=0+6+12 2025-06-02 solved (0, 6, 12): price_mean=0.7662 emergency=6403.741 adjustment_cost=-3511.757 total_cost=69371.245
+INFO [123/334] policy=0+6+12 2025-06-03 solved (0, 6, 12): price_mean=0.7662 emergency=5018.797 adjustment_cost=627.108 total_cost=64800.077
+INFO [124/334] policy=0+6+12 2025-06-04 solved (0, 6, 12): price_mean=0.7662 emergency=5273.925 adjustment_cost=-2173.198 total_cost=68699.855
+INFO [125/334] policy=0+6+12 2025-06-05 solved (0, 6, 12): price_mean=0.7662 emergency=5445.475 adjustment_cost=418.284 total_cost=65892.324
+INFO [126/334] policy=0+6+12 2025-06-06 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1154.005 total_cost=48478.009
+INFO [127/334] policy=0+6+12 2025-06-07 solved (0, 6, 12): price_mean=0.7662 emergency=76.188 adjustment_cost=-2489.663 total_cost=50419.283
+INFO [128/334] policy=0+6+12 2025-06-08 solved (0, 6, 12): price_mean=0.7662 emergency=4709.409 adjustment_cost=35.550 total_cost=60182.094
+INFO [129/334] policy=0+6+12 2025-06-09 solved (0, 6, 12): price_mean=0.7662 emergency=3657.109 adjustment_cost=-1842.585 total_cost=60909.447
+INFO [130/334] policy=0+6+12 2025-06-10 solved (0, 6, 12): price_mean=0.7662 emergency=3418.803 adjustment_cost=414.445 total_cost=58374.158
+INFO [131/334] policy=0+6+12 2025-06-11 solved (0, 6, 12): price_mean=0.7662 emergency=2693.696 adjustment_cost=106.228 total_cost=61360.875
+INFO [132/334] policy=0+6+12 2025-06-12 solved (0, 6, 12): price_mean=0.7662 emergency=1438.816 adjustment_cost=-447.965 total_cost=54504.843
+INFO [133/334] policy=0+6+12 2025-06-13 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-230.908 total_cost=49778.575
+INFO [134/334] policy=0+6+12 2025-06-14 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1583.685 total_cost=48406.469
+INFO [135/334] policy=0+6+12 2025-06-15 solved (0, 6, 12): price_mean=0.7662 emergency=1889.460 adjustment_cost=1178.873 total_cost=54264.325
+INFO [136/334] policy=0+6+12 2025-06-16 solved (0, 6, 12): price_mean=0.7662 emergency=1757.116 adjustment_cost=-37.160 total_cost=55078.632
+INFO [137/334] policy=0+6+12 2025-06-17 solved (0, 6, 12): price_mean=0.7662 emergency=1456.938 adjustment_cost=1233.489 total_cost=56727.231
+INFO [138/334] policy=0+6+12 2025-06-18 solved (0, 6, 12): price_mean=0.7662 emergency=751.539 adjustment_cost=-84.174 total_cost=52824.718
+INFO [139/334] policy=0+6+12 2025-06-19 solved (0, 6, 12): price_mean=0.7662 emergency=1634.779 adjustment_cost=736.347 total_cost=54744.009
+INFO [140/334] policy=0+6+12 2025-06-20 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-939.885 total_cost=48136.861
+INFO [141/334] policy=0+6+12 2025-06-21 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=58.991 total_cost=46011.647
+INFO [142/334] policy=0+6+12 2025-06-22 solved (0, 6, 12): price_mean=0.7662 emergency=1029.116 adjustment_cost=2057.779 total_cost=51372.944
+INFO [143/334] policy=0+6+12 2025-06-23 solved (0, 6, 12): price_mean=0.7662 emergency=664.007 adjustment_cost=-79.447 total_cost=49713.203
+INFO [144/334] policy=0+6+12 2025-06-24 solved (0, 6, 12): price_mean=0.7662 emergency=849.745 adjustment_cost=-943.293 total_cost=56990.671
+INFO [145/334] policy=0+6+12 2025-06-25 solved (0, 6, 12): price_mean=0.7662 emergency=740.775 adjustment_cost=1629.239 total_cost=53145.816
+INFO [146/334] policy=0+6+12 2025-06-26 solved (0, 6, 12): price_mean=0.7662 emergency=827.438 adjustment_cost=412.804 total_cost=50916.718
+INFO [147/334] policy=0+6+12 2025-06-27 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1883.813 total_cost=47251.006
+INFO [148/334] policy=0+6+12 2025-06-28 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=197.217 total_cost=48359.298
+INFO [149/334] policy=0+6+12 2025-06-29 solved (0, 6, 12): price_mean=0.7662 emergency=1361.838 adjustment_cost=3445.685 total_cost=52827.140
+INFO [150/334] policy=0+6+12 2025-06-30 solved (0, 6, 12): price_mean=0.7662 emergency=711.483 adjustment_cost=-119.416 total_cost=52238.574
+INFO [151/334] policy=0+6+12 2025-07-01 solved (0, 6, 12): price_mean=0.7662 emergency=11788.676 adjustment_cost=650.468 total_cost=87395.124
+INFO [152/334] policy=0+6+12 2025-07-02 solved (0, 6, 12): price_mean=0.7662 emergency=9582.718 adjustment_cost=-485.611 total_cost=78352.890
+INFO [153/334] policy=0+6+12 2025-07-03 solved (0, 6, 12): price_mean=0.7662 emergency=8616.060 adjustment_cost=-282.950 total_cost=79933.246
+INFO [154/334] policy=0+6+12 2025-07-04 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=2423.688 total_cost=45511.951
+INFO [155/334] policy=0+6+12 2025-07-05 solved (0, 6, 12): price_mean=0.7662 emergency=71.998 adjustment_cost=201.985 total_cost=43094.162
+INFO [156/334] policy=0+6+12 2025-07-06 solved (0, 6, 12): price_mean=0.7662 emergency=9014.001 adjustment_cost=3227.252 total_cost=82614.092
+INFO [157/334] policy=0+6+12 2025-07-07 solved (0, 6, 12): price_mean=0.7662 emergency=7903.253 adjustment_cost=-1002.981 total_cost=73419.183
+INFO [158/334] policy=0+6+12 2025-07-08 solved (0, 6, 12): price_mean=0.7662 emergency=7478.064 adjustment_cost=-1221.981 total_cost=75557.884
+INFO [159/334] policy=0+6+12 2025-07-09 solved (0, 6, 12): price_mean=0.7662 emergency=5370.692 adjustment_cost=-1192.466 total_cost=68209.948
+INFO [160/334] policy=0+6+12 2025-07-10 solved (0, 6, 12): price_mean=0.7662 emergency=4766.874 adjustment_cost=-60.108 total_cost=63407.130
+INFO [161/334] policy=0+6+12 2025-07-11 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-736.539 total_cost=51599.362
+INFO [162/334] policy=0+6+12 2025-07-12 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=3759.158 total_cost=50367.618
+INFO [163/334] policy=0+6+12 2025-07-13 solved (0, 6, 12): price_mean=0.7662 emergency=2176.889 adjustment_cost=-2386.366 total_cost=57461.074
+INFO [164/334] policy=0+6+12 2025-07-14 solved (0, 6, 12): price_mean=0.7662 emergency=3002.026 adjustment_cost=-413.943 total_cost=59812.572
+INFO [165/334] policy=0+6+12 2025-07-15 solved (0, 6, 12): price_mean=0.7662 emergency=2534.942 adjustment_cost=-1328.545 total_cost=58344.230
+INFO [166/334] policy=0+6+12 2025-07-16 solved (0, 6, 12): price_mean=0.7662 emergency=2604.012 adjustment_cost=-583.926 total_cost=58025.511
+INFO [167/334] policy=0+6+12 2025-07-17 solved (0, 6, 12): price_mean=0.7662 emergency=1749.311 adjustment_cost=1834.494 total_cost=57003.174
+INFO [168/334] policy=0+6+12 2025-07-18 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1770.542 total_cost=53728.683
+INFO [169/334] policy=0+6+12 2025-07-19 solved (0, 6, 12): price_mean=0.7662 emergency=31.365 adjustment_cost=-1895.607 total_cost=52871.198
+INFO [170/334] policy=0+6+12 2025-07-20 solved (0, 6, 12): price_mean=0.7662 emergency=730.584 adjustment_cost=-496.715 total_cost=53839.977
+INFO [171/334] policy=0+6+12 2025-07-21 solved (0, 6, 12): price_mean=0.7662 emergency=847.725 adjustment_cost=31.199 total_cost=55578.057
+INFO [172/334] policy=0+6+12 2025-07-22 solved (0, 6, 12): price_mean=0.7662 emergency=1042.031 adjustment_cost=5463.061 total_cost=59598.794
+INFO [173/334] policy=0+6+12 2025-07-23 solved (0, 6, 12): price_mean=0.7662 emergency=1003.602 adjustment_cost=-2916.892 total_cost=57946.006
+INFO [174/334] policy=0+6+12 2025-07-24 solved (0, 6, 12): price_mean=0.7662 emergency=385.453 adjustment_cost=-2042.413 total_cost=56265.113
+INFO [175/334] policy=0+6+12 2025-07-25 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=2153.679 total_cost=52498.941
+INFO [176/334] policy=0+6+12 2025-07-26 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-466.549 total_cost=53027.254
+INFO [177/334] policy=0+6+12 2025-07-27 solved (0, 6, 12): price_mean=0.7662 emergency=663.224 adjustment_cost=1097.409 total_cost=54938.333
+INFO [178/334] policy=0+6+12 2025-07-28 solved (0, 6, 12): price_mean=0.7662 emergency=1102.517 adjustment_cost=1234.101 total_cost=59081.390
+INFO [179/334] policy=0+6+12 2025-07-29 solved (0, 6, 12): price_mean=0.7662 emergency=305.144 adjustment_cost=3364.039 total_cost=56655.666
+INFO [180/334] policy=0+6+12 2025-07-30 solved (0, 6, 12): price_mean=0.7662 emergency=515.198 adjustment_cost=6468.793 total_cost=56619.625
+INFO [181/334] policy=0+6+12 2025-07-31 solved (0, 6, 12): price_mean=0.7662 emergency=582.133 adjustment_cost=1728.419 total_cost=54945.274
+INFO [182/334] policy=0+6+12 2025-08-01 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1857.509 total_cost=50012.682
+INFO [183/334] policy=0+6+12 2025-08-02 solved (0, 6, 12): price_mean=0.7662 emergency=32.528 adjustment_cost=-3822.548 total_cost=52769.387
+INFO [184/334] policy=0+6+12 2025-08-03 solved (0, 6, 12): price_mean=0.7662 emergency=491.109 adjustment_cost=569.932 total_cost=48277.788
+INFO [185/334] policy=0+6+12 2025-08-04 solved (0, 6, 12): price_mean=0.7662 emergency=652.073 adjustment_cost=-478.274 total_cost=51265.836
+INFO [186/334] policy=0+6+12 2025-08-05 solved (0, 6, 12): price_mean=0.7662 emergency=214.508 adjustment_cost=768.116 total_cost=49518.380
+INFO [187/334] policy=0+6+12 2025-08-06 solved (0, 6, 12): price_mean=0.7662 emergency=226.269 adjustment_cost=-1455.104 total_cost=52967.340
+INFO [188/334] policy=0+6+12 2025-08-07 solved (0, 6, 12): price_mean=0.7662 emergency=312.928 adjustment_cost=-1595.644 total_cost=51571.535
+INFO [189/334] policy=0+6+12 2025-08-08 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-39.630 total_cost=46504.045
+INFO [190/334] policy=0+6+12 2025-08-09 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-676.695 total_cost=48535.463
+INFO [191/334] policy=0+6+12 2025-08-10 solved (0, 6, 12): price_mean=0.7662 emergency=298.261 adjustment_cost=-1020.368 total_cost=49490.663
+INFO [192/334] policy=0+6+12 2025-08-11 solved (0, 6, 12): price_mean=0.7662 emergency=355.910 adjustment_cost=988.575 total_cost=49704.562
+INFO [193/334] policy=0+6+12 2025-08-12 solved (0, 6, 12): price_mean=0.7662 emergency=252.009 adjustment_cost=19.500 total_cost=52423.201
+INFO [194/334] policy=0+6+12 2025-08-13 solved (0, 6, 12): price_mean=0.7662 emergency=592.149 adjustment_cost=341.005 total_cost=49758.016
+INFO [195/334] policy=0+6+12 2025-08-14 solved (0, 6, 12): price_mean=0.7662 emergency=143.126 adjustment_cost=1134.395 total_cost=50754.718
+INFO [196/334] policy=0+6+12 2025-08-15 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-3509.992 total_cost=51363.163
+INFO [197/334] policy=0+6+12 2025-08-16 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-3646.812 total_cost=50317.253
+INFO [198/334] policy=0+6+12 2025-08-17 solved (0, 6, 12): price_mean=0.7662 emergency=323.298 adjustment_cost=-995.479 total_cost=50411.551
+INFO [199/334] policy=0+6+12 2025-08-18 solved (0, 6, 12): price_mean=0.7662 emergency=337.792 adjustment_cost=-639.793 total_cost=49765.272
+INFO [200/334] policy=0+6+12 2025-08-19 solved (0, 6, 12): price_mean=0.7662 emergency=438.952 adjustment_cost=-2.252 total_cost=50447.467
+INFO [201/334] policy=0+6+12 2025-08-20 solved (0, 6, 12): price_mean=0.7662 emergency=392.663 adjustment_cost=-873.678 total_cost=53424.258
+INFO [202/334] policy=0+6+12 2025-08-21 solved (0, 6, 12): price_mean=0.7662 emergency=322.796 adjustment_cost=-979.410 total_cost=50656.753
+INFO [203/334] policy=0+6+12 2025-08-22 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1720.185 total_cost=49025.477
+INFO [204/334] policy=0+6+12 2025-08-23 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=700.572 total_cost=49276.989
+INFO [205/334] policy=0+6+12 2025-08-24 solved (0, 6, 12): price_mean=0.7662 emergency=307.595 adjustment_cost=1004.385 total_cost=50684.359
+INFO [206/334] policy=0+6+12 2025-08-25 solved (0, 6, 12): price_mean=0.7662 emergency=249.682 adjustment_cost=-5287.625 total_cost=57228.237
+INFO [207/334] policy=0+6+12 2025-08-26 solved (0, 6, 12): price_mean=0.7662 emergency=180.151 adjustment_cost=-430.626 total_cost=49512.031
+INFO [208/334] policy=0+6+12 2025-08-27 solved (0, 6, 12): price_mean=0.7662 emergency=113.671 adjustment_cost=3245.397 total_cost=53457.549
+INFO [209/334] policy=0+6+12 2025-08-28 solved (0, 6, 12): price_mean=0.7662 emergency=690.594 adjustment_cost=3552.766 total_cost=54711.745
+INFO [210/334] policy=0+6+12 2025-08-29 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-2641.676 total_cost=53012.719
+INFO [211/334] policy=0+6+12 2025-08-30 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-2437.328 total_cost=50330.429
+INFO [212/334] policy=0+6+12 2025-08-31 solved (0, 6, 12): price_mean=0.7662 emergency=637.612 adjustment_cost=95.257 total_cost=51160.473
+INFO [213/334] policy=0+6+12 2025-09-01 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1624.083 total_cost=51331.152
+INFO [214/334] policy=0+6+12 2025-09-02 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=1717.255 total_cost=49307.934
+INFO [215/334] policy=0+6+12 2025-09-03 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-496.458 total_cost=50163.854
+INFO [216/334] policy=0+6+12 2025-09-04 solved (0, 6, 12): price_mean=0.7662 emergency=73.843 adjustment_cost=-716.271 total_cost=49400.575
+INFO [217/334] policy=0+6+12 2025-09-05 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-408.630 total_cost=46786.112
+INFO [218/334] policy=0+6+12 2025-09-06 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=300.753 total_cost=47653.605
+INFO [219/334] policy=0+6+12 2025-09-07 solved (0, 6, 12): price_mean=0.7662 emergency=45.062 adjustment_cost=2375.278 total_cost=49726.789
+INFO [220/334] policy=0+6+12 2025-09-08 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=943.364 total_cost=52191.947
+INFO [221/334] policy=0+6+12 2025-09-09 solved (0, 6, 12): price_mean=0.7662 emergency=32.128 adjustment_cost=3064.777 total_cost=48874.460
+INFO [222/334] policy=0+6+12 2025-09-10 solved (0, 6, 12): price_mean=0.7662 emergency=28.048 adjustment_cost=341.052 total_cost=52845.618
+INFO [223/334] policy=0+6+12 2025-09-11 solved (0, 6, 12): price_mean=0.7662 emergency=96.992 adjustment_cost=-2474.685 total_cost=50368.565
+INFO [224/334] policy=0+6+12 2025-09-12 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=1348.980 total_cost=48451.311
+INFO [225/334] policy=0+6+12 2025-09-13 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=1021.918 total_cost=47445.806
+INFO [226/334] policy=0+6+12 2025-09-14 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1699.633 total_cost=52617.598
+INFO [227/334] policy=0+6+12 2025-09-15 solved (0, 6, 12): price_mean=0.7662 emergency=566.307 adjustment_cost=262.074 total_cost=47644.041
+INFO [228/334] policy=0+6+12 2025-09-16 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1589.174 total_cost=51554.888
+INFO [229/334] policy=0+6+12 2025-09-17 solved (0, 6, 12): price_mean=0.7662 emergency=128.598 adjustment_cost=-817.046 total_cost=51129.172
+INFO [230/334] policy=0+6+12 2025-09-18 solved (0, 6, 12): price_mean=0.7662 emergency=10.966 adjustment_cost=4936.518 total_cost=51402.300
+INFO [231/334] policy=0+6+12 2025-09-19 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=76.862 total_cost=49840.351
+INFO [232/334] policy=0+6+12 2025-09-20 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=1700.228 total_cost=50012.043
+INFO [233/334] policy=0+6+12 2025-09-21 solved (0, 6, 12): price_mean=0.7662 emergency=11.513 adjustment_cost=-524.618 total_cost=47998.409
+INFO [234/334] policy=0+6+12 2025-09-22 solved (0, 6, 12): price_mean=0.7662 emergency=369.410 adjustment_cost=-2003.128 total_cost=48312.299
+INFO [235/334] policy=0+6+12 2025-09-23 solved (0, 6, 12): price_mean=0.7662 emergency=39.266 adjustment_cost=-535.263 total_cost=47614.381
+INFO [236/334] policy=0+6+12 2025-09-24 solved (0, 6, 12): price_mean=0.7662 emergency=640.916 adjustment_cost=2154.840 total_cost=46385.828
+INFO [237/334] policy=0+6+12 2025-09-25 solved (0, 6, 12): price_mean=0.7662 emergency=198.704 adjustment_cost=360.140 total_cost=46681.419
+INFO [238/334] policy=0+6+12 2025-09-26 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1730.691 total_cost=48691.958
+INFO [239/334] policy=0+6+12 2025-09-27 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=4102.426 total_cost=46353.882
+INFO [240/334] policy=0+6+12 2025-09-28 solved (0, 6, 12): price_mean=0.7662 emergency=291.976 adjustment_cost=3359.609 total_cost=48742.960
+INFO [241/334] policy=0+6+12 2025-09-29 solved (0, 6, 12): price_mean=0.7662 emergency=1283.589 adjustment_cost=-1782.655 total_cost=49516.768
+INFO [242/334] policy=0+6+12 2025-09-30 solved (0, 6, 12): price_mean=0.7662 emergency=799.306 adjustment_cost=489.787 total_cost=49869.999
+INFO [243/334] policy=0+6+12 2025-10-01 solved (0, 6, 12): price_mean=0.7662 emergency=34.827 adjustment_cost=-1144.339 total_cost=42436.199
+INFO [244/334] policy=0+6+12 2025-10-02 solved (0, 6, 12): price_mean=0.7662 emergency=120.114 adjustment_cost=-3029.760 total_cost=44498.333
+INFO [245/334] policy=0+6+12 2025-10-03 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-694.661 total_cost=40870.336
+INFO [246/334] policy=0+6+12 2025-10-04 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-3486.607 total_cost=45965.287
+INFO [247/334] policy=0+6+12 2025-10-05 solved (0, 6, 12): price_mean=0.7662 emergency=249.947 adjustment_cost=-2258.667 total_cost=44311.868
+INFO [248/334] policy=0+6+12 2025-10-06 solved (0, 6, 12): price_mean=0.7662 emergency=875.027 adjustment_cost=1720.846 total_cost=44352.426
+INFO [249/334] policy=0+6+12 2025-10-07 solved (0, 6, 12): price_mean=0.7662 emergency=138.835 adjustment_cost=984.321 total_cost=43755.137
+INFO [250/334] policy=0+6+12 2025-10-08 solved (0, 6, 12): price_mean=0.7662 emergency=332.656 adjustment_cost=-241.014 total_cost=42696.672
+INFO [251/334] policy=0+6+12 2025-10-09 solved (0, 6, 12): price_mean=0.7662 emergency=239.402 adjustment_cost=-3350.901 total_cost=45225.173
+INFO [252/334] policy=0+6+12 2025-10-10 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-2189.251 total_cost=44031.685
+INFO [253/334] policy=0+6+12 2025-10-11 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-819.359 total_cost=45533.395
+INFO [254/334] policy=0+6+12 2025-10-12 solved (0, 6, 12): price_mean=0.7662 emergency=566.281 adjustment_cost=64.053 total_cost=44981.277
+INFO [255/334] policy=0+6+12 2025-10-13 solved (0, 6, 12): price_mean=0.7662 emergency=907.955 adjustment_cost=-1323.442 total_cost=45865.488
+INFO [256/334] policy=0+6+12 2025-10-14 solved (0, 6, 12): price_mean=0.7662 emergency=1232.940 adjustment_cost=-658.378 total_cost=49609.220
+INFO [257/334] policy=0+6+12 2025-10-15 solved (0, 6, 12): price_mean=0.7662 emergency=490.401 adjustment_cost=-1871.186 total_cost=47476.204
+INFO [258/334] policy=0+6+12 2025-10-16 solved (0, 6, 12): price_mean=0.7662 emergency=297.731 adjustment_cost=27.935 total_cost=46918.502
+INFO [259/334] policy=0+6+12 2025-10-17 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=5622.759 total_cost=45068.434
+INFO [260/334] policy=0+6+12 2025-10-18 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1209.698 total_cost=45830.712
+INFO [261/334] policy=0+6+12 2025-10-19 solved (0, 6, 12): price_mean=0.7662 emergency=649.498 adjustment_cost=-637.226 total_cost=47933.140
+INFO [262/334] policy=0+6+12 2025-10-20 solved (0, 6, 12): price_mean=0.7662 emergency=290.859 adjustment_cost=-899.126 total_cost=48297.491
+INFO [263/334] policy=0+6+12 2025-10-21 solved (0, 6, 12): price_mean=0.7662 emergency=494.881 adjustment_cost=-37.948 total_cost=48714.653
+INFO [264/334] policy=0+6+12 2025-10-22 solved (0, 6, 12): price_mean=0.7662 emergency=324.074 adjustment_cost=760.713 total_cost=47700.875
+INFO [265/334] policy=0+6+12 2025-10-23 solved (0, 6, 12): price_mean=0.7662 emergency=502.298 adjustment_cost=-3499.142 total_cost=49976.416
+INFO [266/334] policy=0+6+12 2025-10-24 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=1180.634 total_cost=46021.541
+INFO [267/334] policy=0+6+12 2025-10-25 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1224.445 total_cost=46592.360
+INFO [268/334] policy=0+6+12 2025-10-26 solved (0, 6, 12): price_mean=0.7662 emergency=721.384 adjustment_cost=-1379.575 total_cost=47959.559
+INFO [269/334] policy=0+6+12 2025-10-27 solved (0, 6, 12): price_mean=0.7662 emergency=303.289 adjustment_cost=4039.901 total_cost=48209.647
+INFO [270/334] policy=0+6+12 2025-10-28 solved (0, 6, 12): price_mean=0.7662 emergency=297.801 adjustment_cost=3439.877 total_cost=47683.274
+INFO [271/334] policy=0+6+12 2025-10-29 solved (0, 6, 12): price_mean=0.7662 emergency=257.776 adjustment_cost=-146.012 total_cost=49227.920
+INFO [272/334] policy=0+6+12 2025-10-30 solved (0, 6, 12): price_mean=0.7662 emergency=711.361 adjustment_cost=2215.571 total_cost=47916.494
+INFO [273/334] policy=0+6+12 2025-10-31 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-767.770 total_cost=48218.241
+INFO [274/334] policy=0+6+12 2025-11-01 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=485.957 total_cost=46271.936
+INFO [275/334] policy=0+6+12 2025-11-02 solved (0, 6, 12): price_mean=0.7662 emergency=542.152 adjustment_cost=2622.553 total_cost=51109.343
+INFO [276/334] policy=0+6+12 2025-11-03 solved (0, 6, 12): price_mean=0.7662 emergency=392.047 adjustment_cost=-884.836 total_cost=49788.564
+INFO [277/334] policy=0+6+12 2025-11-04 solved (0, 6, 12): price_mean=0.7662 emergency=502.552 adjustment_cost=1359.438 total_cost=49391.508
+INFO [278/334] policy=0+6+12 2025-11-05 solved (0, 6, 12): price_mean=0.7662 emergency=528.853 adjustment_cost=-2053.697 total_cost=51724.058
+INFO [279/334] policy=0+6+12 2025-11-06 solved (0, 6, 12): price_mean=0.7662 emergency=636.809 adjustment_cost=1127.169 total_cost=51976.352
+INFO [280/334] policy=0+6+12 2025-11-07 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=2494.244 total_cost=49860.299
+INFO [281/334] policy=0+6+12 2025-11-08 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-949.536 total_cost=48728.907
+INFO [282/334] policy=0+6+12 2025-11-09 solved (0, 6, 12): price_mean=0.7662 emergency=360.597 adjustment_cost=133.343 total_cost=50571.518
+INFO [283/334] policy=0+6+12 2025-11-10 solved (0, 6, 12): price_mean=0.7662 emergency=624.749 adjustment_cost=1940.051 total_cost=54091.063
+INFO [284/334] policy=0+6+12 2025-11-11 solved (0, 6, 12): price_mean=0.7662 emergency=322.641 adjustment_cost=-1060.777 total_cost=51799.955
+INFO [285/334] policy=0+6+12 2025-11-12 solved (0, 6, 12): price_mean=0.7662 emergency=300.994 adjustment_cost=2183.881 total_cost=52740.451
+INFO [286/334] policy=0+6+12 2025-11-13 solved (0, 6, 12): price_mean=0.7662 emergency=993.431 adjustment_cost=1972.874 total_cost=53713.334
+INFO [287/334] policy=0+6+12 2025-11-14 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=710.377 total_cost=49929.957
+INFO [288/334] policy=0+6+12 2025-11-15 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1648.203 total_cost=52024.848
+INFO [289/334] policy=0+6+12 2025-11-16 solved (0, 6, 12): price_mean=0.7662 emergency=588.000 adjustment_cost=1977.791 total_cost=53938.633
+INFO [290/334] policy=0+6+12 2025-11-17 solved (0, 6, 12): price_mean=0.7662 emergency=406.676 adjustment_cost=4842.903 total_cost=53789.479
+INFO [291/334] policy=0+6+12 2025-11-18 solved (0, 6, 12): price_mean=0.7662 emergency=1126.490 adjustment_cost=194.057 total_cost=54842.170
+INFO [292/334] policy=0+6+12 2025-11-19 solved (0, 6, 12): price_mean=0.7662 emergency=488.071 adjustment_cost=3747.994 total_cost=55600.230
+INFO [293/334] policy=0+6+12 2025-11-20 solved (0, 6, 12): price_mean=0.7662 emergency=626.031 adjustment_cost=923.469 total_cost=53697.485
+INFO [294/334] policy=0+6+12 2025-11-21 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=1626.971 total_cost=52197.140
+INFO [295/334] policy=0+6+12 2025-11-22 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-1616.602 total_cost=53963.025
+INFO [296/334] policy=0+6+12 2025-11-23 solved (0, 6, 12): price_mean=0.7662 emergency=634.926 adjustment_cost=1475.776 total_cost=54405.186
+INFO [297/334] policy=0+6+12 2025-11-24 solved (0, 6, 12): price_mean=0.7662 emergency=953.250 adjustment_cost=46.186 total_cost=53561.517
+INFO [298/334] policy=0+6+12 2025-11-25 solved (0, 6, 12): price_mean=0.7662 emergency=371.939 adjustment_cost=-2621.348 total_cost=56931.090
+INFO [299/334] policy=0+6+12 2025-11-26 solved (0, 6, 12): price_mean=0.7662 emergency=402.996 adjustment_cost=-428.320 total_cost=55747.461
+INFO [300/334] policy=0+6+12 2025-11-27 solved (0, 6, 12): price_mean=0.7662 emergency=386.071 adjustment_cost=-104.860 total_cost=54494.114
+INFO [301/334] policy=0+6+12 2025-11-28 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-212.112 total_cost=53240.979
+INFO [302/334] policy=0+6+12 2025-11-29 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-2096.669 total_cost=58072.794
+INFO [303/334] policy=0+6+12 2025-11-30 solved (0, 6, 12): price_mean=0.7662 emergency=664.960 adjustment_cost=743.538 total_cost=58121.628
+INFO [304/334] policy=0+6+12 2025-12-01 solved (0, 6, 12): price_mean=0.7662 emergency=6307.189 adjustment_cost=-1673.488 total_cost=78545.606
+INFO [305/334] policy=0+6+12 2025-12-02 solved (0, 6, 12): price_mean=0.7662 emergency=4854.047 adjustment_cost=-1327.907 total_cost=75762.521
+INFO [306/334] policy=0+6+12 2025-12-03 solved (0, 6, 12): price_mean=0.7662 emergency=5189.939 adjustment_cost=3688.430 total_cost=74827.025
+INFO [307/334] policy=0+6+12 2025-12-04 solved (0, 6, 12): price_mean=0.7662 emergency=4777.445 adjustment_cost=-1569.199 total_cost=74212.851
+INFO [308/334] policy=0+6+12 2025-12-05 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-282.326 total_cost=57531.590
+INFO [309/334] policy=0+6+12 2025-12-06 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-554.673 total_cost=58984.025
+INFO [310/334] policy=0+6+12 2025-12-07 solved (0, 6, 12): price_mean=0.7662 emergency=4209.936 adjustment_cost=-1704.129 total_cost=72079.482
+INFO [311/334] policy=0+6+12 2025-12-08 solved (0, 6, 12): price_mean=0.7662 emergency=2443.516 adjustment_cost=-541.837 total_cost=67324.319
+INFO [312/334] policy=0+6+12 2025-12-09 solved (0, 6, 12): price_mean=0.7662 emergency=2353.425 adjustment_cost=-622.839 total_cost=67393.549
+INFO [313/334] policy=0+6+12 2025-12-10 solved (0, 6, 12): price_mean=0.7662 emergency=3212.660 adjustment_cost=539.847 total_cost=70311.931
+INFO [314/334] policy=0+6+12 2025-12-11 solved (0, 6, 12): price_mean=0.7662 emergency=1171.857 adjustment_cost=-1152.447 total_cost=63541.376
+INFO [315/334] policy=0+6+12 2025-12-12 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=801.190 total_cost=60910.424
+INFO [316/334] policy=0+6+12 2025-12-13 solved (0, 6, 12): price_mean=0.7662 emergency=2.835 adjustment_cost=805.882 total_cost=61870.649
+INFO [317/334] policy=0+6+12 2025-12-14 solved (0, 6, 12): price_mean=0.7662 emergency=2459.242 adjustment_cost=1588.375 total_cost=69173.376
+INFO [318/334] policy=0+6+12 2025-12-15 solved (0, 6, 12): price_mean=0.7662 emergency=1785.073 adjustment_cost=2823.572 total_cost=67267.946
+INFO [319/334] policy=0+6+12 2025-12-16 solved (0, 6, 12): price_mean=0.7662 emergency=962.590 adjustment_cost=-626.437 total_cost=64492.233
+INFO [320/334] policy=0+6+12 2025-12-17 solved (0, 6, 12): price_mean=0.7662 emergency=977.706 adjustment_cost=-1247.333 total_cost=64426.719
+INFO [321/334] policy=0+6+12 2025-12-18 solved (0, 6, 12): price_mean=0.7662 emergency=1013.088 adjustment_cost=478.651 total_cost=63271.734
+INFO [322/334] policy=0+6+12 2025-12-19 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=1340.764 total_cost=60955.941
+INFO [323/334] policy=0+6+12 2025-12-20 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=-456.361 total_cost=61278.049
+INFO [324/334] policy=0+6+12 2025-12-21 solved (0, 6, 12): price_mean=0.7662 emergency=1329.386 adjustment_cost=-22.257 total_cost=65335.523
+INFO [325/334] policy=0+6+12 2025-12-22 solved (0, 6, 12): price_mean=0.7662 emergency=1226.753 adjustment_cost=463.533 total_cost=64514.528
+INFO [326/334] policy=0+6+12 2025-12-23 solved (0, 6, 12): price_mean=0.7662 emergency=712.927 adjustment_cost=-670.120 total_cost=63448.205
+INFO [327/334] policy=0+6+12 2025-12-24 solved (0, 6, 12): price_mean=0.7662 emergency=506.375 adjustment_cost=-183.297 total_cost=62882.426
+INFO [328/334] policy=0+6+12 2025-12-25 solved (0, 6, 12): price_mean=0.7662 emergency=1308.487 adjustment_cost=1497.303 total_cost=64778.232
+INFO [329/334] policy=0+6+12 2025-12-26 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=600.678 total_cost=61234.858
+INFO [330/334] policy=0+6+12 2025-12-27 solved (0, 6, 12): price_mean=0.7662 emergency=0.000 adjustment_cost=229.479 total_cost=62058.931
+INFO [331/334] policy=0+6+12 2025-12-28 solved (0, 6, 12): price_mean=0.7662 emergency=469.118 adjustment_cost=-459.518 total_cost=62308.216
+INFO [332/334] policy=0+6+12 2025-12-29 solved (0, 6, 12): price_mean=0.7662 emergency=452.540 adjustment_cost=1052.719 total_cost=62716.307
+INFO [333/334] policy=0+6+12 2025-12-30 solved (0, 6, 12): price_mean=0.7662 emergency=720.054 adjustment_cost=-711.427 total_cost=63210.528
+INFO [334/334] policy=0+6+12 2025-12-31 solved (0, 6, 12): price_mean=0.7662 emergency=522.288 adjustment_cost=-247.198 total_cost=63902.753
+{
+  "model": "4-2",
+  "update_hours": [
+    0
+  ],
+  "cost_comparison": {
+    "metric": "total_cost",
+    "fixed_price": 17609791.686546136,
+    "dynamic_price": 17923538.09367122,
+    "absolute_change": 313746.4071250856,
+    "relative_change": 0.017816588220335824
+  }
+}
+{
+  "model": "4-3",
+  "update_hours": [
+    0,
+    6,
+    12
+  ],
+  "cost_comparison": {
+    "metric": "total_cost",
+    "fixed_price": 17020306.64654084,
+    "dynamic_price": 17244554.425876774,
+    "absolute_change": 224247.77933593467,
+    "relative_change": 0.01317530782452208
+  }
+}
+Question4 completed. Analysis: C:\Users\RoyCai\Desktop\2026秋季\数模国赛2026\我的作答_C\CUCUM2026_code\target\question4

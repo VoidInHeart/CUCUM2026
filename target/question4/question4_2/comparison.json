@@ -1,0 +1,175 @@
+{
+  "model": "4-2",
+  "period": "2025-02-01 ~ 2025-12-31",
+  "days": 334,
+  "update_hours": [
+    0
+  ],
+  "baseline": "Q2 fixed price",
+  "price_assumption": "Attachment 4 full target-day settlement curve is given; no price prediction",
+  "fixed_price": {
+    "initial_plan_kwh": 25433452.303556427,
+    "executed_grid_kwh": 25433452.303556427,
+    "emergency_kwh": 477446.05741713784,
+    "total_grid_kwh": 25910898.360973563,
+    "plan_cost": 15771812.68749251,
+    "adjustment_cost": 0.0,
+    "emergency_cost": 1837978.999053627,
+    "total_cost": 17609791.686546136,
+    "charge_kwh": 7484428.163666049,
+    "discharge_kwh": 6062386.8125695,
+    "battery_throughput_kwh": 13546814.976235548,
+    "up_adjust_kwh": 0.0,
+    "down_adjust_kwh": 0.0,
+    "emergency_day": 249.0,
+    "days": 334,
+    "max_daily_cost": 96336.73786237057,
+    "mean_price": 0.7661972222222221
+  },
+  "dynamic_price": {
+    "initial_plan_kwh": 25477660.762405552,
+    "executed_grid_kwh": 25477660.762405552,
+    "emergency_kwh": 476815.3371858333,
+    "total_grid_kwh": 25954476.099591386,
+    "plan_cost": 15807759.12992746,
+    "adjustment_cost": 0.0,
+    "emergency_cost": 2115778.9637437607,
+    "total_cost": 17923538.09367122,
+    "charge_kwh": 7682303.735684361,
+    "discharge_kwh": 6222666.025904333,
+    "battery_throughput_kwh": 13904969.761588695,
+    "up_adjust_kwh": 0.0,
+    "down_adjust_kwh": 0.0,
+    "emergency_day": 249.0,
+    "days": 334,
+    "max_daily_cost": 117496.11920061338,
+    "mean_price": 0.7575275199600798
+  },
+  "changes": [
+    {
+      "metric": "initial_plan_kwh",
+      "fixed_price": 25433452.303556427,
+      "dynamic_price": 25477660.762405552,
+      "absolute_change": 44208.45884912461,
+      "relative_change": 0.0017382012603512273
+    },
+    {
+      "metric": "executed_grid_kwh",
+      "fixed_price": 25433452.303556427,
+      "dynamic_price": 25477660.762405552,
+      "absolute_change": 44208.45884912461,
+      "relative_change": 0.0017382012603512273
+    },
+    {
+      "metric": "emergency_kwh",
+      "fixed_price": 477446.05741713784,
+      "dynamic_price": 476815.3371858333,
+      "absolute_change": -630.7202313045273,
+      "relative_change": -0.0013210293006011274
+    },
+    {
+      "metric": "total_grid_kwh",
+      "fixed_price": 25910898.360973563,
+      "dynamic_price": 25954476.099591386,
+      "absolute_change": 43577.73861782253,
+      "relative_change": 0.0016818304796200497
+    },
+    {
+      "metric": "plan_cost",
+      "fixed_price": 15771812.68749251,
+      "dynamic_price": 15807759.12992746,
+      "absolute_change": 35946.4424349498,
+      "relative_change": 0.0022791573262505417
+    },
+    {
+      "metric": "adjustment_cost",
+      "fixed_price": 0.0,
+      "dynamic_price": 0.0,
+      "absolute_change": 0.0,
+      "relative_change": null
+    },
+    {
+      "metric": "emergency_cost",
+      "fixed_price": 1837978.999053627,
+      "dynamic_price": 2115778.9637437607,
+      "absolute_change": 277799.9646901337,
+      "relative_change": 0.15114425400571635
+    },
+    {
+      "metric": "total_cost",
+      "fixed_price": 17609791.686546136,
+      "dynamic_price": 17923538.09367122,
+      "absolute_change": 313746.4071250856,
+      "relative_change": 0.017816588220335824
+    },
+    {
+      "metric": "charge_kwh",
+      "fixed_price": 7484428.163666049,
+      "dynamic_price": 7682303.735684361,
+      "absolute_change": 197875.5720183123,
+      "relative_change": 0.026438301990647763
+    },
+    {
+      "metric": "discharge_kwh",
+      "fixed_price": 6062386.8125695,
+      "dynamic_price": 6222666.025904333,
+      "absolute_change": 160279.21333483327,
+      "relative_change": 0.026438301990647815
+    },
+    {
+      "metric": "battery_throughput_kwh",
+      "fixed_price": 13546814.976235548,
+      "dynamic_price": 13904969.761588695,
+      "absolute_change": 358154.7853531465,
+      "relative_change": 0.026438301990647856
+    },
+    {
+      "metric": "up_adjust_kwh",
+      "fixed_price": 0.0,
+      "dynamic_price": 0.0,
+      "absolute_change": 0.0,
+      "relative_change": null
+    },
+    {
+      "metric": "down_adjust_kwh",
+      "fixed_price": 0.0,
+      "dynamic_price": 0.0,
+      "absolute_change": 0.0,
+      "relative_change": null
+    },
+    {
+      "metric": "emergency_day",
+      "fixed_price": 249.0,
+      "dynamic_price": 249.0,
+      "absolute_change": 0.0,
+      "relative_change": 0.0
+    },
+    {
+      "metric": "days",
+      "fixed_price": 334,
+      "dynamic_price": 334,
+      "absolute_change": 0,
+      "relative_change": 0.0
+    },
+    {
+      "metric": "max_daily_cost",
+      "fixed_price": 96336.73786237057,
+      "dynamic_price": 117496.11920061338,
+      "absolute_change": 21159.381338242805,
+      "relative_change": 0.21963979482543516
+    },
+    {
+      "metric": "mean_price",
+      "fixed_price": 0.7661972222222221,
+      "dynamic_price": 0.7575275199600798,
+      "absolute_change": -0.008669702262142254,
+      "relative_change": -0.011315235830531057
+    }
+  ],
+  "price_range_pearson_correlation": {
+    "battery_throughput_kwh": 0.07062608350236853,
+    "total_cost": 0.3364499875098491,
+    "emergency_cost": 0.10235502642759929
+  },
+  "correlation_note": "Descriptive correlation only, not a causal effect of price range"
+}
