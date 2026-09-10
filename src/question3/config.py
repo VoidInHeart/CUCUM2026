@@ -15,3 +15,5 @@ ISSUE_SLOT = {hour: hour * 6 for hour in ISSUE_HOURS}
 UP_ADJUST_PRICE_MULTIPLIER = 1.5
 CANCEL_REFUND_MULTIPLIER = 0.5
 POLICIES = ((0,), (0, 6), (0, 6, 12), (0, 6, 12, 18), (0, 12, 18), (0, 6, 18))
+# 消融选定策略供第四问比较使用；保留第三问原有主运行和结果口径。
+Q3_FINAL_UPDATE_HOURS = (0, 6, 12)
