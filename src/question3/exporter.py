@@ -1,4 +1,4 @@
-"""全部334日及三次revision验证通过后，原子填充官方四工作表。"""
+"""全部334日及指定策略的revision验证通过后，原子填充官方四工作表。"""
 from copy import copy
 from datetime import datetime, time
 from pathlib import Path
@@ -53,8 +53,8 @@ def read_template_labels(path: Path = cfg.RESULT_XLSX):
             workbook.close()
 
 
-def export_result(price, results, path: Path = cfg.RESULT_XLSX):
-    validate_complete(price, results)
+def export_result(price, results, path: Path = cfg.RESULT_XLSX, *, update_hours=cfg.ISSUE_HOURS):
+    validate_complete(price, results, update_hours)
     path = Path(path)
     workbook = temporary = None
     try:
@@ -100,7 +100,7 @@ def export_result(price, results, path: Path = cfg.RESULT_XLSX):
             battery.column_dimensions[col].width = width
         for col, width in {"A": 15, "B": 25, "C": 18}.items():
             emergency.column_dimensions[col].width = width
-        with tempfile.NamedTemporaryFile(dir=path.parent, prefix="result3.", suffix=".tmp.xlsx", delete=False) as handle:
+        with tempfile.NamedTemporaryFile(dir=path.parent, prefix=path.stem + ".", suffix=".tmp.xlsx", delete=False) as handle:
             temporary = Path(handle.name)
         workbook.save(temporary)
         workbook.close()

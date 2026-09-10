@@ -5,7 +5,6 @@ from pathlib import Path
 import os
 import tempfile
 
-import numpy as np
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
 
@@ -15,6 +14,7 @@ from .emergency import merge_emergency_intervals, validate_labels
 from .summary import build_summaries
 from .types import DailyEvaluation
 from .validator import validate_complete
+from ..pricing import PriceInput
 
 
 def _check_template(workbook, path: Path) -> list[str]:
@@ -49,7 +49,7 @@ def read_template_labels(path: Path = cfg.RESULT_XLSX) -> list[str]:
         workbook.close()
 
 
-def export_result(price: np.ndarray, evaluations: list[DailyEvaluation], path: Path = cfg.RESULT_XLSX) -> dict:
+def export_result(price: PriceInput, evaluations: list[DailyEvaluation], path: Path = cfg.RESULT_XLSX) -> dict:
     validate_complete(price, evaluations)
     path = Path(path)
     if not path.is_file():
@@ -106,7 +106,7 @@ def export_result(price: np.ndarray, evaluations: list[DailyEvaluation], path: P
             battery.column_dimensions[col].width = width
         for col, width in {"A": 15, "B": 25, "C": 18}.items():
             emergency.column_dimensions[col].width = width
-        with tempfile.NamedTemporaryFile(dir=path.parent, prefix="result2.", suffix=".tmp.xlsx", delete=False) as handle:
+        with tempfile.NamedTemporaryFile(dir=path.parent, prefix=path.stem + ".", suffix=".tmp.xlsx", delete=False) as handle:
             temporary = Path(handle.name)
         workbook.save(temporary)
         workbook.close()

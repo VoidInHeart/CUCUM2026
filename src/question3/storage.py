@@ -38,21 +38,24 @@ def save_analysis(directory, main_results, policy_results, summary, ablations, a
     write_json(directory / "forecast_accuracy.json", accuracy)
     write_csv(directory / "policy_daily_metrics.csv", [
         {"policy": policy_name(hours), **daily_metrics(result)} for hours, results in policy_results.items() for result in results])
-    # 每行包含0:00完整计划、所有revision（含SOC和充放电）以及最终执行结果。
-    with (directory / "daily_results.jsonl").open("w", encoding="utf-8") as stream:
-        for result in main_results:
+    save_daily_results(directory / "daily_results.jsonl", main_results)
+
+
+def save_daily_results(path, results):
+    """每行保留完整计划与结算；问题4也复用这一无损JSON记录格式。"""
+    with Path(path).open("w", encoding="utf-8") as stream:
+        for result in results:
             stream.write(json.dumps(asdict(result), ensure_ascii=False, allow_nan=False, default=_json_default) + "\n")
 
 
-def load_analysis(directory):
-    """只用于重绘已保存结果，不用于继续或跳过优化。"""
-    directory = Path(directory)
+def load_daily_results(path):
+    """恢复问题3/4-3的不可变完整计划；调用者仍须验证价格及策略。"""
     def plan_from(record):
         return HorizonPlan(date.fromisoformat(record["date"]), record["issue_hour"], record["initial_soc_kwh"],
                            *(readonly(record[key]) for key in ("grid_kwh", "charge_kwh", "discharge_kwh", "soc_end_kwh")),
                            record["solver_objective"], record["expected_emergency_kwh"])
     results = []
-    with (directory / "daily_results.jsonl").open(encoding="utf-8") as stream:
+    with Path(path).open(encoding="utf-8") as stream:
         for line in stream:
             record = json.loads(line)
             s = record["schedule"]
@@ -64,6 +67,13 @@ def load_analysis(directory):
             results.append(DailyResult(schedule, *(readonly(record[key]) for key in ("actual_net_load", "real_emergency", "real_surplus")),
                                        *(record[key] for key in ("plan_cost", "adjustment_cost", "emergency_cost", "total_cost",
                                           "initial_plan_kwh", "executed_adjusted_kwh", "emergency_kwh", "actual_grid_energy_kwh"))))
+    return results
+
+
+def load_analysis(directory):
+    """只用于重绘已保存结果，不用于继续或跳过优化。"""
+    directory = Path(directory)
+    results = load_daily_results(directory / "daily_results.jsonl")
     with (directory / "policy_daily_metrics.csv").open(encoding="utf-8-sig", newline="") as stream:
         rows = list(csv.DictReader(stream))
     return results, json.loads((directory / "ablation_summary.json").read_text(encoding="utf-8")), rows, \

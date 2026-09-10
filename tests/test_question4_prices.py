@@ -5,7 +5,7 @@ from unittest import TestCase, main
 from unittest.mock import patch
 import numpy as np
 from src.question2.data_loader import load_actual
-from src.question4.price_loader import load_annual_price, get_daily_price, AnnualPriceData, normalize_time, validate_alignment
+from src.question4.price_loader import load_annual_price, get_daily_price, normalize_time, validate_alignment
 from src.question4 import config as cfg
 
 
