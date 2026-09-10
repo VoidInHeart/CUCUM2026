@@ -13,6 +13,7 @@ from .validator import validate_solution
 def main() -> int:
     parser = argparse.ArgumentParser(description="问题1：微网日前计划购电策略")
     parser.add_argument("--debug", action="store_true", help="显示求解状态及约束残差")
+    parser.add_argument("--plot-only", action="store_true", help="求解并生成图表，不写入官方Excel")
     args = parser.parse_args()
     logging.basicConfig(level=logging.DEBUG if args.debug else logging.INFO,
                         format="%(levelname)s %(message)s")
@@ -24,6 +25,12 @@ def main() -> int:
         solution = solve(data)
         logging.info("validating solution")
         logging.debug("residuals: %s", validate_solution(data, solution))
+        from .visualization import plot_results
+        figures = plot_results(data, solution)
+        logging.info("figures: %s", figures)
+        if args.plot_only:
+            print("Question 1 visualization completed.")
+            return 0
         logging.info("exporting result")
         table1, table2 = export_result(data, solution)
     except (ValueError, RuntimeError, OSError) as exc:
