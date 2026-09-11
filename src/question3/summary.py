@@ -5,10 +5,11 @@ import numpy as np
 from ..question1.summary import TABLE1_LABELS, build_table2_summary
 from ..question2.emergency import merge_emergency_intervals
 from . import config as cfg
-from .analysis import daily_metrics
+from .analysis import daily_metrics, result_update_hours, policy_name
 
 
 def build_summary(results, labels):
+    hours = result_update_hours(results)
     label_to_index = {label: i for i, label in enumerate(labels)}
     if set(TABLE1_LABELS) - label_to_index.keys():
         raise ValueError("question3 summary: paper interval missing from template")
@@ -36,4 +37,5 @@ def build_summary(results, labels):
                                              "up_kwh": float(r.up_adjust.sum()), "down_kwh": float(r.down_adjust.sum())} for r in s.revisions]}
     if len(papers) != 4:
         raise ValueError("question3 summary: missing specified dates")
-    return {"units": {"energy": "kWh", "cost": "yuan", "power": "kW"}, "annual": annual, "paper_dates": papers}
+    return {"units": {"energy": "kWh", "cost": "yuan", "power": "kW"},
+            "update_hours": list(hours), "policy": policy_name(hours), "annual": annual, "paper_dates": papers}

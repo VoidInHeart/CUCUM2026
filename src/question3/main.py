@@ -1,4 +1,4 @@
-"""完整策略和六组消融统一入口；全部求解成功后才替换正式Excel。"""
+"""三时刻官方主策略和六组消融统一入口；全部成功后才替换正式Excel。"""
 import argparse
 import logging
 import json
@@ -34,10 +34,11 @@ def main():
         forecasts = load_forecasts()
         builder = RollingScenarioBuilder(annual, forecasts)
         # 主策略先完成；其它策略仅输出分析，不生成额外官方Excel。
-        policies = [cfg.ISSUE_HOURS] + [hours for hours in cfg.POLICIES if hours != cfg.ISSUE_HOURS]
+        main_hours = cfg.Q3_FINAL_UPDATE_HOURS
+        policies = [main_hours] + [hours for hours in cfg.POLICIES if hours != main_hours]
         policy_results = {hours: evaluate_update_policy(hours, price.price, annual, builder) for hours in policies}
         policy_results = {hours: policy_results[hours] for hours in cfg.POLICIES}
-        results = policy_results[cfg.ISSUE_HOURS]
+        results = policy_results[main_hours]
         ablations = summarize_policies(policy_results)
         accuracy = forecast_accuracy(annual, forecasts)
         summary = build_summary(results, labels)
@@ -47,11 +48,11 @@ def main():
             from .analysis import daily_metrics, policy_name
             rows = [{"policy": policy_name(hours), **daily_metrics(result)} for hours, values in policy_results.items() for result in values]
             plot_results(results, ablations, rows, accuracy)
-        export_result(price.price, results)
+        export_result(price.price, results, update_hours=main_hours)
     except (ValueError, RuntimeError, OSError, KeyError) as exc:
         logging.error("Question3 failed: %s", exc)
         return 1
-    print("Question 3 solved: 334 days, 6 update policies, all LP and accounting checks passed.")
+    print(f"Question 3 solved: main policy={main_hours}, 334 days, 6 update policies, all checks passed.")
     print(json.dumps({"annual": summary["annual"], "ablation": ablations, "forecast_accuracy": accuracy}, ensure_ascii=False, indent=2))
     print(f"Official result: {cfg.RESULT_XLSX}\nFigures and summaries: {cfg.OUTPUT_DIR}")
     return 0

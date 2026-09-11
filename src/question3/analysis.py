@@ -14,6 +14,16 @@ def policy_name(hours):
     return "+".join(str(hour) for hour in hours)
 
 
+def result_update_hours(results):
+    """从执行记录识别策略，防止将四时刻历史记录标成三时刻主结果。"""
+    policies = {(0, *(revision.issue_hour for revision in result.schedule.revisions)) for result in results}
+    if len(policies) != 1:
+        raise ValueError("question3 results: expected one consistent update policy")
+    hours = policies.pop()
+    validate_policy(hours)
+    return hours
+
+
 def evaluate_update_policy(update_hours, price, annual, builder):
     validate_policy(update_hours)
     results = []

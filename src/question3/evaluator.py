@@ -7,7 +7,7 @@ from .types import DailyResult, readonly
 from .validator import validate_day
 
 
-def evaluate_actual_day(price, schedule, actual_net_load, update_hours=cfg.ISSUE_HOURS):
+def evaluate_actual_day(price, schedule, actual_net_load, update_hours=cfg.Q3_FINAL_UPDATE_HOURS):
     array_check(actual_net_load, (144,), str(schedule.date), "actual net load")
     supplied = schedule.executed_grid + schedule.executed_discharge - schedule.executed_charge
     emergency = readonly(np.maximum(actual_net_load - supplied, 0))

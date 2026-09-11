@@ -53,7 +53,7 @@ def read_template_labels(path: Path = cfg.RESULT_XLSX):
             workbook.close()
 
 
-def export_result(price, results, path: Path = cfg.RESULT_XLSX, *, update_hours=cfg.ISSUE_HOURS):
+def export_result(price, results, path: Path = cfg.RESULT_XLSX, *, update_hours=cfg.Q3_FINAL_UPDATE_HOURS):
     validate_complete(price, results, update_hours)
     path = Path(path)
     workbook = temporary = None

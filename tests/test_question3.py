@@ -19,8 +19,8 @@ from src.question3.rolling_scenario_builder import RollingScenarioBuilder, valid
 from src.question3.optimizer import solve_initial_plan, solve_adjustment
 from src.question3.rolling_controller import solve_day, validate_policy
 from src.question3.evaluator import evaluate_actual_day
-from src.question3.validator import validate_schedule, validate_day, validate_revision
-from src.question3.analysis import forecast_accuracy
+from src.question3.validator import validate_schedule, validate_day, validate_revision, validate_complete
+from src.question3.analysis import forecast_accuracy, result_update_hours
 from src.question3.exporter import export_result, read_template_labels
 from src.question3.summary import build_summary
 from src.question2.emergency import merge_emergency_intervals
@@ -128,11 +128,12 @@ class Question3Tests(TestCase):
 
     def test_boundary_soc_and_frozen_decisions(self):
         s = self.schedule
-        validate_schedule(self.price.price, s, cfg.ISSUE_HOURS)
+        validate_schedule(self.price.price, s, cfg.Q3_FINAL_UPDATE_HOURS)
         np.testing.assert_array_equal(s.executed_grid[:36], s.initial_plan.grid_kwh[:36])
         for i, revision in enumerate(s.revisions):
             start = revision.start_slot
-            np.testing.assert_array_equal(s.executed_grid[start:start + 36], revision.new_grid[:36])
+            stop = s.revisions[i + 1].start_slot if i + 1 < len(s.revisions) else 144
+            np.testing.assert_array_equal(s.executed_grid[start:stop], revision.new_grid[:stop-start])
             self.assertAlmostEqual(revision.plan.initial_soc_kwh, s.executed_soc_end[start - 1])
             expected_old = s.initial_plan.grid_kwh[start:] if i == 0 else s.revisions[i - 1].new_grid[36:]
             np.testing.assert_allclose(revision.old_grid, expected_old)
@@ -140,7 +141,7 @@ class Question3Tests(TestCase):
         damaged = s.executed_grid.copy()
         damaged[0] += 1
         with self.assertRaisesRegex(ValueError, "frozen"):
-            validate_schedule(self.price.price, replace(s, executed_grid=damaged), cfg.ISSUE_HOURS)
+            validate_schedule(self.price.price, replace(s, executed_grid=damaged), cfg.Q3_FINAL_UPDATE_HOURS)
         with self.assertRaises(ValueError): s.executed_grid[0] = 0
 
     def test_actual_balance_and_cost_accounting(self):
@@ -151,7 +152,22 @@ class Question3Tests(TestCase):
         self.assertAlmostEqual(result.total_cost, result.plan_cost + sum(v.adjustment_cashflow_yuan for v in s.revisions) + result.emergency_cost)
         self.assertAlmostEqual(result.emergency_cost, 5 * self.price.price @ result.real_emergency)
         with self.assertRaisesRegex(ValueError, "accounting"):
-            validate_day(self.price.price, replace(result, total_cost=result.total_cost + 1), cfg.ISSUE_HOURS)
+            validate_day(self.price.price, replace(result, total_cost=result.total_cost + 1), cfg.Q3_FINAL_UPDATE_HOURS)
+
+    def test_default_policy_uses_only_selected_forecasts(self):
+        self.assertEqual(cfg.Q3_FINAL_UPDATE_HOURS, (0, 6, 12))
+        with patch.object(self.builder, "build", wraps=self.builder.build) as build:
+            schedule = solve_day(self.day, self.price.price, self.builder)
+        self.assertEqual([call.args[1] for call in build.call_args_list], [0, 6, 12])
+        self.assertEqual(tuple(r.issue_hour for r in schedule.revisions), (6, 12))
+        np.testing.assert_array_equal(schedule.executed_grid[72:], schedule.revisions[-1].new_grid)
+        historical = solve_day(self.day, self.price.price, self.builder, cfg.ISSUE_HOURS)
+        with self.assertRaisesRegex(ValueError, "revision sequence"):
+            evaluate_actual_day(self.price.price, historical, self.annual.net_load_kwh[self.index])
+        result = evaluate_actual_day(self.price.price, historical, self.annual.net_load_kwh[self.index], cfg.ISSUE_HOURS)
+        self.assertEqual(result_update_hours([result]), cfg.ISSUE_HOURS)
+        with self.assertRaisesRegex(ValueError, "consistent"):
+            result_update_hours([result, self.result])
 
     def test_ablation_policy_execution(self):
         for policy in cfg.POLICIES:
@@ -255,6 +271,8 @@ class Question3ExportTests(TestCase):
 
     def test_paper_summary_uses_executed_schedule(self):
         summary = build_summary(self.results, self.labels)
+        self.assertEqual(summary["update_hours"], [0, 6, 12])
+        self.assertEqual(summary["policy"], "0+6+12")
         self.assertEqual(set(summary["paper_dates"]), {str(day) for day in cfg.PAPER_DATES})
         for day, tables in summary["paper_dates"].items():
             result = self.results[cfg.OUTPUT_DATES.index(date.fromisoformat(day))]
@@ -262,6 +280,45 @@ class Question3ExportTests(TestCase):
                 slot = self.labels.index(label)
                 self.assertEqual(values["执行合同购电量"], result.schedule.executed_grid[slot])
             self.assertAlmostEqual(tables["全天指标"]["total_cost"], result.total_cost)
+
+    def test_main_selects_official_policy_for_summary_storage_and_export(self):
+        from src.question3.main import main as run_main
+        import contextlib
+        import io
+        main_results = self.results
+        historical = object()
+        def run_policy(hours, *args):
+            return main_results if hours == cfg.Q3_FINAL_UPDATE_HOURS else historical
+        with patch("sys.argv", ["run_question3.py", "--no-plots"]), \
+             patch("src.question3.main.evaluate_update_policy", side_effect=run_policy) as solve, \
+             patch("src.question3.main.summarize_policies", return_value=[]) as ablate, \
+             patch("src.question3.main.forecast_accuracy", return_value=[]), \
+             patch("src.question3.main.build_summary", return_value={"annual": {}}) as summary, \
+             patch("src.question3.main.save_analysis") as save, \
+             patch("src.question3.main.export_result") as export, contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(run_main(), 0)
+            self.assertEqual(solve.call_args_list[0].args[0], (0,6,12))
+            self.assertEqual({call.args[0] for call in solve.call_args_list}, set(cfg.POLICIES))
+            self.assertIs(ablate.call_args.args[0][cfg.ISSUE_HOURS], historical)
+            self.assertIs(summary.call_args.args[0], main_results)
+            self.assertIs(save.call_args.args[1], main_results)
+            self.assertIs(export.call_args.args[1], main_results)
+            self.assertEqual(export.call_args.kwargs["update_hours"], (0,6,12))
+
+    def test_four_update_archive_cannot_replace_official_by_default(self):
+        schedule = solve_day(Question3Tests.day, self.price, Question3Tests.builder, cfg.ISSUE_HOURS)
+        archived = evaluate_actual_day(self.price, schedule, Question3Tests.annual.net_load_kwh[Question3Tests.index], cfg.ISSUE_HOURS)
+        records = [replace(archived, schedule=replace(schedule,
+                   initial_plan=replace(schedule.initial_plan, date=day),
+                   revisions=tuple(replace(r, plan=replace(r.plan, date=day)) for r in schedule.revisions))) for day in cfg.OUTPUT_DATES]
+        validate_complete(self.price, records, cfg.ISSUE_HOURS)
+        with TemporaryDirectory() as directory:
+            path = Path(directory)/"result3.xlsx"
+            shutil.copy2(cfg.RESULT_XLSX, path)
+            original = path.read_bytes()
+            with self.assertRaisesRegex(ValueError, "revision sequence"):
+                export_result(self.price, records, path)
+            self.assertEqual(path.read_bytes(), original)
 
     def test_failed_policy_stops_main_before_export(self):
         from src.question3.main import main as run_main

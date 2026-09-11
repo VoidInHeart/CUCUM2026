@@ -130,7 +130,7 @@ def validate_day(price: np.ndarray, result: DailyResult, update_hours: tuple[int
         require(np.isfinite(actual) and abs(actual - expected) <= cfg.TOL, context, f"{name}: accounting mismatch")
 
 
-def validate_complete(price, results, update_hours=cfg.ISSUE_HOURS):
+def validate_complete(price, results, update_hours=cfg.Q3_FINAL_UPDATE_HOURS):
     require(tuple(item.schedule.date for item in results) == cfg.OUTPUT_DATES, "export", "expected all 334 output dates")
     for item in results:
         validate_day(price_for_date(price, item.schedule.date), item, update_hours)

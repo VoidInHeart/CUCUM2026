@@ -14,7 +14,7 @@ def validate_policy(update_hours):
         raise ValueError("rolling_controller: update hours must start at 0 and increase within (0,6,12,18)")
 
 
-def solve_day(target_date, price, builder, update_hours=cfg.ISSUE_HOURS) -> DailySchedule:
+def solve_day(target_date, price, builder, update_hours=cfg.Q3_FINAL_UPDATE_HOURS) -> DailySchedule:
     validate_policy(update_hours)
     plan0 = solve_initial_plan(price, builder.build(target_date, 0))
     logging.debug("%s 0:00 solved", target_date)
