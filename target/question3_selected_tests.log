@@ -1,0 +1,25 @@
+test_export_failure_preserves_official_file (tests.test_question3.Question3ExportTests.test_export_failure_preserves_official_file) ... ok
+test_failed_policy_stops_main_before_export (tests.test_question3.Question3ExportTests.test_failed_policy_stops_main_before_export) ... ERROR:root:Question3 failed: 2025-03-20 12:00 failed
+ok
+test_four_update_archive_cannot_replace_official_by_default (tests.test_question3.Question3ExportTests.test_four_update_archive_cannot_replace_official_by_default) ... ok
+test_main_selects_official_policy_for_summary_storage_and_export (tests.test_question3.Question3ExportTests.test_main_selects_official_policy_for_summary_storage_and_export) ... ok
+test_paper_summary_uses_executed_schedule (tests.test_question3.Question3ExportTests.test_paper_summary_uses_executed_schedule) ... ok
+test_result3_all_sheets_and_totals (tests.test_question3.Question3ExportTests.test_result3_all_sheets_and_totals) ... ok
+test_ablation_policy_execution (tests.test_question3.Question3Tests.test_ablation_policy_execution) ... ok
+test_actual_balance_and_cost_accounting (tests.test_question3.Question3Tests.test_actual_balance_and_cost_accounting) ... ok
+test_attachment3_shape_issue_sequence_and_lengths (tests.test_question3.Question3Tests.test_attachment3_shape_issue_sequence_and_lengths) ... ok
+test_boundary_soc_and_frozen_decisions (tests.test_question3.Question3Tests.test_boundary_soc_and_frozen_decisions) ... ok
+test_default_policy_uses_only_selected_forecasts (tests.test_question3.Question3Tests.test_default_policy_uses_only_selected_forecasts) ... ok
+test_forecast_accuracy_samples (tests.test_question3.Question3Tests.test_forecast_accuracy_samples) ... ok
+test_forecast_loader_groups_and_rejects_bad_input (tests.test_question3.Question3Tests.test_forecast_loader_groups_and_rejects_bad_input) ... ok
+test_future_actual_and_unreleased_forecasts_not_accessed (tests.test_question3.Question3Tests.test_future_actual_and_unreleased_forecasts_not_accessed) ... ok
+test_history_dates_and_scenario_shapes (tests.test_question3.Question3Tests.test_history_dates_and_scenario_shapes) ... ok
+test_history_error_uses_same_observed_anchor (tests.test_question3.Question3Tests.test_history_error_uses_same_observed_anchor) ... ok
+test_known_initial_and_adjustment_objectives (tests.test_question3.Question3Tests.test_known_initial_and_adjustment_objectives) ... ok
+test_midpoint_interpolation_and_output_lengths (tests.test_question3.Question3Tests.test_midpoint_interpolation_and_output_lengths) ... ok
+test_solver_failure_context (tests.test_question3.Question3Tests.test_solver_failure_context) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 12.740s
+
+OK

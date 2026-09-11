@@ -1,0 +1,7 @@
+test_render_failure_preserves_both_previous_formats (tests.test_plotting.FigureSaveTests.test_render_failure_preserves_both_previous_formats) ... ok
+test_success_replaces_files_from_same_directory_staging (tests.test_plotting.FigureSaveTests.test_success_replaces_files_from_same_directory_staging) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.010s
+
+OK

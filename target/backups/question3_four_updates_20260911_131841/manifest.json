@@ -1,0 +1,42 @@
+{
+  "created_at": "2026-09-11T13:18:41.752881",
+  "policy": [
+    0,
+    6,
+    12,
+    18
+  ],
+  "git_head": "279ecf9f0af4b53f313cf5573542e050c0bba247",
+  "files_sha256": {
+    "result3.xlsx": "9a5307251fba93815e60be47b44b37ff3fa4221ad654774662bf94d9bdddea1f",
+    "question3/ablation_summary.csv": "1d2c0f78dfcbde210339c2e57bfaaad9b8157d70ac670d539a184577428ad5b6",
+    "question3/ablation_summary.json": "7aaf2d23fe396d40a791e7db532d9547ec7eb380bfac72f452678985323fdcc7",
+    "question3/daily_results.jsonl": "f5d8bac9bc90111c16b998e4e6d355b4a3e7c305b72d877021a1879e6ad5c318",
+    "question3/forecast_accuracy.csv": "dfc248d5f5c54dbca4093720c7cd00ec7e8017a52484610991a09516a06c8ec0",
+    "question3/forecast_accuracy.json": "ab30dfb38aa4f3bf955719ce1c98df34b4cc95b7279a9cf3111279b0351b615f",
+    "question3/policy_daily_metrics.csv": "62817ba151dd36a70cdd395a6a00a86cc1fcef23b1780a166656f1b736ed7c76",
+    "question3/summary.json": "007a10c23af747d4ef915961b28cbd98d057b98d13afd12f9e7c9e919bab4f13",
+    "question3/figures/ablation_comparison.pdf": "b85e243fe4dd982c99946cd038fc46d7fb287bb517fdd6230f7f5eefd4868fd0",
+    "question3/figures/ablation_comparison.png": "1be8f45dd99288facc30f7d5ff02f574100ac3e25732c69be11fd230ffc5b568",
+    "question3/figures/ablation_value.pdf": "4b9db7bf249b0da40dc56e1acd4db90bb7761a4dcd69b1613b628fcfbccb76b6",
+    "question3/figures/ablation_value.png": "e45320e8cdf8fa79a41f0385513f945f35e447b84185f3332d8eaa94405af7a3",
+    "question3/figures/annual_overview.pdf": "ef29184999c5cc243a0d13ec0c84be802c0845abd40bb5e4e07d2625f352c34c",
+    "question3/figures/annual_overview.png": "5bd09435a5631c152b98d07c2413d667e06d91633694bbb494dfcd70c55875c4",
+    "question3/figures/dispatch_2025-03-20.pdf": "0fdcbec44b8195e22a01229196d7b4d9202370f645212cce1ea01ccdf512d213",
+    "question3/figures/dispatch_2025-03-20.png": "0812a003f1b23184bae2be40dc3a577be2b6afa9bb3e5b8629faa7f9d47fb48c",
+    "question3/figures/dispatch_2025-06-21.pdf": "569558b91278b888c6d2ea579e2cafe9d4a90435392c273eb75b3ff4fa109f4f",
+    "question3/figures/dispatch_2025-06-21.png": "6a9d023861de80b5f6d0db2ecb200e56908b4f5e82d014212b61958be26e057f",
+    "question3/figures/dispatch_2025-09-23.pdf": "78fdba35afe131de3b76713f3cf168dd98fc24e14818f07455a85bc4a8b0d8d1",
+    "question3/figures/dispatch_2025-09-23.png": "4d9a67f882ac76fb9defaad62b6c220871bcb03b1f6ed1d2f8c95a0fbb85c66a",
+    "question3/figures/dispatch_2025-12-21.pdf": "2a8303f3dee736f551f200a0662b04beda6b6ee41a0798943d98b03cb17d7410",
+    "question3/figures/dispatch_2025-12-21.png": "0ea04b4b3f9523bd523cb95dba03a0f84010581aede6d01ef16d519ed7811c0c",
+    "question3/figures/forecast_accuracy.pdf": "bad975c0d5bc64b6a25d9ae108cdaf18f00f4e0bafb09df869d12150362ac932",
+    "question3/figures/forecast_accuracy.png": "7b04ce1523f4ff3a3558b07064c4ae8531071dcbf7303193c919a3df5998f826"
+  },
+  "other_results_sha256": {
+    "result1.xlsx": "ce3690aef2bdffbd40d18a06fd092fa6e8c6aca08ad2b741dd72d108d4b9fd57",
+    "result2.xlsx": "218552cbc14e5670eb4b4f4ddae7558a0c113ccc5e2e13782e380860945cec7a",
+    "result4-2.xlsx": "178f31f5ae9dd47a7bd116b12d4401910925373fb4fd164492413443b70cbd7a",
+    "result4-3.xlsx": "f87a7024575d475ed67d634b23f5cb7dfce802e6dbd787729c8f55abd10a33ce"
+  }
+}

@@ -4,17 +4,21 @@ from ..plotting import configure_chinese, plt, save_figure
 import matplotlib.dates as mdates
 
 from . import config as cfg
+from .analysis import policy_name, result_update_hours
 
 
 def plot_results(results, ablations, policy_daily_rows, accuracy, directory=cfg.OUTPUT_DIR / "figures"):
     configure_chinese()
+    main_hours = result_update_hours(results)
+    main_name = policy_name(main_hours)
+    main_label = "、".join(map(str, main_hours)) + "点更新"
     dates = [result.schedule.date for result in results]
     fig, axes = plt.subplots(3, 1, figsize=(12, 10), sharex=True, layout="constrained")
     for key, label, color in (("initial_plan_kwh", "0:00计划量", "#76549b"),
                               ("executed_adjusted_kwh", "执行合同量", "#168c91"),
                               ("actual_grid_energy_kwh", "实际外网总量", "#263b62")):
         axes[0].plot(dates, np.array([getattr(r, key) for r in results]) / 1000, label=label, color=color, lw=1.3)
-    axes[0].set(ylabel="电量（千kWh）", title="问题3：四时刻滚动策略的全年执行结果（2—12月）")
+    axes[0].set(ylabel="电量（千kWh）", title=f"问题3：{main_label}的全年执行结果（2—12月）")
     axes[0].legend(ncols=3)
     axes[1].plot(dates, np.array([r.total_cost for r in results]) / 10000, label="总费用", color="#263b62")
     axes[1].fill_between(dates, np.array([r.emergency_cost for r in results]) / 10000, label="紧急购电费", color="#c36a42", alpha=0.7)
@@ -38,7 +42,7 @@ def plot_results(results, ablations, policy_daily_rows, accuracy, directory=cfg.
         axes[0].plot(slots, s.initial_plan.grid_kwh, label="0:00合同计划", color="#76549b", alpha=0.75)
         axes[0].step(slots, s.executed_grid, where="mid", label="执行合同", color="#168c91")
         axes[0].plot(slots, result.actual_net_load, label="实际净负荷", color="#263b62")
-        axes[0].set(ylabel="电量（kWh）", title=f"问题3：{s.date} 滚动合同与储能执行")
+        axes[0].set(ylabel="电量（kWh）", title=f"问题3：{s.date} 滚动合同与储能执行（{main_label}）")
         axes[0].legend(ncols=3)
         axes[1].bar(slots, result.real_emergency, label="紧急购电", color="#c36a42")
         axes[1].bar(slots, -result.real_surplus, label="富余电量（负向显示）", color="#d49a18")
@@ -51,17 +55,17 @@ def plot_results(results, ablations, policy_daily_rows, accuracy, directory=cfg.
         axes[3].plot(np.arange(145), np.r_[cfg.INITIAL_SOC_KWH, s.executed_soc_end], color="#263b62")
         for bound in (cfg.SOC_MIN_KWH, cfg.SOC_MAX_KWH):
             axes[3].axhline(bound, color="#b34c4c", ls="--", lw=1)
-        axes[3].set(ylabel="储电量（kWh）", xlabel="slot边界（0=0:00，36=6:00，72=12:00，108=18:00）")
+        axes[3].set(ylabel="储电量（kWh）", xlabel="slot边界（0=0:00；竖虚线表示实际滚动更新时间）")
         for ax in axes:
             ax.set_xlim(0, 144)
             ax.set_xticks(np.arange(0, 145, 24))
-            for boundary in (36, 72, 108):
-                ax.axvline(boundary, ls=":", color="#888888", lw=0.8)
+            for revision in s.revisions:
+                ax.axvline(revision.start_slot, ls=":", color="#888888", lw=0.8)
         paths += save_figure(fig, directory, f"dispatch_{s.date}")
 
     labels = [row["policy"] for row in ablations]
     positions = np.arange(len(labels))
-    colors = ["#168c91" if label == "0+6+12+18" else "#8192ad" for label in labels]
+    colors = ["#168c91" if label == main_name else "#8192ad" for label in labels]
     fig, axes = plt.subplots(2, 2, figsize=(13, 9), layout="constrained")
     for ax, field, title, unit in ((axes[0, 0], "total_cost", "全年实际总费用", "万元"),
                                     (axes[0, 1], "emergency_kwh", "全年紧急购电量", "万kWh"),
@@ -84,7 +88,7 @@ def plot_results(results, ablations, policy_daily_rows, accuracy, directory=cfg.
     for ax in axes.flat:
         ax.set_xticks(positions, labels, rotation=20)
         ax.set_xlabel("预报更新时间组合（小时）")
-    fig.suptitle("问题3：更新时间消融实验（相同334天、相同结算口径）")
+    fig.suptitle(f"问题3：更新时间消融实验（青绿色为主策略 {main_name}；相同334天）")
     paths += save_figure(fig, directory, "ablation_comparison")
 
     by_policy = {row["policy"]: row for row in ablations}
@@ -111,7 +115,7 @@ def plot_results(results, ablations, policy_daily_rows, accuracy, directory=cfg.
                          xytext=(0, 6 if value >= 0 else -16), textcoords="offset points",
                          ha="center", fontsize=10, color="#168c91" if value >= 0 else "#c36a42")
     axes[1].margins(y=0.12)
-    axes[1].set(title="单次更新的经济贡献", ylabel="删去该更新的费用 − 完整策略费用（万元）",
+    axes[1].set(title="以四时刻对照策略分析单次更新的贡献", ylabel="删去该更新的费用 − 四时刻策略费用（万元）",
                 xlabel="其余更新时间保持不变；正值表示该次更新节省费用")
     paths += save_figure(fig, directory, "ablation_value")
 
