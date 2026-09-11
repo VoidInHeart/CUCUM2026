@@ -1,2 +1,8 @@
 # Preserve archived bytes so manifest SHA-256 values survive checkout on any OS.
 /target/backups/** -text
+
+# Keep measured benchmark source and artifact hashes stable after checkout.
+/src/benchmark/*.py text eol=lf
+/run_benchmark.py text eol=lf
+/tests/test_benchmark.py text eol=lf
+/target/benchmark/** -text

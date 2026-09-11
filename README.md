@@ -165,3 +165,68 @@ CSV 字段 `planned_grid_total`、`emergency_total`、`total_grid_purchase` 的�
 重绘时核对价格快照、输入SHA-256、策略和全部物理/费用约束；输入变化时须重新运行。
 存档不作为求解缓存。第四问结果写入`target/`，运行第四问不修改前三问正式Excel。
 私有仓库同时保留代码、正式结果、图表、验证日志和历史备份，便于复现与对照。
+
+## 独立算法对比实验（benchmark）
+
+```powershell
+conda activate cucum2026
+python -m pip install -r requirements.txt
+python -X utf8 run_benchmark.py
+# 本机也可直接指定解释器
+& 'E:\Miniconda\envs\cucum2026\python.exe' -X utf8 run_benchmark.py
+```
+
+实验固定使用附件1电价，2025-02-01至2025-12-31共334天。
+全部产物写入`target/benchmark/`，不改写问题1—4结果、附件5正式Excel或历史备份。
+运行前后检查其他target文件的SHA-256；不调用原问题写出入口。
+
+| 方法 | 实现及信息集合 |
+| --- | --- |
+| DET | 前31天各slot净负荷均值，适配问题1原确定性储能LP |
+| Q80 | 同一历史窗口的NumPy `method="linear"` 80%分位数，复用同一LP；属于启发式 |
+| SAA | 直接复用问题2年度流水线、历史场景、优化器、实际结算及校验 |
+| CVaR95-L50 | 问题2原矩阵加CVaR变量，固定alpha=0.95、lambda=0.50；lambda=0直接调用SAA |
+| SAA-MPC | 直接复用问题3正式`Q3_FINAL_UPDATE_HOURS=(0,6,12)`；18点预报不进入控制器 |
+
+前四种方法在0:00拥有完全相同的历史信息。SAA-MPC另使用0点、6点和12点已发布PV预报，
+解释为日内信息更新价值实验；差异同时包含预测信息、场景构造和滚动交易的影响，不能仅归因于优化算法。
+沿用原始144个10分钟slot，不做小时重采样。全部物理参数、历史窗口、日期及结算倍率从原配置导入。
+
+CVaR损失为每场景全天紧急购电费，目标为
+`plan_cost + (1-lambda)*E[L] + lambda*CVaR_alpha(L) + EPS_THROUGHPUT*sum(C+D)`。
+附加约束为`xi_s >= L_s-eta, xi_s>=0`；eta不限制符号。
+灵敏度固定为alpha∈{0.90,0.95,0.99}、lambda∈{0.25,0.50,0.75,1.00}的12组，
+只用于风险—收益分析；不根据全年结果重新挑选主参数，也不要求样本外费用随lambda单调变化。
+
+每次运行首先重算SAA和正式SAA-MPC，与当前问题2/3的年度摘要和全部334天日指标逐项回归。
+容差为`atol=1e-5, rtol=1e-10`；不匹配即停止，不用错误基线发布新图表。
+CVaR直接扩展原SAA约束矩阵；若原模型矩阵布局变化，adapter会报错要求审查。
+
+参数支持`--no-plots`、`--debug`、`--methods DET,Q80,SAA,CVAR,MPC`、`--skip-sensitivity`。
+`--methods`只筛选主比较输出；两组基线始终重算，未输出的参考方法变化率记为空。
+`--skip-sensitivity`独立控制12组参数实验。默认串行重新求解；不提供日结果缓存或`--plots-only`。
+相同主CVaR参数在灵敏度表中引用同一次完整运行，避免重复计算相同设置。
+
+| 输出 | 内容 |
+| --- | --- |
+| `comparison.csv` / `.json` | 年度费用、电量、紧急天数、吞吐量、均值/最大日费用、P95/CVaR95及相对SAA/DET变化率 |
+| `daily_metrics.csv` | 主比较每种方法的334天实际执行指标 |
+| `runtime.csv` | 每种方法完整334天秒数及平均每日期间毫秒数 |
+| `cvar_sensitivity.csv` / `.json` | 12组预先固定参数的相同年度统计 |
+| `cvar_sensitivity_daily_metrics.csv` | 各灵敏度参数逐日实际结果 |
+| `baseline_validation.json` | 官方年度逐项对照、逐日最大误差、容差及官方结果哈希 |
+| `preservation.json` | 原target目录中非benchmark文件的保护验证与SHA-256 |
+| `manifest.json` | Python/依赖/硬件、基础提交、源码/输入/产物哈希和实验设计 |
+| `experiment_summary.md` | 自动生成的方法说明、两层信息解释、结果表及基于本次数据的观察 |
+| `figures/` | 年度费用、费用构成、紧急风险、风险—收益、灵敏度及运行时间六类PNG/PDF |
+
+`contract_cost=plan_cost+adjustment_cost`，`total_cost=contract_cost+emergency_cost`；静态调整费为0。
+费用不包含吞吐量微小惩罚；充/放电及吞吐量均为交流侧kWh。变化率为`(方法-基线)/基线*100%`，
+零分母和缺失基线输出JSON null/CSV空白。P95使用linear分位数；CVaR95按最差5%经验概率质量加权，
+边界样本只计剩余质量（334天对应16.7天），不简单平均超过P95的样本。
+这些实际风险指标仅离线统计，绝不返回当天优化。
+`time.perf_counter()`覆盖场景构造、优化、结算、校验和统一日记录；不含公共数据加载、基线比对、统计和出图。
+
+新增测试包含人工最优解、CVaR线性化/目标约束、lambda=0逐数组严格退化、
+负荷/PV及未来日期独立扰动、全部18点预报隔离、全年基线和输出失败保护。
+完整验证命令不变：`python -X utf8 -m unittest discover -s tests -v`。
