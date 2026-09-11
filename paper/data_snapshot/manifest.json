@@ -1,0 +1,57 @@
+[
+  {
+    "source": "target/question2/summary.json",
+    "snapshot": "question2__summary.json",
+    "sha256": "72bc381e6e0fac7ac062c5ef6f8d5a39a7098e23a32267db93603316139e9fdb"
+  },
+  {
+    "source": "target/question3/summary.json",
+    "snapshot": "question3__summary.json",
+    "sha256": "713c1c241a0e13a23131bbb4206614d749af1c1b5de200de04d1a65739afc6f6"
+  },
+  {
+    "source": "target/question3/ablation_summary.json",
+    "snapshot": "question3__ablation_summary.json",
+    "sha256": "7aaf2d23fe396d40a791e7db532d9547ec7eb380bfac72f452678985323fdcc7"
+  },
+  {
+    "source": "target/question3/forecast_accuracy.json",
+    "snapshot": "question3__forecast_accuracy.json",
+    "sha256": "ab30dfb38aa4f3bf955719ce1c98df34b4cc95b7279a9cf3111279b0351b615f"
+  },
+  {
+    "source": "target/question4/question4_2/summary.json",
+    "snapshot": "question4__question4_2__summary.json",
+    "sha256": "b87b3fc2a56413508b355eaf786d61e57e20c7cd03e74d35186dcc69678ef45b"
+  },
+  {
+    "source": "target/question4/question4_3/summary.json",
+    "snapshot": "question4__question4_3__summary.json",
+    "sha256": "6e7a8256fb4a88118d320d7354f08db813f28de2a6bcafaac6caed4a57563789"
+  },
+  {
+    "source": "target/question4/question4_2/comparison.json",
+    "snapshot": "question4__question4_2__comparison.json",
+    "sha256": "a65913937a2ac977e377985516e4d330ea4177a2eb53d0a37b43a979c7a82183"
+  },
+  {
+    "source": "target/question4/question4_3/comparison.json",
+    "snapshot": "question4__question4_3__comparison.json",
+    "sha256": "32a1347a0ce96ff046be550f27c1a624e56f7a577087fc271dd4c3b14a2fc90f"
+  },
+  {
+    "source": "target/benchmark/comparison.csv",
+    "snapshot": "benchmark__comparison.csv",
+    "sha256": "8b2605ea9dae5eaec8745c3da2de04e49f0403cd4ec6215b65ddf6d3e3ad1f7a"
+  },
+  {
+    "source": "target/benchmark/cvar_sensitivity.csv",
+    "snapshot": "benchmark__cvar_sensitivity.csv",
+    "sha256": "f65c02eae48339426ec06e3169f492fa58e3eba5837f0ebbbe027c85446ec979"
+  },
+  {
+    "source": "target/benchmark/experiment_summary.md",
+    "snapshot": "benchmark__experiment_summary.md",
+    "sha256": "ffd7cdeccf3a46cc58e098cef3fce9d1aad9d07821806c726457ac4ff398d500"
+  }
+]

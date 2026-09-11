@@ -1,0 +1,11 @@
+test_attachment2_attachment4_date_alignment (test_question4_prices.Question4PriceTests.test_attachment2_attachment4_date_alignment) ... ok
+test_attachment4_shape_date_range_and_no_nan (test_question4_prices.Question4PriceTests.test_attachment4_shape_date_range_and_no_nan) ... ok
+test_attachment4_time_alignment (test_question4_prices.Question4PriceTests.test_attachment4_time_alignment) ... ok
+test_daily_price_lookup (test_question4_prices.Question4PriceTests.test_daily_price_lookup) ... ok
+test_invalid_shape_dates_nan_inf_negative (test_question4_prices.Question4PriceTests.test_invalid_shape_dates_nan_inf_negative) ... ok
+test_no_attachment1_price_dependency (test_question4_prices.Question4PriceTests.test_no_attachment1_price_dependency) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.813s
+
+OK

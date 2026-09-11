@@ -1,0 +1,14 @@
+test_forecast_date_alignment (test_question4_models.Question4ModelTests.test_forecast_date_alignment) ... ok
+test_q42_dynamic_price_objective (test_question4_models.Question4ModelTests.test_q42_dynamic_price_objective) ... ok
+test_q42_emergency_dynamic_price_and_cost_identity (test_question4_models.Question4ModelTests.test_q42_emergency_dynamic_price_and_cost_identity) ... ok
+test_q42_fixed_price_regression (test_question4_models.Question4ModelTests.test_q42_fixed_price_regression) ... ok
+test_q43_emergency_adjustment_and_cost_identity (test_question4_models.Question4ModelTests.test_q43_emergency_adjustment_and_cost_identity) ... ok
+test_q43_fixed_price_regression (test_question4_models.Question4ModelTests.test_q43_fixed_price_regression) ... ok
+test_q43_inherits_q3_update_hours_without_18_forecast (test_question4_models.Question4ModelTests.test_q43_inherits_q3_update_hours_without_18_forecast) ... ok
+test_q43_initial_adjustment_price_and_horizon (test_question4_models.Question4ModelTests.test_q43_initial_adjustment_price_and_horizon) ... ok
+test_target_day_price_only (test_question4_models.Question4ModelTests.test_target_day_price_only) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 6.236s
+
+OK

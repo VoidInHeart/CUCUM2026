@@ -1,0 +1,42 @@
+% !TeX program = xelatex
+\documentclass[withoutpreface,bwprint]{cumcmthesis}
+\usepackage{cumcm2026}
+\usepackage{placeins,url,needspace}
+\raggedbottom
+\setlength{\emergencystretch}{2em}
+\title{基于历史场景与滚动预报的微网购电及储能调度}
+\tihao{C}\baominghao{}\schoolname{}\membera{}\memberb{}\memberc{}\supervisor{}
+\yearinput{2026}\monthinput{9}\dayinput{}
+\begin{document}\maketitle
+\begin{abstract}
+针对微网在光伏与负载不确定性下的购电和储能协同调度，本文构建确定性线性规划、历史场景随机规划及预报更新下的滚动优化体系，并在统一物理参数、交易结算与信息边界下比较固定和波动电价策略。
+
+问题一将全天划分为144个十分钟时段，在逐段供需平衡、容量功率和首末储电量约束下最小化购电费。示例日费用为35126.9486元，相对无储能基准降低26.8981\%。问题二以此前31天配对净负荷构造等概率场景，联合优化日前计划与五倍电价紧急补购风险，2025年2月至12月334天实际费用为17609791.6865元。
+
+问题三对小时光伏预报作中点插值，叠加同日历史预测误差，并在已执行储电量及前版合同基础上逐次调整。六种预报组合回测支持0、6、12点策略，实际费用为17020306.6465元，较问题二减少3.3475\%。共同晚间窗口误差分析表明，预报精度的微小改善不必然带来经济收益，当前18点更新未显示额外节省。问题四保持策略与场景方法不变，采用给定动态电价曲线，日前与滚动策略费用分别为17923538.0937元和17244554.4259元。
+
+同信息算法对照表明，联合随机优化优于本次均值和80\%分位主基准；风险规避模型以小幅费用增加换取紧急购电和尾部费用下降。物理、结算及信息隔离检验支持策略的可行性与可复核性。结论适用于每日固定储电量边界和给定价格条件，尚需跨期验证及统一时间标签解释后进一步推广。
+
+\keywords{微网调度\quad 随机规划\quad 滚动优化\quad 光伏预报\quad 条件风险价值}
+\end{abstract}
+\input{sections/front}
+\input{sections/problem1}
+\input{sections/problem2}
+\input{sections/problem3}
+\input{sections/problem4}
+\input{sections/evaluation}
+\CumcmAIUsed{论文材料比较、计算口径核对、文字整合与排版。完整使用记录需由参赛队结合实际使用过程核实并随支撑材料提供}
+\begin{thebibliography}{9}
+\bibitem{problem} 2026年高教社杯全国大学生数学建模竞赛C题：微网与外部电网电力调控策略及附件1--5[Z]. 用户提供的赛题与数据材料, 2026.
+\bibitem{experiment} CUCUM2026项目. 固定分时电价算法对比实验[Z]. 本地实验记录，评估期2025-02-01至2025-12-31, 2026.
+\end{thebibliography}
+\clearpage\begin{appendices}
+\section{结果与复现材料索引}
+本论文的正式计算来源统一位于CUCUM2026。五份结果文件均位于\path{target/}下的“附件5”目录，文件名为\path{result1.xlsx}、\path{result2.xlsx}、\path{result3.xlsx}、\path{result4-2.xlsx}和\path{result4-3.xlsx}。问题一至四求解入口分别为\path{run_question1.py}、\path{run_question2.py}、\path{run_question3.py}和\path{run_question4.py}。算法实验入口为\path{run_benchmark.py}，依赖见项目根目录\path{requirements.txt}，完整源代码位于\path{src/}。
+
+\section{论文材料来源与核验范围}
+正文图表由当前正式摘要和实验数据生成，数值快照及SHA-256见\path{paper/data_snapshot/manifest.json}。独立口径核对与逐节合并记录位于\path{paper/review/}；本次可执行核验、结果及第三问测试日志分别为\path{paper/audit_sources.py}、\path{paper/review/audit_results.json}和\path{paper/review/tests_question3.log}。PDF编译不运行优化器。
+
+\section{初稿使用说明}
+本稿用于统一论文内容和结果，学术方法参考文献、队伍完整AI使用记录及最终格式核查仍需补齐。已披露的时间标签解释及每日闭环、价格已知假设须在最终提交前确认。当前附录提供代码和结果索引，最终提交时应依适用要求补齐完整程序附录与独立支撑文件。源文件和完整工程均保留，便于后续完善。
+\end{appendices}\end{document}

@@ -1,0 +1,19 @@
+{
+  "snapshots": "passed",
+  "specified_table_source_max_errors": {
+    "result2": 7.275957614183426e-12,
+    "result3": 7.275957614183426e-12,
+    "result4-2": 7.275957614183426e-12,
+    "result4-3": 4.547473508864641e-13
+  },
+  "tests": {
+    "tests_question3.log": 19,
+    "tests_question4_models.log": 9,
+    "tests_question4_prices.log": 6
+  },
+  "layout_log": "no overflow, missing glyphs or undefined references",
+  "pages": 29,
+  "pdf_sha256": "721007f46afc731bcd3b0aeeb859328cd751df50863584fe773ad5199b2f8d6a",
+  "main_numbers": "passed",
+  "preserved_original_files": 304
+}
