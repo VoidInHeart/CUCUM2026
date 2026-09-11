@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "numerical_metrics_exactly_unchanged": true,
+  "numerical_run_manifest_sha256": "4de9e16871cae1002d719a2c2e42cef2fff2033e713beb707eed23cba646b701",
+  "publication_manifest_sha256": "7e72ab5eac2b0058a79281fc7749c380c16b4d23b26dee45725ce37a0a67b18c",
+  "finalized_files": [
+    "src/benchmark/config.py",
+    "src/benchmark/exporter.py",
+    "src/benchmark/visualization.py"
+  ],
+  "finalize_script_sha256": "d6fb713f16a9792fb800af8bbfe36ea1dc592838baeba97b67932c0f1eda3e91"
+}

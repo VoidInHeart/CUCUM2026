@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "unittest": {
+    "command": "python -X utf8 -m unittest discover -s tests -v",
+    "executable": "E:\\Miniconda\\envs\\cucum2026\\python.exe",
+    "exit_code": 0,
+    "tests_run": 89,
+    "new_benchmark_tests": 20,
+    "elapsed_seconds": 169.181,
+    "log_sha256": "9af73fd9b1bca5319ee9aea13e053a53ca4c1f17c3ab29e6ff6ab2deef1e0a0d",
+    "test_source_sha256": "c686b120595b8d733a162d462de677609682b2a35596ed63284730a4f527a5fb"
+  },
+  "preserved_official_files": 131,
+  "all_official_result_xlsx_preserved": true,
+  "verified_manifest_artifacts": 22,
+  "source_and_input_hashes_match_manifest": true,
+  "pdf_visual_qa": "All six one-page PDFs rendered with system Poppler at 100 dpi and visually inspected; Chinese labels, units, legends and annotations readable; no clipping or overlap.",
+  "main_daily_rows": 1670,
+  "sensitivity_daily_rows": 4008,
+  "baseline_max_errors": {
+    "SAA": 0.0,
+    "MPC": 0.0
+  }
+}

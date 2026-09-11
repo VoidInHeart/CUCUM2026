@@ -1,0 +1,153 @@
+{
+  "SAA": {
+    "status": "passed",
+    "source": "D:\\虚拟c盘\\CUCUM2026\\target\\question2\\summary.json",
+    "summary_sha256": "72bc381e6e0fac7ac062c5ef6f8d5a39a7098e23a32267db93603316139e9fdb",
+    "daily_source": "D:\\虚拟c盘\\CUCUM2026\\target\\question2\\daily_metrics.csv",
+    "daily_sha256": "fd38a2db937b85c0019257b23607de68664acedcf3e0f81d88e0c91c3f416628",
+    "rtol": 1e-10,
+    "atol": 1e-05,
+    "annual": {
+      "planned_grid_total": {
+        "computed": 25433452.303556427,
+        "official": 25433452.303556427,
+        "absolute_error": 0.0
+      },
+      "emergency_total": {
+        "computed": 477446.05741713784,
+        "official": 477446.05741713784,
+        "absolute_error": 0.0
+      },
+      "total_grid_purchase": {
+        "computed": 25910898.360973563,
+        "official": 25910898.360973563,
+        "absolute_error": 0.0
+      },
+      "planned_cost": {
+        "computed": 15771812.68749251,
+        "official": 15771812.68749251,
+        "absolute_error": 0.0
+      },
+      "emergency_cost": {
+        "computed": 1837978.999053627,
+        "official": 1837978.999053627,
+        "absolute_error": 0.0
+      },
+      "total_cost": {
+        "computed": 17609791.686546136,
+        "official": 17609791.686546136,
+        "absolute_error": 0.0
+      },
+      "emergency_days": {
+        "computed": 249,
+        "official": 249,
+        "absolute_error": 0
+      },
+      "emergency_intervals": {
+        "computed": 2725,
+        "official": 2725,
+        "absolute_error": 0
+      },
+      "emergency_energy_ratio": {
+        "computed": 0.018426457113361102,
+        "official": 0.018426457113361102,
+        "absolute_error": 0.0
+      },
+      "emergency_cost_ratio": {
+        "computed": 0.10437255770934765,
+        "official": 0.10437255770934765,
+        "absolute_error": 0.0
+      },
+      "daily_mean_emergency_kwh": {
+        "computed": 1429.479213823766,
+        "official": 1429.479213823766,
+        "absolute_error": 0.0
+      },
+      "max_daily_emergency_kwh": {
+        "computed": 14534.890716666665,
+        "official": 14534.890716666665,
+        "absolute_error": 0.0
+      },
+      "max_daily_total_cost": {
+        "computed": 96336.73786237057,
+        "official": 96336.73786237057,
+        "absolute_error": 0.0
+      }
+    },
+    "daily_rows_checked": 334,
+    "max_daily_absolute_error": 0.0
+  },
+  "MPC": {
+    "status": "passed",
+    "source": "D:\\虚拟c盘\\CUCUM2026\\target\\question3\\summary.json",
+    "summary_sha256": "713c1c241a0e13a23131bbb4206614d749af1c1b5de200de04d1a65739afc6f6",
+    "daily_source": "D:\\虚拟c盘\\CUCUM2026\\target\\question3\\policy_daily_metrics.csv",
+    "daily_sha256": "62817ba151dd36a70cdd395a6a00a86cc1fcef23b1780a166656f1b736ed7c76",
+    "rtol": 1e-10,
+    "atol": 1e-05,
+    "annual": {
+      "initial_plan_kwh": {
+        "computed": 25627255.441250667,
+        "official": 25627255.441250667,
+        "absolute_error": 0.0
+      },
+      "executed_adjusted_kwh": {
+        "computed": 24999199.302475538,
+        "official": 24999199.302475538,
+        "absolute_error": 0.0
+      },
+      "emergency_kwh": {
+        "computed": 282085.63826788275,
+        "official": 282085.63826788275,
+        "absolute_error": 0.0
+      },
+      "actual_grid_energy_kwh": {
+        "computed": 25281284.94074342,
+        "official": 25281284.94074342,
+        "absolute_error": 0.0
+      },
+      "plan_cost": {
+        "computed": 15933478.626203697,
+        "official": 15933478.626203697,
+        "absolute_error": 0.0
+      },
+      "adjustment_cost": {
+        "computed": 9377.417676283196,
+        "official": 9377.417676283196,
+        "absolute_error": 0.0
+      },
+      "emergency_cost": {
+        "computed": 1077450.6026608576,
+        "official": 1077450.6026608576,
+        "absolute_error": 0.0
+      },
+      "total_cost": {
+        "computed": 17020306.64654084,
+        "official": 17020306.64654084,
+        "absolute_error": 0.0
+      },
+      "up_adjust_kwh": {
+        "computed": 323799.4268376691,
+        "official": 323799.4268376691,
+        "absolute_error": 0.0
+      },
+      "down_adjust_kwh": {
+        "computed": 951855.5656127983,
+        "official": 951855.5656127983,
+        "absolute_error": 0.0
+      },
+      "emergency_days": {
+        "computed": 243,
+        "official": 243,
+        "absolute_error": 0
+      },
+      "emergency_intervals": {
+        "computed": 3212,
+        "official": 3212,
+        "absolute_error": 0
+      }
+    },
+    "daily_rows_checked": 334,
+    "max_daily_absolute_error": 0.0
+  }
+}

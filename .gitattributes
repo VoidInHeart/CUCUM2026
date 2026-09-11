@@ -5,4 +5,4 @@
 /src/benchmark/*.py text eol=lf
 /run_benchmark.py text eol=lf
 /tests/test_benchmark.py text eol=lf
-/target/benchmark/** -text
+/target/benchmark/** -text whitespace=cr-at-eol
