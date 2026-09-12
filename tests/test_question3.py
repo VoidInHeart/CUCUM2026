@@ -180,6 +180,10 @@ class Question3Tests(TestCase):
         self.assertAlmostEqual(down.plan.solver_objective, -1800, places=5)
         self.assertTrue((down.down_adjust <= down.old_grid + cfg.TOL).all())
         validate_revision(price, down)
+        clipped = solve_adjustment(
+            price, scenarios, np.zeros(36), cfg.SOC_MAX_KWH + cfg.TOL / 2
+        )
+        self.assertEqual(clipped.plan.initial_soc_kwh, cfg.SOC_MAX_KWH)
 
     def test_boundary_soc_and_frozen_decisions(self):
         s = self.schedule

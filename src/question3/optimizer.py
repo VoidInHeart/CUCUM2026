@@ -61,7 +61,11 @@ def _solve(price, scenarios, initial_soc, old_grid=None):
     validate_scenarios(scenarios)
     context = f"{scenarios.target_date} {scenarios.issue_hour}:00"
     array_check(price, (144,), context, "price", True)
-    require(np.isfinite(initial_soc) and cfg.SOC_MIN_KWH <= initial_soc <= cfg.SOC_MAX_KWH, context, "invalid boundary SOC")
+    require(np.isfinite(initial_soc)
+            and cfg.SOC_MIN_KWH - cfg.TOL <= initial_soc <= cfg.SOC_MAX_KWH + cfg.TOL,
+            context, "invalid boundary SOC")
+    # 因果MPC的HiGHS解可能在物理边界外留下机器精度级尾差，进入下一版LP前归一化。
+    initial_soc = float(np.clip(initial_soc, cfg.SOC_MIN_KWH, cfg.SOC_MAX_KWH))
     start = cfg.ISSUE_SLOT[scenarios.issue_hour]
     h = 144 - start
     adjustment = old_grid is not None

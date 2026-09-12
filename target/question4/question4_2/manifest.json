@@ -1,9 +1,11 @@
 {
-  "schema": 1,
+  "schema": 2,
   "model": "4-2",
   "update_hours": [
     0
   ],
+  "scenario_method": "residual_weighted_causal",
+  "storage_execution": "causal_mpc",
   "input_sha256": {
     "附件4.xlsx": "20e9c93aeab5e8e21ae4dd15587f9e190f7408692504c1319598461cd654fe71",
     "附件2.xlsx": "2e95fd446bfafa0d8c59577b5c2e2ea8b3f1def20dde54a3062556f4da9b4c72",
