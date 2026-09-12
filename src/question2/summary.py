@@ -42,7 +42,7 @@ def _strategy_metrics(evaluations: list[DailyEvaluation]) -> dict:
 
 
 def build_ablation_summary(results: dict[str, list[DailyEvaluation]]) -> dict:
-    """A0/A1年度结算及相对基线变化；排序只使用真实结算总费用。"""
+    """A0—A8年度结算及相对基线变化；排序只使用真实结算总费用。"""
     if "baseline" not in results or not results:
         raise ValueError("question2 ablation: baseline is required")
     baseline = _strategy_metrics(results["baseline"])
@@ -65,9 +65,14 @@ def build_ablation_summary(results: dict[str, list[DailyEvaluation]]) -> dict:
         })
         strategies.append(values)
     return {
-        "experiment": "Question2 A0-A7 causal-control and no-lookahead scenario ablation",
+        "experiment": "Question2 A0-A8 causal-control and no-lookahead scenario ablation",
         "period": f"{cfg.START_DATE} ~ {cfg.END_DATE}",
         "ranking_metric": "actual settlement total_cost",
+        "deferred_ablations": [{
+            "ablation": "A9",
+            "status": "gated_out",
+            "reason": "A9 is low priority and depends on A8; A8 was 1,447,369.14 yuan worse than A7",
+        }],
         "strategies": strategies,
         "selected_strategy": min(strategies, key=lambda item: item["total_cost"])["strategy"],
     }

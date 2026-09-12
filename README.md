@@ -19,7 +19,7 @@
 
 问题2默认使用消融选定的 A7（伪实时配对残差、时间/星期加权、逐10分钟因果储能MPC）；
 `--strategy baseline` 精确复现原冻结储能结果，`--strategy causal_mpc` 只启用 A1，
-`--strategy compare` 运行 A0—A7 及 level-scale 对照并输出消融比较。
+`--strategy compare` 运行 A0—A8 及 level-scale 对照并输出消融比较。
 程序串行求解全部334天，逐日打印进度，生成 Excel、论文摘要和图表。
 `--no-plots` 可跳过图表；`--debug` 显示独立约束校验残差。
 
@@ -40,8 +40,8 @@
 | `target/附件5/result2.xlsx` | 问题2正式结果，三个官方工作表 |
 | `target/question2/summary.json` | 2—12月汇总，四个指定日期的表1/2/3数据 |
 | `target/question2/daily_metrics.csv` | 334天计划、紧急和实际总购电量与费用 |
-| `target/question2/ablation_summary.json/.csv` | A0冻结储能与A1因果储能的年度费用差异 |
-| `target/question2/*_daily_metrics.csv` | compare模式下两种策略的逐日结算明细 |
+| `target/question2/ablation_summary.json/.csv` | A0—A8及辅助对照的年度费用、诊断和排序 |
+| `target/question2/*_daily_metrics.csv` | compare模式下各策略的逐日结算明细 |
 | `target/question2/figures/` | 全年趋势、月度费用、紧急购电热力图和四个指定日期调度图 |
 
 图表同时保存 PNG 和矢量 PDF。显式使用微软雅黑，并依次回退至黑体、Noto Sans CJK SC、
@@ -65,6 +65,8 @@
 - A8把购电量设为唯一一阶段变量、储能设为场景recourse；其计划费虽比A0降低
   2,375,462.98元，但实际紧急购电费增加902,323.80元，总费用16,136,652.50元，
   比A7高1,447,369.14元。场景recourse轨迹只用于规划，不能作为实际执行轨迹，正式策略仍为A7。
+- A9为`A8 + continuous SOC`低优先级消融。因A8未通过正式策略门控，且设计已将跨日SOC降级，
+  本轮将A9标记为`gated_out`而不继续增加模型复杂度；不把未运行项计入费用排序。
 - 时间按原始位置对应，图表用 slot 序号；论文表1和紧急区间从模板标签查找或拼接，保留 `+1`。
 - 充放电表按每24个slot累计，每日6行；连续紧急区间按 `>1e-6 kWh` 合并。
 - 任何一天求解或验证失败都会停止，不替换正式结果。模板导出使用同目录临时文件和原子替换。

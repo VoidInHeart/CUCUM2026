@@ -77,7 +77,7 @@ def run_annual(price: DailyPriceData | PriceInput, annual: AnnualActualData, str
 
 
 def run_ablation(price: DailyPriceData | PriceInput, annual: AnnualActualData) -> dict[str, list[DailyEvaluation]]:
-    """每一天只求一次0:00计划，再并列执行A0/A1，避免合同数值出现求解差异。"""
+    """同一天复用相同方法的合同，公平执行A0—A8及辅助对照。"""
     prices = price.price if isinstance(price, DailyPriceData) else price
     results = {name: [] for name in STRATEGIES}
     for day_index in range(cfg.HISTORY_WINDOW_DAYS, len(annual.dates)):

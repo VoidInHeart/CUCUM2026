@@ -335,6 +335,7 @@ class Question2ExportTests(TestCase):
         summary = build_ablation_summary({"baseline": self.results, "causal_mpc": self.results})
         self.assertEqual(summary["selected_strategy"], "baseline")
         self.assertTrue(all(row["saving_vs_A0"] == 0 for row in summary["strategies"]))
+        self.assertEqual(summary["deferred_ablations"][0]["status"], "gated_out")
         with self.assertRaises(ValueError):
             build_ablation_summary({"causal_mpc": self.results})
 

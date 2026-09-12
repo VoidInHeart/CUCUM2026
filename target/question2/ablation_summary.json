@@ -1,7 +1,14 @@
 {
-  "experiment": "Question2 A0-A7 causal-control and no-lookahead scenario ablation",
+  "experiment": "Question2 A0-A8 causal-control and no-lookahead scenario ablation",
   "period": "2025-02-01 ~ 2025-12-31",
   "ranking_metric": "actual settlement total_cost",
+  "deferred_ablations": [
+    {
+      "ablation": "A9",
+      "status": "gated_out",
+      "reason": "A9 is low priority and depends on A8; A8 was 1,447,369.14 yuan worse than A7"
+    }
+  ],
   "strategies": [
     {
       "planned_grid_total": 25433452.303556427,
