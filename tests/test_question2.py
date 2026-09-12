@@ -18,7 +18,7 @@ from src.question2.forecast import (
 from src.question2.scenario_builder import (
     SCENARIO_METHODS, build_rolling_scenarios, build_scenarios, validate_scenarios,
 )
-from src.question2.optimizer import solve
+from src.question2.optimizer import solve, solve_grid_first_stage_storage_recourse
 from src.question2.controller import execute_causal_day
 from src.question2.evaluator import evaluate, evaluate_causal_storage, evaluate_frozen_storage
 from src.question2.validator import validate_plan, validate_evaluation, validate_lp
@@ -115,6 +115,26 @@ class Question2Tests(TestCase):
             self.assertAlmostEqual(scenarios.probability.sum(), 1)
             self.assertGreater(np.ptp(scenarios.probability), 0)
             self.assertTrue(all(day < scenarios.target_date for day in scenarios.history_dates))
+
+    def test_grid_first_stage_recourse_is_feasible_and_more_flexible(self):
+        scenarios = build_scenarios(self.actual, 171, "residual_weighted")
+        shared = solve(self.price.price, scenarios)
+        recourse = solve_grid_first_stage_storage_recourse(self.price.price, scenarios)
+        self.assertLessEqual(recourse.expected_objective, shared.expected_objective + cfg.RESIDUAL_TOL)
+        self.assertLessEqual(validate_plan(recourse), cfg.RESIDUAL_TOL)
+
+    def test_grid_first_stage_recourse_plan_has_no_future_leakage(self):
+        index = 171
+        original = build_scenarios(self.actual, index, "residual_weighted")
+        load, pv = self.actual.load_kw.copy(), self.actual.pv_kw.copy()
+        load[index:] += 1e6
+        pv[index:] += 2e6
+        changed_data = replace(self.actual, load_kw=load, pv_kw=pv,
+                               net_load_kwh=(load - pv) * cfg.TIME_STEP_HOURS)
+        changed = build_scenarios(changed_data, index, "residual_weighted")
+        first = solve_grid_first_stage_storage_recourse(self.price.price, original)
+        second = solve_grid_first_stage_storage_recourse(self.price.price, changed)
+        np.testing.assert_allclose(first.grid_kwh, second.grid_kwh, rtol=0, atol=cfg.RESIDUAL_TOL)
 
     def test_lp_feasible_and_terminal_soc(self):
         self.assertLessEqual(validate_plan(self.plan), 1e-5)

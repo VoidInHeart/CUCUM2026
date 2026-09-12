@@ -51,6 +51,7 @@ def build_ablation_summary(results: dict[str, list[DailyEvaluation]]) -> dict:
               "weekday_trend_corrected": "A3", "weekday_trend_weighted": "A4",
               "residual_equal": "A5", "weekday_trend_causal": "A6",
               "residual_weighted_causal": "A7", "level_scaled": "level-scale"}
+    labels["grid_recourse_residual_causal"] = "A8"
     for name, evaluations in results.items():
         values = _strategy_metrics(evaluations)
         values.update({

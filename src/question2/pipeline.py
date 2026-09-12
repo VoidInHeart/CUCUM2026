@@ -6,7 +6,7 @@ import numpy as np
 from . import config as cfg
 from .types import AnnualActualData, DailyEvaluation, DailyPriceData
 from .scenario_builder import build_scenarios
-from .optimizer import solve
+from .optimizer import solve, solve_grid_first_stage_storage_recourse
 from .evaluator import attach_scenario_diagnostics, evaluate_causal_storage, evaluate_frozen_storage
 from .validator import validate_complete
 from ..pricing import PriceInput, price_for_date
@@ -18,6 +18,7 @@ class StrategySpec:
     scenario_method: str
     storage_execution: str
     label: str
+    contract_optimizer: str = "shared_storage"
 
 
 STRATEGY_SPECS = {
@@ -30,6 +31,7 @@ STRATEGY_SPECS = {
         StrategySpec("residual_equal", "residual_equal", "frozen", "A5"),
         StrategySpec("weekday_trend_causal", "weekday_trend_corrected", "causal_mpc", "A6"),
         StrategySpec("residual_weighted_causal", "residual_weighted", "causal_mpc", "A7"),
+        StrategySpec("grid_recourse_residual_causal", "residual_weighted", "causal_mpc", "A8", "grid_recourse"),
         StrategySpec("level_scaled", "level_scaled", "frozen", "level-scale"),
     )
 }
@@ -49,7 +51,8 @@ def solve_day(target_date, daily_price, annual: AnnualActualData, strategy="base
     spec = STRATEGY_SPECS[strategy]
     day_index = annual.dates.index(target_date)
     scenarios = build_scenarios(annual, day_index, spec.scenario_method)
-    plan = solve(daily_price, scenarios)
+    plan = (solve(daily_price, scenarios) if spec.contract_optimizer == "shared_storage" else
+            solve_grid_first_stage_storage_recourse(daily_price, scenarios))
     return _evaluate(spec, daily_price, plan, scenarios, annual.net_load_kwh[day_index], annual.load_kw[day_index])
 
 
@@ -83,12 +86,15 @@ def run_ablation(price: DailyPriceData | PriceInput, annual: AnnualActualData) -
             daily_price = price_for_date(prices, target)
             actual_net = annual.net_load_kwh[day_index]
             actual_load = annual.load_kw[day_index]
-            by_method = {}
+            plans = {}
             for spec in STRATEGY_SPECS.values():
-                if spec.scenario_method not in by_method:
+                key = (spec.scenario_method, spec.contract_optimizer)
+                if key not in plans:
                     scenarios = build_scenarios(annual, day_index, spec.scenario_method)
-                    by_method[spec.scenario_method] = (scenarios, solve(daily_price, scenarios))
-                scenarios, plan = by_method[spec.scenario_method]
+                    planner = (solve if spec.contract_optimizer == "shared_storage"
+                               else solve_grid_first_stage_storage_recourse)
+                    plans[key] = (scenarios, planner(daily_price, scenarios))
+                scenarios, plan = plans[key]
                 results[spec.code].append(
                     _evaluate(spec, daily_price, plan, scenarios, actual_net, actual_load)
                 )

@@ -60,6 +60,55 @@ def validate_lp(price: np.ndarray, scenarios: ScenarioSet, plan: DailyPlan,
     return {"max_scenario_balance_residual": max_residual, "max_soc_residual": soc_residual}
 
 
+def validate_grid_recourse_lp(price, scenarios, plan, charge, discharge, soc,
+                              emergency, surplus, reference_scenario) -> dict[str, float]:
+    """独立检查grid一阶段、储能场景recourse及返回的参考轨迹。"""
+    validate_scenarios(scenarios)
+    context = f"{scenarios.target_date} grid-recourse"
+    count = len(scenarios.history_dates)
+    shape = (count, cfg.N_SLOTS)
+    array_check(price, (cfg.N_SLOTS,), context, "price", True)
+    array_check(plan.grid_kwh, (cfg.N_SLOTS,), context, "grid", True)
+    for name, values in (("charge", charge), ("discharge", discharge), ("soc", soc),
+                         ("emergency", emergency), ("surplus", surplus)):
+        array_check(values, shape, context, name, True)
+    require(0 <= reference_scenario < count, context, "invalid reference scenario")
+    for name, expected in (("charge_kwh", charge[reference_scenario]),
+                           ("discharge_kwh", discharge[reference_scenario]),
+                           ("soc_end_kwh", soc[reference_scenario])):
+        require(np.max(np.abs(getattr(plan, name) - expected)) <= cfg.RESIDUAL_TOL,
+                context, f"reference {name} mismatch")
+    max_power = max(float(charge.max()), float(discharge.max()))
+    require(max_power <= cfg.BATTERY_ENERGY_MAX_PER_SLOT_KWH + cfg.TOL, context, "battery power limit")
+    require(soc.min() >= cfg.SOC_MIN_KWH - cfg.TOL and soc.max() <= cfg.SOC_MAX_KWH + cfg.TOL,
+            context, "SOC bounds")
+    rebuilt = cfg.INITIAL_SOC_KWH + np.cumsum(
+        cfg.ETA_CHARGE * charge - discharge / cfg.ETA_DISCHARGE, axis=1
+    )
+    soc_residual = float(np.max(np.abs(rebuilt - soc)))
+    require(soc_residual <= cfg.RESIDUAL_TOL, context, "SOC dynamic residual")
+    require(np.max(np.abs(soc[:, -1] - cfg.FINAL_SOC_KWH)) <= cfg.RESIDUAL_TOL,
+            context, "terminal SOC")
+    require(not np.any((charge > cfg.RESIDUAL_TOL) & (discharge > cfg.RESIDUAL_TOL)),
+            context, "simultaneous charge/discharge")
+    balance = (plan.grid_kwh[None, :] + discharge - charge + emergency - surplus
+               - scenarios.net_load_kwh)
+    balance_residual = float(np.max(np.abs(balance)))
+    require(balance_residual <= cfg.RESIDUAL_TOL, context, "scenario balance residual")
+    expected_emergency = float(scenarios.probability @ emergency.sum(axis=1))
+    objective = float(
+        price @ plan.grid_kwh
+        + cfg.EMERGENCY_PRICE_MULTIPLIER * (scenarios.probability @ emergency) @ price
+        + cfg.RECOURSE_EPS_THROUGHPUT * (scenarios.probability @ (charge + discharge).sum(axis=1))
+    )
+    require(abs(expected_emergency - plan.expected_emergency_kwh) <= cfg.RESIDUAL_TOL,
+            context, "expected emergency total")
+    require(abs(objective - plan.expected_objective) <= cfg.RESIDUAL_TOL,
+            context, "solver objective mismatch")
+    validate_plan(plan)
+    return {"max_scenario_balance_residual": balance_residual, "max_soc_residual": soc_residual}
+
+
 def validate_evaluation(price: np.ndarray, evaluation: DailyEvaluation) -> None:
     plan = evaluation.plan
     context = str(plan.date)
