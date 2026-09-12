@@ -63,7 +63,8 @@ def load_daily_results(path):
                                                   readonly(r["up_adjust"]), readonly(r["down_adjust"]), r["adjustment_cashflow_yuan"])
                               for r in s["revisions"])
             schedule = DailySchedule(plan_from(s["initial_plan"]), revisions, *(readonly(s[key]) for key in
-                                      ("executed_grid", "executed_charge", "executed_discharge", "executed_soc_end")))
+                                      ("executed_grid", "executed_charge", "executed_discharge", "executed_soc_end")),
+                                     s.get("storage_execution", "frozen"))
             results.append(DailyResult(schedule, *(readonly(record[key]) for key in ("actual_net_load", "real_emergency", "real_surplus")),
                                        *(record[key] for key in ("plan_cost", "adjustment_cost", "emergency_cost", "total_cost",
                                           "initial_plan_kwh", "executed_adjusted_kwh", "emergency_kwh", "actual_grid_energy_kwh"))))

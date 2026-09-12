@@ -68,6 +68,7 @@ class DailySchedule:
     executed_charge: np.ndarray
     executed_discharge: np.ndarray
     executed_soc_end: np.ndarray
+    storage_execution: str = "frozen"
 
     @property
     def date(self) -> date:

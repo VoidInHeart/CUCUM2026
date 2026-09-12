@@ -17,7 +17,7 @@ from src.question3.forecast_loader import load_forecasts
 from src.question3.forecast_interpolator import interpolate_hourly_pv_forecast
 from src.question3.rolling_scenario_builder import RollingScenarioBuilder, validate_scenarios
 from src.question3.optimizer import solve_initial_plan, solve_adjustment
-from src.question3.rolling_controller import solve_day, validate_policy
+from src.question3.rolling_controller import solve_day, solve_day_causal, validate_policy
 from src.question3.evaluator import evaluate_actual_day
 from src.question3.validator import validate_schedule, validate_day, validate_revision, validate_complete
 from src.question3.analysis import forecast_accuracy, result_update_hours
@@ -194,7 +194,7 @@ class Question3Tests(TestCase):
         self.assertAlmostEqual(s.executed_soc_end[-1], 6000)
         damaged = s.executed_grid.copy()
         damaged[0] += 1
-        with self.assertRaisesRegex(ValueError, "frozen"):
+        with self.assertRaisesRegex(ValueError, "contract revision"):
             validate_schedule(self.price.price, replace(s, executed_grid=damaged), cfg.Q3_FINAL_UPDATE_HOURS)
         with self.assertRaises(ValueError): s.executed_grid[0] = 0
 
@@ -230,6 +230,43 @@ class Question3Tests(TestCase):
             evaluate_actual_day(self.price.price, s, self.annual.net_load_kwh[self.index], policy)
         for policy in ((6,), (0, 12, 6), (0, 6, 6), (0, 3)):
             with self.assertRaises(ValueError): validate_policy(policy)
+
+    def test_causal_storage_updates_each_slot_but_only_revises_selected_contracts(self):
+        builder = RollingScenarioBuilder(self.annual, self.forecasts, cfg.SCENARIO_METHOD)
+        actual = self.annual.net_load_kwh[self.index]
+        with patch.object(builder, "build", wraps=builder.build) as build:
+            schedule = solve_day_causal(
+                self.day, self.price.price, builder, actual, cfg.Q3_FINAL_UPDATE_HOURS
+            )
+        self.assertEqual(schedule.storage_execution, "causal_mpc")
+        self.assertEqual([call.args[1] for call in build.call_args_list], [0, 6, 12])
+        self.assertEqual(tuple(r.issue_hour for r in schedule.revisions), (6, 12))
+        for revision in schedule.revisions:
+            self.assertAlmostEqual(
+                revision.plan.initial_soc_kwh,
+                schedule.executed_soc_end[revision.start_slot - 1],
+                places=6,
+            )
+        result = evaluate_actual_day(
+            self.price.price, schedule, actual, cfg.Q3_FINAL_UPDATE_HOURS
+        )
+        validate_day(self.price.price, result, cfg.Q3_FINAL_UPDATE_HOURS)
+        self.assertAlmostEqual(schedule.executed_soc_end[-1], cfg.FINAL_SOC_KWH, places=6)
+
+    def test_causal_storage_prefix_does_not_see_future_actual_net_load(self):
+        builder = RollingScenarioBuilder(self.annual, self.forecasts, cfg.SCENARIO_METHOD)
+        actual = self.annual.net_load_kwh[self.index].copy()
+        changed = actual.copy()
+        cutoff = 47
+        changed[cutoff + 1:] += 1e6
+        first = solve_day_causal(self.day, self.price.price, builder, actual, (0,))
+        second = solve_day_causal(self.day, self.price.price, builder, changed, (0,))
+        np.testing.assert_array_equal(first.executed_grid, second.executed_grid)
+        for field in ("executed_charge", "executed_discharge", "executed_soc_end"):
+            np.testing.assert_allclose(
+                getattr(first, field)[:cutoff + 1], getattr(second, field)[:cutoff + 1],
+                rtol=0, atol=cfg.RESIDUAL_TOL,
+            )
 
     def test_forecast_accuracy_samples(self):
         scores = forecast_accuracy(self.annual, self.forecasts)

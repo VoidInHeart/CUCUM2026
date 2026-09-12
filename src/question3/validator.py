@@ -81,6 +81,8 @@ def validate_lp(price, scenarios, plan, emergency, surplus, revision=None) -> di
 def validate_schedule(price: np.ndarray, schedule: DailySchedule, update_hours: tuple[int, ...]) -> None:
     context = str(schedule.date)
     initial = schedule.initial_plan
+    require(schedule.storage_execution in ("frozen", "causal_mpc"), context,
+            "unknown storage execution mode")
     validate_horizon(initial)
     require(initial.issue_hour == 0, context, "missing initial plan")
     require(tuple(revision.issue_hour for revision in schedule.revisions) == update_hours[1:], context, "revision sequence mismatch")
@@ -91,17 +93,36 @@ def validate_schedule(price: np.ndarray, schedule: DailySchedule, update_hours: 
         start = revision.start_slot
         require(revision.plan.date == schedule.date, context, "revision date differs")
         require(np.max(np.abs(revision.old_grid - current["grid_kwh"][start:])) <= cfg.RESIDUAL_TOL, context, "old_grid is not previous version")
-        require(abs(revision.plan.initial_soc_kwh - current["soc_end_kwh"][start - 1]) <= cfg.RESIDUAL_TOL,
+        boundary_soc = (schedule.executed_soc_end[start - 1]
+                        if schedule.storage_execution == "causal_mpc"
+                        else current["soc_end_kwh"][start - 1])
+        require(abs(revision.plan.initial_soc_kwh - boundary_soc) <= cfg.RESIDUAL_TOL,
                 context, "SOC boundary discontinuity")
         for name in current:
             current[name][start:] = getattr(revision.plan, name)
-    for name, source in (("executed_grid", "grid_kwh"), ("executed_charge", "charge_kwh"),
-                         ("executed_discharge", "discharge_kwh"), ("executed_soc_end", "soc_end_kwh")):
+    for name in ("executed_grid", "executed_charge", "executed_discharge", "executed_soc_end"):
         values = getattr(schedule, name)
         array_check(values, (144,), context, name, True)
-        require(np.max(np.abs(values - current[source])) <= cfg.RESIDUAL_TOL, context, f"{name}: frozen execution differs from revision replay")
+    require(np.max(np.abs(schedule.executed_grid - current["grid_kwh"])) <= cfg.RESIDUAL_TOL,
+            context, "executed_grid differs from contract revision replay")
+    if schedule.storage_execution == "frozen":
+        for name, source in (("executed_charge", "charge_kwh"),
+                             ("executed_discharge", "discharge_kwh"),
+                             ("executed_soc_end", "soc_end_kwh")):
+            require(np.max(np.abs(getattr(schedule, name) - current[source])) <= cfg.RESIDUAL_TOL,
+                    context, f"{name}: frozen execution differs from revision replay")
+    require(max(schedule.executed_charge.max(), schedule.executed_discharge.max())
+            <= cfg.BATTERY_ENERGY_MAX_PER_SLOT_KWH + cfg.TOL, context, "executed battery power limit")
+    require(schedule.executed_soc_end.min() >= cfg.SOC_MIN_KWH - cfg.TOL
+            and schedule.executed_soc_end.max() <= cfg.SOC_MAX_KWH + cfg.TOL,
+            context, "executed SOC bounds")
+    require(not np.any((schedule.executed_charge > cfg.RESIDUAL_TOL)
+                       & (schedule.executed_discharge > cfg.RESIDUAL_TOL)),
+            context, "simultaneous executed charge/discharge")
     rebuilt = cfg.INITIAL_SOC_KWH + np.cumsum(cfg.ETA_CHARGE * schedule.executed_charge - schedule.executed_discharge / cfg.ETA_DISCHARGE)
     require(np.max(np.abs(rebuilt - schedule.executed_soc_end)) <= cfg.RESIDUAL_TOL, context, "executed SOC reconstruction")
+    require(abs(schedule.executed_soc_end[-1] - cfg.FINAL_SOC_KWH) <= cfg.RESIDUAL_TOL,
+            context, "executed terminal SOC")
 
 
 def validate_day(price: np.ndarray, result: DailyResult, update_hours: tuple[int, ...]) -> None:

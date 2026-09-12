@@ -6,6 +6,8 @@ from . import config as cfg
 from .optimizer import solve_initial_plan, solve_adjustment
 from .types import DailySchedule, readonly
 from .validator import validate_schedule
+from ..question2.controller import solve_storage_mpc_horizon
+from ..question2.validator import array_check
 
 
 def validate_policy(update_hours):
@@ -38,5 +40,55 @@ def solve_day(target_date, price, builder, update_hours=cfg.Q3_FINAL_UPDATE_HOUR
                 raise RuntimeError(f"{target_date} {hour}: rolling_controller: attempted to overwrite executed slots")
             frozen[start:stop] = values[start:stop]
     schedule = DailySchedule(plan0, tuple(revisions), *(readonly(values) for values in executed))
+    validate_schedule(price, schedule, update_hours)
+    return schedule
+
+
+def solve_day_causal(
+    target_date,
+    price,
+    builder,
+    actual_net_load,
+    update_hours=cfg.Q3_FINAL_UPDATE_HOURS,
+) -> DailySchedule:
+    """合同仅在选定时刻更新；电池逐slot观察实际净负荷并只执行MPC首步。"""
+    validate_policy(update_hours)
+    array_check(price, (cfg.N_SLOTS,), str(target_date), "price", True)
+    array_check(actual_net_load, (cfg.N_SLOTS,), str(target_date), "actual net load")
+    plan0 = solve_initial_plan(price, builder.build(target_date, 0))
+    grid = plan0.grid_kwh.copy()
+    reference_charge = plan0.charge_kwh.copy()
+    reference_discharge = plan0.discharge_kwh.copy()
+    charge = np.zeros(cfg.N_SLOTS)
+    discharge = np.zeros(cfg.N_SLOTS)
+    soc = np.zeros(cfg.N_SLOTS)
+    revisions = []
+    revision_hours = set(update_hours[1:])
+    current_soc = cfg.INITIAL_SOC_KWH
+    for slot in range(cfg.N_SLOTS):
+        hour = slot // 6
+        if slot % 6 == 0 and hour in revision_hours:
+            revision = solve_adjustment(
+                price,
+                builder.build(target_date, hour),
+                grid[slot:].copy(),
+                current_soc,
+            )
+            revisions.append(revision)
+            grid[slot:] = revision.new_grid
+            reference_charge[slot:] = revision.plan.charge_kwh
+            reference_discharge[slot:] = revision.plan.discharge_kwh
+            logging.debug("%s %d:00 contract adjusted, cashflow=%.6f",
+                          target_date, hour, revision.adjustment_cashflow_yuan)
+        nominal_net = grid[slot:] + reference_discharge[slot:] - reference_charge[slot:]
+        charge[slot], discharge[slot], current_soc = solve_storage_mpc_horizon(
+            price[slot:], grid[slot:], nominal_net, current_soc,
+            float(actual_net_load[slot]), context=f"{target_date} causal slot {slot}",
+        )
+        soc[slot] = current_soc
+    schedule = DailySchedule(
+        plan0, tuple(revisions), readonly(grid), readonly(charge),
+        readonly(discharge), readonly(soc), "causal_mpc",
+    )
     validate_schedule(price, schedule, update_hours)
     return schedule
