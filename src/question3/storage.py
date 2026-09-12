@@ -53,7 +53,8 @@ def load_daily_results(path):
     def plan_from(record):
         return HorizonPlan(date.fromisoformat(record["date"]), record["issue_hour"], record["initial_soc_kwh"],
                            *(readonly(record[key]) for key in ("grid_kwh", "charge_kwh", "discharge_kwh", "soc_end_kwh")),
-                           record["solver_objective"], record["expected_emergency_kwh"])
+                           record["solver_objective"], record["expected_emergency_kwh"], record.get("soc_policy", "daily_closed"),
+                           readonly(record["horizon_price"]) if record.get("horizon_price") is not None else None)
     results = []
     with Path(path).open(encoding="utf-8") as stream:
         for line in stream:

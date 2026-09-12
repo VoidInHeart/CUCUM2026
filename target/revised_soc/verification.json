@@ -1,0 +1,176 @@
+{
+  "protected_files": {
+    "src/question1/config.py": "1b6242ce0282c31753fce43aff3d3808edbfc3968ecee4a4762ac9348817ba6e",
+    "src/question1/data_loader.py": "de932cbdb250afc1200a7c0d5a18f429142df0a777f0b175f9c5c0095a21b5f1",
+    "src/question1/exporter.py": "ca427ce34e0764577c77ea1f3b947411808c9dbeefc8c4d257b36ea59b7a9657",
+    "src/question1/main.py": "5aeebb07daaaa81a81982124d348e07698dbe9ab07c1467a403fa2bf61c358a9",
+    "src/question1/optimizer.py": "5fb2e8839337d7e442a4d7316d7daf15db518baef1784df256904363d9bc2d2c",
+    "src/question1/summary.py": "d3ba23610aee6f95cd77446c40df294c27bc3e27402194a889c74d2653199fe5",
+    "src/question1/validator.py": "44cd7f5b55b079f2bd1c4f28fdff5f38cb6c1762b10a3aa89998a0246fee8806",
+    "src/question1/visualization.py": "8ed2514f72b7610f3645b125f1e06fb369eb3409fd508b3be929de5a2463ef32",
+    "src/question1/__init__.py": "97f311c6da2d3283d0e5268e237efeb86df88a7556cb3964ab6eca39e68643bf",
+    "target/附件5/result1.xlsx": "ce3690aef2bdffbd40d18a06fd092fa6e8c6aca08ad2b741dd72d108d4b9fd57",
+    "target/附件5/result2.xlsx": "218552cbc14e5670eb4b4f4ddae7558a0c113ccc5e2e13782e380860945cec7a",
+    "target/附件5/result3.xlsx": "ce36b041d3ea30a19a5fdf043a9f411f55e9f59d237feab70faf7e0bec297cea",
+    "target/附件5/result4-2.xlsx": "178f31f5ae9dd47a7bd116b12d4401910925373fb4fd164492413443b70cbd7a",
+    "target/附件5/result4-3.xlsx": "f87a7024575d475ed67d634b23f5cb7dfce802e6dbd787729c8f55abd10a33ce"
+  },
+  "legacy_regression": {
+    "question3": {
+      "max_record_error": 0.0,
+      "total_cost_delta": 0.0
+    },
+    "question4/question4_2": {
+      "max_record_error": 0.0,
+      "total_cost_delta": 0.0
+    },
+    "question4/question4_3": {
+      "max_record_error": 0.0,
+      "total_cost_delta": 0.0
+    },
+    "question2": {
+      "max_excel_error": 7.275957614183426e-12,
+      "total_cost_delta": 0.0
+    }
+  },
+  "experiments": {
+    "question3": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "question4\\question4_3\\advance_known_sensitivity": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "question4\\question4_3\\daily_closed\\dynamic": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "question4\\question4_3\\daily_closed\\fixed": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "question4\\question4_3\\continuous_lookahead\\dynamic": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "question4\\question4_3\\continuous_lookahead\\fixed": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "question4\\question4_2\\advance_known_sensitivity": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "question4\\question4_2\\daily_closed\\dynamic": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "question4\\question4_2\\daily_closed\\fixed": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "question4\\question4_2\\continuous_lookahead\\dynamic": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "question4\\question4_2\\continuous_lookahead\\fixed": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "question3\\daily_closed": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "question3\\policies\\0": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "question3\\policies\\0_12_18": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "question3\\policies\\0_6": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "question3\\policies\\0_6_12": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "question3\\policies\\0_6_12_18": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "question3\\policies\\0_6_18": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "question2\\continuous_lookahead": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "question2\\continuous_myopic": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "question2\\daily_closed": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "benchmark\\legacy_daily_closed\\CVaR-SAA": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "benchmark\\legacy_daily_closed\\DET": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "benchmark\\legacy_daily_closed\\Q80": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "benchmark\\legacy_daily_closed\\SAA": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "benchmark\\legacy_daily_closed\\SAA-MPC": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "benchmark\\continuous_soc\\CVaR-SAA": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "benchmark\\continuous_soc\\DET": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "benchmark\\continuous_soc\\Q80": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "benchmark\\continuous_soc\\SAA": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    },
+    "benchmark\\continuous_soc\\SAA-MPC": {
+      "days": 334,
+      "soc_continuity_max_error": 0.0
+    }
+  },
+  "excel": {
+    "question2\\result2_daily_closed.xlsx": 7.275957614183426e-12,
+    "question2\\result2_continuous_myopic.xlsx": 7.275957614183426e-12,
+    "question2\\result2_continuous_lookahead.xlsx": 7.275957614183426e-12,
+    "result2.xlsx": 7.275957614183426e-12,
+    "result3.xlsx": 7.275957614183426e-12,
+    "result4-2.xlsx": 4.3655745685100555e-11,
+    "result4-3.xlsx": 4.3655745685100555e-11
+  },
+  "unittest": {
+    "count": 83,
+    "seconds": 83.35,
+    "status": "OK"
+  }
+}

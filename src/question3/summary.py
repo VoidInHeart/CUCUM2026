@@ -35,6 +35,8 @@ def build_summary(results, labels):
                                "表3": [asdict(event) for event in merge_emergency_intervals(labels, result.real_emergency)],
                                "调整交易": [{"issue_hour": r.issue_hour, "cashflow_yuan": r.adjustment_cashflow_yuan,
                                              "up_kwh": float(r.up_adjust.sum()), "down_kwh": float(r.down_adjust.sum())} for r in s.revisions]}
+        papers[str(s.date)]["表2"].update({"0:00 储电量": s.initial_plan.initial_soc_kwh,
+                                         "24:00 储电量": float(s.executed_soc_end[-1])})
     if len(papers) != 4:
         raise ValueError("question3 summary: missing specified dates")
     return {"units": {"energy": "kWh", "cost": "yuan", "power": "kW"},

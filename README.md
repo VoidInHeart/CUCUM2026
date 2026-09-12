@@ -1,5 +1,24 @@
 # 微网购电策略：问题1、问题2与问题3
 
+## 跨日 SOC 重构实验（2026-09-12）
+
+题意审计见 [SOC_boundary_audit.md](docs/SOC_boundary_audit.md)，新模型接口与复现说明见
+[SOC_continuous_model.md](docs/SOC_continuous_model.md)。下文原有运行入口和数值口径保留为
+`daily_closed` legacy，避免原正式附件被无意覆盖。新实验统一使用独立入口：
+
+```powershell
+& 'D:\Anaconda\envs\cucum2026\python.exe' -X utf8 -u run_revised_soc.py --phase all
+& 'D:\Anaconda\envs\cucum2026\python.exe' -X utf8 -m unittest discover -s tests -v
+```
+
+新入口依次运行 Q2 三种 SOC 模式、Q3 六策略消融、Q4 固定/动态对照及提前知价敏感性、
+重建的五方法 benchmark。也可用 `--phase q2/q3/q4/benchmark` 分阶段运行（斜线表示选择之一）；
+Q4 和 benchmark 读取本次 Q3 消融选定的策略，仍重新求解其数值结果。
+候选 Excel 与所有分析只写 `target/revised_soc/`；旧 `target/附件5/` 保持不变。
+最后执行 `python -X utf8 verify_revised_soc.py` 生成逐日回归验证及模型比较报告。
+
+本地实际环境是 `D:\Anaconda\envs\cucum2026`；指定的 `cucum2026z` 路径不存在。
+
 使用 Python 3.13 与 SciPy HiGHS。Windows PowerShell 在项目根目录执行：
 
 ```powershell

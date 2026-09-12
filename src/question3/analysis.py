@@ -7,7 +7,8 @@ from .rolling_controller import solve_day, validate_policy
 from .evaluator import evaluate_actual_day
 from .validator import validate_complete
 from .forecast_interpolator import interpolate_hourly_pv_forecast
-from ..pricing import price_for_date
+from ..pricing import price_for_date, continuation_price_for_date
+from ..soc_initialization import control_start_soc
 
 
 def policy_name(hours):
@@ -24,18 +25,24 @@ def result_update_hours(results):
     return hours
 
 
-def evaluate_update_policy(update_hours, price, annual, builder):
+def evaluate_update_policy(update_hours, price, annual, builder, soc_policy="daily_closed",
+                           initialization_mode="feb1_control_start", price_information_mode="current_day_persistence"):
     validate_policy(update_hours)
+    if initialization_mode not in ("feb1_control_start", "jan1_continuous"):
+        raise ValueError("unknown initialization mode")
     results = []
+    current_soc_kwh = control_start_soc(initialization_mode,annual)
     for i, target in enumerate(cfg.OUTPUT_DATES):
         try:
             daily_price = price_for_date(price, target)
-            schedule = solve_day(target, daily_price, builder, update_hours)
+            schedule = solve_day(target, daily_price, builder, update_hours, current_soc_kwh, soc_policy,
+                                 continuation_price_for_date(price,target,price_information_mode))
             actual = annual.net_load_kwh[builder.date_index[target]]
             result = evaluate_actual_day(daily_price, schedule, actual, update_hours)
         except Exception as exc:
             raise RuntimeError(f"{target} policy {policy_name(update_hours)} failed: {exc}") from exc
         results.append(result)
+        current_soc_kwh = 6000.0 if soc_policy == "daily_closed" else float(schedule.executed_soc_end[-1])
         logging.info("[%03d/334] policy=%s %s solved %s: price_mean=%.4f emergency=%.3f adjustment_cost=%.3f total_cost=%.3f",
                      i + 1, policy_name(update_hours), target, update_hours, daily_price.mean(), result.emergency_kwh,
                      result.adjustment_cost, result.total_cost)

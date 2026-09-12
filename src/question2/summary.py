@@ -44,6 +44,8 @@ def build_summaries(evaluations: list[DailyEvaluation], labels: list[str]) -> di
             "表2": build_table2_summary(item.plan.charge_kwh, item.plan.discharge_kwh),
             "表3": [asdict(event) for event in merge_emergency_intervals(labels, item.emergency_kwh)],
         }
+        paper[item.plan.date.isoformat()]["表2"].update({"0:00 储电量": item.plan.initial_soc_kwh,
+                                                   "24:00 储电量": item.plan.terminal_soc_kwh})
     if len(paper) != len(cfg.PAPER_DATES):
         raise ValueError("summary: missing specified paper dates")
     return {"units": {"energy": "kWh", "cost": "yuan", "ratios": "0..1"},

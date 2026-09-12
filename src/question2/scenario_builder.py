@@ -3,7 +3,7 @@ from datetime import timedelta
 import numpy as np
 
 from . import config as cfg
-from .types import AnnualActualData, ScenarioSet, readonly
+from .types import AnnualActualData, ScenarioSet, MultiDayScenarioSet, readonly
 
 
 def validate_scenarios(scenarios: ScenarioSet) -> None:
@@ -11,10 +11,11 @@ def validate_scenarios(scenarios: ScenarioSet) -> None:
     expected = tuple(scenarios.target_date - timedelta(days=i) for i in range(cfg.HISTORY_WINDOW_DAYS, 0, -1))
     if scenarios.history_dates != expected or any(day >= scenarios.target_date for day in scenarios.history_dates):
         raise ValueError(f"{prefix}: history must be exactly the preceding 31 days; no lookahead allowed")
-    if scenarios.net_load_kwh.shape != (cfg.HISTORY_WINDOW_DAYS, cfg.N_SLOTS) or not np.isfinite(scenarios.net_load_kwh).all():
+    s, h = (30, 288) if isinstance(scenarios, MultiDayScenarioSet) else (31, 144)
+    if scenarios.net_load_kwh.shape != (s, h) or not np.isfinite(scenarios.net_load_kwh).all():
         raise ValueError(f"{prefix}: invalid scenario matrix")
-    if scenarios.probability.shape != (cfg.HISTORY_WINDOW_DAYS,) or not np.allclose(
-        scenarios.probability, 1 / cfg.HISTORY_WINDOW_DAYS, rtol=0, atol=1e-12
+    if scenarios.probability.shape != (s,) or not np.allclose(
+        scenarios.probability, 1 / s, rtol=0, atol=1e-12
     ):
         raise ValueError(f"{prefix}: expected 31 equal scenario probabilities")
 
@@ -28,3 +29,11 @@ def build_rolling_scenarios(annual_data: AnnualActualData, target_index: int) ->
                             readonly(np.full(cfg.HISTORY_WINDOW_DAYS, 1 / cfg.HISTORY_WINDOW_DAYS)))
     validate_scenarios(scenarios)
     return scenarios
+
+
+def build_multiday_scenarios(annual_data, target_index):
+    daily = build_rolling_scenarios(annual_data, target_index)
+    pairs = np.concatenate((daily.net_load_kwh[:-1], daily.net_load_kwh[1:]), axis=1)
+    result = MultiDayScenarioSet(daily.target_date, daily.history_dates, readonly(pairs), readonly(np.full(30, 1 / 30)))
+    validate_scenarios(result)
+    return result

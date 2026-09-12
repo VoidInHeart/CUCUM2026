@@ -79,7 +79,7 @@ def export_result(price, results, path: Path = cfg.RESULT_XLSX, *, update_hours=
                 values = [datetime.combine(s.date, time()) if block == 0 else None, label,
                           float(s.executed_charge[section].sum()), float(s.executed_discharge[section].sum()),
                           ("0:00" if block == 0 else "24:00") if block < 2 else None,
-                          cfg.INITIAL_SOC_KWH if block == 0 else float(s.executed_soc_end[-1]) if block == 1 else None]
+                          s.initial_plan.initial_soc_kwh if block == 0 else float(s.executed_soc_end[-1]) if block == 1 else None]
                 battery.row_dimensions[row].height = heights[block]
                 for col, value in enumerate(values, 1):
                     cell = battery.cell(row, col, value)

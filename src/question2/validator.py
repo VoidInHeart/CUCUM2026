@@ -19,19 +19,25 @@ def array_check(value: np.ndarray, shape: tuple, context: str, name: str, nonneg
         require((value >= -cfg.TOL).all(), context, f"{name}: negative values")
 
 
-def validate_plan(plan: DailyPlan) -> float:
+def validate_plan(plan: DailyPlan, horizon_slots=None) -> float:
     context = str(plan.date)
+    require(plan.soc_policy in cfg.SOC_POLICIES, context, "unknown SOC policy")
+    require(np.isfinite(plan.initial_soc_kwh) and cfg.SOC_MIN_KWH <= plan.initial_soc_kwh <= cfg.SOC_MAX_KWH,
+            context, "initial SOC bounds")
+    h = cfg.N_SLOTS if horizon_slots is None else horizon_slots
     for name in ("grid_kwh", "charge_kwh", "discharge_kwh", "soc_end_kwh"):
-        array_check(getattr(plan, name), (cfg.N_SLOTS,), context, name, True)
+        array_check(getattr(plan, name), (h,), context, name, True)
     c, d, soc = plan.charge_kwh, plan.discharge_kwh, plan.soc_end_kwh
     for name, values in (("charge", c), ("discharge", d)):
         require(values.max() <= cfg.BATTERY_ENERGY_MAX_PER_SLOT_KWH + cfg.TOL, context, f"{name}: power limit")
     require(soc.min() >= cfg.SOC_MIN_KWH - cfg.TOL and soc.max() <= cfg.SOC_MAX_KWH + cfg.TOL,
             context, "SOC bounds")
-    rebuilt = cfg.INITIAL_SOC_KWH + np.cumsum(cfg.ETA_CHARGE * c - d / cfg.ETA_DISCHARGE)
+    rebuilt = plan.initial_soc_kwh + np.cumsum(cfg.ETA_CHARGE * c - d / cfg.ETA_DISCHARGE)
     residual = float(np.max(np.abs(rebuilt - soc)))
     require(residual <= cfg.RESIDUAL_TOL, context, "SOC dynamic residual")
-    require(abs(soc[-1] - cfg.FINAL_SOC_KWH) <= cfg.RESIDUAL_TOL, context, "terminal SOC")
+    if plan.soc_policy == "daily_closed":
+        require(abs(plan.initial_soc_kwh - cfg.INITIAL_SOC_KWH) <= cfg.RESIDUAL_TOL, context, "initial SOC")
+        require(abs(soc[-1] - cfg.FINAL_SOC_KWH) <= cfg.RESIDUAL_TOL, context, "terminal SOC")
     require(not np.any((c > cfg.RESIDUAL_TOL) & (d > cfg.RESIDUAL_TOL)), context, "simultaneous charge/discharge")
     require(np.isfinite(plan.expected_objective) and np.isfinite(plan.expected_emergency_kwh), context, "invalid expected totals")
     return residual
@@ -42,10 +48,11 @@ def validate_lp(price: np.ndarray, scenarios: ScenarioSet, plan: DailyPlan,
     validate_scenarios(scenarios)
     context = str(plan.date)
     require(plan.date == scenarios.target_date, context, "scenario target date differs from plan")
-    soc_residual = validate_plan(plan)
-    array_check(price, (cfg.N_SLOTS,), context, "price", True)
+    s, h = scenarios.net_load_kwh.shape
+    soc_residual = validate_plan(plan, h)
+    array_check(price, (h,), context, "price", True)
     for name, array in (("emergency", emergency), ("surplus", surplus)):
-        array_check(array, (cfg.HISTORY_WINDOW_DAYS, cfg.N_SLOTS), context, name, True)
+        array_check(array, (s, h), context, name, True)
     scheduled = plan.grid_kwh + plan.discharge_kwh - plan.charge_kwh
     balance = scheduled[None, :] + emergency - surplus - scenarios.net_load_kwh
     max_residual = float(np.max(np.abs(balance)))
@@ -54,6 +61,10 @@ def validate_lp(price: np.ndarray, scenarios: ScenarioSet, plan: DailyPlan,
     objective = float(price @ plan.grid_kwh + cfg.EMERGENCY_PRICE_MULTIPLIER *
                       (scenarios.probability @ emergency) @ price +
                       cfg.EPS_THROUGHPUT * (plan.charge_kwh.sum() + plan.discharge_kwh.sum()))
+    losses = cfg.EMERGENCY_PRICE_MULTIPLIER * emergency @ price
+    cvar = min(float(eta + scenarios.probability @ np.maximum(losses-eta,0)/(1-plan.risk_alpha)) for eta in losses)
+    require(abs(plan.risk_penalty-plan.risk_weight*cvar) <= cfg.RESIDUAL_TOL, context, "CVaR penalty mismatch")
+    objective += plan.risk_penalty
     require(abs(expected_emergency - plan.expected_emergency_kwh) <= cfg.RESIDUAL_TOL, context, "expected emergency total")
     require(abs(objective - plan.expected_objective) <= cfg.RESIDUAL_TOL, context, "solver objective mismatch")
     return {"max_scenario_balance_residual": max_residual, "max_soc_residual": soc_residual}
@@ -90,3 +101,7 @@ def validate_complete(price: PriceInput, evaluations: list[DailyEvaluation]) -> 
             "expected all 334 dates in chronological order")
     for item in evaluations:
         validate_evaluation(price_for_date(price, item.plan.date), item)
+    for previous, item in zip(evaluations, evaluations[1:]):
+        require(item.plan.soc_policy == previous.plan.soc_policy, "annual", "mixed SOC policies")
+        require(abs(item.plan.initial_soc_kwh - previous.plan.terminal_soc_kwh) <= cfg.RESIDUAL_TOL,
+                str(item.plan.date), "cross-day SOC discontinuity")

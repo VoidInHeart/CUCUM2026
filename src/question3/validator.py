@@ -11,12 +11,13 @@ from .types import HorizonPlan, AdjustmentRevision, DailySchedule, DailyResult
 def validate_horizon(plan: HorizonPlan) -> float:
     context = f"{plan.date} {plan.issue_hour}:00"
     require(plan.issue_hour in cfg.ISSUE_HOURS, context, "invalid issue hour")
-    h = 6 * (24 - plan.issue_hour)
+    require(plan.soc_policy in ("daily_closed", "continuous_lookahead"), context, "invalid SOC policy")
+    h = 6 * (24 - plan.issue_hour) if plan.soc_policy == "daily_closed" else 144
     for field in ("grid_kwh", "charge_kwh", "discharge_kwh", "soc_end_kwh"):
         array_check(getattr(plan, field), (h,), context, field, True)
     require(np.isfinite(plan.initial_soc_kwh) and cfg.SOC_MIN_KWH - cfg.TOL <= plan.initial_soc_kwh <= cfg.SOC_MAX_KWH + cfg.TOL,
             context, "initial SOC outside bounds")
-    if plan.issue_hour == 0:
+    if plan.issue_hour == 0 and plan.soc_policy == "daily_closed":
         require(abs(plan.initial_soc_kwh - cfg.INITIAL_SOC_KWH) <= cfg.RESIDUAL_TOL, context, "0:00 initial SOC")
     c, d, soc = plan.charge_kwh, plan.discharge_kwh, plan.soc_end_kwh
     require(max(c.max(), d.max()) <= cfg.BATTERY_ENERGY_MAX_PER_SLOT_KWH + cfg.TOL, context, "battery power limit")
@@ -24,7 +25,10 @@ def validate_horizon(plan: HorizonPlan) -> float:
     rebuilt = plan.initial_soc_kwh + np.cumsum(cfg.ETA_CHARGE * c - d / cfg.ETA_DISCHARGE)
     residual = float(np.max(np.abs(rebuilt - soc)))
     require(residual <= cfg.RESIDUAL_TOL, context, "SOC dynamic residual")
-    require(abs(soc[-1] - cfg.FINAL_SOC_KWH) <= cfg.RESIDUAL_TOL, context, "terminal SOC")
+    if plan.soc_policy == "daily_closed":
+        require(abs(soc[-1] - cfg.FINAL_SOC_KWH) <= cfg.RESIDUAL_TOL, context, "terminal SOC")
+    else:
+        array_check(plan.horizon_price, (h,), context, "horizon price", True)
     require(not np.any((c > cfg.RESIDUAL_TOL) & (d > cfg.RESIDUAL_TOL)), context, "simultaneous charge/discharge")
     require(np.isfinite(plan.solver_objective) and np.isfinite(plan.expected_emergency_kwh), context, "invalid solver totals")
     return residual
@@ -34,10 +38,13 @@ def validate_revision(price: np.ndarray, revision: AdjustmentRevision) -> None:
     plan = revision.plan
     context = f"{plan.date} {revision.issue_hour}:00"
     validate_horizon(plan)
+    if plan.horizon_price is not None:
+        require(np.max(np.abs(plan.horizon_price[:144-revision.start_slot]-price[revision.start_slot:])) <= cfg.TOL,
+                context, "horizon current-day prices differ from settlement")
     require(revision.issue_hour in cfg.ISSUE_HOURS[1:] and revision.issue_hour == plan.issue_hour,
             context, "invalid revision issue")
     require(revision.start_slot == cfg.ISSUE_SLOT[revision.issue_hour], context, "incorrect start slot")
-    shape = plan.grid_kwh.shape
+    shape = (144-revision.start_slot,)
     for name in ("old_grid", "up_adjust", "down_adjust"):
         array_check(getattr(revision, name), shape, context, name, True)
     require(np.max(np.abs(revision.new_grid - revision.old_grid - revision.up_adjust + revision.down_adjust)) <= cfg.RESIDUAL_TOL,
@@ -63,13 +70,15 @@ def validate_lp(price, scenarios, plan, emergency, surplus, revision=None) -> di
     balance = supplied + emergency - surplus - scenarios.net_load_kwh
     max_residual = float(np.max(np.abs(balance)))
     require(max_residual <= cfg.RESIDUAL_TOL, context, "scenario energy balance")
-    q = price[cfg.ISSUE_SLOT[plan.issue_hour]:]
+    q = price[cfg.ISSUE_SLOT[plan.issue_hour]:] if plan.horizon_price is None else plan.horizon_price
     if revision is None:
         require(plan.issue_hour == 0, context, "adjustment revision missing")
         transaction = q @ plan.grid_kwh
     else:
         validate_revision(price, revision)
         transaction = revision.adjustment_cashflow_yuan
+        m = len(revision.old_grid)
+        transaction += q[m:] @ plan.grid_kwh[m:]
     expected = (transaction + cfg.EMERGENCY_PRICE_MULTIPLIER * (scenarios.probability @ emergency) @ q
                 + cfg.EPS_THROUGHPUT * (plan.charge_kwh.sum() + plan.discharge_kwh.sum()))
     require(abs(expected - plan.solver_objective) <= cfg.RESIDUAL_TOL, context, "solver objective mismatch")
@@ -82,6 +91,8 @@ def validate_schedule(price: np.ndarray, schedule: DailySchedule, update_hours: 
     context = str(schedule.date)
     initial = schedule.initial_plan
     validate_horizon(initial)
+    if initial.horizon_price is not None:
+        require(np.max(np.abs(initial.horizon_price-price)) <= cfg.TOL, context, "initial horizon prices differ")
     require(initial.issue_hour == 0, context, "missing initial plan")
     require(tuple(revision.issue_hour for revision in schedule.revisions) == update_hours[1:], context, "revision sequence mismatch")
     # 逐次重放全部版本，核对old必须为上一版剩余计划、过去区间保持冻结。
@@ -94,13 +105,13 @@ def validate_schedule(price: np.ndarray, schedule: DailySchedule, update_hours: 
         require(abs(revision.plan.initial_soc_kwh - current["soc_end_kwh"][start - 1]) <= cfg.RESIDUAL_TOL,
                 context, "SOC boundary discontinuity")
         for name in current:
-            current[name][start:] = getattr(revision.plan, name)
+            current[name][start:] = getattr(revision.plan, name)[:144-start]
     for name, source in (("executed_grid", "grid_kwh"), ("executed_charge", "charge_kwh"),
                          ("executed_discharge", "discharge_kwh"), ("executed_soc_end", "soc_end_kwh")):
         values = getattr(schedule, name)
         array_check(values, (144,), context, name, True)
         require(np.max(np.abs(values - current[source])) <= cfg.RESIDUAL_TOL, context, f"{name}: frozen execution differs from revision replay")
-    rebuilt = cfg.INITIAL_SOC_KWH + np.cumsum(cfg.ETA_CHARGE * schedule.executed_charge - schedule.executed_discharge / cfg.ETA_DISCHARGE)
+    rebuilt = initial.initial_soc_kwh + np.cumsum(cfg.ETA_CHARGE * schedule.executed_charge - schedule.executed_discharge / cfg.ETA_DISCHARGE)
     require(np.max(np.abs(rebuilt - schedule.executed_soc_end)) <= cfg.RESIDUAL_TOL, context, "executed SOC reconstruction")
 
 
@@ -134,3 +145,7 @@ def validate_complete(price, results, update_hours=cfg.Q3_FINAL_UPDATE_HOURS):
     require(tuple(item.schedule.date for item in results) == cfg.OUTPUT_DATES, "export", "expected all 334 output dates")
     for item in results:
         validate_day(price_for_date(price, item.schedule.date), item, update_hours)
+    for previous, item in zip(results, results[1:]):
+        require(item.schedule.initial_plan.soc_policy == previous.schedule.initial_plan.soc_policy, "annual", "mixed SOC policies")
+        require(abs(item.schedule.initial_plan.initial_soc_kwh-previous.schedule.executed_soc_end[-1]) <= cfg.RESIDUAL_TOL,
+                str(item.schedule.date), "cross-day SOC discontinuity")

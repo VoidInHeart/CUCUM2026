@@ -35,6 +35,23 @@ class DailyPlan:
     soc_end_kwh: np.ndarray
     expected_emergency_kwh: float
     expected_objective: float  # 包含微小吞吐量惩罚，仅用于诊断
+    initial_soc_kwh: float = 6000.0
+    soc_policy: str = "daily_closed"
+    risk_weight: float = 0.0
+    risk_alpha: float = 0.95
+    risk_penalty: float = 0.0
+
+    @property
+    def terminal_soc_kwh(self) -> float:
+        return float(self.soc_end_kwh[-1])
+
+
+@dataclass(frozen=True)
+class MultiDayScenarioSet:
+    target_date: date
+    history_dates: tuple[date, ...]
+    net_load_kwh: np.ndarray
+    probability: np.ndarray
 
 
 @dataclass(frozen=True)

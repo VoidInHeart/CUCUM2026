@@ -80,7 +80,7 @@ def export_result(price: PriceInput, evaluations: list[DailyEvaluation], path: P
                 values = [datetime.combine(plan.date, time()) if block == 0 else None, label,
                           float(plan.charge_kwh[section].sum()), float(plan.discharge_kwh[section].sum()),
                           ("0:00" if block == 0 else "24:00") if block < 2 else None,
-                          cfg.INITIAL_SOC_KWH if block == 0 else float(plan.soc_end_kwh[-1]) if block == 1 else None]
+                          plan.initial_soc_kwh if block == 0 else float(plan.soc_end_kwh[-1]) if block == 1 else None]
                 battery.row_dimensions[row].height = battery_heights[block]
                 for col, value in enumerate(values, 1):
                     cell = battery.cell(row, col, value)

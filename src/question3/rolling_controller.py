@@ -14,9 +14,12 @@ def validate_policy(update_hours):
         raise ValueError("rolling_controller: update hours must start at 0 and increase within (0,6,12,18)")
 
 
-def solve_day(target_date, price, builder, update_hours=cfg.Q3_FINAL_UPDATE_HOURS) -> DailySchedule:
+def solve_day(target_date, price, builder, update_hours=cfg.Q3_FINAL_UPDATE_HOURS,
+              initial_soc_kwh=None, soc_policy="daily_closed", continuation_price=None) -> DailySchedule:
     validate_policy(update_hours)
-    plan0 = solve_initial_plan(price, builder.build(target_date, 0))
+    def scenarios(hour):
+        return builder.build(target_date, hour) if soc_policy == "daily_closed" else builder.build(target_date, hour, "issue_relative")
+    plan0 = solve_initial_plan(price, scenarios(0), initial_soc_kwh, soc_policy, continuation_price)
     logging.debug("%s 0:00 solved", target_date)
     fields = ("grid_kwh", "charge_kwh", "discharge_kwh", "soc_end_kwh")
     current = [getattr(plan0, name).copy() for name in fields]
@@ -28,10 +31,10 @@ def solve_day(target_date, price, builder, update_hours=cfg.Q3_FINAL_UPDATE_HOUR
         if hour:
             # 界面输入只包含前版未来合同、已执行段末SOC和当前场景。
             boundary_soc = executed[3][start - 1]
-            revision = solve_adjustment(price, builder.build(target_date, hour), current[0][start:].copy(), boundary_soc)
+            revision = solve_adjustment(price, scenarios(hour), current[0][start:].copy(), boundary_soc, soc_policy, continuation_price)
             revisions.append(revision)
             for values, field in zip(current, fields):
-                values[start:] = getattr(revision.plan, field)
+                values[start:] = getattr(revision.plan, field)[:144-start]
             logging.debug("%s %d:00 adjusted, cashflow=%.6f", target_date, hour, revision.adjustment_cashflow_yuan)
         for frozen, values in zip(executed, current):
             if not np.isnan(frozen[start:stop]).all():
