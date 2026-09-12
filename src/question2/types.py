@@ -24,6 +24,9 @@ class ScenarioSet:
     history_dates: tuple[date, ...]
     net_load_kwh: np.ndarray
     probability: np.ndarray
+    method: str = "raw_equal"
+    load_kw: np.ndarray | None = None
+    pv_kw: np.ndarray | None = None
 
 
 @dataclass(frozen=True)
@@ -49,6 +52,12 @@ class DailyEvaluation:
     planned_cost: float
     emergency_cost: float
     total_cost: float
+    scenario_method: str = "raw_equal"
+    mean_scenario_load_kwh: float | None = None
+    p80_scenario_load_kwh: float | None = None
+    actual_load_kwh: float | None = None
+    scenario_mean_bias_kwh: float | None = None
+    scenario_p80_coverage: float | None = None
 
 
 @dataclass(frozen=True)

@@ -12,7 +12,12 @@ import numpy as np
 
 from src.question2 import config as cfg
 from src.question2.data_loader import load_actual, load_price
-from src.question2.scenario_builder import build_rolling_scenarios, validate_scenarios
+from src.question2.forecast import (
+    build_weekday_load_profile, compute_recent_load_trend, forecast_load_weekday_trend,
+)
+from src.question2.scenario_builder import (
+    SCENARIO_METHODS, build_rolling_scenarios, build_scenarios, validate_scenarios,
+)
 from src.question2.optimizer import solve
 from src.question2.controller import execute_causal_day
 from src.question2.evaluator import evaluate, evaluate_causal_storage, evaluate_frozen_storage
@@ -69,8 +74,47 @@ class Question2Tests(TestCase):
     def test_lookahead_and_nonuniform_weights_rejected(self):
         with self.assertRaisesRegex(ValueError, "no lookahead"):
             validate_scenarios(replace(self.scenarios, history_dates=self.scenarios.history_dates[1:] + (self.scenarios.target_date,)))
+        weights = np.arange(1, 32, dtype=float)
+        weights /= weights.sum()
         with self.assertRaisesRegex(ValueError, "equal"):
-            validate_scenarios(replace(self.scenarios, probability=np.ones(31)))
+            validate_scenarios(replace(self.scenarios, probability=weights))
+
+    def test_corrected_and_residual_scenarios_have_no_future_leakage(self):
+        index = 171
+        load, pv = self.actual.load_kw.copy(), self.actual.pv_kw.copy()
+        load[index:] += 1e6
+        pv[index:] += 2e6
+        changed = replace(self.actual, load_kw=load, pv_kw=pv,
+                          net_load_kwh=(load - pv) * cfg.TIME_STEP_HOURS)
+        for method in SCENARIO_METHODS:
+            with self.subTest(method=method):
+                first = build_scenarios(self.actual, index, method)
+                second = build_scenarios(changed, index, method)
+                np.testing.assert_allclose(first.load_kw, second.load_kw, rtol=0, atol=1e-10)
+                np.testing.assert_allclose(first.pv_kw, second.pv_kw, rtol=0, atol=1e-10)
+                np.testing.assert_allclose(first.net_load_kwh, second.net_load_kwh, rtol=0, atol=1e-10)
+                np.testing.assert_array_equal(first.probability, second.probability)
+                solve_first, solve_second = solve(self.price.price, first), solve(self.price.price, second)
+                np.testing.assert_allclose(solve_first.grid_kwh, solve_second.grid_kwh,
+                                           rtol=0, atol=cfg.RESIDUAL_TOL)
+
+    def test_weekday_profile_and_trend_ignore_target_and_future(self):
+        index = 171
+        load = self.actual.load_kw.copy()
+        load[index:] += 1e6
+        changed = replace(self.actual, load_kw=load)
+        functions = (build_weekday_load_profile, compute_recent_load_trend, forecast_load_weekday_trend)
+        for function in functions:
+            with self.subTest(function=function.__name__):
+                np.testing.assert_allclose(function(self.actual, index), function(changed, index), rtol=0, atol=1e-10)
+
+    def test_weighted_scenarios_are_normalized_and_nonuniform(self):
+        for method in ("weekday_trend_weighted", "residual_weighted"):
+            scenarios = build_scenarios(self.actual, 171, method)
+            validate_scenarios(scenarios)
+            self.assertAlmostEqual(scenarios.probability.sum(), 1)
+            self.assertGreater(np.ptp(scenarios.probability), 0)
+            self.assertTrue(all(day < scenarios.target_date for day in scenarios.history_dates))
 
     def test_lp_feasible_and_terminal_soc(self):
         self.assertLessEqual(validate_plan(self.plan), 1e-5)
@@ -125,7 +169,9 @@ class Question2Tests(TestCase):
                 solve(self.price.price, self.scenarios)
 
     def test_constant_scenario_known_cost(self):
-        scenarios = replace(self.scenarios, net_load_kwh=np.full((31, 144), 100.0))
+        load = np.full((31, 144), 600.0)
+        scenarios = replace(self.scenarios, net_load_kwh=np.full((31, 144), 100.0),
+                            load_kw=load, pv_kw=np.zeros_like(load))
         price = np.ones(144)
         plan = solve(price, scenarios)
         self.assertAlmostEqual(plan.expected_objective, 14400, places=5)
@@ -265,12 +311,12 @@ class Question2ExportTests(TestCase):
                     self.assertEqual(values["计划购电量"], item.plan.grid_kwh[slot])
                     self.assertEqual(values["实际紧急购电量"], item.emergency_kwh[slot])
 
-    def test_ablation_summary_requires_identical_named_strategies(self):
+    def test_ablation_summary_requires_baseline(self):
         summary = build_ablation_summary({"baseline": self.results, "causal_mpc": self.results})
         self.assertEqual(summary["selected_strategy"], "baseline")
         self.assertTrue(all(row["saving_vs_A0"] == 0 for row in summary["strategies"]))
         with self.assertRaises(ValueError):
-            build_ablation_summary({"baseline": self.results})
+            build_ablation_summary({"causal_mpc": self.results})
 
 
 if __name__ == "__main__":

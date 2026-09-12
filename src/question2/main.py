@@ -7,7 +7,7 @@ import logging
 from . import config as cfg
 from .data_loader import load_actual, load_price
 from .exporter import export_result, read_template_labels
-from .pipeline import run_ablation, run_annual
+from .pipeline import STRATEGIES, run_ablation, run_annual
 from .summary import build_ablation_summary, build_summaries, daily_metrics
 
 
@@ -20,8 +20,8 @@ def _write_csv(path, rows):
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="问题2：31天等权历史场景随机LP，2025年2—12月")
-    parser.add_argument("--strategy", choices=("baseline", "causal_mpc", "compare"), default="causal_mpc",
-                        help="baseline精确复现A0；causal_mpc执行A1；compare用同一合同并列回测A0/A1")
+    parser.add_argument("--strategy", choices=STRATEGIES + ("compare",), default=cfg.OFFICIAL_STRATEGY,
+                        help="baseline精确复现A0；compare执行全部预设场景与因果储能消融")
     parser.add_argument("--debug", action="store_true", help="输出独立校验残差")
     parser.add_argument("--no-plots", action="store_true", help="只生成Excel、JSON、CSV，跳过绘图")
     args = parser.parse_args()

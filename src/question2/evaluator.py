@@ -48,3 +48,32 @@ def evaluate_causal_storage(
 
 # 旧入口固定代表A0，供问题4基线与已有调用保持精确回归。
 evaluate = evaluate_frozen_storage
+
+
+def attach_scenario_diagnostics(
+    evaluation: DailyEvaluation,
+    scenarios: ScenarioSet,
+    actual_load_kw: np.ndarray,
+) -> DailyEvaluation:
+    """追加只用于事后评价的场景中心、P80覆盖率和实际负荷偏差。"""
+    array_check(actual_load_kw, (cfg.N_SLOTS,), str(evaluation.plan.date), "actual load", True)
+    order = np.argsort(scenarios.load_kw, axis=0, kind="stable")
+    sorted_load = np.take_along_axis(scenarios.load_kw, order, axis=0)
+    sorted_probability = np.take_along_axis(
+        np.broadcast_to(scenarios.probability[:, None], scenarios.load_kw.shape), order, axis=0
+    )
+    cumulative = np.cumsum(sorted_probability, axis=0)
+    positions = np.argmax(cumulative >= 0.8, axis=0)
+    p80 = sorted_load[positions, np.arange(cfg.N_SLOTS)]
+    mean = scenarios.probability @ scenarios.load_kw
+    actual_energy = float(actual_load_kw.sum() * cfg.TIME_STEP_HOURS)
+    mean_energy = float(mean.sum() * cfg.TIME_STEP_HOURS)
+    return replace(
+        evaluation,
+        scenario_method=scenarios.method,
+        mean_scenario_load_kwh=mean_energy,
+        p80_scenario_load_kwh=float(p80.sum() * cfg.TIME_STEP_HOURS),
+        actual_load_kwh=actual_energy,
+        scenario_mean_bias_kwh=mean_energy - actual_energy,
+        scenario_p80_coverage=float(np.mean(actual_load_kw <= p80)),
+    )

@@ -13,7 +13,13 @@ METRICS = ("planned_grid_total", "emergency_total", "total_grid_purchase",
 
 def daily_metrics(item: DailyEvaluation) -> dict:
     return {"date": item.plan.date.isoformat(), **{name: getattr(item, name) for name in METRICS},
-            "surplus_kwh": float(item.surplus_kwh.sum())}
+            "surplus_kwh": float(item.surplus_kwh.sum()),
+            "scenario_method": item.scenario_method,
+            "mean_scenario_load_kwh": item.mean_scenario_load_kwh,
+            "p80_scenario_load_kwh": item.p80_scenario_load_kwh,
+            "actual_load_kwh": item.actual_load_kwh,
+            "scenario_mean_bias_kwh": item.scenario_mean_bias_kwh,
+            "scenario_p80_coverage": item.scenario_p80_coverage}
 
 
 def _strategy_metrics(evaluations: list[DailyEvaluation]) -> dict:
@@ -24,19 +30,32 @@ def _strategy_metrics(evaluations: list[DailyEvaluation]) -> dict:
         "max_daily_emergency_kwh": max(item.emergency_total for item in evaluations),
         "max_daily_total_cost": max(item.total_cost for item in evaluations),
     })
+    if all(item.mean_scenario_load_kwh is not None for item in evaluations):
+        totals.update({
+            "mean_scenario_load_kwh": float(sum(item.mean_scenario_load_kwh for item in evaluations)),
+            "p80_scenario_load_kwh": float(sum(item.p80_scenario_load_kwh for item in evaluations)),
+            "actual_load_kwh": float(sum(item.actual_load_kwh for item in evaluations)),
+            "scenario_mean_bias_kwh": float(sum(item.scenario_mean_bias_kwh for item in evaluations)),
+            "scenario_p80_coverage": float(np.mean([item.scenario_p80_coverage for item in evaluations])),
+        })
     return totals
 
 
 def build_ablation_summary(results: dict[str, list[DailyEvaluation]]) -> dict:
     """A0/A1年度结算及相对基线变化；排序只使用真实结算总费用。"""
-    if set(results) != {"baseline", "causal_mpc"}:
-        raise ValueError("question2 ablation: expected baseline and causal_mpc")
+    if "baseline" not in results or not results:
+        raise ValueError("question2 ablation: baseline is required")
     baseline = _strategy_metrics(results["baseline"])
     strategies = []
-    for name in ("baseline", "causal_mpc"):
-        values = _strategy_metrics(results[name])
+    labels = {"baseline": "A0", "causal_mpc": "A1", "weekday_corrected": "A2",
+              "weekday_trend_corrected": "A3", "weekday_trend_weighted": "A4",
+              "residual_equal": "A5", "weekday_trend_causal": "A6",
+              "residual_weighted_causal": "A7", "level_scaled": "level-scale"}
+    for name, evaluations in results.items():
+        values = _strategy_metrics(evaluations)
         values.update({
             "strategy": name,
+            "ablation": labels.get(name, name),
             "delta_total_cost_vs_A0": values["total_cost"] - baseline["total_cost"],
             "saving_vs_A0": baseline["total_cost"] - values["total_cost"],
             "saving_ratio_vs_A0": ((baseline["total_cost"] - values["total_cost"]) / baseline["total_cost"]),
@@ -45,7 +64,7 @@ def build_ablation_summary(results: dict[str, list[DailyEvaluation]]) -> dict:
         })
         strategies.append(values)
     return {
-        "experiment": "A0 frozen storage vs A1 fixed identical grid contract plus causal battery MPC",
+        "experiment": "Question2 A0-A7 causal-control and no-lookahead scenario ablation",
         "period": f"{cfg.START_DATE} ~ {cfg.END_DATE}",
         "ranking_metric": "actual settlement total_cost",
         "strategies": strategies,

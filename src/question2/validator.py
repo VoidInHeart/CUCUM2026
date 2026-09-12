@@ -44,8 +44,9 @@ def validate_lp(price: np.ndarray, scenarios: ScenarioSet, plan: DailyPlan,
     require(plan.date == scenarios.target_date, context, "scenario target date differs from plan")
     soc_residual = validate_plan(plan)
     array_check(price, (cfg.N_SLOTS,), context, "price", True)
+    scenario_count = len(scenarios.history_dates)
     for name, array in (("emergency", emergency), ("surplus", surplus)):
-        array_check(array, (cfg.HISTORY_WINDOW_DAYS, cfg.N_SLOTS), context, name, True)
+        array_check(array, (scenario_count, cfg.N_SLOTS), context, name, True)
     scheduled = plan.grid_kwh + plan.discharge_kwh - plan.charge_kwh
     balance = scheduled[None, :] + emergency - surplus - scenarios.net_load_kwh
     max_residual = float(np.max(np.abs(balance)))
