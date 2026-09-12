@@ -23,6 +23,7 @@ from src.question3.validator import validate_schedule, validate_day, validate_re
 from src.question3.analysis import forecast_accuracy, result_update_hours
 from src.question3.exporter import export_result, read_template_labels
 from src.question3.summary import build_summary
+from src.question3.storage import save_daily_results, load_daily_results
 from src.question2.forecast import forecast_load
 from src.question2.emergency import merge_emergency_intervals
 from openpyxl import load_workbook
@@ -252,6 +253,12 @@ class Question3Tests(TestCase):
         )
         validate_day(self.price.price, result, cfg.Q3_FINAL_UPDATE_HOURS)
         self.assertAlmostEqual(schedule.executed_soc_end[-1], cfg.FINAL_SOC_KWH, places=6)
+        with TemporaryDirectory() as directory:
+            path = Path(directory) / "causal.jsonl"
+            save_daily_results(path, [result])
+            restored = load_daily_results(path)[0]
+            self.assertEqual(restored.schedule.storage_execution, "causal_mpc")
+            validate_day(self.price.price, restored, cfg.Q3_FINAL_UPDATE_HOURS)
 
     def test_causal_storage_prefix_does_not_see_future_actual_net_load(self):
         builder = RollingScenarioBuilder(self.annual, self.forecasts, cfg.SCENARIO_METHOD)
@@ -364,6 +371,7 @@ class Question3ExportTests(TestCase):
         summary = build_summary(self.results, self.labels)
         self.assertEqual(summary["update_hours"], [0, 6, 12])
         self.assertEqual(summary["policy"], "0+6+12")
+        self.assertEqual(summary["storage_execution"], "frozen")
         self.assertEqual(set(summary["paper_dates"]), {str(day) for day in cfg.PAPER_DATES})
         for day, tables in summary["paper_dates"].items():
             result = self.results[cfg.OUTPUT_DATES.index(date.fromisoformat(day))]
@@ -377,12 +385,13 @@ class Question3ExportTests(TestCase):
         import contextlib
         import io
         main_results = self.results
-        historical = object()
+        historical = [replace(result, total_cost=result.total_cost + 1) for result in self.results]
         def run_policy(hours, *args):
             return main_results if hours == cfg.Q3_FINAL_UPDATE_HOURS else historical
         with patch("sys.argv", ["run_question3.py", "--no-plots"]), \
              patch("src.question3.main.evaluate_update_policy", side_effect=run_policy) as solve, \
              patch("src.question3.main.summarize_policies", return_value=[]) as ablate, \
+             patch("src.question3.main.evaluate_model_ablation", return_value=[]) as model_ablate, \
              patch("src.question3.main.forecast_accuracy", return_value=[]), \
              patch("src.question3.main.build_summary", return_value={"annual": {}}) as summary, \
              patch("src.question3.main.save_analysis") as save, \
@@ -391,6 +400,7 @@ class Question3ExportTests(TestCase):
             self.assertEqual(solve.call_args_list[0].args[0], (0,6,12))
             self.assertEqual({call.args[0] for call in solve.call_args_list}, set(cfg.POLICIES))
             self.assertIs(ablate.call_args.args[0][cfg.ISSUE_HOURS], historical)
+            self.assertIs(model_ablate.call_args.args[3][cfg.Q3_FINAL_UPDATE_HOURS], main_results)
             self.assertIs(summary.call_args.args[0], main_results)
             self.assertIs(save.call_args.args[1], main_results)
             self.assertIs(export.call_args.args[1], main_results)

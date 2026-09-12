@@ -8,7 +8,7 @@ from . import config as cfg
 from .analysis import daily_metrics, result_update_hours, policy_name
 
 
-def build_summary(results, labels):
+def build_summary(results, labels, scenario_method=None):
     hours = result_update_hours(results)
     label_to_index = {label: i for i, label in enumerate(labels)}
     if set(TABLE1_LABELS) - label_to_index.keys():
@@ -38,4 +38,6 @@ def build_summary(results, labels):
     if len(papers) != 4:
         raise ValueError("question3 summary: missing specified dates")
     return {"units": {"energy": "kWh", "cost": "yuan", "power": "kW"},
+            "scenario_method": scenario_method,
+            "storage_execution": results[0].schedule.storage_execution,
             "update_hours": list(hours), "policy": policy_name(hours), "annual": annual, "paper_dates": papers}

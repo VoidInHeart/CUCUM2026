@@ -20,3 +20,6 @@ POLICIES = ((0,), (0, 6), (0, 6, 12), (0, 6, 12, 18), (0, 12, 18), (0, 6, 18))
 Q3_FINAL_UPDATE_HOURS = (0, 6, 12)
 SCENARIO_METHODS = ("raw_equal", "paired_residual_weighted")
 SCENARIO_METHOD = "paired_residual_weighted"
+STORAGE_EXECUTIONS = ("frozen", "causal_mpc")
+STORAGE_EXECUTION = "causal_mpc"
+MODEL_ABLATION_POLICY = (0, 6, 12)

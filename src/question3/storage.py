@@ -28,7 +28,8 @@ def write_csv(path, rows):
         writer.writerows(rows)
 
 
-def save_analysis(directory, main_results, policy_results, summary, ablations, accuracy):
+def save_analysis(directory, main_results, policy_results, summary, ablations, accuracy,
+                  model_ablations=None):
     directory = Path(directory)
     directory.mkdir(parents=True, exist_ok=True)
     write_json(directory / "summary.json", summary)
@@ -36,6 +37,9 @@ def save_analysis(directory, main_results, policy_results, summary, ablations, a
     write_json(directory / "ablation_summary.json", ablations)
     write_csv(directory / "forecast_accuracy.csv", accuracy)
     write_json(directory / "forecast_accuracy.json", accuracy)
+    if model_ablations is not None:
+        write_csv(directory / "model_ablation_summary.csv", model_ablations)
+        write_json(directory / "model_ablation_summary.json", model_ablations)
     write_csv(directory / "policy_daily_metrics.csv", [
         {"policy": policy_name(hours), **daily_metrics(result)} for hours, results in policy_results.items() for result in results])
     save_daily_results(directory / "daily_results.jsonl", main_results)

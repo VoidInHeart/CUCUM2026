@@ -7,7 +7,9 @@ from ..question2.data_loader import load_price, load_actual
 from . import config as cfg
 from .forecast_loader import load_forecasts
 from .rolling_scenario_builder import RollingScenarioBuilder
-from .analysis import evaluate_update_policy, summarize_policies, forecast_accuracy
+from .analysis import (
+    evaluate_update_policy, evaluate_model_ablation, summarize_policies, forecast_accuracy,
+)
 from .exporter import read_template_labels, export_result
 from .summary import build_summary
 from .storage import save_analysis, load_analysis
@@ -32,17 +34,29 @@ def main():
         labels = read_template_labels()
         annual = load_actual(price=price)
         forecasts = load_forecasts()
-        builder = RollingScenarioBuilder(annual, forecasts)
-        # 主策略先完成；其它策略仅输出分析，不生成额外官方Excel。
-        main_hours = cfg.Q3_FINAL_UPDATE_HOURS
-        policies = [main_hours] + [hours for hours in cfg.POLICIES if hours != main_hours]
-        policy_results = {hours: evaluate_update_policy(hours, price.price, annual, builder) for hours in policies}
+        builder = RollingScenarioBuilder(annual, forecasts, cfg.SCENARIO_METHOD)
+        # 升级后重新比较全部更新时间；先跑旧主策略便于尽早暴露回归。
+        policies = [cfg.Q3_FINAL_UPDATE_HOURS] + [hours for hours in cfg.POLICIES
+                                                  if hours != cfg.Q3_FINAL_UPDATE_HOURS]
+        policy_results = {
+            hours: evaluate_update_policy(
+                hours, price.price, annual, builder, cfg.STORAGE_EXECUTION
+            ) for hours in policies
+        }
         policy_results = {hours: policy_results[hours] for hours in cfg.POLICIES}
+        main_hours = min(
+            cfg.POLICIES,
+            key=lambda hours: sum(result.total_cost for result in policy_results[hours]),
+        )
         results = policy_results[main_hours]
         ablations = summarize_policies(policy_results)
+        model_ablations = evaluate_model_ablation(
+            price.price, annual, forecasts, policy_results
+        )
         accuracy = forecast_accuracy(annual, forecasts)
-        summary = build_summary(results, labels)
-        save_analysis(cfg.OUTPUT_DIR, results, policy_results, summary, ablations, accuracy)
+        summary = build_summary(results, labels, cfg.SCENARIO_METHOD)
+        save_analysis(cfg.OUTPUT_DIR, results, policy_results, summary, ablations, accuracy,
+                      model_ablations)
         if not args.no_plots:
             from .visualization import plot_results
             from .analysis import daily_metrics, policy_name
@@ -53,7 +67,9 @@ def main():
         logging.error("Question3 failed: %s", exc)
         return 1
     print(f"Question 3 solved: main policy={main_hours}, 334 days, 6 update policies, all checks passed.")
-    print(json.dumps({"annual": summary["annual"], "ablation": ablations, "forecast_accuracy": accuracy}, ensure_ascii=False, indent=2))
+    print(json.dumps({"annual": summary["annual"], "policy_ablation": ablations,
+                      "model_ablation": model_ablations, "forecast_accuracy": accuracy},
+                     ensure_ascii=False, indent=2))
     print(f"Official result: {cfg.RESULT_XLSX}\nFigures and summaries: {cfg.OUTPUT_DIR}")
     return 0
 

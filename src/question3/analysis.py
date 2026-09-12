@@ -3,7 +3,7 @@ import logging
 import numpy as np
 
 from . import config as cfg
-from .rolling_controller import solve_day, validate_policy
+from .rolling_controller import solve_day, solve_day_causal, validate_policy
 from .evaluator import evaluate_actual_day
 from .validator import validate_complete
 from .forecast_interpolator import interpolate_hourly_pv_forecast
@@ -24,14 +24,18 @@ def result_update_hours(results):
     return hours
 
 
-def evaluate_update_policy(update_hours, price, annual, builder):
+def evaluate_update_policy(update_hours, price, annual, builder, storage_execution="frozen"):
     validate_policy(update_hours)
+    if storage_execution not in cfg.STORAGE_EXECUTIONS:
+        raise ValueError(f"question3: unknown storage execution {storage_execution!r}")
     results = []
     for i, target in enumerate(cfg.OUTPUT_DATES):
         try:
             daily_price = price_for_date(price, target)
-            schedule = solve_day(target, daily_price, builder, update_hours)
             actual = annual.net_load_kwh[builder.date_index[target]]
+            schedule = (solve_day(target, daily_price, builder, update_hours)
+                        if storage_execution == "frozen" else
+                        solve_day_causal(target, daily_price, builder, actual, update_hours))
             result = evaluate_actual_day(daily_price, schedule, actual, update_hours)
         except Exception as exc:
             raise RuntimeError(f"{target} policy {policy_name(update_hours)} failed: {exc}") from exc
@@ -41,6 +45,41 @@ def evaluate_update_policy(update_hours, price, annual, builder):
                      result.adjustment_cost, result.total_cost)
     validate_complete(price, results, update_hours)
     return results
+
+
+def evaluate_model_ablation(price, annual, forecasts, upgraded_policy_results):
+    """固定旧主策略，分离场景修正和储能因果执行各自的边际贡献。"""
+    specs = (
+        ("raw_frozen", "raw_equal", "frozen"),
+        ("residual_frozen", "paired_residual_weighted", "frozen"),
+        ("raw_causal", "raw_equal", "causal_mpc"),
+        ("residual_causal", "paired_residual_weighted", "causal_mpc"),
+    )
+    model_results = {}
+    for code, scenario_method, storage_execution in specs:
+        if code == "residual_causal":
+            results = upgraded_policy_results[cfg.MODEL_ABLATION_POLICY]
+        else:
+            from .rolling_scenario_builder import RollingScenarioBuilder
+            builder = RollingScenarioBuilder(annual, forecasts, scenario_method)
+            results = evaluate_update_policy(
+                cfg.MODEL_ABLATION_POLICY, price, annual, builder, storage_execution
+            )
+        model_results[code] = results
+    rows = []
+    for code, scenario_method, storage_execution in specs:
+        metrics = [daily_metrics(result) for result in model_results[code]]
+        totals = {key: float(sum(row[key] for row in metrics))
+                  for key in metrics[0] if key != "date"}
+        rows.append({"model": code, "scenario_method": scenario_method,
+                     "storage_execution": storage_execution,
+                     "policy": policy_name(cfg.MODEL_ABLATION_POLICY), **totals})
+    baseline = rows[0]["total_cost"]
+    for row in rows:
+        row["savings_vs_raw_frozen_yuan"] = baseline - row["total_cost"]
+        row["savings_vs_raw_frozen_ratio"] = ((baseline - row["total_cost"]) / baseline
+                                                if baseline else 0.0)
+    return rows
 
 
 def daily_metrics(result):
