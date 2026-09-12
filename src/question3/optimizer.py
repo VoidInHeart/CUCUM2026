@@ -16,7 +16,7 @@ from .validator import validate_lp
 @dataclass(frozen=True)
 class Index:
     h: int
-    s: int = cfg.HISTORY_WINDOW_DAYS
+    s: int
 
     def grid(self, t): return t
     def charge(self, t): return self.h + t
@@ -28,9 +28,9 @@ class Index:
     def down(self, t): return (5 + 2 * self.s) * self.h + t
 
 
-@lru_cache(maxsize=4)
-def _structure(h, adjustment):
-    idx = Index(h)
+@lru_cache(maxsize=16)
+def _structure(h, scenario_count, adjustment):
+    idx = Index(h, scenario_count)
     nrows = idx.s * h + h + 1 + (h if adjustment else 0)
     nvars = (4 + 2 * idx.s + (2 if adjustment else 0)) * h
     matrix = lil_matrix((nrows, nvars))
@@ -67,8 +67,8 @@ def _solve(price, scenarios, initial_soc, old_grid=None):
     adjustment = old_grid is not None
     if adjustment:
         array_check(old_grid, (h,), context, "old_grid", True)
-    idx = Index(h)
-    matrix = _structure(h, adjustment)
+    idx = Index(h, len(scenarios.history_dates))
+    matrix = _structure(h, idx.s, adjustment)
     q = price[start:]
     objective = np.zeros(matrix.shape[1])
     objective[h:3 * h] = cfg.EPS_THROUGHPUT

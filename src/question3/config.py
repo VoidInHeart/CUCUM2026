@@ -18,3 +18,5 @@ CANCEL_REFUND_MULTIPLIER = 0.5
 POLICIES = ((0,), (0, 6), (0, 6, 12), (0, 6, 12, 18), (0, 12, 18), (0, 6, 18))
 # 消融选定的官方主策略，同时供第三问主运行和第四问比较使用。
 Q3_FINAL_UPDATE_HOURS = (0, 6, 12)
+SCENARIO_METHODS = ("raw_equal", "paired_residual_weighted")
+SCENARIO_METHOD = "paired_residual_weighted"

@@ -27,6 +27,9 @@ class RollingScenarios:
     pv_scenario_kw: np.ndarray
     net_load_kwh: np.ndarray
     probability: np.ndarray
+    load_forecast_kw: np.ndarray
+    load_scenario_kw: np.ndarray
+    method: str
 
 
 @dataclass(frozen=True)

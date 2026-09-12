@@ -23,6 +23,7 @@ from src.question3.validator import validate_schedule, validate_day, validate_re
 from src.question3.analysis import forecast_accuracy, result_update_hours
 from src.question3.exporter import export_result, read_template_labels
 from src.question3.summary import build_summary
+from src.question2.forecast import forecast_load
 from src.question2.emergency import merge_emergency_intervals
 from openpyxl import load_workbook
 
@@ -84,6 +85,49 @@ class Question3Tests(TestCase):
                 self.assertAlmostEqual(scenarios.probability.sum(), 1)
                 self.assertGreaterEqual(scenarios.pv_scenario_kw.min(), 0)
 
+    def test_paired_residual_scenarios_keep_same_day_errors_and_dynamic_count(self):
+        builder = RollingScenarioBuilder(self.annual, self.forecasts, "paired_residual_weighted")
+        first = builder.build(cfg.START_DATE, 0)
+        self.assertEqual(len(first.history_dates), 30)
+        self.assertGreater(np.ptp(first.probability), 0)
+        scenarios = builder.build(self.day, 12)
+        validate_scenarios(scenarios)
+        self.assertEqual(len(scenarios.history_dates), 31)
+        history_index = builder.date_index[scenarios.history_dates[-1]]
+        start = cfg.ISSUE_SLOT[12]
+        expected_load = np.maximum(
+            scenarios.load_forecast_kw + self.annual.load_kw[history_index, start:]
+            - forecast_load(self.annual, history_index)[start:], 0
+        )
+        expected_pv = np.maximum(
+            scenarios.forecast_kw + builder.errors.get(
+                scenarios.history_dates[-1], 12, before=self.day
+            ), 0
+        )
+        np.testing.assert_allclose(scenarios.load_scenario_kw[-1], expected_load)
+        np.testing.assert_allclose(scenarios.pv_scenario_kw[-1], expected_pv)
+        solve_initial_plan(self.price.price, first)
+
+    def test_paired_residual_scenarios_do_not_read_target_future(self):
+        hour = 12
+        start = cfg.ISSUE_SLOT[hour]
+        load, pv = self.annual.load_kw.copy(), self.annual.pv_kw.copy()
+        load[self.index, start:] += 1e6
+        pv[self.index, start:] += 1e6
+        load[self.index + 1:] += 1e6
+        pv[self.index + 1:] += 1e6
+        altered = replace(self.annual, load_kw=load, pv_kw=pv)
+        allowed = {key: value for key, value in self.forecasts[self.day].issues.items() if key <= hour}
+        forecasts = {**self.forecasts, self.day: replace(self.forecasts[self.day], issues=allowed)}
+        original = RollingScenarioBuilder(
+            self.annual, self.forecasts, "paired_residual_weighted"
+        ).build(self.day, hour)
+        changed = RollingScenarioBuilder(
+            altered, forecasts, "paired_residual_weighted"
+        ).build(self.day, hour)
+        np.testing.assert_allclose(original.net_load_kwh, changed.net_load_kwh, rtol=0, atol=1e-9)
+        np.testing.assert_array_equal(original.probability, changed.probability)
+
     def test_future_actual_and_unreleased_forecasts_not_accessed(self):
         for hour in cfg.ISSUE_HOURS:
             start = cfg.ISSUE_SLOT[hour]
@@ -115,9 +159,19 @@ class Question3Tests(TestCase):
 
     def test_known_initial_and_adjustment_objectives(self):
         price = np.ones(144)
-        initial = replace(self.builder.build(self.day, 0), net_load_kwh=np.full((31, 144), 100.0))
+        source = self.builder.build(self.day, 0)
+        initial = replace(
+            source,
+            load_scenario_kw=source.pv_scenario_kw + 600.0,
+            net_load_kwh=np.full((31, 144), 100.0),
+        )
         self.assertAlmostEqual(solve_initial_plan(price, initial).solver_objective, 14400, places=5)
-        scenarios = replace(self.builder.build(self.day, 18), net_load_kwh=np.full((31, 36), 100.0))
+        source = self.builder.build(self.day, 18)
+        scenarios = replace(
+            source,
+            load_scenario_kw=source.pv_scenario_kw + 600.0,
+            net_load_kwh=np.full((31, 36), 100.0),
+        )
         down = solve_adjustment(price, scenarios, np.full(36, 200.0), 6000)
         up = solve_adjustment(price, scenarios, np.zeros(36), 6000)
         self.assertAlmostEqual(down.adjustment_cashflow_yuan, -1800, places=5)
