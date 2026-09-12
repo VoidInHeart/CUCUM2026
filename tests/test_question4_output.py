@@ -29,7 +29,9 @@ class Question4OutputTests(TestCase):
         day = cfg.PAPER_DATES[1]
         q = get_daily_price(prices, day)
         b42 = question4_2.solve_day(day, prices, actual)
-        builder = RollingScenarioBuilder(actual, load_forecasts())
+        builder = RollingScenarioBuilder(
+            actual, load_forecasts(), cfg.Q4_3_SCENARIO_METHOD
+        )
         b43 = question4_3.solve_day(day, prices, actual, builder)
         # 以已验证日构造完整导出日历，价格每天缩放，检查导出是否按日期选价。
         matrix = np.array([q*(1+i/365) for i in range(365)])

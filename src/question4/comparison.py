@@ -74,7 +74,11 @@ def compare(model, dynamic_rows, fixed_rows):
         correlations[key] = float(np.corrcoef(x, y)[0, 1]) if x.std() and y.std() else None
     return {"model": model, "period": "2025-02-01 ~ 2025-12-31", "days": 334,
             "update_hours": [0] if model == "4-2" else list(cfg.Q4_3_UPDATE_HOURS),
-            "baseline": "Q2 fixed price" if model == "4-2" else "Q3 fixed price, policy 0+6+12",
+            "baseline": ("Q2 A7 fixed price" if model == "4-2" else
+                         "Q3 paired-residual causal fixed price, policy 0+6+12"),
+            "scenario_method": (cfg.Q4_2_STRATEGY if model == "4-2" else
+                                cfg.Q4_3_SCENARIO_METHOD),
+            "storage_execution": cfg.Q4_STORAGE_EXECUTION,
             "price_assumption": "Attachment 4 full target-day settlement curve is given; no price prediction",
             "fixed_price": fixed, "dynamic_price": dynamic, "changes": changes,
             "price_range_pearson_correlation": correlations,

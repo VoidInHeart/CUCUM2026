@@ -7,9 +7,11 @@ from scipy.optimize import linprog
 
 from src.question2.data_loader import load_price, load_actual
 from src.question2.pipeline import solve_day as solve_q2
+from src.question2.scenario_builder import build_scenarios
+from src.question2.config import OFFICIAL_STRATEGY
 from src.question3.forecast_loader import load_forecasts
 from src.question3.rolling_scenario_builder import RollingScenarioBuilder
-from src.question3.rolling_controller import solve_day as solve_q3
+from src.question3.rolling_controller import solve_day_causal
 from src.question3.evaluator import evaluate_actual_day
 from src.question3.config import Q3_FINAL_UPDATE_HOURS
 from src.question4 import config as cfg, question4_2, question4_3
@@ -25,7 +27,9 @@ class Question4ModelTests(TestCase):
         cls.fixed = load_price().price
         cls.constant = replace(cls.prices, price_yuan_per_kwh=np.tile(cls.fixed, (365, 1)))
         cls.forecasts = load_forecasts()
-        cls.builder = RollingScenarioBuilder(cls.actual, cls.forecasts)
+        cls.builder = RollingScenarioBuilder(
+            cls.actual, cls.forecasts, cfg.Q4_3_SCENARIO_METHOD
+        )
         cls.day = cfg.PAPER_DATES[1]
         cls.q = get_daily_price(cls.prices, cls.day)
         cls.r42 = question4_2.solve_day(cls.day, cls.prices, cls.actual)
@@ -34,7 +38,7 @@ class Question4ModelTests(TestCase):
     def test_q42_fixed_price_regression(self):
         for day in cfg.PAPER_DATES:
             with self.subTest(day=day):
-                baseline = solve_q2(day, self.fixed, self.actual)
+                baseline = solve_q2(day, self.fixed, self.actual, OFFICIAL_STRATEGY)
                 result = question4_2.solve_day(day, self.constant, self.actual)
                 for key in ("grid_kwh", "charge_kwh", "discharge_kwh", "soc_end_kwh"):
                     np.testing.assert_allclose(getattr(result.plan, key), getattr(baseline.plan, key), atol=1e-5, rtol=0)
@@ -44,8 +48,13 @@ class Question4ModelTests(TestCase):
     def test_q43_fixed_price_regression(self):
         for day in cfg.PAPER_DATES:
             with self.subTest(day=day):
-                schedule = solve_q3(day, self.fixed, self.builder, Q3_FINAL_UPDATE_HOURS)
-                baseline = evaluate_actual_day(self.fixed, schedule, self.actual.net_load_kwh[self.builder.date_index[day]], Q3_FINAL_UPDATE_HOURS)
+                actual_net = self.actual.net_load_kwh[self.builder.date_index[day]]
+                schedule = solve_day_causal(
+                    day, self.fixed, self.builder, actual_net, Q3_FINAL_UPDATE_HOURS
+                )
+                baseline = evaluate_actual_day(
+                    self.fixed, schedule, actual_net, Q3_FINAL_UPDATE_HOURS
+                )
                 result = question4_3.solve_day(day, self.constant, self.actual, self.builder)
                 for key in ("executed_grid", "executed_charge", "executed_discharge", "executed_soc_end"):
                     np.testing.assert_allclose(getattr(result.schedule, key), getattr(schedule, key), atol=1e-5, rtol=0)
@@ -58,7 +67,12 @@ class Question4ModelTests(TestCase):
             question4_2.solve_day(self.day, self.prices, self.actual)
         objective = solver.call_args.args[0]
         np.testing.assert_array_equal(objective[:144], self.q)
-        np.testing.assert_allclose(objective[4*144:35*144].reshape(31,144), np.tile(5*self.q/31, (31,1)))
+        index = self.actual.dates.index(self.day)
+        scenarios = build_scenarios(self.actual, index, "residual_weighted")
+        np.testing.assert_allclose(
+            objective[4*144:35*144].reshape(31,144),
+            5 * scenarios.probability[:, None] * self.q,
+        )
 
     def test_q43_initial_adjustment_price_and_horizon(self):
         with patch("src.question3.optimizer.linprog", wraps=linprog) as solver:
@@ -68,10 +82,15 @@ class Question4ModelTests(TestCase):
             objective = call.args[0]
             q = self.q[6*hour:]
             h = len(q)
-            np.testing.assert_allclose(objective[4*h:35*h].reshape(31,h), np.tile(5*q/31, (31,1)))
+            scenarios = self.builder.build(self.day, hour)
+            count = len(scenarios.history_dates)
+            np.testing.assert_allclose(
+                objective[4*h:(4+count)*h].reshape(count,h),
+                5 * scenarios.probability[:, None] * q,
+            )
             if hour:
-                np.testing.assert_array_equal(objective[66*h:67*h], 1.5*q)
-                np.testing.assert_array_equal(objective[67*h:], -0.5*q)
+                np.testing.assert_array_equal(objective[(4+2*count)*h:(5+2*count)*h], 1.5*q)
+                np.testing.assert_array_equal(objective[(5+2*count)*h:], -0.5*q)
             else:
                 np.testing.assert_array_equal(objective[:h], q)
 
@@ -98,7 +117,9 @@ class Question4ModelTests(TestCase):
         self.assertEqual(cfg.Q4_3_UPDATE_HOURS, Q3_FINAL_UPDATE_HOURS)
         self.assertEqual(cfg.Q4_3_UPDATE_HOURS, (0, 6, 12))
         forecasts = {day: replace(f, issues={h: issue for h, issue in f.issues.items() if h != 18}) for day, f in self.forecasts.items()}
-        builder = RollingScenarioBuilder(self.actual, forecasts)
+        builder = RollingScenarioBuilder(
+            self.actual, forecasts, cfg.Q4_3_SCENARIO_METHOD
+        )
         with patch.object(builder, "build", wraps=builder.build) as build:
             result = question4_3.solve_day(self.day, self.prices, self.actual, builder)
         self.assertEqual([call.args[1] for call in build.call_args_list], [0,6,12])

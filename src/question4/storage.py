@@ -24,7 +24,11 @@ def input_hashes(model):
 def save_analysis(directory, model, prices, results, labels, dynamic_rows, fixed_rows, comparison):
     directory = Path(directory)
     directory.mkdir(parents=True, exist_ok=True)
-    summary = build_summaries(results, labels) if model == "4-2" else build_summary(results, labels)
+    summary = (build_summaries(results, labels) if model == "4-2" else
+               build_summary(results, labels, cfg.Q4_3_SCENARIO_METHOD))
+    summary["scenario_method"] = (cfg.Q4_2_STRATEGY if model == "4-2" else
+                                  cfg.Q4_3_SCENARIO_METHOD)
+    summary["storage_execution"] = cfg.Q4_STORAGE_EXECUTION
     for day, tables in summary["paper_dates"].items():
         tables["dynamic_price_yuan_per_kwh"] = get_daily_price(prices, date.fromisoformat(day))
         tables["price_slot_labels"] = prices.slot_labels
@@ -38,7 +42,9 @@ def save_analysis(directory, model, prices, results, labels, dynamic_rows, fixed
     write_csv(directory / "daily_metrics.csv", dynamic_rows)
     write_csv(directory / "fixed_price_daily_metrics.csv", fixed_rows)
     write_json(directory / "daily_metrics.json", {"dynamic": dynamic_rows, "fixed": fixed_rows})
-    write_json(directory / "manifest.json", {"schema": 1, "model": model, "update_hours": comparison["update_hours"],
+    write_json(directory / "manifest.json", {"schema": 2, "model": model, "update_hours": comparison["update_hours"],
+                                            "scenario_method": summary["scenario_method"],
+                                            "storage_execution": summary["storage_execution"],
                                             "input_sha256": input_hashes(model)})
 
 
@@ -47,7 +53,11 @@ def load_analysis(directory, model, prices):
     def read(name): return json.loads((directory / name).read_text(encoding="utf-8"))
     manifest = read("manifest.json")
     hours = [0] if model == "4-2" else list(cfg.Q4_3_UPDATE_HOURS)
-    if manifest != {"schema": 1, "model": model, "update_hours": hours, "input_sha256": input_hashes(model)}:
+    scenario_method = cfg.Q4_2_STRATEGY if model == "4-2" else cfg.Q4_3_SCENARIO_METHOD
+    if manifest != {"schema": 2, "model": model, "update_hours": hours,
+                    "scenario_method": scenario_method,
+                    "storage_execution": cfg.Q4_STORAGE_EXECUTION,
+                    "input_sha256": input_hashes(model)}:
         raise ValueError("question4 stored input hashes / model / policy changed; rerun calculation")
     stored_prices = read("prices.json")
     if (stored_prices["dates"] != list(map(str, prices.dates)) or stored_prices["slot_labels"] != list(prices.slot_labels)

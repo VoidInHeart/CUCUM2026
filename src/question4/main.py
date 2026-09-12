@@ -31,7 +31,7 @@ def main(model=None):
         if "4-3" in models and not args.plots_only:
             forecasts = load_forecasts()
             validate_alignment(prices, actual, forecasts)
-            builder = RollingScenarioBuilder(actual, forecasts)
+            builder = RollingScenarioBuilder(actual, forecasts, cfg.Q4_3_SCENARIO_METHOD)
         completed = {}
         for selected in models:
             directory = cfg.OUTPUT_DIR / ("question" + selected.replace("-", "_"))
