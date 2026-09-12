@@ -1,0 +1,44 @@
+{
+  "experiment": "A0 frozen storage vs A1 fixed identical grid contract plus causal battery MPC",
+  "period": "2025-02-01 ~ 2025-12-31",
+  "ranking_metric": "actual settlement total_cost",
+  "strategies": [
+    {
+      "planned_grid_total": 25433452.303556427,
+      "emergency_total": 477446.05741713784,
+      "total_grid_purchase": 25910898.360973563,
+      "planned_cost": 15771812.68749251,
+      "emergency_cost": 1837978.999053627,
+      "total_cost": 17609791.686546136,
+      "surplus_kwh": 6549667.514910343,
+      "emergency_days": 249,
+      "max_daily_emergency_kwh": 14534.890716666665,
+      "max_daily_total_cost": 96336.73786237057,
+      "strategy": "baseline",
+      "delta_total_cost_vs_A0": 0.0,
+      "saving_vs_A0": 0.0,
+      "saving_ratio_vs_A0": 0.0,
+      "delta_plan_cost": 0.0,
+      "delta_emergency_cost": 0.0
+    },
+    {
+      "planned_grid_total": 25433452.303556427,
+      "emergency_total": 432947.9881248045,
+      "total_grid_purchase": 25866400.29168123,
+      "planned_cost": 15771812.68749251,
+      "emergency_cost": 1545968.201566409,
+      "total_cost": 17317780.889058918,
+      "surplus_kwh": 6844504.151993181,
+      "emergency_days": 245,
+      "max_daily_emergency_kwh": 14377.510789506177,
+      "max_daily_total_cost": 94395.78194810566,
+      "strategy": "causal_mpc",
+      "delta_total_cost_vs_A0": -292010.79748721793,
+      "saving_vs_A0": 292010.79748721793,
+      "saving_ratio_vs_A0": 0.01658229709271995,
+      "delta_plan_cost": 0.0,
+      "delta_emergency_cost": -292010.79748721793
+    }
+  ],
+  "selected_strategy": "causal_mpc"
+}

@@ -5,7 +5,7 @@
 ```powershell
 & 'D:\Anaconda\envs\cucum2026\python.exe' -m pip install -r requirements.txt
 & 'D:\Anaconda\envs\cucum2026\python.exe' run_question1.py
-& 'D:\Anaconda\envs\cucum2026\python.exe' run_question2.py
+& 'D:\Anaconda\envs\cucum2026\python.exe' run_question2.py --strategy compare --no-plots
 & 'D:\Anaconda\envs\cucum2026\python.exe' run_question3.py
 ```
 
@@ -17,7 +17,9 @@
 & 'D:\Anaconda\envs\cucum2026\python.exe' run_question1.py --plot-only
 ```
 
-问题2默认串行求解全部334天，逐日打印进度，生成 Excel、论文摘要和图表。
+问题2默认使用固定原计划购电合同的逐10分钟因果储能MPC；`--strategy baseline` 精确复现
+原冻结储能结果，`--strategy compare` 用同一组合同并列回测 A0/A1，并输出消融比较。
+程序串行求解全部334天，逐日打印进度，生成 Excel、论文摘要和图表。
 `--no-plots` 可跳过图表；`--debug` 显示独立约束校验残差。
 
 ## 输入和输出
@@ -37,6 +39,8 @@
 | `target/附件5/result2.xlsx` | 问题2正式结果，三个官方工作表 |
 | `target/question2/summary.json` | 2—12月汇总，四个指定日期的表1/2/3数据 |
 | `target/question2/daily_metrics.csv` | 334天计划、紧急和实际总购电量与费用 |
+| `target/question2/ablation_summary.json/.csv` | A0冻结储能与A1因果储能的年度费用差异 |
+| `target/question2/*_daily_metrics.csv` | compare模式下两种策略的逐日结算明细 |
 | `target/question2/figures/` | 全年趋势、月度费用、紧急购电热力图和四个指定日期调度图 |
 
 图表同时保存 PNG 和矢量 PDF。显式使用微软雅黑，并依次回退至黑体、Noto Sans CJK SC、
@@ -47,7 +51,9 @@
 - 每天只向计划求解器传入此前31天的完整净负荷曲线，场景等权。
 - 第一阶段购电、充电、放电、SOC 在场景之间共享；紧急购电、富余电量是第二阶段变量。
 - 每日初末 SOC 均为6000 kWh；效率、功率及 SOC 边界复用问题1参数。
-- 计划求解器不接收全年真实数据。计划数组冻结后，再由评价模块接收当天实际净负荷。
+- A0计划求解器不接收全年真实数据并冻结全部数组。A1保持同一个0:00购电合同，在每个slot只加入
+  当期实际净负荷；未来基准来自0:00冻结计划隐含的净供能曲线，滚动LP按5倍逐时电价优化，
+  只执行首步并保证每日终端SOC仍为6000。
 - LP 的全部场景平衡在二阶段变量丢弃前独立校验，实际结算也独立校验。
 - `计划购电量` 表 B:EO 是计划量；EP 是计划量加实际紧急量；EQ 是计划费加5倍电价的紧急购电费。
 - 正式费用不含 `1e-8` 的吞吐量辅助惩罚。`expected_objective` 包含该项，仅作模型诊断。

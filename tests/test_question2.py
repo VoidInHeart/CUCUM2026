@@ -14,12 +14,13 @@ from src.question2 import config as cfg
 from src.question2.data_loader import load_actual, load_price
 from src.question2.scenario_builder import build_rolling_scenarios, validate_scenarios
 from src.question2.optimizer import solve
-from src.question2.evaluator import evaluate
+from src.question2.controller import execute_causal_day
+from src.question2.evaluator import evaluate, evaluate_causal_storage, evaluate_frozen_storage
 from src.question2.validator import validate_plan, validate_evaluation, validate_lp
 from src.question2.emergency import merge_emergency_intervals
 from src.question2.exporter import export_result, read_template_labels
 from src.question2.pipeline import run_annual
-from src.question2.summary import build_summaries
+from src.question2.summary import build_ablation_summary, build_summaries
 from openpyxl import load_workbook
 
 
@@ -92,6 +93,31 @@ class Question2Tests(TestCase):
         np.testing.assert_allclose(scheduled + result.emergency_kwh - result.surplus_kwh, actual)
         with self.assertRaises(ValueError):
             validate_evaluation(self.price.price, replace(result, total_cost=result.total_cost + 1))
+
+    def test_causal_storage_keeps_grid_contract_and_is_feasible(self):
+        actual = self.actual.net_load_kwh[31]
+        result = evaluate_causal_storage(self.price.price, self.plan, self.scenarios, actual)
+        np.testing.assert_array_equal(result.plan.grid_kwh, self.plan.grid_kwh)
+        self.assertLessEqual(validate_plan(result.plan), cfg.RESIDUAL_TOL)
+        validate_evaluation(self.price.price, result)
+
+    def test_causal_storage_does_not_see_future_actual_slots(self):
+        actual = self.actual.net_load_kwh[31].copy()
+        changed = actual.copy()
+        cutoff = 47
+        changed[cutoff + 1:] += 1e6
+        first = execute_causal_day(self.price.price, self.plan, self.scenarios, actual)
+        second = execute_causal_day(self.price.price, self.plan, self.scenarios, changed)
+        for field in ("charge_kwh", "discharge_kwh", "soc_end_kwh"):
+            np.testing.assert_allclose(getattr(first, field)[:cutoff + 1], getattr(second, field)[:cutoff + 1],
+                                       rtol=0, atol=cfg.RESIDUAL_TOL)
+
+    def test_baseline_evaluator_alias_is_exact(self):
+        actual = self.actual.net_load_kwh[31]
+        first = evaluate(self.price.price, self.plan, actual)
+        second = evaluate_frozen_storage(self.price.price, self.plan, actual)
+        self.assertEqual(first.total_cost, second.total_cost)
+        np.testing.assert_array_equal(first.emergency_kwh, second.emergency_kwh)
 
     def test_solver_failure_has_date_status_message(self):
         with patch("src.question2.optimizer.linprog", return_value=SimpleNamespace(success=False, status=2, message="infeasible")):
@@ -228,6 +254,7 @@ class Question2ExportTests(TestCase):
         summary = build_summaries(self.results, self.labels)
         self.assertEqual(set(summary["paper_dates"]), {day.isoformat() for day in cfg.PAPER_DATES})
         annual = summary["annual"]
+        self.assertAlmostEqual(annual["total_cost"], 17609791.686546136, places=5)
         self.assertAlmostEqual(annual["total_grid_purchase"], annual["planned_grid_total"] + annual["emergency_total"])
         self.assertAlmostEqual(annual["total_cost"], annual["planned_cost"] + annual["emergency_cost"])
         for item in self.results:
@@ -237,6 +264,13 @@ class Question2ExportTests(TestCase):
                     slot = self.labels.index(label)
                     self.assertEqual(values["计划购电量"], item.plan.grid_kwh[slot])
                     self.assertEqual(values["实际紧急购电量"], item.emergency_kwh[slot])
+
+    def test_ablation_summary_requires_identical_named_strategies(self):
+        summary = build_ablation_summary({"baseline": self.results, "causal_mpc": self.results})
+        self.assertEqual(summary["selected_strategy"], "baseline")
+        self.assertTrue(all(row["saving_vs_A0"] == 0 for row in summary["strategies"]))
+        with self.assertRaises(ValueError):
+            build_ablation_summary({"baseline": self.results})
 
 
 if __name__ == "__main__":

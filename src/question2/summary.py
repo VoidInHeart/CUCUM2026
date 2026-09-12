@@ -12,7 +12,45 @@ METRICS = ("planned_grid_total", "emergency_total", "total_grid_purchase",
 
 
 def daily_metrics(item: DailyEvaluation) -> dict:
-    return {"date": item.plan.date.isoformat(), **{name: getattr(item, name) for name in METRICS}}
+    return {"date": item.plan.date.isoformat(), **{name: getattr(item, name) for name in METRICS},
+            "surplus_kwh": float(item.surplus_kwh.sum())}
+
+
+def _strategy_metrics(evaluations: list[DailyEvaluation]) -> dict:
+    totals = {name: float(sum(getattr(item, name) for item in evaluations)) for name in METRICS}
+    totals.update({
+        "surplus_kwh": float(sum(item.surplus_kwh.sum() for item in evaluations)),
+        "emergency_days": sum(bool(np.any(item.emergency_kwh > cfg.EMERGENCY_TOL)) for item in evaluations),
+        "max_daily_emergency_kwh": max(item.emergency_total for item in evaluations),
+        "max_daily_total_cost": max(item.total_cost for item in evaluations),
+    })
+    return totals
+
+
+def build_ablation_summary(results: dict[str, list[DailyEvaluation]]) -> dict:
+    """A0/A1年度结算及相对基线变化；排序只使用真实结算总费用。"""
+    if set(results) != {"baseline", "causal_mpc"}:
+        raise ValueError("question2 ablation: expected baseline and causal_mpc")
+    baseline = _strategy_metrics(results["baseline"])
+    strategies = []
+    for name in ("baseline", "causal_mpc"):
+        values = _strategy_metrics(results[name])
+        values.update({
+            "strategy": name,
+            "delta_total_cost_vs_A0": values["total_cost"] - baseline["total_cost"],
+            "saving_vs_A0": baseline["total_cost"] - values["total_cost"],
+            "saving_ratio_vs_A0": ((baseline["total_cost"] - values["total_cost"]) / baseline["total_cost"]),
+            "delta_plan_cost": values["planned_cost"] - baseline["planned_cost"],
+            "delta_emergency_cost": values["emergency_cost"] - baseline["emergency_cost"],
+        })
+        strategies.append(values)
+    return {
+        "experiment": "A0 frozen storage vs A1 fixed identical grid contract plus causal battery MPC",
+        "period": f"{cfg.START_DATE} ~ {cfg.END_DATE}",
+        "ranking_metric": "actual settlement total_cost",
+        "strategies": strategies,
+        "selected_strategy": min(strategies, key=lambda item: item["total_cost"])["strategy"],
+    }
 
 
 def build_summaries(evaluations: list[DailyEvaluation], labels: list[str]) -> dict:

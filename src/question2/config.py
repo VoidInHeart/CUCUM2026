@@ -14,6 +14,8 @@ OUTPUT_DIR = PROJECT_ROOT / "target" / "question2"
 HISTORY_WINDOW_DAYS = 31
 EMERGENCY_PRICE_MULTIPLIER = 5.0
 EMERGENCY_TOL = 1e-6
+STORAGE_EXECUTION = "causal_mpc"
+MPC_REOPTIMIZE_SLOTS = 1
 START_DATE = date(2025, 2, 1)
 END_DATE = date(2025, 12, 31)
 ANNUAL_DATES = tuple(date(2025, 1, 1) + timedelta(days=i) for i in range(365))
